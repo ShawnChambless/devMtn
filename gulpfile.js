@@ -6,6 +6,7 @@ var gulp =          require('gulp'),
     bulkSass =      require('gulp-cssimport'),
     autoprefixer =  require('gulp-autoprefixer'),
     webserver =     require('gulp-webserver'),
+    plumber =   require('gulp-plumber'),
     paths = {
                 jade: ['public/app/**/*.jade', 'index.jade'],
                 sass: ['public/styles/main.sass'],
@@ -15,6 +16,7 @@ var gulp =          require('gulp'),
 
 gulp.task('jade', function() {
     return gulp.src(paths.jade)
+        .pipe(plumber())
         .pipe(jade({
             pretty: true
         }))
@@ -23,6 +25,7 @@ gulp.task('jade', function() {
 
 gulp.task('sass', function() {
     return gulp.src(paths.sass)
+        .pipe(plumber())
         .pipe(bulkSass())
         .pipe(sass({
             outputStyle: 'expanded'
@@ -33,6 +36,7 @@ gulp.task('sass', function() {
 
 gulp.task('compress', function() {
     return gulp.src(paths.scripts)
+        .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest('./public/productionFiles/minifiedJS'));
 });
