@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Team-Thunder-Falcon/devMtn#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
     "gulp-cssimport": "^2.1.0",
     "gulp-jade": "^1.0.1",
     "gulp-sass": "^2.0.4",
