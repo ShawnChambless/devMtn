@@ -1,0 +1,20 @@
+{
+  "name": "devMtn",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Team-Thunder-Falcon/devMtn",
+  "authors": [
+    "Shawn Chambless <shawn.chambless@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3"
+  }
+}

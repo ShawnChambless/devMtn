@@ -1,0 +1,40 @@
+{
+  "name": "devmtn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Thunder-Falcon/devMtn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Thunder-Falcon/devMtn/issues"
+  },
+  "homepage": "https://github.com/Team-Thunder-Falcon/devMtn#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.3.3",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.1",
+    "mongodb": "^2.0.39",
+    "mongoose": "^4.1.0",
+    "passport": "^0.2.2",
+    "passport-facebook": "^2.0.0",
+    "passport-github": "^0.1.5",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.3"
+  }
+}
