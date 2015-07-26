@@ -4,14 +4,14 @@
 
 After you install gulp-cli,
 
-    sudo npm install --global gulp
+    sudo npm install -g gulp
 
-all that you have to do for the gulp file to work is type gulp into your command line. It'll spin up a server and open the page for you. It'll also auto-refresh - any changes that you make (excluding index.html) will refresh your browser. The port is 8080.
+all that you have to do for the gulp file to work is type gulp into your command line. It'll spin up a server and open the page for you. It'll also auto-refresh - any changes that you make (excluding changes to index.html) will auto-refresh your browser. The port is 8080.
 
 ## Jade
 #### http://jade-lang.com/
 
-Jade is a lot like SASS - It's pretty dependent on whitespace and indentation. It's super simple and if you don't get it, you can just write html in the jade files and it'll compile to regular html no problem.
+Jade is a lot like SASS - It's pretty dependent on whitespace and indentation. It's super simple and if you don't like it, you can just write html in the jade files and it'll compile to regular html no problem.
 
 ## Sass
 #### http://sass-lang.com/
