@@ -4,7 +4,7 @@
 
 After you install gulp-cli,
 
-    sudo npm install --global gulp
+    sudo npm install -g gulp
 
 all that you have to do for the gulp file to work is type gulp into your command line. It'll spin up a server and open the page for you. It'll also auto-refresh - any changes that you make (excluding index.html) will refresh your browser. The port is 8080.
 
