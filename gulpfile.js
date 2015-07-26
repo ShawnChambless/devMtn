@@ -3,6 +3,7 @@ var gulp =      require('gulp'),
     sass =      require('gulp-sass'),
     uglify =    require('gulp-uglify'),
     watch =     require('gulp-watch'),
+    bulkSass =  require('gulp-cssimport'),
     webserver = require('gulp-webserver'),
     paths = {
                 jade: ['public/app/**/*.jade', 'index.jade'],
@@ -21,8 +22,11 @@ gulp.task('jade', function() {
 
 gulp.task('sass', function() {
     return gulp.src(paths.sass)
-        .pipe(sass({outputStyle: 'expanded'}))
-        .pipe(gulp.dest('./public/productionFiles/styles'))
+        .pipe(bulkSass())
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }))
+        .pipe(gulp.dest('./public/styles'))
 });
 
 gulp.task('compress', function() {
