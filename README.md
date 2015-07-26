@@ -14,7 +14,7 @@ all that you have to do for the gulp file to work is type gulp into your command
 Jade is a lot like SASS - It's pretty dependent on whitespace and indentation. It's super simple and if you don't get it, you can just write html in the jade files and it'll compile to regular html no problem.
 
 ## Sass
-#### http://jade-lang.com/
+#### http://sass-lang.com/
 
 Sass is the bees' knees. All that you have to do is write css without the bracket and semicolons.
 ```
