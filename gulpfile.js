@@ -1,10 +1,11 @@
-var gulp =      require('gulp'),
-    jade =      require('gulp-jade'),
-    sass =      require('gulp-sass'),
-    uglify =    require('gulp-uglify'),
-    watch =     require('gulp-watch'),
-    bulkSass =  require('gulp-cssimport'),
-    webserver = require('gulp-webserver'),
+var gulp =          require('gulp'),
+    jade =          require('gulp-jade'),
+    sass =          require('gulp-sass'),
+    uglify =        require('gulp-uglify'),
+    watch =         require('gulp-watch'),
+    bulkSass =      require('gulp-cssimport'),
+    autoprefixer =  require('gulp-autoprefixer'),
+    webserver =     require('gulp-webserver'),
     paths = {
                 jade: ['public/app/**/*.jade', 'index.jade'],
                 sass: ['public/styles/main.sass'],
@@ -26,6 +27,7 @@ gulp.task('sass', function() {
         .pipe(sass({
             outputStyle: 'expanded'
         }))
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(gulp.dest('./public/styles'))
 });
 
