@@ -1,13 +1,9 @@
-nav
-    .navBar
-        a(ng-href='/#/profile') profile
-        img(ng-src='http://nicenicejpg.com/50')
-        a(ng-href='/#/bounties') bounties
 .container
     .search-add
         input(type='text' ng-model='contentSearchText' placeholder='Search...')
         button New Link
     aside
+        h3 Categories
         a(ng-href='#') HTML
         a(ng-href='#') CSS
         a(ng-href='#') Core JS
@@ -17,11 +13,16 @@ nav
         a(ng-href='#') Node
         a(ng-href='#') Express
         a(ng-href='#') React
+        a(ng-href='#') Git
         a(ng-href='#') Bootstrap
         a(ng-href='#') Synergy
-    .content
-        .content-item
-            .votes
-            .thumbnail
-            .title
-            .description
+    .posts
+        .posts-item
+            .post.votes -100
+            .post.thumbnail
+                img(ng-src='http://nicenicejpg.com/70/90')
+            .post.title Sample Title
+            .post.url Sample URL
+            .post.description  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo, culpa, esse ducimus, quaerat soluta tenetur hic sit sint quod molestias repellendus aspernatur, voluptas laudantium in ratione. Quam quibusdam, quasi!
+            .post.tags Tags: Tag1, Tag2, Tag3
+            .post.type Type: Sweet Image
