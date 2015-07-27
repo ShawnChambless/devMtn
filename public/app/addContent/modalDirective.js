@@ -18,6 +18,6 @@ angular.module('groupProject')
         scope.show = false;
       };
     },
-    templateUrl: '/addContentTmpl.html' // See below
+    templateUrl: 'addContentTmpl' // See below
   };
 });
