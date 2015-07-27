@@ -1,1 +1,1 @@
-angular.module("groupProject",["ngRoute"]).config(["$routeProvider",function(n){n.when("/adminLogin",{templateUrl:"public/productionFiles/html/adminLogin/adminLoginTmpl.html",controller:"adminLoginCtrl"}).otherwise("/adminLogin")}]);
+angular.module("groupProject",["ngRoute"]).config(["$routeProvider",function(n){n.when("/content",{templateUrl:"productionFiles/html/contentLanding/contentLandingTmpl.html",controller:"contentLandingCtrl"}).otherwise("/content")}]);
