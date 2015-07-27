@@ -2,9 +2,9 @@ angular.module('groupProject', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
-    .when('/adminLogin', {
-        templateUrl: 'public/productionFiles/html/adminLogin/adminLoginTmpl.html',
-        controller: 'adminLoginCtrl'
+    .when('/Login', {
+        templateUrl: 'productionFiles/html/Login/LoginTmpl.html',
+        controller: 'LoginCtrl'
     })
-    .otherwise('/adminLogin')
+    .otherwise('/Login')
 }]);

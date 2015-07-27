@@ -6,7 +6,7 @@ var gulp =          require('gulp'),
     bulkSass =      require('gulp-cssimport'),
     autoprefixer =  require('gulp-autoprefixer'),
     webserver =     require('gulp-webserver'),
-    plumber =   require('gulp-plumber'),
+    plumber =       require('gulp-plumber'),
     paths = {
                 jade: ['public/app/**/*.jade', 'index.jade'],
                 sass: ['public/styles/main.sass'],
@@ -42,7 +42,7 @@ gulp.task('compress', function() {
 });
 
 gulp.task('webserver', function() {
-    gulp.src('./')
+    gulp.src('./public')
     .pipe(webserver({
         livereload: true,
         open: true,
@@ -53,7 +53,7 @@ gulp.task('webserver', function() {
 
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
-    gulp.watch('./public/styles/modules/**/*.sass', ['sass']);
+    gulp.watch('./public/styles/**/*.sass', ['sass']);
     gulp.watch(paths.scripts, ['compress']);
 });
 
