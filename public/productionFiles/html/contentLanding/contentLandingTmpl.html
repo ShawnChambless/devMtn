@@ -1,19 +1,21 @@
 
-<nav>
-  <div class="navBar"><a ng-href="/#/profile">profile</a><img ng-src="http://nicenicejpg.com/50"/><a ng-href="/#/bounties">bounties</a></div>
-</nav>
 <div class="container">
   <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button>New Link</button>
   </div>
-  <aside><a ng-href="#">HTML</a><a ng-href="#">CSS</a><a ng-href="#">Core JS</a><a ng-href="#">Angular</a><a ng-href="#">MongoDB</a><a ng-href="#">Mongoose</a><a ng-href="#">Node</a><a ng-href="#">Express</a><a ng-href="#">React</a><a ng-href="#">Bootstrap</a><a ng-href="#">Synergy</a></aside>
-  <div class="content">
-    <div class="content-item">
-      <div class="votes"></div>
-      <div class="thumbnail"></div>
-      <div class="title"></div>
-      <div class="description"></div>
+  <aside>
+    <h3>Categories</h3><a ng-href="#">HTML</a><a ng-href="#">CSS</a><a ng-href="#">Core JS</a><a ng-href="#">Angular</a><a ng-href="#">MongoDB</a><a ng-href="#">Mongoose</a><a ng-href="#">Node</a><a ng-href="#">Express</a><a ng-href="#">React</a><a ng-href="#">Git</a><a ng-href="#">Bootstrap</a><a ng-href="#">Synergy</a>
+  </aside>
+  <div class="posts">
+    <div class="posts-item">
+      <div class="post votes">-100</div>
+      <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
+      <div class="post title">Sample Title</div>
+      <div class="post url">Sample URL</div>
+      <div class="post description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis explicabo, culpa, esse ducimus, quaerat soluta tenetur hic sit sint quod molestias repellendus aspernatur, voluptas laudantium in ratione. Quam quibusdam, quasi!</div>
+      <div class="post tags">Tags: Tag1, Tag2, Tag3</div>
+      <div class="post type">Type: Sweet Image</div>
     </div>
   </div>
 </div>
