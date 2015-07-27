@@ -32,12 +32,10 @@
     "body-parser": "^1.13.2",
     "cors": "^2.7.1",
     "express": "^4.13.1",
+    "express-session": "^1.11.3",
     "mongodb": "^2.0.39",
     "mongoose": "^4.1.0",
     "passport": "^0.2.2",
-    "passport-facebook": "^2.0.0",
-    "passport-github": "^0.1.5",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.3"
+    "q": "^1.4.1"
   }
 }
