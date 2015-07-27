@@ -1,4 +1,6 @@
-app.directive('modalDialog', function() {
+angular.module('groupProject')
+
+.directive('modalDialog', function() {
   return {
     restrict: 'E',
     scope: {
@@ -16,5 +18,6 @@ app.directive('modalDialog', function() {
         scope.show = false;
       };
     },
-    templateUrl: '../templates/modal.html' // See below
+    templateUrl: '/addContentTmpl.html' // See below
   };
+});
