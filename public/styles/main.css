@@ -8,14 +8,3 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
-html, body {
-  margin: 0;
-  height: body;
-}
-
-bucket {
-  height: 100px;
-  width: 100px;
-  background: #00baff;
-}
