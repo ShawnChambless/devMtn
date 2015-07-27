@@ -5,7 +5,29 @@
 <div class="container">
   <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
-    <button>New Link</button>
+    <button ng-click='toggleModal()'>Add Resource</button>
+			<modal-dialog show='modalShown' width='750px' height='60%'>
+			  <input placeholder="Title">
+			  <input placeholder="URL">
+			  <input placeholder="Description">
+			  <select placeholder="Categories">
+			  	<option>HTML</option>
+			  	<option>CSS</option>
+			  	<option>Javascript</option>
+			  	<option>Angular</option>
+			  	<option>Mongo</option>
+			  	<option>Mongoose</option>
+			  	<option>Node</option>
+			  	<option>Express</option>
+			  	<option>React</option>
+			  </select>
+			  <input placeholder="Tags">
+			  <select placeholder="Type">
+			  	<option>Article</option>
+			  	<option>Video</option>
+			  	<option>Image</option>
+			  </select>
+			</modal-dialog>
   </div>
   <aside><a ng-href="#">HTML</a><a ng-href="#">CSS</a><a ng-href="#">Core JS</a><a ng-href="#">Angular</a><a ng-href="#">MongoDB</a><a ng-href="#">Mongoose</a><a ng-href="#">Node</a><a ng-href="#">Express</a><a ng-href="#">React</a><a ng-href="#">Bootstrap</a><a ng-href="#">Synergy</a></aside>
   <div class="content"></div>
