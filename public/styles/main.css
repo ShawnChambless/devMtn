@@ -8,3 +8,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+p {
+  background: blue;
+}
