@@ -7,8 +7,8 @@ var mongoose    = require('mongoose') ,
 
 module.exports = {
 
-  create: function(req, res){
-    // var def = $q.defer();
+  create: function(req, res, q){
+    var def = $q.defer();
     var newUser = new User();
     newUser.firstName = req.body.firstName;
     newUser.lastName = req.body.lastName;
@@ -16,29 +16,35 @@ module.exports = {
     newUser.password = createHash(req.body.password);
     newUser.save(function(err, createdUser) {
       if (err) {
-        return res.status(500).json(err);
+        if (q) {def.reject(err);}
+        else {return res.status(500).json(err);}
       }
-      return res.status(200).json(createdUser);
-      // if (err) {def.reject(err);}
-      // else def.resolve(newUser);
+      else {
+        if (q) {def.resolve(createdUser);}
+        else {return res.status(200).json(createdUser);}
+      }
     });
-    // return def.promise;
+    return def.promise;
   } ,
 
-  retrieve: function(req, res){
-    // var def = $q.defer();
+  retrieve: function(req, res, q){
+    var def = $q.defer();
     User.findOne({ "email": req.body.email })
     .exec().then(function(user, err){
       if (err) {
-        return res.status(500).json(err);
+        if (q) {def.reject(err);}
+        else {return res.status(500).json(err);}
       }
       if (checkHash(req.body.password, user.password)) {
-        return res.status(200).json(createdUser);
+        if (q) {def.resolve(user);}
+        else {return res.status(200).json(createdUser);}
       }
-      // if (checkHash(req.body.password, user.password)) {def.resolve(user); }
-      // else def.reject(err);
+      if (!checkHash(req.body.password, user.password)) {
+        if (q) {def.reject('Invalid password');}
+        else {return res.status(401).send('Invalid password');}
+      }
     });
-    // return def.promise;
+    return def.promise;
   } ,
 
   update: function(req, res){
