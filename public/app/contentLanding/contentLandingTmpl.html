@@ -1,33 +1,32 @@
-<div class="container">
-  <div class="search-add">
+<div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button ng-click='toggleModal()'>Add Resource</button>
 <!-- MODAL  -->
-		<modal-dialog show='modalShown' width='750px' height='60%'>
-			<input ng-model="post.title" placeholder="Title">
-		  <input ng-model="post.url" placeholder="URL">
-		  <input ng-model="" placeholder="Description">
-		  <select ng-model="" placeholder="Categories">
-		  	<option value="html">HTML</option>
-		  	<option value="css">CSS</option>
-		  	<option value="javascript">Javascript</option>
-		  	<option value="angular">Angular</option>
-		  	<option value="mongo">Mongo</option>
-		  	<option value="mongoose">Mongoose</option>
-		  	<option value="node">Node</option>
-		  	<option value="express">Express</option>
-		  	<option value="react">React</option>
-		  </select>
-		  <input ng-model="" placeholder="Tags">
-		  <select ng-model="" placeholder="Type">
-		  	<option value="article">Article</option>
-		  	<option value="video">Video</option>
-		  	<option value="image">Image</option>
-		  </select>
-		</modal-dialog>
-  </div>
-  </div>
-  <aside>
+	<modal-dialog show='modalShown' width='750px' height='60%'>
+        <input ng-model="post.title" placeholder="Title">
+        <input ng-model="post.url" placeholder="URL">
+        <input ng-model="" placeholder="Description">
+        <select ng-model="" placeholder="Categories">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">Javascript</option>
+            <option value="angular">Angular</option>
+            <option value="mongo">Mongo</option>
+            <option value="mongoose">Mongoose</option>
+            <option value="node">Node</option>
+            <option value="express">Express</option>
+            <option value="react">React</option>
+        </select>
+        <input ng-model="" placeholder="Tags">
+        <select ng-model="" placeholder="Type">
+            <option value="article">Article</option>
+            <option value="video">Video</option>
+            <option value="image">Image</option>
+        </select>
+	</modal-dialog>
+    </div>
+</div>
+<aside>
     <h3>Categories</h3>
     <a ng-href="#">HTML</a>
     <a ng-href="#">CSS</a>
@@ -41,16 +40,15 @@
     <a ng-href="#">Git</a>
     <a ng-href="#">Bootstrap</a>
     <a ng-href="#">Synergy</a>
-  </aside>
-  <div class="posts">
+</aside>
+<div class="posts">
     <div class="posts-item" ng-repeat='post in posts'>
-      <div class="post votes">-100</div>
-      <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
-      <div class="post title">{{post.title}}</div>
-      <div class="post url">{{post.url}}</div>
-      <div class="post description">Description: {{post.description}}</div>
-      <div class="post tags">Tags: {{post.tags}}</div>
-      <div class="post type">Type: {{post.type}}</div>
+        <div class="post votes">-100</div>
+        <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
+        <div class="post title">{{post.title}}</div>
+        <div class="post url">{{post.url}}</div>
+        <div class="post description">Description: {{post.description}}</div>
+        <div class="post tags">Tags: {{post.tags}}</div>
+        <div class="post type">Type: {{post.type}}</div>
     </div>
-  </div>
 </div>
