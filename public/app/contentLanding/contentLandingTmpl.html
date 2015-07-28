@@ -5,8 +5,8 @@
 	<modal-dialog show='modalShown' width='750px' height='60%'>
         <input ng-model="post.title" placeholder="Title">
         <input ng-model="post.url" placeholder="URL">
-        <input ng-model="test" placeholder="Description">
-        <select ng-model="test" placeholder="Categories">
+        <input ng-model="" placeholder="Description">
+        <select ng-model="" placeholder="Categories">
             <option value="html">HTML</option>
             <option value="css">CSS</option>
             <option value="javascript">Javascript</option>
@@ -17,8 +17,8 @@
             <option value="express">Express</option>
             <option value="react">React</option>
         </select>
-        <input ng-model="test" placeholder="Tags">
-        <select ng-model="test" placeholder="Type">
+        <input ng-model="" placeholder="Tags">
+        <select ng-model="" placeholder="Type">
             <option value="article">Article</option>
             <option value="video">Video</option>
             <option value="image">Image</option>
@@ -42,7 +42,7 @@
     <a ng-href="#">Synergy</a>
 </aside>
 <div class="posts">
-    <div class="posts-item" ng-repeat='post in posts'>
+    <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post votes">-100</div>
         <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
         <div class="post title">{{post.title}}</div>
