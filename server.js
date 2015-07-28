@@ -80,7 +80,8 @@ app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
 app.post(   '/api/posts',                 postCtrl.create );
-app.get(    '/api/posts/:post_id',        postCtrl.retrieve );
+app.get(    '/api/posts',                 postCtrl.retrieveAll );
+app.get(    '/api/posts/:post_id',        postCtrl.retrieveOne );
 app.get(    '/api/posts/cats/:cat_name',  postCtrl.retrieveCat );
 app.put(    '/api/posts/:post_id',        postCtrl.update );
 app.delete( '/api/posts/:post_id',        postCtrl.remove );
