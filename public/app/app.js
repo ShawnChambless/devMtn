@@ -1,11 +1,14 @@
 angular.module('groupProject', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-   $urlRouterProvider.otherwise('/content');
+   $urlRouterProvider.otherwise('/login');
 
    $stateProvider
+   .state('login', {
+      url: '/home'
+   })
    .state('home', {
        url: '/home',
-       templateUrl: 'productionFiles/html/contentLanding/contentLandingTmpl.html',
+       templateUrl: 'app/contentLanding/contentLandingTmpl.html',
        controller: 'contentLandingCtrl'
    })
    .state('profile',  {
