@@ -79,10 +79,11 @@ app.get(    '/api/users/:user_id', userCtrl.retrieve );
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
-app.post(   '/api/posts',          postCtrl.create );
-app.get(    '/api/posts/:post_id', postCtrl.retrieve );
-app.put(    '/api/posts/:post_id', postCtrl.update );
-app.delete( '/api/posts/:post_id', postCtrl.remove );
+app.post(   '/api/posts',                 postCtrl.create );
+app.get(    '/api/posts/:post_id',        postCtrl.retrieve );
+app.get(    '/api/posts/cats/:cat_name',  postCtrl.retrieveCat );
+app.put(    '/api/posts/:post_id',        postCtrl.update );
+app.delete( '/api/posts/:post_id',        postCtrl.remove );
 
 // app.listen(port, function(){console.log('srv listening on', port);});
 httpServer.listen(srvport, function(){console.log('srv listening on', srvport);});

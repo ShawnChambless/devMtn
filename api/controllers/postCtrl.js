@@ -49,6 +49,24 @@ module.exports = {
     return def.promise;
   } ,
 
+  retrieveCat: function(req, res, q){
+    var def = $q.defer();
+    Post.find( {"cat": req.params.cat_name} )
+    .exec().then(function(posts, err){
+      if (err) {
+        return res.status(500).json(err);
+        // if (q) {def.reject(err);}
+        // else {return res.status(500).json(err);}
+      }
+      else {
+        return res.status(200).json(posts);
+        // if (q) {def.resolve(post);}
+        // else {return res.status(200).json(post);}
+      }
+    });
+    return def.promise;
+  } ,
+
   update: function(req, res){
     User.findByIdAndUpdate(req.params.user_id, {subs: req.body.newMySubs}, {new: true}, function(err, updatedUser){
       if (err) {
