@@ -1,0 +1,1 @@
+angular.module("groupProject").directive("loginModalDialog",function(){return{restrict:"E",scope:{show:"="},replace:!0,transclude:!0,link:function(i,l,t){i.dialogStyle={},t.width&&(i.dialogStyle.width=t.width),t.height&&(i.dialogStyle.height=t.height),i.hideModal=function(){i.show=!1}},templateUrl:"app/Login/loginModalDialog.html"}});
