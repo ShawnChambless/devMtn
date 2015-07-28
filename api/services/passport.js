@@ -3,7 +3,6 @@ var passport          = require( 'passport' ) ,
     // GitHubStrategy    = require( 'passport-github' ).Strategy ,
     // LinkedInStrategy  = require( 'passport-linkedin' ).Strategy ,
     mongoose          = require( 'mongoose' ) ,
-    bcrypt            = require( 'bcryptjs' ) ,
     userCtrl          = require( '../controllers/userCtrl.js' ) ;
     // User              = mongoose.model('User', require('../models/userSchema.js')) ;
 
