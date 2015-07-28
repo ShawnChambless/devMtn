@@ -26,6 +26,31 @@
 		  </select>
 		</modal-dialog>
   </div>
-  <aside><a ng-href="#">HTML</a><a ng-href="#">CSS</a><a ng-href="#">Core JS</a><a ng-href="#">Angular</a><a ng-href="#">MongoDB</a><a ng-href="#">Mongoose</a><a ng-href="#">Node</a><a ng-href="#">Express</a><a ng-href="#">React</a><a ng-href="#">Bootstrap</a><a ng-href="#">Synergy</a></aside>
-  <div class="content"></div>
+  </div>
+  <aside>
+    <h3>Categories</h3>
+    <a ng-href="#">HTML</a>
+    <a ng-href="#">CSS</a>
+    <a ng-href="#">Core JS</a>
+    <a ng-href="#">Angular</a>
+    <a ng-href="#">MongoDB</a>
+    <a ng-href="#">Mongoose</a>
+    <a ng-href="#">Node</a>
+    <a ng-href="#">Express</a>
+    <a ng-href="#">React</a>
+    <a ng-href="#">Git</a>
+    <a ng-href="#">Bootstrap</a>
+    <a ng-href="#">Synergy</a>
+  </aside>
+  <div class="posts">
+    <div class="posts-item" ng-repeat='post in posts'>
+      <div class="post votes">-100</div>
+      <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
+      <div class="post title">{{post.title}}</div>
+      <div class="post url">{{post.url}}</div>
+      <div class="post description">Description: {{post.description}}</div>
+      <div class="post tags">Tags: {{post.tags}}</div>
+      <div class="post type">Type: {{post.type}}</div>
+    </div>
+  </div>
 </div>
