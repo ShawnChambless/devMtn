@@ -3,10 +3,10 @@
     <button ng-click='toggleModal()'>Add Resource</button>
 <!-- MODAL  -->
 	<modal-dialog show='modalShown' width='750px' height='60%'>
-        <input ng-model="post.title" placeholder="Title">
-        <input ng-model="post.url" placeholder="URL">
-        <input ng-model="test" placeholder="Description">
-        <select ng-model="test" placeholder="Categories">
+        <input ng-model="newPost.title" placeholder="Title">
+        <input ng-model="newPost.url" placeholder="URL">
+        <input ng-model="newPost.desc" placeholder="Description">
+        <select ng-model="newPost.cat" placeholder="Categories">
             <option value="html">HTML</option>
             <option value="css">CSS</option>
             <option value="javascript">Javascript</option>
@@ -17,12 +17,13 @@
             <option value="express">Express</option>
             <option value="react">React</option>
         </select>
-        <input ng-model="test" placeholder="Tags">
-        <select ng-model="test" placeholder="Type">
+        <input ng-model="newPost.tags" placeholder="Tags">
+        <select ng-model="newPost.type" placeholder="Type">
             <option value="article">Article</option>
             <option value="video">Video</option>
             <option value="image">Image</option>
         </select>
+        <button ng-click="addPost()">Add Post</button>
 	</modal-dialog>
     </div>
 </div>
