@@ -9,6 +9,56 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  margin: 0 25px;
+}
+
+.ng-modal-overlay {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  opacity: 0.8;
+}
+
+.ng-modal-dialog {
+  z-index: 10000;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+
+.ng-modal-dialog-content {
+  padding: 10px;
+  text-align: left;
+}
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}
+
 nav {
   width: 100%;
   background: #444444;
@@ -157,4 +207,94 @@ h1 {
   margin-bottom: 20px;
   position: absolute;
   left: 135px;
+}
+
+nav {
+  width: 100%;
+  background: #444444;
+  padding: 5px;
+}
+
+.navBar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: UPPERCASE;
+  margin: 0 5%;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.search-add {
+  width: 100%;
+  height: 50px;
+}
+
+.search-add input {
+  display: block;
+  margin: 15px auto 0  auto;
+  height: 30px;
+  width: 230px;
+}
+
+.search-add button {
+  float: right;
+  margin-top: -27px;
+}
+
+.posts {
+  width: 80%;
+}
+
+.posts-item {
+  width: 100%;
+}
+
+.post.votes {
+  float: left;
+}
+
+.post.title {
+  font-size: 2em;
+}
+
+.post.thumbnail {
+  float: left;
+  margin-right: 20px;
+}
+
+.post.url {
+  text-decoration: underline;
+  color: blue;
+  font-style: italic;
+}
+
+.post.tags {
+  font-size: .7em;
+}
+
+aside {
+  float: right;
+  background: #29BEEB;
+  padding: 5px 20px 20px 20px;
+  border-radius: 4px;
+}
+
+aside a, aside h3 {
+  color: #F7F7F7;
+}
+
+aside a {
+  display: block;
+  padding: 5px;
+  text-align: center;
 }

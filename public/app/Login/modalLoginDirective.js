@@ -1,6 +1,6 @@
 angular.module('groupProject')
 
-.directive('modalDialog', function() {
+.directive('loginModalDialog', function() {
   return {
     restrict: 'E',
     scope: {

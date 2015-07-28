@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("addContentCtrl",["$scope",function(o){o.modalShown=!1,o.toggleModal=function(){o.modalShown=!o.modalShown}}]);
