@@ -1,15 +1,26 @@
-angular.module('groupProject', ['ngRoute'])
-.config(['$routeProvider', function($routeProvider) {
+angular.module('groupProject', ['ui.router'])
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+   $urlRouterProvider.otherwise('/content')
 
-    $routeProvider
-    .when('/Login', {
-        templateUrl: 'productionFiles/html/Login/LoginTmpl.html',
-        controller: 'LoginCtrl'
-    })
-    .otherwise('/Login')
-
-    .when('/content', {
-        templateUrl: 'productionFiles/html/contentLanding/contentLandingTmpl.html',
-        controller: 'contentLandingCtrl'
-    })
+   $stateProvider
+   .state('home', {
+       url: '/home',
+       templateUrl: 'contentLanding/contentLandingTmpl.html',
+       controller: 'contentLandingCtrl'
+   })
+   .state('profile',  {
+       url: '/profile'
+   })
+   .state('admin', {
+       url: '/admin'
+   })
+   .state('login', {
+       url: '/login'
+   })
+   .state('category', {
+       url: '/category'
+   })
+   .state('bounty', {
+       url: '/bounty'
+   })
 }]);
