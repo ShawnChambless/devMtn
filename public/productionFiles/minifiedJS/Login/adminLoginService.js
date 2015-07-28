@@ -1,0 +1,1 @@
+angular.module("groupProject").service("LoginService",["$http",function(e){this.test2="Test from service"}]);
