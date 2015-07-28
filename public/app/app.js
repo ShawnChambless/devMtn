@@ -4,7 +4,7 @@ angular.module('groupProject', ['ui.router'])
 
    $stateProvider
    .state('login', {
-      url: '/home'
+       url: '/login'
    })
    .state('home', {
        url: '/home',
@@ -12,7 +12,7 @@ angular.module('groupProject', ['ui.router'])
        controller: 'contentLandingCtrl'
    })
    .state('profile',  {
-       url: '/profile',
+       url: '/profile'
    })
    .state('admin', {
        url: '/admin'

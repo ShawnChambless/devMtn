@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
   position: absolute;
@@ -52,4 +53,154 @@ body {
   display: inline-block;
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
+}
+
+nav {
+  width: 100%;
+  background: #444444;
+}
+
+.Container {
+  height: 100%;
+  width: 100%;
+  background-color: #29BEEB;
+  position: absolute;
+  top: 50px;
+}
+
+.loginContainer {
+  height: 400px;
+  width: 400px;
+  background-color: #F7F7F7;
+  position: fixed;
+  top: 150px;
+  left: 35%;
+  bottom: 40px;
+  border-radius: 10px;
+}
+
+.topNav {
+  background-color: #EFEFEF;
+  border-radius: 10px;
+  height: 70px;
+}
+
+.topNavImage {
+  height: 100%;
+  background: url("https://devmounta.in/img/logoonly.png") no-repeat;
+  background-size: 12%;
+  position: relative;
+  left: 43%;
+  top: 7px;
+}
+
+h1 {
+  color: #404041;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loginLink {
+  color: #00B8EB;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: larger;
+}
+
+.username {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  border: 2px solid #EFEFEF;
+  text-align: center;
+  font-size: larger;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 120px;
+}
+
+.password {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  border: 2px solid #EFEFEF;
+  text-align: center;
+  font-size: larger;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 120px;
+}
+
+.buttonLoginSubmit {
+  height: 40px;
+  width: 155px;
+  border-radius: 5px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  font-size: larger;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 110px;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 120px;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.buttonLoginSubmit:hover {
+  background: #57BDE8;
+}
+
+.forgotPasswordLink {
+  color: #00B8EB;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 160px;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 135px;
 }
