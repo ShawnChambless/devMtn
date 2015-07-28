@@ -11,7 +11,7 @@ angular.module('groupProject')
 		contentLandingService.getPosts();
 	};
 
-	$scope.getCategoryPosts = function() {
+	$scope.getCategoryPosts = function(cat) {
 		contentLandingService.getCategoryPosts(cat);
 	};
 
