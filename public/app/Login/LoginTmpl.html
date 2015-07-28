@@ -3,8 +3,16 @@
     <div class="topNav">
       <div class="topNavImage"></div>
     </div>
-    <h1>SIGNUP</h1><a href="/login" class="loginLink">Need an account?</a>
+    <h1>SIGNUP</h1>
+
+    <!-- Modal for new users -->
+    <button ng-click="toggleModal()">Need an account</button>
+    <login-modal-dialog show="modalShown" width="750px" height="60%">Hello</login-modal-dialog>
+    <!-- End of modal -->
+
     <input type="text" placeholder="Username" class="username"/>
     <input type="text" placeholder="Email" class="password"/>
-    <button class="buttonLoginSubmit">Submit</button><a href="/login" class="forgotPasswordLink">Forgot password?</a>
-  </div></span>
+    <button class="buttonLoginSubmit">Submit</button>
+    <a href="/login" class="forgotPasswordLink">Forgot password?</a>
+  </div>
+</span>
