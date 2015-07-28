@@ -1,5 +1,5 @@
-var mongoose    = require( 'mongoose' ) ,
-    userSchema  = require( './userSchema.js' ) ;
+var mongoose    = require( 'mongoose' ) ;
+    // userSchema  = require( './userSchema.js' ) ;
 
 var userSchema = {
   type:         { type: String, required: true, enum: [] } ,

@@ -1,52 +1,33 @@
-var mongoose  = require('mongoose') ,
-    $q        = require('q') ,
-    User      = mongoose.model('User', require('../models/userSchema.js')) ;
+var mongoose    = require('mongoose') ,
+    $q          = require('q') ,
+    User        = mongoose.model('User', require('../models/userSchema.js')) ,
+    createHash  = function(password){ return bcrypt.hashSync(password); } ,
+    checkHash   = function(password, hash){ return bCrypt.compareSync(password, hash); } ;
 
 module.exports = {
 
-  create: function(profile){
+  create: function(reqbody){
     var def = $q.defer();
-    var query = [];
-    var update = {};
-    if (profile.email || profile._json.email) { query.push( { 'email': profile.email || profile._json.email } );
-                                                update.email = profile.email || profile._json.email; }
-    if (profile.provider === 'google')        { query.push({'googleId': profile.id});
-                                                update.googleId = profile.id; }
-    if (profile.provider === 'facebook')      { query.push({'facebookId': profile.id});
-                                                update.facebookId = profile.id; }
-    if (profile.provider === 'twitter')       { query.push({'twitterId': profile.id});
-                                                update.twitterId = profile.id; }
-    // FIND AND UPDATE, OR CREATE
-    User.findOneAndUpdate({ $or: query }, update, {new: true}, function(updateErr, user){
-      if (!user) {
-        var newUserObj = {};
-        if (profile.email || profile._json.email) newUserObj.email = profile.email || profile._json.email;
-        if (profile.provider === 'google')        newUserObj.googleId = profile.id;
-        if (profile.provider === 'facebook')      newUserObj.facebookId = profile.id;
-        if (profile.provider === 'twitter')       newUserObj.twitterId = profile.id;
-        console.log('newUserObj: ', newUserObj);
-        User.create(newUserObj, function(createErr, newUser){
-          def.resolve(newUser);
-        });
-      }
-      def.resolve(user);
+    var newUser = new User();
+    newuser.firstName = req.body.firstName;
+    newUser.lastName = req.body.lastName;
+    newUser.email = req.body.email;
+    newUser.password = createHash(req.body.password);
+    newUser.save(function(err, newUser) {
+      if (err) {def.reject(err);}
+      else def.resolve(newUser);
     });
     return def.promise;
   } ,
 
-  retrieve: function(req, res){
-    if (!req.user) return res.status(500).send('no authenticated user');
-    var query = {};
-    if (req.user && req.user.googleId) query.googleId = req.user.googleId;
-    if (req.user && req.user.facebookId) query.facebookId = req.user.facebookId;
-    if (req.user && req.user.twitterId) query.twitterId = req.user.twitterId;
-    User.findOne(query)
-    .exec().then(function(user){
-      if (!user) {
-        return res.status(500).send('user not found');
-      }
-      return res.status(200).json(user);
+  retrieve: function(email, password){
+    var def = $q.defer();
+    User.findOne({ "email": email })
+    .exec().then(function(user, err){
+      if (checkHash(password, user.password)) {def.resolve(user); }
+      else def.reject(err);
     });
+    return def.promise;
   } ,
 
   update: function(req, res){
@@ -64,5 +45,5 @@ module.exports = {
       return res.status(200).json();
     });
   }
-  
+
 };

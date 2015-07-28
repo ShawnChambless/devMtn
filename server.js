@@ -1,64 +1,39 @@
 /* jslint node: true */
 'use strict';
-var port        = process.argv[2] || 8080 ,
-    config      = require( './api/config.js' ) ,
+var config      = require( './api/config.js' ) ,
+    srvport     = process.argv[2] || config.srvport ,
+    srvUri      = config.srvUri ,
+    mdbport     = config.mdbport ,
     express     = require( 'express' ) ,
     app         = express() ,
     http        = require( 'http' ) ,
     httpServer  = http.createServer(app) ,
+    // SECURE CONNECTION
     // https       = require( 'https' ) ,
     // creds       = {key: config.sslcert.key, cert: config.sslcert.cert} ,
     // httpsServer = https.createServer(creds, app) ,
-
+    // MIDDLEWARE
+    favicon     = require( 'serve-favicon' ) ,
     bodyParser  = require( 'body-parser' ).json() ,
     cors        = require( 'cors' ) ,
-
     mongoose    = require( 'mongoose' ) ,
-    userCtrl    = require( './api/ctrls/userCtrl.js' ) ,
-    postCtrl    = require( './api/ctrls/postCtrl.js' ) ,
-
     session     = require( 'express-session' ) ,
-    passport    = require( 'passport' ) ,
-    GitHubStrategy    = require( 'passport-google-oauth2' ).Strategy ,
-    LinkedInStrategy  = require( 'passport-facebook' ).Strategy ;
+    ensureAuthenticated = function(req, res, next) {
+      if (req.isAuthenticated()) { return next(); }
+      res.status(403).send('not authenticated');
+    } ,
+    // CONTROLLERS
+    userCtrl    = require( './api/controllers/userCtrl.js' ) ,
+    postCtrl    = require( './api/controllers/postCtrl.js' ) ,
+    // SERVICES
+    passport    = require( './api/services/passport.js' ) ;
 
 // Connect to MongoDB via Mongoose
-mongoose.connect('mongodb://localhost:27017/devmtn');
-mongoose.connection.once('open', function(){console.log('mdb listening on 27017');});
+mongoose.connect( config.mdbUri );
+mongoose.connection.once('open', function(){console.log('mdb listening on', mdbport);});
 
-// Passport session setup
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-// Passport Strategies
-passport.use('github', new GitHubStrategy({
-  clientID: config.github.key,
-  clientSecret: config.github.secret,
-  callbackURL: 'http://localhost:8080/auth/github/callback'
-  }, function(request, accessToken, refreshToken, profile, done) {
-//     console.log('GIIIIIIIIITHUUUUUUUUUUUUB ', profile);
-    userCtrl.create(profile, done).then(function(user){
-      return done(null, user);
-    });
-  }
-));
-passport.use('linkedin', new LinkedInStrategy({
-  clientID: config.linkedin.key,
-  clientSecret: config.linkedin.secret,
-  callbackURL: 'http://localhost:8080/auth/linkedin/callback'
-  }, function(request, accessToken, refreshToken, profile, done) {
-//     console.log('LIIIIIIINNNNNNNNKEDIIIIIN ', profile);
-    userCtrl.create(profile, done).then(function(user){
-      return done(null, user);
-    });
-  }
-));
-
-// configure Express
+// Configure Express and Session
+app.use('/', favicon(__dirname + '/public/favicon.ico'));
 app.use('/', express.static(__dirname + '/public'));
 app.use('/', bodyParser);
 app.use('/', cors());
@@ -69,14 +44,18 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/api', ensureAuthenticated);
-
+// app.use('/api', ensureAuthenticated);
 
 // AUTH ENDPOINTS
-app.get('/auth/local', passport.authenticate('local', {scope: [ 'email' ] } ));
-app.get('/auth/local/callback', passport.authenticate('local', {
+app.post('/auth/local/signup', passport.authenticate( 'local-signup' , {
   successRedirect: '/',
-  failureRedirect: '/'
+  failureRedirect: '/',
+  // failureFlash: true
+}));
+app.get('/auth/local/login', passport.authenticate( 'local-login' , {
+  successRedirect: '/',
+  failureRedirect: '/',
+  // failureFlash: true
 }));
 app.get('/auth/github', passport.authenticate('github', {scope: [ 'email' ] }));
 app.get('/auth/github/callback', passport.authenticate('github', {
@@ -91,6 +70,7 @@ app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
 app.get('/auth/logout', function(req, res){
   req.logout();
   res.redirect('/');
+  return res.send('logged out');
 });
 
 // FRONTEND ENDPOINTS
@@ -99,18 +79,11 @@ app.get(    '/api/users',          userCtrl.retrieve );
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
-app.post(   '/api/posts',          postCtrl.create );
-app.get(    '/api/posts',          postCtrl.retrieve );
-app.put(    '/api/posts/:post_id', postCtrl.update );
-app.delete( '/api/posts/:post_id', postCtrl.remove );
-
+// app.post(   '/api/posts',          postCtrl.create );
+// app.get(    '/api/posts',          postCtrl.retrieve );
+// app.put(    '/api/posts/:post_id', postCtrl.update );
+// app.delete( '/api/posts/:post_id', postCtrl.remove );
 
 // app.listen(port, function(){console.log('srv listening on', port);});
-httpServer.listen(port, function(){console.log('srv listening on', port);});
+httpServer.listen(srvport, function(){console.log('srv listening on', srvport);});
 // httpsServer.listen(443);
-
-
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.status(403).send('not authenticated');
-}
