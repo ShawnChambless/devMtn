@@ -1,8 +1,10 @@
 angular.module('groupProject')
-.controller('LoginCtrl',['$scope', 'LoginService', function($scope, LoginService) {
+.controller('LoginCtrl', ['$scope', function($scope) {
 
-    $scope.test = 'Test from controller';
-    $scope.test2 = LoginService.test2;
+    $scope.modalShown = false;
+    $scope.toggleModal = function() {
+      $scope.modalShown = !$scope.modalShown;
+    };
 
 
 }]);
