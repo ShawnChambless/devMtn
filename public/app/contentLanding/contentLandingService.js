@@ -5,8 +5,6 @@ angular.module('groupProject')
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/posts'
-        }).then(function(resp) {
-            console.log(resp);
         });
     };
 

@@ -42,10 +42,10 @@
     <a ng-href="#">Bootstrap</a>
     <a ng-href="#">Synergy</a>
 </aside>
-<div class="posts">
-    <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
-        <div class="post votes">-100</div>
-        <div class="post thumbnail"><img ng-src="http://nicenicejpg.com/70/90"/></div>
+<div class="posts" ng-repeat='post in posts | filter:contentSearchText'>
+    <div class="posts-item">
+        <div class="post votes">{{post.votes}}</div>
+        <div class="post thumbnail">{{post.thumbnail}}</div>
         <div class="post title">{{post.title}}</div>
         <div class="post url">{{post.url}}</div>
         <div class="post description">Description: {{post.description}}</div>
