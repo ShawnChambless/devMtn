@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("LoginCtrl",["$scope","LoginService",function(o,t){o.test="Test from controller",o.test2=t.test2}]);
+angular.module("groupProject").controller("LoginCtrl",["$scope",function(o){o.modalShown=!1,o.toggleModal=function(){o.modalShown=!o.modalShown}}]);

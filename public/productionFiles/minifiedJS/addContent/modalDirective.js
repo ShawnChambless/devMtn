@@ -1,0 +1,1 @@
+app.directive("modalDialog",function(){return{restrict:"E",scope:{show:"="},replace:!0,transclude:!0,link:function(t,e,i){t.dialogStyle={},i.width&&(t.dialogStyle.width=i.width),i.height&&(t.dialogStyle.height=i.height),t.hideModal=function(){t.show=!1}},templateUrl:"../templates/modal.html"}});
