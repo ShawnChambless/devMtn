@@ -7,7 +7,8 @@ angular.module('groupProject')
       show: '='
     },
     replace: true, // Replace with the template below
-    transclude: true, // we want to insert custom content inside the directive
+    transclude: true,
+     // we want to insert custom content inside the directive
     link: function(scope, element, attrs) {
       scope.dialogStyle = {};
       if (attrs.width)
@@ -19,5 +20,6 @@ angular.module('groupProject')
       };
     },
     templateUrl: 'app/addContent/addContentTmpl.html', // See below
+    controller: 'addContentCtrl'
   };
 });
