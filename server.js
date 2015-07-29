@@ -61,7 +61,8 @@ app.get('/auth/logout', function(req, res){
 
 // FRONTEND ENDPOINTS
 app.post(   '/api/users',          userCtrl.create );
-app.get(    '/api/users/:user_id', userCtrl.retrieve );
+app.get(    '/api/users',          userCtrl.retrieveAll );
+app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 

@@ -28,9 +28,12 @@ module.exports = {
     return def.promise;
   } ,
 
-  retrieve: function(req, res){
+  retrieveOne: function(req, res){
     var def = $q.defer();
-    User.findOne({ "email": req.body.email })
+    var query = {};
+    if (req.user) query = { "_id": req.params.user_id };
+    else query = { "email": req.body.email };
+    User.findOne(query)
     .exec().then(function(user, err){
       if (err) {
         if (req.qpromise) {def.reject(err);}
@@ -38,11 +41,27 @@ module.exports = {
       }
       if (checkHash(req.body.password, user.password)) {
         if (req.qpromise) {def.resolve(user);}
-        else {return res.status(200).json(createdUser);}
+        else {return res.status(200).json(user);}
       }
       if (!checkHash(req.body.password, user.password)) {
         if (req.qpromise) {def.reject('Invalid password');}
         else {return res.status(401).send('Invalid password');}
+      }
+    });
+    return def.promise;
+  } ,
+
+  retrieveAll: function(req, res){
+    var def = $q.defer();
+    User.find({})
+    .exec().then(function(users, err){
+      if (err) {
+        if (req.qpromise) {def.reject(err);}
+        else {return res.status(500).json(err);}
+      }
+      else {
+        if (req.qpromise) {def.resolve(users);}
+        else {return res.status(200).json(createdUser);}
       }
     });
     return def.promise;
