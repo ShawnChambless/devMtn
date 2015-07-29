@@ -12,7 +12,15 @@ angular.module('groupProject', ['ui.router'])
    .state('home', {
        url: '/home',
        templateUrl: 'app/contentLanding/contentLandingTmpl.html',
-       controller: 'contentLandingCtrl'
+       controller: 'contentLandingCtrl',
+       resolve: {
+           getPosts: function(contentLandingService) {
+              return contentLandingService.getPosts().then(function(postData) {
+       			console.log(postData);
+       		    return postData;
+       		});
+           }
+       }
    })
    .state('profile',  {
        url: '/profile'
