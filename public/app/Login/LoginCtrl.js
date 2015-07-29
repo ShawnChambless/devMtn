@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('LoginCtrl', ['$scope', function($scope, LoginService) {
+.controller('LoginCtrl', ['$scope', 'LoginService', function($scope, LoginService) {
 
     $scope.modalShown = false;
     $scope.toggleModal = function() {
@@ -25,6 +25,7 @@ angular.module('groupProject')
       })
       .catch(function(err){
         console.log(err);
+        $scope.email = "";
         $scope.password = "";
       });
     };

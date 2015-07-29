@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.service('LoginService', ['$http', function($http) {
+.service('LoginService', ['$http', '$q', function($http, $q) {
     this.test2 = 'Test from service';
 
     this.createUser = function(email, password) {
@@ -15,6 +15,7 @@ angular.module('groupProject')
         console.log('new user from the service', response);
         dfd.resolve(response.data);
       });
+      return dfd.promise;
     };
 
     this.loginUser = function(email, password) {
