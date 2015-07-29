@@ -7,7 +7,8 @@ var mongoose    = require('mongoose') ,
 
 module.exports = {
 
-  create: function(req, res, q){
+  create: function(req, res){
+    // console.log(q);
     var def = $q.defer();
     var newUser = new User();
     newUser.firstName = req.body.firstName;
@@ -27,7 +28,7 @@ module.exports = {
     return def.promise;
   } ,
 
-  retrieve: function(req, res, q){
+  retrieve: function(req, res){
     var def = $q.defer();
     User.findOne({ "email": req.body.email })
     .exec().then(function(user, err){

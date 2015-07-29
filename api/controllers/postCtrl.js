@@ -4,8 +4,7 @@ var mongoose    = require( 'mongoose' ) ,
 
 module.exports = {
 
-  create: function(req, res, q){
-    console.log(q);
+  create: function(req, res){
     var def = $q.defer();
     var newPost = new Post();
     newPost.type = req.body.type;
@@ -31,9 +30,10 @@ module.exports = {
     return def.promise;
   } ,
 
-  retrieve: function(req, res, q){
+  retrieveAll: function(req, res){
+    // console.log(q);
     var def = $q.defer();
-    Post.find(req.params.post_id)
+    Post.find({})
     .exec().then(function(post, err){
       if (err) {
         return res.status(500).json(err);
@@ -49,7 +49,26 @@ module.exports = {
     return def.promise;
   } ,
 
-  retrieveCat: function(req, res, q){
+  retrieveOne: function(req, res){
+    // console.log(q);
+    var def = $q.defer();
+    Post.find( { "_id": req.params.post_id } )
+    .exec().then(function(post, err){
+      if (err) {
+        return res.status(500).json(err);
+        // if (q) {def.reject(err);}
+        // else {return res.status(500).json(err);}
+      }
+      else {
+        return res.status(200).json(post);
+        // if (q) {def.resolve(post);}
+        // else {return res.status(200).json(post);}
+      }
+    });
+    return def.promise;
+  } ,
+
+  retrieveCat: function(req, res){
     var def = $q.defer();
     Post.find( {"cat": req.params.cat_name} )
     .exec().then(function(posts, err){

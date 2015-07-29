@@ -18,7 +18,7 @@ passport.use('local-signup', new LocalStrategy({
   passReqToCallback : true
 }, function(req, email, password, done) {
   // FIND OR CREATE USER BY EMAIL AND PASSWORD
-  userCtrl(req, null, true).then(function(user, err) {
+  userCtrl.retrieve(req, null, null, true).then(function(user, err) {
     if (err){
       console.log('Error in SignUp: ' + err);
       return done(err);
@@ -45,7 +45,7 @@ passport.use('local-login', new LocalStrategy({
   // passwordField: 'password',
   passReqToCallback : true
 }, function(req, email, password, done) {
-  userCtrl.retrieve(req, null, true).then(
+  userCtrl.retrieve(req, null, null, true).then(
     function(user) {
       return done(null, user);
     }, function(retrieveError) {
