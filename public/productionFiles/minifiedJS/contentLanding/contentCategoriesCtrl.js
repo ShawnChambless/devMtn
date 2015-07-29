@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("contentCategoriesCtrl",["$scope","contentLandingService","getCategoryPosts",function(t,o,e){t.posts=e.data}]);
