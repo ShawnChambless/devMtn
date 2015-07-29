@@ -7,8 +7,6 @@ angular.module('groupProject')
             method: 'POST',
             url: 'http://localhost:8080/api/posts',
             data: newPost
-        }).then(function(resp) {
-            console.log(resp)
         });
     };
 
