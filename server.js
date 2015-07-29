@@ -17,6 +17,7 @@ var config      = require( './api/config.js' ) ,
     bodyParser  = require( 'body-parser' ).json() ,
     cors        = require( 'cors' ) ,
     mongoose    = require( 'mongoose' ) ,
+    db          = mongoose.connection ,
     session     = require( 'express-session' ) ,
     ensureAuthenticated = function(req, res, next) {
       if (req.isAuthenticated()) { return next(); }
@@ -28,9 +29,6 @@ var config      = require( './api/config.js' ) ,
     // SERVICES
     passport    = require( './api/services/passport.js' ) ;
 
-// Connect to MongoDB via Mongoose
-mongoose.connect( config.mdbUri );
-mongoose.connection.once('open', function(){console.log('mdb listening on', mdbport);});
 
 // Configure Express and Session
 app.use('/', favicon(__dirname + '/public/favicon.ico'));
@@ -50,22 +48,10 @@ app.use(passport.session());
 app.post('/auth/local/signup', passport.authenticate( 'local-signup' , {
   successRedirect: '/',
   failureRedirect: '/',
-  // failureFlash: true
 }));
-app.get('/auth/local/login', passport.authenticate( 'local-login' , {
+app.post('/auth/local/login', passport.authenticate( 'local-login' , {
   successRedirect: '/',
   failureRedirect: '/',
-  // failureFlash: true
-}));
-app.get('/auth/github', passport.authenticate('github', {scope: [ 'email' ] }));
-app.get('/auth/github/callback', passport.authenticate('github', {
-  successRedirect: '/',
-  failureRedirect: '/'
-}));
-app.get('/auth/linkedin', passport.authenticate('linkedin', {scope: [ 'email' ] }));
-app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
-  successRedirect: '/',
-  failureRedirect: '/'
 }));
 app.get('/auth/logout', function(req, res){
   req.logout();
@@ -75,14 +61,23 @@ app.get('/auth/logout', function(req, res){
 
 // FRONTEND ENDPOINTS
 app.post(   '/api/users',          userCtrl.create );
-app.get(    '/api/users',          userCtrl.retrieve );
+app.get(    '/api/users',          userCtrl.retrieveAll );
+app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
-// app.post(   '/api/posts',          postCtrl.create );
-// app.get(    '/api/posts',          postCtrl.retrieve );
-// app.put(    '/api/posts/:post_id', postCtrl.update );
-// app.delete( '/api/posts/:post_id', postCtrl.remove );
+app.post(   '/api/posts',                 postCtrl.create );
+app.get(    '/api/posts',                 postCtrl.retrieveAll );
+app.get(    '/api/posts/:post_id',        postCtrl.retrieveOne );
+app.get(    '/api/posts/cats/:cat_name',  postCtrl.retrieveCat );
+app.put(    '/api/posts/:post_id',        postCtrl.update );
+app.delete( '/api/posts/:post_id',        postCtrl.remove );
+
+
+// Connect to MongoDB via Mongoose
+mongoose.connect( config.mdbUri );
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(){console.log('mdb listening on', mdbport);});
 
 // app.listen(port, function(){console.log('srv listening on', port);});
 httpServer.listen(srvport, function(){console.log('srv listening on', srvport);});

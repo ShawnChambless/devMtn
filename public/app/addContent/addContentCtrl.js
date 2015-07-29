@@ -1,9 +1,8 @@
 angular.module('groupProject')
+.controller('addContentCtrl', ['$scope', 'addContentService', function($scope, addContentService) {
 
-//////////// Show modal on button click ////////////
-.controller('addContentCtrl', ['$scope', function($scope) {
-  $scope.modalShown = false;
-  $scope.toggleModal = function() {
-    $scope.modalShown = !$scope.modalShown;
-  };
+    $scope.addPost = function(newPost) {
+        addContentService.addPost($scope.newPost);
+    };
+
 }]);

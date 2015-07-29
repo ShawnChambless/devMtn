@@ -1,25 +1,23 @@
 var passport          = require( 'passport' ) ,
     LocalStrategy     = require( 'passport-local' ).Strategy ,
-    // GitHubStrategy    = require( 'passport-github' ).Strategy ,
-    // LinkedInStrategy  = require( 'passport-linkedin' ).Strategy ,
-    mongoose          = require( 'mongoose' ) ,
     userCtrl          = require( '../controllers/userCtrl.js' ) ;
+    // mongoose          = require( 'mongoose' ) ,
     // User              = mongoose.model('User', require('../models/userSchema.js')) ;
-
 
 // Passport Session Serialization
 passport.serializeUser(function(user, done) { done(null, user); });
 passport.deserializeUser(function(obj, done) { done(null, obj); });
 
 // Passport Strategies
+// Creation of req.qpromise in both of these strategies is for 'q' promise functionality in userCtrl.js
 passport.use('local-signup', new LocalStrategy({
-  // emailField: 'email',
-  // passwordField: 'password',
+  usernameField: 'email',
+  passwordField: 'password',
   passReqToCallback : true
 }, function(req, email, password, done) {
   // FIND OR CREATE USER BY EMAIL AND PASSWORD
-  User.findOne({ "email": email })
-  .exec().then(function(user, err) {
+  req.qpromise = true;
+  userCtrl.retrieve(req, res).then(function(user, err) {
     if (err){
       console.log('Error in SignUp: ' + err);
       return done(err);
@@ -42,11 +40,12 @@ passport.use('local-signup', new LocalStrategy({
   });
 }));
 passport.use('local-login', new LocalStrategy({
-  // emailField: 'email',
-  // passwordField: 'password',
+  usernameField: 'email',
+  passwordField: 'password',
   passReqToCallback : true
 }, function(req, email, password, done) {
-  userCtrl.retrieve(email, password).then(
+  req.qpromise = true;
+  userCtrl.retrieve(req, res).then(
     function(user) {
       return done(null, user);
     }, function(retrieveError) {
@@ -54,27 +53,5 @@ passport.use('local-login', new LocalStrategy({
     }
   );
 }));
-// passport.use('github', new GitHubStrategy({
-//   clientID: config.github.key,
-//   clientSecret: config.github.secret,
-//   callbackURL: srvUri + '/auth/github/callback'
-// }, function(request, accessToken, refreshToken, profile, done) {
-// //     console.log('GIIIIIIIIITHUUUUUUUUUUUUB ', profile);
-//     userCtrl.create(profile, done).then(function(user){
-//       return done(null, user);
-//     });
-//   }
-// ));
-// passport.use('linkedin', new LinkedInStrategy({
-//   clientID: config.linkedin.key,
-//   clientSecret: config.linkedin.secret,
-//   callbackURL: srvUri + '/auth/linkedin/callback'
-// }, function(request, accessToken, refreshToken, profile, done) {
-// //     console.log('LIIIIIIINNNNNNNNKEDIIIIIN ', profile);
-//     userCtrl.create(profile, done).then(function(user){
-//       return done(null, user);
-//     });
-//   }
-// ));
 
 module.exports = passport;
