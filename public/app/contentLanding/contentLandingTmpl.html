@@ -1,31 +1,30 @@
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
-    <button ng-click='toggleModal()'>Add Resource</button>
+    <button ng-click='modalShown = !modalShown'>Add Resource</button>
 </div>
-<!-- MODAL  -->
-	<modal-dialog show='modalShown' width='750px' height='60%'>
-        <input ng-model="newPost.title" placeholder="Title" />
-        <input ng-model="newPost.url" placeholder="URL" />
-        <input ng-model="newPost.desc" placeholder="Description" />
-        <select ng-model='newPost.cat' placeholder="Categories">
-            <option value="html">HTML</option>
-            <option value="css">CSS</option>
-            <option value="javascript">Javascript</option>
-            <option value="angular">Angular</option>
-            <option value="mongo">Mongo</option>
-            <option value="mongoose">Mongoose</option>
-            <option value="node">Node</option>
-            <option value="express">Express</option>
-            <option value="react">React</option>
-        </select>
-        <input ng-model="newPost.tags" placeholder="Tags" />
-        <select ng-model='newPost.type' placeholder="Type">
-            <option value="article">Article</option>
-            <option value="video">Video</option>
-            <option value="code">Image</option>
-        </select>
-        <input ng-controller='addContentCtrl' type='submit' value='Add Post' ng-click="addPost(newPost)" />
-	</modal-dialog>
+<modal-dialog ng-show='modalShown' width='750px' height='60%'>
+    <input ng-model="newPost.title" placeholder="Title" />
+    <input ng-model="newPost.url" placeholder="URL" />
+    <input ng-model="newPost.desc" placeholder="Description" />
+    <select ng-model='newPost.cat' placeholder="Categories">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">Javascript</option>
+        <option value="angular">Angular</option>
+        <option value="mongo">Mongo</option>
+        <option value="mongoose">Mongoose</option>
+        <option value="node">Node</option>
+        <option value="express">Express</option>
+        <option value="react">React</option>
+    </select>
+    <input ng-model="newPost.tags" placeholder="Tags" />
+    <select ng-model='newPost.type' placeholder="Type">
+        <option value="article">Article</option>
+        <option value="video">Video</option>
+        <option value="code">Image</option>
+    </select>
+    <input ng-controller='addContentCtrl' type='submit' value='Add Post' ng-click="addPost(newPost)" />
+</modal-dialog>
 
 <aside>
     <h3>Categories</h3>
