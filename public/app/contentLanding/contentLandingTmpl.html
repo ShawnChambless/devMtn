@@ -1,12 +1,13 @@
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button ng-click='toggleModal()'>Add Resource</button>
+</div>
 <!-- MODAL  -->
 	<modal-dialog show='modalShown' width='750px' height='60%'>
-        <input ng-model="newPost.title" placeholder="Title">
-        <input ng-model="newPost.url" placeholder="URL">
-        <input ng-model="newPost.desc" placeholder="Description">
-        <select ng-model="newPost.cat" placeholder="Categories">
+        <input ng-model="newPost.title" placeholder="Title" />
+        <input ng-model="newPost.url" placeholder="URL" />
+        <input ng-model="newPost.desc" placeholder="Description" />
+        <select ng-model='newPost.cat' placeholder="Categories">
             <option value="html">HTML</option>
             <option value="css">CSS</option>
             <option value="javascript">Javascript</option>
@@ -17,30 +18,30 @@
             <option value="express">Express</option>
             <option value="react">React</option>
         </select>
-        <input ng-model="newPost.tags" placeholder="Tags">
-        <select ng-model="newPost.type" placeholder="Type">
+        <input ng-model="newPost.tags" placeholder="Tags" />
+        <select ng-model='newPost.type' placeholder="Type">
             <option value="article">Article</option>
             <option value="video">Video</option>
-            <option value="image">Image</option>
+            <option value="code">Image</option>
         </select>
-        <button ng-click="addPost()">Add Post</button>
+        <input ng-controller='addContentCtrl' type='submit' value='Add Post' ng-click="addPost(newPost)" />
 	</modal-dialog>
-    </div>
-</div>
+
 <aside>
     <h3>Categories</h3>
-    <a ng-href="#">HTML</a>
-    <a ng-href="#">CSS</a>
-    <a ng-href="#">Core JS</a>
-    <a ng-href="#">Angular</a>
-    <a ng-href="#">MongoDB</a>
-    <a ng-href="#">Mongoose</a>
-    <a ng-href="#">Node</a>
-    <a ng-href="#">Express</a>
-    <a ng-href="#">React</a>
-    <a ng-href="#">Git</a>
-    <a ng-href="#">Bootstrap</a>
-    <a ng-href="#">Synergy</a>
+    <a ng-click='getPosts()'>All</a>
+    <a ng-click='getCategoryPosts("html")'>HTML</a>
+    <a ng-click='getCategoryPosts("css")'>CSS</a>
+    <a ng-click='getCategoryPosts("javascript")'>Core JS</a>
+    <a ng-click='getCategoryPosts("angular")'>Angular</a>
+    <a ng-click='getCategoryPosts("mongo")'>MongoDB</a>
+    <a ng-click='getCategoryPosts("mongoose")'>Mongoose</a>
+    <a ng-click='getCategoryPosts("node")'>Node</a>
+    <a ng-click='getCategoryPosts("express")'>Express</a>
+    <a ng-click='getCategoryPosts("react")'>React</a>
+    <a ng-click='getCategoryPosts("git")'>Git</a>
+    <a ng-click=''>Bootstrap</a>
+    <a ng-click=''>Synergy</a>
 </aside>
 <div class="posts" ng-repeat='post in posts | filter:contentSearchText'>
     <div class="posts-item">
@@ -48,8 +49,9 @@
         <div class="post thumbnail">{{post.thumbnail}}</div>
         <div class="post title">{{post.title}}</div>
         <div class="post url">{{post.url}}</div>
-        <div class="post description">Description: {{post.description}}</div>
-        <div class="post tags">Tags: {{post.tags}}</div>
+        <div class="post cat">{{post.cat}}</div>
+        <div class="post description">Description: {{post.desc}}</div>
+        <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
         <div class="post type">Type: {{post.type}}</div>
     </div>
 </div>

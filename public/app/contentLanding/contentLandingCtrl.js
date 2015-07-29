@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('contentLandingCtrl', ['$scope', 'contentLandingService', function($scope, contentLandingService) {
+.controller('contentLandingCtrl', ['$scope', 'contentLandingService', 'getPosts', function($scope, contentLandingService, getPosts) {
 
 	$scope.modalShown = false;
 
@@ -7,32 +7,20 @@ angular.module('groupProject')
 		$scope.modalShown = !$scope.modalShown;
 	};
 
+
+	$scope.posts = getPosts.data;
+	
 	$scope.getPosts = function() {
 		contentLandingService.getPosts().then(function(resp) {
-			console.log(resp);
 			$scope.posts = resp.data;
 		});
-	}();
+	}
+
 
 	$scope.getCategoryPosts = function(cat) {
-		contentLandingService.getCategoryPosts(cat);
+		contentLandingService.getCategoryPosts(cat).then(function(resp) {
+			$scope.posts = resp.data
+		});
 	};
-
-	// $scope.posts = [
-	// 	{
-	// 		title: 'FAKE TITLE',
-	// 		url: 'URL',
-	// 		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-	// 		tags: 'This, That, Other things as well',
-	// 		type: 'VIDEO'
-	// 	},
-	// 	{
-	// 		title: 'Super fake TITLE',
-	// 		url: 'URL',
-	// 		description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor',
-	// 		tags: 'This, That, Other things as well',
-	// 		type: 'VIDEO'
-	// 	}
-	// ]
 
 }]);

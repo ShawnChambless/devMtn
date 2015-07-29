@@ -12,7 +12,9 @@ angular.module('groupProject')
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/posts/cats/' + cat
-        });
+        }).then(function(resp) {
+            return resp
+        })
     };
 
 }]);
