@@ -10,7 +10,7 @@ angular.module('groupProject')
 	$scope.getPosts = function() {
 		contentLandingService.getPosts().then(function(resp) {
 			console.log(resp);
-			$scope.posts = resp;
+			$scope.posts = resp.data;
 		});
 	}();
 

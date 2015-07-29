@@ -5,7 +5,6 @@ var gulp =          require('gulp'),
     watch =         require('gulp-watch'),
     bulkSass =      require('gulp-cssimport'),
     autoprefixer =  require('gulp-autoprefixer'),
-    webserver =     require('gulp-webserver'),
     plumber =       require('gulp-plumber'),
     paths = {
                 jade: ['public/app/**/*.jade', 'index.jade'],
@@ -41,16 +40,6 @@ gulp.task('compress', function() {
         .pipe(gulp.dest('./public/productionFiles/minifiedJS'));
 });
 
-gulp.task('webserver', function() {
-    gulp.src('./public')
-    .pipe(webserver({
-        livereload: true,
-        open: true,
-        port: 8080,
-        fallback: 'index.html'
-    }));
-});
-
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
     gulp.watch('./public/styles/**/*.sass', ['sass']);
@@ -58,4 +47,4 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['jade', 'sass', 'compress', 'watch', 'webserver']);
+gulp.task('default', ['jade', 'sass', 'compress', 'watch']);
