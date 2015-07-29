@@ -5,14 +5,14 @@ var mongoose    = require( 'mongoose' ) ,
 module.exports = {
 
   create: function(req, res){
-    var newPost = new Post();
-    newPost.type = req.body.type;
-    newPost.url = req.body.url;
+    var newPost   = new Post();
+    newPost.type  = req.body.type;
+    newPost.url   = req.body.url;
     newPost.title = req.body.title;
-    newPost.desc = req.body.desc;
-    newPost.cat = req.body.cat;
-    newPost.tags = req.body.tags;
-    newPost.user = req.body.user;
+    newPost.desc  = req.body.desc;
+    newPost.cat   = req.body.cat;
+    newPost.tags  = req.body.tags;
+    newPost.user  = req.body.user;
     newPost.save(function(err, createdPost) {
       if (err) return res.status(500).json(err);
       return res.status(200).json(createdPost);
