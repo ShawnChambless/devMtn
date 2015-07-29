@@ -3,16 +3,41 @@
     <div class="topNav">
       <div class="topNavImage"></div>
     </div>
-    <h1>SIGNUP</h1>
+    <h1>LOGIN</h1>
+
+    <a class="newUserLink" ng-click="toggleModal()">Need an account?</a>
 
     <!-- Modal for new users -->
-    <button ng-click="toggleModal()">Need an account</button>
-    <login-modal-dialog show="modalShown" width="750px" height="60%">Hello</login-modal-dialog>
+
+
+    <login-modal-dialog show="modalShown" width="500px" height="500px" class="modalSignup">
+    <div class="hide-modal" ng-click="toggleModel()" nshow="modalShown"></div>
+
+      <div class="login-modal-navbar">
+        <div class="login-modal-logo"></div>
+      </div>
+
+      <h1 class="modal-h2-signup">SIGNUP</h1>
+
+      <div class="modal-already-user-link" ng-click="toggleModal()">Already a user?</div>
+
+      <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" >
+
+      <input ng-model="password" type="password" placeholder="Enter password" class="login-modal-password">
+
+      <input ng-model="password" type="password" placeholder="Re-enter password" class="login-modal-reenter-password">
+
+      <button ng-click="createUser(email, password)" type="button" class="modal-newuser-button">Submit</button>
+
+      <h3 class="modal-forgot-password">Forgot your password?</h3>
+
+    </login-modal-dialog>
+
     <!-- End of modal -->
 
-    <input type="text" placeholder="Username" class="username"/>
-    <input type="text" placeholder="Email" class="password"/>
-    <button class="buttonLoginSubmit">Submit</button>
-    <a href="/login" class="forgotPasswordLink">Forgot password?</a>
+    <input ng-model="email" type="email" placeholder="Email" class="email"/>
+    <input ng-model="password" type="password" placeholder="Password" class="password"/>
+    <button ng-click="loginUser(email, password)" class="buttonLoginSubmit">Submit</button>
+    <a class="forgotPasswordLink">Forgot password?</a>
   </div>
 </span>

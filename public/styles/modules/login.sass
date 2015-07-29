@@ -1,3 +1,6 @@
+html, body
+  margin: 0
+
 nav
   width: 100%
   background: $navbar
@@ -7,7 +10,8 @@ nav
   width: 100%
   background-color: $loginBackground
   position: absolute
-  top: 50px
+  top: 60px
+  left: 0px
 
 // THE NEXT SECTIONS WILL ALL BE IN THE LOGIN BOX
 
@@ -39,13 +43,20 @@ h1
   display: flex
   justify-content: center
 
-.loginLink
-  color: #00B8EB
-  display: flex
-  justify-content: center
-  font-size: larger
+.newUserLink
+  position: absolute
+  left: 135px
+  margin-top: -17px
+  border: 2px
+  cursor: pointer
+  color: #29BEEB
+  transition: all 300ms ease
+  &:hover
+    background: $loginBtnHover
+    color: white
+    border-radius: 3px
 
-.username
+.email
   height: 30px
   width: 150px
   border-radius: 5px
@@ -68,7 +79,7 @@ h1
   font-size: larger
   display: flex
   justify-content: center
-  margin-top: 60px
+  margin-top: 70px
   margin-bottom: 20px
   position: absolute
   left: 120px
@@ -83,7 +94,7 @@ h1
   font-size: larger
   display: flex
   justify-content: center
-  margin-top: 110px
+  margin-top: 125px
   margin-bottom: 20px
   position: absolute
   left: 120px
@@ -95,7 +106,126 @@ h1
   color: #00B8EB
   display: flex
   justify-content: center
-  margin-top: 160px
+  margin-top: 175px
   margin-bottom: 20px
   position: absolute
   left: 135px
+  cursor: pointer
+  color: $loginBackground
+  transition: all 300ms ease
+  &:hover
+    background: $loginBtnHover
+    color: white
+    border-radius: 3px
+
+.ng-model-overlay
+  width: 100%
+  height: 100%
+  opacity: .4
+  z-index: 400
+  position: fixed
+  top: 0
+
+  // Login page modal styles
+
+.ng-modal-dialog
+  border-radius: 20px
+  background-color: #EFEFEF
+
+.login-modal-navbar
+  height: 70px
+
+.login-modal-logo
+  height: 50px
+  width: 50px
+  background: url('https://devmounta.in/img/logoonly.png') no-repeat
+  background-size: 100%
+  position: relative
+  left: 43%
+  top: 7px
+
+.modal-h2-signup
+  position: absolute
+  top: 70px
+  left: 185px
+  font-size: 30px
+
+.modal-already-user-link
+  position: absolute
+  top: 130px
+  left: 190px
+  font-size: 15px
+  cursor: pointer
+  color: $loginBackground
+  transition: all 300ms ease
+  &:hover
+    background: $loginBtnHover
+    color: white
+    border-radius: 3px
+
+.login-modal-email
+  display: flex
+  position: absolute
+  top: 160px
+  left: 115px
+  height: 40px
+  width: 250px
+  border-radius: 5px
+  border: 2px
+  text-align: center
+  font-size: larger
+
+.login-modal-password
+  display: flex
+  position: absolute
+  top: 230px
+  left: 115px
+  height: 40px
+  width: 250px
+  border-radius: 5px
+  border: 2px
+  text-align: center
+  font-size: larger
+
+.login-modal-reenter-password
+  display: flex
+  position: absolute
+  top: 300px
+  left: 115px
+  height: 40px
+  width: 250px
+  border-radius: 5px
+  border: 2px
+  text-align: center
+  font-size: larger
+
+.modal-newuser-button
+  height: 40px
+  width: 155px
+  border-radius: 5px
+  border: 2px
+  background-color: $loginBtn
+  color: white
+  font-size: larger
+  display: flex
+  justify-content: center
+  position: absolute
+  left: 165px
+  top: 365px
+  transition: all 300ms ease
+  &:hover
+    background: $loginBtnHover
+
+.modal-forgot-password
+  position: absolute
+  top: 400px
+  left: 140px
+  cursor: pointer
+  color: $loginBackground
+  transition: all 300ms ease
+  &:hover
+    background: $loginBtnHover
+    color: white
+    border-radius: 3px
+
+// End of Modal
