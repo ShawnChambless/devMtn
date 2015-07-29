@@ -2,7 +2,7 @@ angular.module('groupProject')
 .service('LoginService', ['$http', '$q', function($http, $q) {
     this.test2 = 'Test from service';
 
-    this.createUser = function(email, password) {
+    this.createUser = function(firstName, lastName, email, password) {
       var dfd = $q.defer();
       $http({
         method: "POST",

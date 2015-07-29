@@ -6,9 +6,9 @@ angular.module('groupProject')
       $scope.modalShown = !$scope.modalShown;
     };
 
-    $scope.createUser = function(email, password) {
+    $scope.createUser = function(firstName, lastName, email, password) {
       console.log('Brah, its user and email stuff', email, password);
-      LoginService.createUser(email, password).then(function(data) {
+      LoginService.createUser(firstName, lastName, email, password).then(function(data) {
         console.log('Duuude, you are a new user!', data);
 
         $scope.email = "";
