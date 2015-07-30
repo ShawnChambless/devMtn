@@ -1,6 +1,9 @@
 angular.module('groupProject')
-.controller('adminCtrl', ['$scope', function($scope) {
+.controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
 
-    $scope.getPosts = addContentService.getPost();
+    $scope.posts = getPosts.data;
 
+    $scope.approvePost = function(id) {
+   		adminService.approvePost(id);
+	};
 }]);

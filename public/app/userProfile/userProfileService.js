@@ -1,10 +1,10 @@
 angular.module('groupProject')
 .service('userProfileService', ['$http', function($http) {
 
-    this.profileInfo = function(userId) {
+    this.getUser = function(userId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/users/' + userId
+            url: 'http://localhost:8080/api/users/55ba825fb21423e9e13ba4a6'
         });
     };
 
@@ -32,7 +32,7 @@ angular.module('groupProject')
     this.getPosts = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/posts'
+            url: 'http://localhost:8080/api/posts/approved'
         });
     };
 

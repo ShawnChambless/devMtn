@@ -4,7 +4,7 @@ angular.module('groupProject')
     this.getPosts = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/posts'
+            url: 'http://localhost:8080/api/posts/approved'
         });
     };
 
