@@ -7,10 +7,12 @@ angular.module('groupProject')
     };
 
     $scope.createUser = function(firstName, lastName, email, password) {
-      console.log('Brah, its user and email stuff', email, password);
+      console.log('Brah, its user and email stuff', firstName, lastName, email, password);
       LoginService.createUser(firstName, lastName, email, password).then(function(data) {
         console.log('Duuude, you are a new user!', data);
 
+        $scope.firstName = "";
+        $scope.lastName = "";
         $scope.email = "";
         $scope.password = "";
       });
