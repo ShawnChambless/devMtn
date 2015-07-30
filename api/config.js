@@ -6,7 +6,7 @@ var baseUri   = 'localhost' , //'localhost.group-project.com' ,
 module.exports = {
   srvport: srvport ,
   mdbport: mdbport ,
-  srvUri: 'http://' + baseUri + ':' + srvport ,
+  srvUri: 'http://' + baseUri ,
   mdbUri: 'mongodb://' + baseUri + ':' + mdbport + '/' + dbname ,
   sslcert: {
     key: '' ,

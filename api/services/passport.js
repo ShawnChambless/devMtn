@@ -5,8 +5,8 @@ var passport          = require( 'passport' ) ,
     // User              = mongoose.model('User', require('../models/userSchema.js')) ;
 
 // Passport Session Serialization
-passport.serializeUser(function(user, done) { done(null, user); });
-passport.deserializeUser(function(obj, done) { done(null, obj); });
+passport.serializeUser(   function(user, done) { done(null, user); });
+passport.deserializeUser( function(obj, done)  { done(null, obj); });
 
 // Passport Strategies
 // Creation of req.qpromise in both of these strategies is for 'q' promise functionality in userCtrl.js

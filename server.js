@@ -2,7 +2,7 @@
 'use strict';
 var config      = require( './api/config.js' ) ,
     srvport     = process.argv[2] || config.srvport ,
-    srvUri      = config.srvUri ,
+    srvUri      = config.srvUri  + ':' + srvport ,
     mdbport     = config.mdbport ,
     express     = require( 'express' ) ,
     app         = express() ,
@@ -45,14 +45,12 @@ app.use(passport.session());
 // app.use('/api', ensureAuthenticated);
 
 // AUTH ENDPOINTS
-app.post('/auth/local/signup', passport.authenticate( 'local-signup' , {
-  successRedirect: '/#/login',
-  failureRedirect: '/#/login',
-}));
-app.post('/auth/local/login', passport.authenticate( 'local-login' , {
-  successRedirect: '/#/home',
-  failureRedirect: '/#/login',
-}));
+app.post('/auth/local/signup', passport.authenticate( 'local-signup' ), function(req, res){
+  res.json(req.user);
+});
+app.post('/auth/local/login', passport.authenticate( 'local-login' ), function(req, res){
+  res.json(req.user);
+});
 app.get('/auth/logout', function(req, res){
   req.logout();
   res.redirect('/');
@@ -67,7 +65,8 @@ app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
 app.post(   '/api/posts',                 postCtrl.create );
-app.get(    '/api/posts',                 postCtrl.retrieveAll );
+app.get(    '/api/posts/approved',        postCtrl.retrieveApproved );
+app.get(    '/api/posts/pending',         postCtrl.retrievePending );
 app.get(    '/api/posts/:post_id',        postCtrl.retrieveOne );
 app.get(    '/api/posts/cats/:cat_name',  postCtrl.retrieveCat );
 app.put(    '/api/posts/:post_id',        postCtrl.update );

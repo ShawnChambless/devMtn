@@ -12,9 +12,9 @@ module.exports = {
     var def = $q.defer();
     var newUser = new User();
     newUser.firstName = req.body.firstName;
-    newUser.lastName = req.body.lastName;
-    newUser.email = req.body.email;
-    newUser.password = createHash(req.body.password);
+    newUser.lastName  = req.body.lastName;
+    newUser.email     = req.body.email;
+    newUser.password  = createHash(req.body.password);
     newUser.save(function(err, createdUser) {
       if (err) {
         console.log(err);
