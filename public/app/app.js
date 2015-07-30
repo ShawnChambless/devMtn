@@ -34,7 +34,16 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('profile',  {
-        url: '/profile'
+        url: '/profile',
+        templateUrl: 'app/userProfile/userProfileTmpl.html',
+        controller: 'userProfileCtrl',
+        resolve: {
+            getPosts: function(userProfileService) {
+                return userProfileService.getPosts().then(function(postData) {
+                return postData;
+   		    });
+            }
+        }
     })
     .state('admin', {
         url: '/admin'
