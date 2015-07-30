@@ -21,6 +21,18 @@ angular.module('groupProject', ['ui.router'])
             }
         }
     })
+    .state('cat', {
+        url: '/home/:cat',
+        templateUrl: 'app/contentLanding/contentLandingTmpl.html',
+        controller: 'contentCategoriesCtrl',
+        resolve: {
+            getCategoryPosts: function(contentLandingService, $stateParams) {
+            return contentLandingService.getCategoryPosts($stateParams.cat).then(function(resp) {
+            return resp;
+            });
+            }
+        }
+    })
     .state('profile',  {
         url: '/profile'
     })

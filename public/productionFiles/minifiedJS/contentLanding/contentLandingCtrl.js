@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("contentLandingCtrl",["$scope","contentLandingService","getPosts",function(t,o,n){t.modalShown=!1,t.posts=n.data,t.getPosts=function(){o.getPosts().then(function(o){t.posts=o.data})},t.getCategoryPosts=function(n){o.getCategoryPosts(n).then(function(o){t.posts=o.data})}}]);
+angular.module("groupProject").controller("contentLandingCtrl",["$scope","contentLandingService","getPosts",function(n,o,t){n.modalShown=!1,n.posts=t.data}]);
