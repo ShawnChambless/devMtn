@@ -3,7 +3,7 @@ var mongoose    = require('mongoose') ,
     bcrypt      = require( 'bcryptjs' ) ,
     User        = mongoose.model('User', require('../models/userSchema.js')) ,
     createHash  = function(password){ return bcrypt.hashSync(password); } ,
-    checkHash   = function(password, hash){ return bCrypt.compareSync(password, hash); } ;
+    checkHash   = function(password, hash){ return bcrypt.compareSync(password, hash); } ;
 
 // usage of 'q' promises is for auth functionality. see passport.js
 module.exports = {
@@ -17,6 +17,7 @@ module.exports = {
     newUser.password = createHash(req.body.password);
     newUser.save(function(err, createdUser) {
       if (err) {
+        console.log(err);
         if (req.qpromise) {def.reject(err);}
         else {return res.status(500).json(err);}
       }
@@ -36,17 +37,22 @@ module.exports = {
     User.findOne(query)
     .exec().then(function(user, err){
       if (err) {
+        console.log(err);
         if (req.qpromise) {def.reject(err);}
         else {return res.status(500).json(err);}
       }
-      if (checkHash(req.body.password, user.password)) {
-        if (req.qpromise) {def.resolve(user);}
-        else {return res.status(200).json(user);}
+      else if (user) {
+        if (checkHash(req.body.password, user.password)) {
+          if (req.qpromise) {def.resolve(user);}
+          else {return res.status(200).json(user);}
+        }
+        if (!checkHash(req.body.password, user.password)) {
+          if (req.qpromise) {def.reject('Invalid password');}
+          else {return res.status(401).send('Invalid password');}
+        }
       }
-      if (!checkHash(req.body.password, user.password)) {
-        if (req.qpromise) {def.reject('Invalid password');}
-        else {return res.status(401).send('Invalid password');}
-      }
+      // if no err or user, respond false to passport strategy to go ahead with user creation
+      else { def.resolve(null); }
     });
     return def.promise;
   } ,

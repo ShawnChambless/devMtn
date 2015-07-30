@@ -31,10 +31,10 @@ var config      = require( './api/config.js' ) ,
 
 
 // Configure Express and Session
-app.use('/', favicon(__dirname + '/public/favicon.ico'));
-app.use('/', express.static(__dirname + '/public'));
-app.use('/', bodyParser);
-app.use('/', cors());
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser);
+app.use(cors());
 app.use(session({
   secret: 'dev-mtn-portal-express-session',
   resave: 'false',
@@ -46,12 +46,12 @@ app.use(passport.session());
 
 // AUTH ENDPOINTS
 app.post('/auth/local/signup', passport.authenticate( 'local-signup' , {
-  successRedirect: '/',
-  failureRedirect: '/',
+  successRedirect: '/#/login',
+  failureRedirect: '/#/login',
 }));
 app.post('/auth/local/login', passport.authenticate( 'local-login' , {
-  successRedirect: '/',
-  failureRedirect: '/',
+  successRedirect: '/#/home',
+  failureRedirect: '/#/login',
 }));
 app.get('/auth/logout', function(req, res){
   req.logout();
