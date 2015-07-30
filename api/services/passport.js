@@ -47,6 +47,7 @@ passport.use('local-login', new LocalStrategy({
   passReqToCallback : true
 }, function(req, email, password, done) {
   req.qpromise = true;
+  console.log(req.body);
   userCtrl.retrieveOne(req).then(
     function(user) {
       return done(null, user);
