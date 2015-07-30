@@ -19,8 +19,18 @@ module.exports = {
     });
   } ,
 
-  retrieveAll: function(req, res){
+  retrieveApproved: function(req, res){
     Post.find({})
+    // NEED TO ONLY GET APPROVED HERE
+    .exec().then(function(posts, err){
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(posts);
+    });
+  } ,
+
+  retrievePending: function(req, res){
+    Post.find({})
+    // NEED TO ONLY GET PENDING HERE
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
