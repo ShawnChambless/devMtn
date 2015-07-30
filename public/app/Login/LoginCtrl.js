@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('LoginCtrl', ['$scope', 'LoginService', '$state', function($scope, LoginService, $state) {
+.controller('LoginCtrl', ['$scope', 'LoginService', '$state', '$location', function($scope, LoginService, $state, $location) {
 
     $scope.modalShown = false;
     $scope.toggleModal = function() {
@@ -17,7 +17,7 @@ angular.module('groupProject')
       LoginService.createUser(firstName, lastName, email, password, passwordConfirm).then(function(data) {
         console.log('Duuude, you are a new user!', data);
 
-        $state.go('login');
+        $location.path('/#/login');
         $scope.firstName = "";
         $scope.lastName = "";
         $scope.email = "";
@@ -29,7 +29,7 @@ angular.module('groupProject')
       LoginService.loginUser(email, password).then(function(data) {
         console.log('Bruh you are logged in!', data);
 
-        $state.go('home');
+        $location.path('/#/home');
         $scope.email = "";
         $scope.password = "";
       })
