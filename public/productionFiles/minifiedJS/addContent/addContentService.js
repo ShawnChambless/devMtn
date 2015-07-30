@@ -1,1 +1,1 @@
-angular.module("groupProject").service("addContentService",["$http",function(t){this.addPost=function(o){return t({method:"POST",url:"http://localhost:8080/api/posts",data:{post:o}})}}]);
+angular.module("groupProject").service("addContentService",["$http",function(t){this.addPost=function(o){return t({method:"POST",url:"http://localhost:8080/api/posts",data:o})}}]);
