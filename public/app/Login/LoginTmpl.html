@@ -3,7 +3,7 @@
     <div class="topNav">
       <div class="topNavImage"></div>
     </div>
-    <h1>LOGIN</h1>
+    <h1 class="loginText">LOGIN</h1>
 
     <a class="newUserLink" ng-click="toggleModal()">Need an account?</a>
 
@@ -25,7 +25,6 @@
 
 
   <login-modal-dialog show="modalShown" width="500px" height="500px" class="modalSignup">
-  <div class="hide-modal" ng-click="toggleModel()" nshow="modalShown"></div>
 
     <div class="login-modal-navbar">
       <div class="login-modal-logo"></div>
@@ -34,19 +33,20 @@
     <h1 class="modal-h2-signup">SIGNUP</h1>
 
     <h3 class="modal-already-user-link" ng-click="toggleModal()">Already a user?</h3>
-    <form>
+    <form name="signup">
       <input ng-model="firstName" type="text" placeholder="First Name" class="login-modal-first-name" required>
 
       <input ng-model="lastName" type="text" placeholder="Last Name" class="login-modal-last-name" required>
 
       <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" required>
 
-      <input ng-model="password" type="password" placeholder="Enter password" class="login-modal-password">
+      <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login-modal-password">
 
-      <input ng-model="password" type="password" placeholder="Re-enter password" class="login-modal-reenter-password">
+      <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="login-modal-reenter-password" validate-equals="password">
     </form>
 
-      <button ng-click="createUser(firstName, lastName, email, password)" type="button" class="modal-newuser-button">Submit</button>
+      <!-- <button ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.passwordConfirm.$pristine || signup.passwordConfirm.$invalid" type="button" name="button"></button> -->
+      <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm)" type="button" class="modal-newuser-button">Submit</button>
     <h3 class="modal-forgot-password">Forgot your password?</h3>
 
   </login-modal-dialog>

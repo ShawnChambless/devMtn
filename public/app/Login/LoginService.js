@@ -8,6 +8,8 @@ angular.module('groupProject')
         method: "POST",
         url: '/auth/local/signup',
         data: {
+          firstName: firstName,
+          lastName: lastName,
           email: email,
           password: password
         }
