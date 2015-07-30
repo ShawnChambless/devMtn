@@ -14,6 +14,6 @@ angular.module('groupProject')
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + id,
   		data: {isApproved: true}
-  	})
-  }
+  	});
+  };
 }]);

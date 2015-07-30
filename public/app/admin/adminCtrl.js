@@ -6,4 +6,8 @@ angular.module('groupProject')
     $scope.approvePost = function(id) {
    		adminService.approvePost(id);
 	};
+
+	$scope.clearIt = function(){
+		console.log($scope.show);
+	};
 }]);
