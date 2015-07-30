@@ -1,7 +1,7 @@
 angular.module('groupProject')
 .service('userProfileService', ['$http', function($http) {
 
-    this.profileInfo = function(userId) {
+    this.getUser = function(userId) {
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/users/' + userId
