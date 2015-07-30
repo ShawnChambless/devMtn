@@ -45,7 +45,7 @@ angular.module('groupProject', ['ui.router'])
             },
 
             getUser: function(userProfileService) {
-                return userProfileService.getUser('55ba825fb21423e9e13ba4a6').then(function(resp) {
+                return userProfileService.getUser().then(function(resp) {
                     return resp;
                 });
             }
