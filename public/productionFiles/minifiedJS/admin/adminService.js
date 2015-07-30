@@ -1,0 +1,1 @@
+angular.module("groupProject").service("adminService",["$http",function(t){this.getPosts=function(o){return t({method:"GET",url:"http://localhost:8080/api/posts"})}}]);
