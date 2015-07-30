@@ -64,13 +64,14 @@ app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
-app.post(   '/api/posts',                 postCtrl.create );
-app.get(    '/api/posts/approved',        postCtrl.retrieveApproved );
-app.get(    '/api/posts/pending',         postCtrl.retrievePending );
-app.get(    '/api/posts/:post_id',        postCtrl.retrieveOne );
-app.get(    '/api/posts/cats/:cat_name',  postCtrl.retrieveCat );
-app.put(    '/api/posts/:post_id',        postCtrl.update );
-app.delete( '/api/posts/:post_id',        postCtrl.remove );
+app.post(   '/api/posts',          postCtrl.create );
+app.get(    '/api/posts/approved', postCtrl.retrieveApproved );
+app.get(    '/api/posts/pending',  postCtrl.retrievePending );
+app.get(    '/api/posts/:post_id', postCtrl.retrieveOne );
+app.get(    '/api/posts/cats/:cat_name/approved',  postCtrl.retrieveCatApproved );
+app.get(    '/api/posts/cats/:cat_name/pending',  postCtrl.retrieveCatPending );
+app.put(    '/api/posts/:post_id', postCtrl.update );
+app.delete( '/api/posts/:post_id', postCtrl.remove );
 
 
 // Connect to MongoDB via Mongoose
