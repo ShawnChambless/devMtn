@@ -6,8 +6,9 @@
     <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
+    <input class='contentModalInput' ng-model="newPost.tags" placeholder="Tags" />
     <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
-        <option value="html">HTML</option>
+        <option value="html" selected>HTML</option>
         <option value="css">CSS</option>
         <option value="javascript">Javascript</option>
         <option value="angular">Angular</option>
@@ -17,13 +18,12 @@
         <option value="express">Express</option>
         <option value="react">React</option>
     </select>
-    <input class='contentModalInput' ng-model="newPost.tags" placeholder="Tags" />
     <select class='contentModalSelect' ng-model='newPost.type' placeholder="Type">
-        <option value="article">Article</option>
+        <option value="article" selected>Article</option>
         <option value="video">Video</option>
         <option value="code">Image</option>
     </select>
-    <input class='contentModalSubmitBtn' ng-controller='addContentCtrl' type='submit' value='Add Post' ng-click="addPost(newPost)" />
+    <input classs='contentModalSubmitBtn' ng-controller='addContentCtrl' type='submit' value='Add Post' ng-click="addPost(newPost)" />
 </modal-dialog>
 
 <aside>
