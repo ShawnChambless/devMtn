@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("userProfileCtrl",["$scope","userProfileService","getPosts",function(e,o,t){e.profileInfo=function(e){o.profileInfo(e)},e.updateUserInfo=function(e,t){o.updateUserInfo(e,t)},e.deleteAccount=function(e){o.deleteAccount(e)},e.posts=t.data,e.getBounties=function(t){o.getBounties(t).then(function(o){e.bounties=o.data})}}]);

@@ -1,0 +1,52 @@
+<div class="profileWrapper">
+    <div class="profile profileInfo">
+        <header>
+            <h1>Profile Information</h1>
+        </header>
+
+        <div class="userinfo name">Shawn Chambless</div>
+        <div class="userinfo email">shawn.chambless@gmail.com</div>
+        <div class="userinfo postQty">22</div>
+        <div class="userinfo bountyQty">Total Bucks in Account: 10sb</div>
+
+    </div>
+
+    <div class="profile favorites">
+        <header>
+            <h1>Favorites</h1>
+        </header>
+
+        <div class="favorites" ng-repeat = 'post in posts'>
+        <div class="post title">{{post.title}}</div>
+        <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+        </div>
+
+    </div>
+
+    <div class="profile watchLater">
+        <header>
+            <h1>Watch Later</h1>
+        </header>
+
+        <div class="watchLater" ng-repeat = 'post in posts'>
+        <div class="post title">{{post.title}}</div>
+        <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+        </div>
+
+    </div>
+
+    <div class="profile bounties">
+        <header>
+            <h1>Bounties</h1>
+        </header>
+
+        <div class="bounties">
+
+            <div class="post title">Need more JPGS BREEEH</div>
+            <div class="post cat">javascript</div>
+            <div class="post value">10 Schrute Bucks</div><br>
+
+        </div>
+
+    </div>
+</div>

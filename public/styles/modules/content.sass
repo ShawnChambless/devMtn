@@ -9,6 +9,11 @@
     button
         float: right
         margin-top: -27px
+
+.contentWrapper
+    display: flex
+    justify-content: space-between
+
 .posts
     width: 80%
     &-item
@@ -18,11 +23,9 @@
         margin: 20px 0 20px 0
 .post
     &.votes
-        // float: left
     &.title
         font-size: 2em
     &.thumbnail
-        // float: left
         margin-right: 20px
     &.url
         text-decoration: underline
@@ -40,10 +43,10 @@
 
 
 aside
-    float: right
     background: $loginBackground
     padding: 5px 20px 20px 20px
     border-radius: 4px
+    max-height: 500px
     a, h3
         color: $loginModal
     a
