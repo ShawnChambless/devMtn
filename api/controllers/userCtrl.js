@@ -32,7 +32,7 @@ module.exports = {
   retrieveOne: function(req, res){
     var def = $q.defer();
     var query = {};
-    if (req.params.user_id) query = { "_id": req.params.user_id };
+    if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
     .exec().then(function(user, err){
@@ -48,7 +48,6 @@ module.exports = {
           else {return res.status(200).json(user);}
         }
         if (!checkHash(req.body.password, user.password)) {
-          console.log(req.body, 'userCtrl console log');
           if (req.qpromise) {def.reject('Invalid password');}
           else {return res.status(401).send('Invalid password');}
         }
