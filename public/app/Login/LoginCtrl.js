@@ -17,7 +17,7 @@ angular.module('groupProject')
       LoginService.createUser(firstName, lastName, email, password, passwordConfirm).then(function(data) {
         console.log('Duuude, you are a new user!', data);
 
-        $location.path('/#/login')
+        $location.path('/#/login');
         $scope.firstName = "";
         $scope.lastName = "";
         $scope.email = "";
@@ -29,7 +29,7 @@ angular.module('groupProject')
       LoginService.loginUser(email, password).then(function(data) {
         console.log('Bruh you are logged in!', data);
 
-        $scope.path('/#/home')
+        $scope.path('/#/home');
         $scope.email = "";
         $scope.password = "";
       })
