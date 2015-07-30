@@ -1,6 +1,7 @@
 angular.module('groupProject')
-.service('LoginService', ['$http', '$q', function($http, $q) {
+.service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
     this.test2 = 'Test from service';
+
 
     this.createUser = function(firstName, lastName, email, password) {
       var dfd = $q.defer();
