@@ -48,6 +48,7 @@ module.exports = {
           else {return res.status(200).json(user);}
         }
         if (!checkHash(req.body.password, user.password)) {
+          console.log(req.body, 'userCtrl console log');
           if (req.qpromise) {def.reject('Invalid password');}
           else {return res.status(401).send('Invalid password');}
         }
