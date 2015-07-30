@@ -17,7 +17,7 @@ angular.module('groupProject', ['ui.router'])
             getPosts: function(contentLandingService) {
                 return contentLandingService.getPosts().then(function(postData) {
                 return postData;
-   		    });
+   		       });
             }
         }
     })
@@ -29,7 +29,7 @@ angular.module('groupProject', ['ui.router'])
             getCategoryPosts: function(contentLandingService, $stateParams) {
             return contentLandingService.getCategoryPosts($stateParams.cat).then(function(resp) {
             return resp;
-            });
+                });
             }
         }
     })
@@ -41,8 +41,15 @@ angular.module('groupProject', ['ui.router'])
             getPosts: function(userProfileService) {
                 return userProfileService.getPosts().then(function(postData) {
                 return postData;
-   		    });
+	            });
+            },
+
+            getUser: function(userProfileService) {
+                return userProfileService.getUser('55ba825fb21423e9e13ba4a6').then(function(resp) {
+                    return resp;
+                });
             }
+
         }
     })
     .state('admin', {
