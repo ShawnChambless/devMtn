@@ -7,8 +7,9 @@
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
     <input class='contentModalInput' ng-model="newPost.tags" placeholder="Tags" />
+    <input class='contentModalInput' ng-model='newPost.thumbnail' placeholder='Image URL' />
     <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
-        <option value="html" selected>HTML</option>
+        <option value="html">HTML</option>
         <option value="css">CSS</option>
         <option value="javascript">Javascript</option>
         <option value="angular">Angular</option>
@@ -19,7 +20,7 @@
         <option value="react">React</option>
     </select>
     <select class='contentModalSelect' ng-model='newPost.type' placeholder="Type">
-        <option value="article" selected>Article</option>
+        <option value="article">Article</option>
         <option value="video">Video</option>
         <option value="code">Image</option>
     </select>
@@ -42,15 +43,15 @@
 </aside>
 <div class="posts" ng-repeat='post in posts | filter:contentSearchText'>
     <div class="posts-item">
-        <div class="post thumbnail"><img src='http://nicenicejpg.com/85/150'></div>
+        <div class="post thumbnail"><img ng-src={{post.thumbnail}} /></div>
         <div class="posts-post">
             <div class="post votes">{{post.votes}}</div>
             <div class="post title">{{post.title}}</div>
             <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
             <div class="post cat"><a href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
             <div class="post description">Description: {{post.desc}}</div>
-            <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
             <div class="post type">Type: {{post.type}}</div>
+            <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
         </div>
     </div>
 </div>
