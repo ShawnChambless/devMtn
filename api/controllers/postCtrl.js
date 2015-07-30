@@ -21,7 +21,7 @@ module.exports = {
 
   retrieveApproved: function(req, res){
     Post.find({})
-    // NEED TO ONLY GET APPROVED HERE
+    .where('isApproved').equals(true)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
@@ -30,7 +30,7 @@ module.exports = {
 
   retrievePending: function(req, res){
     Post.find({})
-    // NEED TO ONLY GET PENDING HERE
+    .where('isApproved').equals(false)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
@@ -54,14 +54,14 @@ module.exports = {
   } ,
 
   update: function(req, res){
-    User.findByIdAndUpdate(req.params.post_id, req.body, {new: true}, function(err, updatedUser){
+    Post.findByIdAndUpdate(req.params.post_id, req.body, {new: true}, function(err, updatedUser){
       if (err) return res.status(500).json(err);
       return res.status(200).json(updatedUser);
     });
   } ,
 
   remove: function(req, res){
-    User.findByIdAndRemove(req.params.post_id, function(err){
+    Post.findByIdAndRemove(req.params.post_id, function(err){
       if (err) return res.status(500).json(err);
       return res.status(200).send('Post ' + req.params.post_id + ' has been deleted');
     });
