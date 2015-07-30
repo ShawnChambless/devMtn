@@ -46,7 +46,16 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('admin', {
-        url: '/admin'
+        url: '/admin',
+        templateUrl: 'app/admin/adminTmpl.html',
+        controller: 'adminCtrl',
+        resolve: {
+            getPosts: function(adminService){
+                return adminService.getPosts().then(function(postData){
+                    return postData;
+                })
+            }
+        }
     })
     .state('category', {
         url: '/category'

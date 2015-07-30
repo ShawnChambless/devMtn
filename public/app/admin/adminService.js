@@ -5,7 +5,8 @@ angular.module('groupProject')
 	this.getPosts = function(newPost) {
     return $http({
       method: 'GET',
-      url: 'http://localhost:8080/api/posts', //NEEDS NEW ENDPOINT
+      url: 'http://localhost:8080/api/posts/pending', //NEEDS NEW ENDPOINT
     });
   };
+
 }]);
