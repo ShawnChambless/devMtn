@@ -6,9 +6,7 @@ angular.module('groupProject')
     return $http({
       method: 'POST',
       url: 'http://localhost:8080/api/posts',
-      data: {
-          post: newPost
-      }
+      data: newPost
     });
   };
 }]);
