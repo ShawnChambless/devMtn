@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("addContentCtrl",["$scope","addContentService",function(o,n){o.modalShown=!1,o.toggleModal=function(){o.modalShown=!o.modalShown},o.addPost=function(o){n.addPost(o)}}]);
+angular.module("groupProject").controller("addContentCtrl",["$scope","addContentService",function(o,t){o.addPost=function(n){t.addPost(o.newPost)}}]);

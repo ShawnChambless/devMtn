@@ -3,14 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>DevMountain Group Project</title>
+        <link rel='stylesheet' href='bower_components/fontawesome/css/font-awesome.css' />
         <link rel='stylesheet' href='styles/main.css' />
     </head>
     <body ng-app='groupProject'>
         <nav>
             <div class="navBar">
                 <a ng-href='/#/profile'>profile</a>
-                <img ng-src='http://nicenicejpg.com/50'>
-                <a ng-href='/#/bounties'>bounties</a>
+                <a href='/#/home'>
+                    <img ng-src='assets/DevMtnLogo.png' height='40'>
+                </a>
+                <a ng-href='/#/bounty'>bounties</a>
             </div>
         </nav>
         <div class="container">
@@ -23,9 +26,11 @@
         <script src='app/contentLanding/contentLandingService.js'></script>
         <script src='app/contentLanding/contentLandingCtrl.js'></script>
         <script src='app/addContent/addContentService.js'></script>
+        <script src='app/addContent/addContentCtrl.js'></script>
         <script src='app/addContent/modalDirective.js'></script>
         <script src='app/Login/LoginService.js'></script>
         <script src='app/Login/LoginCtrl.js'></script>
+        <script src='app/contentLanding/contentCategoriesCtrl.js'></script>
         <script src='app/Login/modalLoginDirective.js'></script>
     </body>
 </html>

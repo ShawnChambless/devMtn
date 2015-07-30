@@ -9,24 +9,35 @@
     button
         float: right
         margin-top: -27px
-
 .posts
     width: 80%
-.posts-item
-    width: 100%
-.post.votes
-    float: left
-.post.title
-    font-size: 2em
-.post.thumbnail
-    float: left
-    margin-right: 20px
-.post.url
-    text-decoration: underline
-    color: blue
-    font-style: italic
-.post.tags
-    font-size: .7em
+    &-item
+        width: 100%
+        display: flex
+        align-items: center
+        margin: 20px 0 20px 0
+.post
+    &.votes
+        // float: left
+    &.title
+        font-size: 2em
+    &.thumbnail
+        // float: left
+        margin-right: 20px
+    &.url
+        text-decoration: underline
+        color: blue
+        font-style: italic
+    &.cat
+        text-transform: uppercase
+        cursor: pointer
+        width: 250px
+    &.tags
+        font-size: .7em
+.fa-info-circle
+    margin-left: 5px
+    font-size: .9em
+
 
 aside
     float: right
@@ -39,3 +50,4 @@ aside
         display: block
         padding: 5px
         text-align: center
+        cursor: pointer
