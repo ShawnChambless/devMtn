@@ -32,7 +32,7 @@ module.exports = {
   retrieveOne: function(req, res){
     var def = $q.defer();
     var query = {};
-    if (req.params.user_id) query = { "_id": req.params.user_id };
+    if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
     .exec().then(function(user, err){
