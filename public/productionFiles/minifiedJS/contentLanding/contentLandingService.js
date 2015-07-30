@@ -1,1 +1,1 @@
-angular.module("groupProject").service("contentLandingService",["$http",function(t){this.getPosts=function(){return t({method:"GET",url:"http://localhost:8080/api/posts"})},this.getCategoryPosts=function(o){return t({method:"GET",url:"http://localhost:8080/api/posts/cats/"+o})}}]);
+angular.module("groupProject").service("contentLandingService",["$http",function(t){this.getPosts=function(){return t({method:"GET",url:"http://localhost:8080/api/posts/approved"})},this.getCategoryPosts=function(o){return t({method:"GET",url:"http://localhost:8080/api/posts/cats/"+o})}}]);
