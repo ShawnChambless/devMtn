@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('LoginCtrl', ['$scope', 'LoginService', function($scope, LoginService, $location) {
+.controller('LoginCtrl', ['$scope', 'LoginService', '$location', function($scope, LoginService, $location) {
 
     $scope.modalShown = false;
     $scope.toggleModal = function() {
@@ -12,12 +12,12 @@ angular.module('groupProject')
     //   }
     // }
 
-    $scope.createUser = function(firstName, lastName, email, password) {
+    $scope.createUser = function(firstName, lastName, email, password, passwordConfirm) {
       console.log('Brah, its user and email stuff', firstName, lastName, email, password);
-      LoginService.createUser(firstName, lastName, email, password).then(function(data) {
+      LoginService.createUser(firstName, lastName, email, password, passwordConfirm).then(function(data) {
         console.log('Duuude, you are a new user!', data);
 
-        // $location.path('url')
+        $location.path('/#/home')
         $scope.firstName = "";
         $scope.lastName = "";
         $scope.email = "";
