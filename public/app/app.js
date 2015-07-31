@@ -1,7 +1,7 @@
 angular.module('groupProject', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
     .state('login', {
@@ -38,14 +38,14 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
         resolve: {
-            getPosts: function(userProfileService) {
-                return userProfileService.getPosts().then(function(postData) {
-                return postData;
-	            });
-            },
+            // getPosts: function(userProfileService) {
+            //     return userProfileService.getPosts().then(function(postData) {
+            //     return postData;
+	        //     });
+            // },
 
-            getUser: function(userProfileService) {
-                return userProfileService.getUser().then(function(resp) {
+            getUser: function(LoginService) {
+                return LoginService.getCurrentUser().then(function(resp) {
                     return resp;
                 });
             }
@@ -60,7 +60,7 @@ angular.module('groupProject', ['ui.router'])
             getPosts: function(adminService){
                 return adminService.getPosts().then(function(postData){
                     return postData;
-                })
+                });
             }
         }
     })

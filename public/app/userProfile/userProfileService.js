@@ -4,7 +4,7 @@ angular.module('groupProject')
     this.getUser = function(userId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/users/' + userId
+            url: 'http://localhost:8080/api/users/' + '55bb9f27010987b105c1d67f'
         });
     };
 
@@ -40,6 +40,26 @@ angular.module('groupProject')
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/users/' + userId + '/bounties'
+        });
+    };
+
+    this.removeFavorite = function(userId, postId) {
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:8080/api/users' + userId,
+            data: {
+                favorites: postId
+            }
+        });
+    };
+
+    this.removeWatchLater = function(userId, postId) {
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:8080/api/users' + userId,
+            data: {
+                watchLater: postId
+            }
         });
     };
 

@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("contentLandingCtrl",["$scope","contentLandingService","getPosts",function(n,o,t){n.modalShown=!1,n.posts=t.data}]);
+angular.module("groupProject").controller("contentLandingCtrl",["$scope","contentLandingService","getPosts",function(o,t,a){o.modalShown=!1,o.posts=a.data,o.addToFavorites=function(o,a){t.addToFavorites(o,a)},o.addToWatchLater=function(o,a){t.addToWatchLater(o,a)}}]);

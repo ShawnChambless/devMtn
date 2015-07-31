@@ -2,12 +2,13 @@
     <div class="profile profileInfo">
         <header>
             <h1>Profile Information</h1>
+            <!-- <input type='submit' ng-click='updateUserInfo(userId)' value='Edit Info'> -->
         </header>
 
-        <div class="userinfo name">{{user.firstName}} {{user.lastName}}</div>
-        <div class="userinfo email">{{user.email}}</div>
-        <div class="userinfo postQty">22</div>
-        <div class="userinfo bountyQty">Total Bucks in Account: 10sb</div>
+        <div class="userinfo">{{user.firstName}} {{user.lastName}}</div>
+        <div class="userinfo">{{user.email}}</div>
+        <div class="userinfo">22</div>
+        <div class="userinfo">Total Bucks in Account: {{user.bounties}}</div>
 
     </div>
 
@@ -17,8 +18,11 @@
         </header>
 
         <div class="favorites" ng-repeat = 'post in posts'>
+
         <div class="post title">{{post.title}}</div>
         <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+        <input type='submit' ng-click='removeFavorite(userId, postId)' value='Remove' />
+
         </div>
 
     </div>
@@ -29,8 +33,11 @@
         </header>
 
         <div class="watchLater" ng-repeat = 'post in posts'>
+
         <div class="post title">{{post.title}}</div>
         <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+        <input type='submit' ng-click='removeWatchLater(userId, postId)' value='Remove' />
+
         </div>
 
     </div>

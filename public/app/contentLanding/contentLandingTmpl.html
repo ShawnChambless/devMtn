@@ -25,6 +25,7 @@
         <option value="code">Image</option>
     </select>
     <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="addPost(newPost)" />
+
 </modal-dialog>
 
 <div class="contentWrapper">
@@ -55,6 +56,11 @@
                 <div class="post description">Description: {{post.desc}}</div>
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
+<<<<<<< HEAD
+=======
+                <input type='submit' ng-click='addToFavorites(userId, post.id)' value='Add to Favorites'>
+                <input type='submit' ng-click='addToWatchLater(userId, post.id)' value='Add to Watch Later'>
+>>>>>>> 2e3bb2534505264bd834e30c1b9fcfa5dd3d3a0e
             </div>
         </div>
     </div>

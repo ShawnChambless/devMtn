@@ -38,4 +38,15 @@ angular.module('groupProject')
       });
       return dfd.promise;
     };
+
+    this.getCurrentUser = function(){
+      var dfd = $q.defer();
+        $http.get('/api/user/')
+          .success(function(user){
+            return user;
+          })
+          .error(function(err){
+            if(err) return err;
+          });
+    };
 }]);

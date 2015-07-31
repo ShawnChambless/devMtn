@@ -74,6 +74,11 @@ module.exports = {
     return def.promise;
   } ,
 
+  getCurrentUser: function(req, res){
+    console.log(req.session, req.user);
+    return req.user;
+  },
+
   update: function(req, res){
     User.findByIdAndUpdate(req.params.user_id, req.body, {new: true}, function(err, updatedUser){
       if (err) return res.status(500).json(err);
@@ -86,6 +91,13 @@ module.exports = {
       if (err) return res.status(500).json(err);
       return res.status(200).send('User ' + req.params.user_id + ' has been deleted');
     });
+  },
+
+  updatePosts: function(req, res){
+      User.findByIdAndUpdate(req.params.user_id, { $push: { favorites: req.params.post_id } }, { upsert: true, new: true }, function(err, updatedUser) {
+          if(err) return res.sendStatus(500).json(err);
+          return res.json('User', req.params.user_id + '\'s favorites list has been updated');
+      });
   }
 
 };
