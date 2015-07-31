@@ -16,7 +16,7 @@
   <form>
 
     <input ng-model="email" type="email" placeholder="Email" class="email" required/>
-    <span class="error" ng-show=""></span>
+    <!-- <span class="error" ng-show=""></span> -->
     <input ng-model="password" type="password" placeholder="Password" class="password"/>
     <button ng-click="loginUser(email, password)" class="buttonLoginSubmit">Submit</button>
     <a class="forgotPasswordLink">Forgot password?</a>
@@ -33,20 +33,20 @@
     <h1 class="modal-h2-signup">SIGNUP</h1>
 
     <h3 class="modal-already-user-link" ng-click="toggleModal()">Already a user?</h3>
-    <form name="signup">
-      <input ng-model="firstName" type="text" placeholder="First Name" class="login-modal-first-name" required>
+    <form name="signup" ng-model="signupForm">
+      <input ng-model="firstName" type="text" placeholder="First Name" class="login-modal-first-name" ng-required/>
 
-      <input ng-model="lastName" type="text" placeholder="Last Name" class="login-modal-last-name" required>
+      <input ng-model="lastName" type="text" placeholder="Last Name" class="login-modal-last-name" ng-required/>
 
-      <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" required>
+      <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" ng-required />
 
-      <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login-modal-password">
+      <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login-modal-password" ng-required/>
 
-      <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="login-modal-reenter-password" validate-equals="password">
+      <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="login-modal-reenter-password" validate-equals="password" ng-required/>
     </form>
 
       <!-- <button ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.passwordConfirm.$pristine || signup.passwordConfirm.$invalid" type="button" name="button"></button> -->
-      <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm)" type="button" class="modal-newuser-button">Submit</button>
+      <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm); toggleModal()" type="button" class="modal-newuser-button">Submit</button>
     <h3 class="modal-forgot-password">Forgot your password?</h3>
 
   </login-modal-dialog>
