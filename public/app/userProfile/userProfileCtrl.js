@@ -13,11 +13,11 @@ angular.module('groupProject')
         userProfileService.deleteAccount(userId);
     };
 
-    // $scope.getFavorites = function() {
-    //     userProfileService.getFavorites().then(function(resp) {
-    //         $scope.favorites = resp.data;
-    //     });
-    // };
+    $scope.getFavorites = function() {
+        userProfileService.getFavorites().then(function(resp) {
+            $scope.favorites = resp.data;
+        });
+    };
 
     $scope.posts = getPosts.data;
 
