@@ -63,6 +63,7 @@ app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.get(    '/api/user/',          userCtrl.getCurrentUser);
 app.put(    '/api/users/:user_id', userCtrl.update );
+app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updatePosts );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
 app.post(   '/api/posts',          postCtrl.create );
