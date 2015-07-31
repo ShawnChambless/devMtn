@@ -46,7 +46,7 @@ angular.module('groupProject')
     this.removeFavorite = function(userId, postId) {
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users' + userId,
+            url: 'http://localhost:8080/api/users/' + userId,
             data: {
                 favorites: postId
             }
@@ -56,7 +56,7 @@ angular.module('groupProject')
     this.removeWatchLater = function(userId, postId) {
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users' + userId,
+            url: 'http://localhost:8080/api/users/' + userId,
             data: {
                 watchLater: postId
             }
