@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("adminCtrl",["$scope","adminService","getPosts",function(o,t,e){o.posts=e.data,o.approvePost=function(o){t.approvePost(o)}}]);
+angular.module("groupProject").controller("adminCtrl",["$scope","adminService","getPosts",function(o,t,n){o.posts=n.data,o.approvePost=function(o){t.approvePost(o)},o.discardPost=function(o){t.discardPost(o)},o.editPost=function(o){t.editPost(o)},o.clearIt=function(){console.log(o.show)}}]);
