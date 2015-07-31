@@ -2,8 +2,9 @@ angular.module('groupProject')
 .controller('userProfileCtrl', ['$scope', 'userProfileService', 'getPosts', 'getUser', function($scope, userProfileService, getPosts, getUser) {
 
 
-        $scope.user = getUser.data;
+    $scope.user = getUser.data;
 
+    $scope.posts = getPosts.data;
 
     $scope.updateUserInfo = function(userId, newInfo) {
         userProfileService.updateUserInfo(userId, newInfo);
@@ -19,7 +20,6 @@ angular.module('groupProject')
         });
     };
 
-    $scope.posts = getPosts.data;
 
     $scope.getBounties = function(userId) {
         userProfileService.getBounties(userId).then(function(resp) {
