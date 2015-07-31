@@ -45,8 +45,18 @@ module.exports = {
     });
   } ,
 
-  retrieveCat: function(req, res){
+  retrieveCatApproved: function(req, res){
     Post.find( {"cat": req.params.cat_name} )
+    .where('isApproved').equals(true)
+    .exec().then(function(posts, err){
+      if (err) return res.status(500).json(err);
+      else return res.status(200).json(posts);
+    });
+  } ,
+
+  retrieveCatPending: function(req, res){
+    Post.find( {"cat": req.params.cat_name} )
+    .where('isApproved').equals(false)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       else return res.status(200).json(posts);

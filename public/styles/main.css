@@ -70,7 +70,8 @@ nav {
   width: 100%;
   background-color: #29BEEB;
   position: absolute;
-  top: 50px;
+  top: 60px;
+  left: 0px;
 }
 
 .loginContainer {
@@ -99,7 +100,7 @@ nav {
   top: 7px;
 }
 
-h1 {
+.loginText {
   color: #404041;
   display: -webkit-box;
   display: -webkit-flex;
@@ -111,20 +112,24 @@ h1 {
           justify-content: center;
 }
 
-.loginLink {
-  color: #00B8EB;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: larger;
+.newUserLink {
+  position: absolute;
+  left: 135px;
+  margin-top: -17px;
+  border: 2px;
+  cursor: pointer;
+  color: #29BEEB;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
 }
 
-.username {
+.newUserLink:hover {
+  background: #57BDE8;
+  color: white;
+  border-radius: 3px;
+}
+
+.email {
   height: 30px;
   width: 150px;
   border-radius: 5px;
@@ -160,7 +165,7 @@ h1 {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 60px;
+  margin-top: 70px;
   margin-bottom: 20px;
   position: absolute;
   left: 120px;
@@ -182,7 +187,7 @@ h1 {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 110px;
+  margin-top: 125px;
   margin-bottom: 20px;
   position: absolute;
   left: 120px;
@@ -204,10 +209,205 @@ h1 {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 160px;
+  margin-top: 175px;
   margin-bottom: 20px;
   position: absolute;
   left: 135px;
+  cursor: pointer;
+  color: #29BEEB;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.forgotPasswordLink:hover {
+  background: #57BDE8;
+  color: white;
+  border-radius: 3px;
+}
+
+.login-modal-container {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.ng-modal-dialog {
+  border-radius: 20px;
+  background-color: #EFEFEF;
+}
+
+.ng-modal-overlay {
+  width: 100%;
+  height: 100%;
+  opacity: .4;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+}
+
+.ng-modal-close {
+  z-index: 0;
+}
+
+.login-modal-navbar {
+  height: 70px;
+}
+
+.login-modal-logo {
+  height: 50px;
+  width: 50px;
+  background: url("https://devmounta.in/img/logoonly.png") no-repeat;
+  background-size: 100%;
+  position: relative;
+  left: 43%;
+  top: 7px;
+}
+
+.modal-h2-signup {
+  position: absolute;
+  top: 50px;
+  left: 185px;
+  font-size: 30px;
+}
+
+.modal-already-user-link {
+  position: absolute;
+  top: 95px;
+  left: 190px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #29BEEB;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.modal-already-user-link:hover {
+  background: #57BDE8;
+  color: white;
+  border-radius: 3px;
+}
+
+.login-modal-first-name {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 140px;
+  left: 115px;
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px;
+  text-align: center;
+  font-size: larger;
+}
+
+.login-modal-last-name {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 200px;
+  left: 115px;
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px;
+  text-align: center;
+  font-size: larger;
+}
+
+.login-modal-email {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 260px;
+  left: 115px;
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px;
+  text-align: center;
+  font-size: larger;
+}
+
+.login-modal-password {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 320px;
+  left: 115px;
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px;
+  text-align: center;
+  font-size: larger;
+}
+
+.login-modal-reenter-password {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 380px;
+  left: 115px;
+  height: 40px;
+  width: 250px;
+  border-radius: 5px;
+  border: 2px;
+  text-align: center;
+  font-size: larger;
+}
+
+.modal-newuser-button {
+  height: 40px;
+  width: 155px;
+  border-radius: 5px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  font-size: larger;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 165px;
+  top: 430px;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.modal-newuser-button:hover {
+  background: #57BDE8;
+}
+
+.modal-forgot-password {
+  position: absolute;
+  top: 455px;
+  left: 140px;
+  cursor: pointer;
+  color: #29BEEB;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.modal-forgot-password:hover {
+  background: #57BDE8;
+  color: white;
+  border-radius: 3px;
 }
 
 nav {

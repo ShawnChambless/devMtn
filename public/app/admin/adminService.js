@@ -14,6 +14,20 @@ angular.module('groupProject')
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + id,
   		data: {isApproved: true}
-  	})
-  }
+  	});
+  };
+
+  this.discardPost = function(id){
+  	return $http({
+  		method: 'DELETE',
+  		url: 'http://localhost:8080/api/posts/' + id
+  	});
+  };
+
+  this.editPost = function(id){
+  	return $http({
+  		method: 'PUT',
+  		url: 'http://localhost:8080/api/posts/' + id
+  	});
+  };
 }]);
