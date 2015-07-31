@@ -5,4 +5,12 @@ angular.module('groupProject')
 
 	$scope.posts = getPosts.data;
 
+	$scope.addToFavorites = function(userId, postId) {
+		contentLandingService.addToFavorites(userId, postId);
+	};
+
+	$scope.addToWatchLater = function(userId, postId) {
+		contentLandingService.addToWatchLater(userId, postId);
+	};
+
 }]);
