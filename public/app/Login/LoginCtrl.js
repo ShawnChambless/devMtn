@@ -12,17 +12,17 @@ angular.module('groupProject')
     //   }
     // }
 
-    $scope.createUser = function(firstName, lastName, email, password, passwordConfirm) {
+    $scope.createUser = function(firstName, lastName, email, password) {
       console.log('Brah, its user and email stuff', firstName, lastName, email, password);
-      LoginService.createUser(firstName, lastName, email, password, passwordConfirm).then(function(data) {
+      LoginService.createUser(firstName, lastName, email, password).then(function(data) {
         console.log('Duuude, you are a new user!', data);
-
-        $state.go('login');
-        $scope.firstName = "";
-        $scope.lastName = "";
-        $scope.email = "";
-        $scope.password = "";
-      });
+        $state.go('home');
+      })
+      // .catch(function(err){
+      //   if(err){
+      //     $state.go('login');
+      //   }
+      // });
     };
 
     $scope.loginUser = function(email, password) {
