@@ -18,10 +18,7 @@ angular.module('groupProject')
     this.addToFavorites = function(userId, postId) {
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + userId,
-            data: {
-                favorites: postId
-            }
+            url: 'http://localhost:8080/api/users/' + userId + '/favorites/' + postId,
         });
     };
 
