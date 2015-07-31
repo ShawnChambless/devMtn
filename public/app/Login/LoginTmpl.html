@@ -3,16 +3,51 @@
     <div class="topNav">
       <div class="topNavImage"></div>
     </div>
-    <h1>SIGNUP</h1>
+    <h1 class="loginText">LOGIN</h1>
+
+    <a class="newUserLink" ng-click="toggleModal()">Need an account?</a>
 
     <!-- Modal for new users -->
-    <button ng-click="toggleModal()">Need an account</button>
-    <login-modal-dialog show="modalShown" width="750px" height="60%">Hello</login-modal-dialog>
-    <!-- End of modal -->
 
-    <input type="text" placeholder="Username" class="username"/>
-    <input type="text" placeholder="Email" class="password"/>
-    <button class="buttonLoginSubmit">Submit</button>
-    <a href="/login" class="forgotPasswordLink">Forgot password?</a>
+
+    <div class="ng-modal-close" ng-click="hideModal()"></div>
+
+    <!-- End of modal -->
+  <form>
+
+    <input ng-model="email" type="email" placeholder="Email" class="email" required/>
+    <span class="error" ng-show=""></span>
+    <input ng-model="password" type="password" placeholder="Password" class="password"/>
+    <button ng-click="loginUser(email, password)" class="buttonLoginSubmit">Submit</button>
+    <a class="forgotPasswordLink">Forgot password?</a>
+  </form>
   </div>
+
+
+  <login-modal-dialog show="modalShown" width="500px" height="500px" class="modalSignup">
+
+    <div class="login-modal-navbar">
+      <div class="login-modal-logo"></div>
+    </div>
+
+    <h1 class="modal-h2-signup">SIGNUP</h1>
+
+    <h3 class="modal-already-user-link" ng-click="toggleModal()">Already a user?</h3>
+    <form name="signup">
+      <input ng-model="firstName" type="text" placeholder="First Name" class="login-modal-first-name" required>
+
+      <input ng-model="lastName" type="text" placeholder="Last Name" class="login-modal-last-name" required>
+
+      <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" required>
+
+      <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login-modal-password">
+
+      <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="login-modal-reenter-password" validate-equals="password">
+    </form>
+
+      <!-- <button ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.passwordConfirm.$pristine || signup.passwordConfirm.$invalid" type="button" name="button"></button> -->
+      <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm)" type="button" class="modal-newuser-button">Submit</button>
+    <h3 class="modal-forgot-password">Forgot your password?</h3>
+
+  </login-modal-dialog>
 </span>
