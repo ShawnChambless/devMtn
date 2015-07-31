@@ -27,7 +27,8 @@ angular.module('groupProject')
   this.editPost = function(id){
   	return $http({
   		method: 'PUT',
-  		url: 'http://localhost:8080/api/posts/' + id
+  		url: 'http://localhost:8080/api/posts/' + id,
+  		data: {}
   	});
   };
 }]);
