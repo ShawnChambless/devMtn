@@ -27,5 +27,13 @@ angular.module('groupProject')
         });
     };
 
+    $scope.removeFavorite = function(userId, postId) {
+        userProfileService.removeFavorite(userId, postId);
+    };
+
+    $scope.removeWatchLater = function(userId, postId) {
+        userProfileService.removeWatchLater(userId, postId);
+    };
+
 
 }]);
