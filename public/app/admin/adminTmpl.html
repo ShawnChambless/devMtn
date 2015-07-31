@@ -3,7 +3,7 @@ ADMIN PORTAL
 </div>
 
 <h3>Manage Posts:</h3>
-<div class="posts" show="show">
+<div class="posts">
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post thumbnail"><img ng-src='http://place-hoff.com/85/150' /></div>
         <div class="posts-post">
@@ -17,9 +17,37 @@ ADMIN PORTAL
         </div>
         <input type="submit" ng-click="approvePost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
         <input type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
-        <input type="submit" ng-click="editPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Edit" />
-    </div>
+        <button ng-click='modalShown = !modalShown'>Edit</button>
+        <!-- <input type="submit" ng-click="editPost(post._id)" value="Edit" /> -->
+<!-- MODAL -->
+<modal-dialog controller-name='editContentCtrl' class='contentModal' ng-show='modalShown' width='750px' height='60%'>
+    <input class='contentModalInput' ng-model="post.title" placeholder="Title" />
+    <input class='contentModalInput' ng-model="post.url" placeholder="URL" />
+    <input class='contentModalInput' ng-model="post.desc" placeholder="Description" />
+    <input class='contentModalInput' ng-model="post.tags" placeholder="Tags" />
+    <input class='contentModalInput' ng-model='post.thumbnail' placeholder='Image URL' />
+    <select class='contentModalSelect' ng-model='post.cat' placeholder="Categories">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">Javascript</option>
+        <option value="angular">Angular</option>
+        <option value="mongo">Mongo</option>
+        <option value="mongoose">Mongoose</option>
+        <option value="node">Node</option>
+        <option value="express">Express</option>
+        <option value="react">React</option>
+    </select>
+    <select class='contentModalSelect' ng-model='post.type' placeholder="Type">
+        <option value="article">Article</option>
+        <option value="video">Video</option>
+        <option value="code">Image</option>
+    </select>
+    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post)" />
+</modal-dialog>
+ 	</div>
 </div>
+   
+
 
 <div>
 	<h3>Manage Bounties:</h3>

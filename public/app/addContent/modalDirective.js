@@ -5,6 +5,7 @@ angular.module('groupProject')
         restrict: 'E',
         replace: true,
         transclude: true,
+        // scope: {},
         link: function(scope, element, attrs) {
             scope.dialogStyle = {};
             if (attrs.width)
@@ -13,7 +14,19 @@ angular.module('groupProject')
                 scope.dialogStyle.height = attrs.height;
         },
         templateUrl: 'app/addContent/addContentTmpl.html',
-        controller: 'addContentCtrl'
+        controller: function($scope, addContentService, adminService){
+            $scope.addPost = function(newPost) {
+                console.log(newPost, $scope.newPost);
+                addContentService.addPost(newPost);
+            };
+
+            $scope.editPost = function(editPost, post) {
+                console.log(editPost, post);
+                adminService.editPost(editPost);
+            };
+        }
+        // controller: '@',
+        // name: 'controllerName'
     };
 
 });

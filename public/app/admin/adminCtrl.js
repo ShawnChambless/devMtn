@@ -1,6 +1,8 @@
 angular.module('groupProject')
 .controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
 
+	$scope.modalShown = false;
+
     $scope.posts = getPosts.data;
 
     $scope.approvePost = function(id) {
@@ -12,7 +14,7 @@ angular.module('groupProject')
 	};
 
 	$scope.editPost = function(id){
-		adminService.editPost(id)
+		adminService.editPost(id);
 	};
 
 	$scope.clearIt = function(){
