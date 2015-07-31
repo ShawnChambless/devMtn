@@ -74,6 +74,11 @@ module.exports = {
     return def.promise;
   } ,
 
+  getCurrentUser: function(req, res){
+    console.log(req.session, req.user); 
+    return req.user;
+  },
+
   update: function(req, res){
     User.findByIdAndUpdate(req.params.user_id, req.body, {new: true}, function(err, updatedUser){
       if (err) return res.status(500).json(err);
