@@ -7,7 +7,9 @@ var userSchema = {
   email:      { type: String, required: true, unique: true } ,
   password:   { type: String, required: true } ,
   isAdmin:    { type: Boolean, required: true , default: false} ,
-  posts:      [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ]
+  posts:      [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ],
+  favorites:  [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ],
+  watchLater: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ]
 };
 
 module.exports = new mongoose.Schema( userSchema );
