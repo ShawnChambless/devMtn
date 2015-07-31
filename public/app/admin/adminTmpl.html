@@ -16,6 +16,8 @@ ADMIN PORTAL
             <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
         </div>
         <input type="submit" ng-click="approvePost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
+        <input type="submit" ng-click="approvePost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
+        <input type="submit" ng-click="approvePost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Edit" />
     </div>
 </div>
 
