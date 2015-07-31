@@ -5,10 +5,4 @@ angular.module('groupProject')
 
 	$scope.posts = getPosts.data;
 
-	// $scope.getPosts = function() {
-	// 	contentLandingService.getPosts().then(function(resp) {
-	// 		$scope.posts = resp.data;
-	// 	});
-	// };
-
 }]);
