@@ -93,10 +93,25 @@ module.exports = {
     });
   },
 
-  updatePosts: function(req, res){
-      User.findByIdAndUpdate(req.params.user_id, { $push: { favorites: req.params.post_id } }, { upsert: true, new: true }, function(err, updatedUser) {
-          if(err) return res.sendStatus(500).json(err);
-          return res.json('User', req.params.user_id + '\'s favorites list has been updated');
+  updateFavorites: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.favorites.push(new mongoose.Types.ObjectId(req.params.post_id));
+          user.save(function(error, newUser){
+              if(error) return res.status(500).json(error);
+              res.json(newUser);
+          });
+      });
+  },
+
+  updateWatchLater: function(req, res){
+      User.findById(req.params.user_id, function(err, user) {
+          if(err) return res.status(500).json(err);
+          user.watchLater.push(new mongoose.Types.ObjectId(req.params.watch_later));
+          user.save(function(error, newUsr) {
+              if(error) return res.status(500).json(error);
+              res.json(newUser);
+          });
       });
   }
 
