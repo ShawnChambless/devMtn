@@ -1,8 +1,9 @@
 angular.module('groupProject')
-.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getPosts', 'getUser', function($scope, userProfileService, getPosts, getUser) {
+.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getPosts', 'getUser', 'LoginService', function($scope, userProfileService, getPosts, getUser, LoginService) {
 
 
-    $scope.user = getUser.data;
+    // $scope.user = getUser.data;
+    console.log(getUser);
 
     $scope.posts = getPosts.data;
 

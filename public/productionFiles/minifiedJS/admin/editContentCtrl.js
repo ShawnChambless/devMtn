@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("editContentCtrl",["$scope","adminService",function(t,e){t.editPost=function(e){adminContentService.editPost(t.editPost)}}]);
