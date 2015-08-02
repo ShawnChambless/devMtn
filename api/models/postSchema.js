@@ -1,5 +1,4 @@
 var mongoose    = require( 'mongoose' ) ;
-    // userSchema  = require( './userSchema.js' ) ;
 
 var postSchema = {
   type:         { type: String, required: true, enum: ['video', 'article', 'code'] } ,
