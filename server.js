@@ -14,7 +14,7 @@ var config      = require( './api/config.js' ) ,
     // httpsServer = https.createServer(creds, app) ,
     // MIDDLEWARE
     favicon     = require( 'serve-favicon' ) ,
-    bodyParser  = require( 'body-parser' ).json() ,
+    bodyParser  = require( 'body-parser' ) ,
     cors        = require( 'cors' ) ,
     mongoose    = require( 'mongoose' ) ,
     db          = mongoose.connection ,
@@ -33,7 +33,7 @@ var config      = require( './api/config.js' ) ,
 // Configure Express and Session
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser);
+app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
   secret: 'dev-mtn-portal-express-session',
@@ -63,7 +63,8 @@ app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.get(    '/api/user/',          userCtrl.getCurrentUser);
 app.put(    '/api/users/:user_id', userCtrl.update );
-app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updatePosts );
+app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updateFavorites );
+app.put(    '/api/users/:user_id/watchLater/:post_id', userCtrl.updateWatchLater );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
 app.post(   '/api/posts',          postCtrl.create );
