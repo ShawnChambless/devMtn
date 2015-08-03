@@ -2,6 +2,7 @@ angular.module('groupProject')
 .controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
 
 	$scope.modalShown = false;
+	$scope.modal2Shown = false;
 
     $scope.posts = getPosts.data;
 
@@ -20,4 +21,8 @@ angular.module('groupProject')
 	$scope.clearIt = function(){
 		console.log($scope.show);
 	};
+
+	$scope.postBounty = function(){
+		adminService.postBounty()
+	}
 }]);

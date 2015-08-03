@@ -31,4 +31,11 @@ angular.module('groupProject')
   		data: post
   	});
   };
+
+  this.postBounty = function(){
+    return $http({
+      method: 'POST',
+      url: 'http://localhost:8080/'
+    })
+  }
 }]);

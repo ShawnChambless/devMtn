@@ -16,13 +16,14 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
-                console.log(newPost, $scope.newPost);
                 addContentService.addPost(newPost);
             };
 
             $scope.editPost = function(editPost, post) {
-                console.log(editPost, post);
                 adminService.editPost(editPost);
+            };
+            $scope.toggle = function(){
+                $scope.modal2Shown = !$scope.modal2Shown;
             };
         }
         // controller: '@',
