@@ -14,7 +14,6 @@ module.exports = {
     newPost.tags  = req.body.tags;
     newPost.user  = req.body.user;
     newPost.save(function(err, createdPost) {
-      console.log(1111, err, req.body)
       if (err) return res.status(500).json(err);
       return res.status(200).json(createdPost);
     });

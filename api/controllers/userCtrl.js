@@ -75,7 +75,7 @@ module.exports = {
   } ,
 
   getCurrentUser: function(req, res){
-    console.log(req.session, req.user, 'Req.user info');
+    console.log(req.user);
     return req.user;
   },
 
