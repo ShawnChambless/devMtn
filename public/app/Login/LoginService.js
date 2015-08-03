@@ -2,6 +2,11 @@ angular.module('groupProject')
 .service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
     this.test2 = 'Test from service';
 
+    var currUser = null;
+    this.currentUser = function() {
+      return currUser;
+    };
+
 
     this.createUser = function(firstName, lastName, email, password) {
       var dfd = $q.defer();
@@ -43,6 +48,7 @@ angular.module('groupProject')
       var dfd = $q.defer();
         $http.get('/api/user/')
           .success(function(user){
+            currUser = user;
             return user;
           })
           .error(function(err){

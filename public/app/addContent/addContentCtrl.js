@@ -4,5 +4,5 @@ angular.module('groupProject')
     $scope.addPost = function(newPost) {
         addContentService.addPost($scope.newPost);
     };
-
+    // Remove this scope from this controller and place it with the parent controller
 }]);
