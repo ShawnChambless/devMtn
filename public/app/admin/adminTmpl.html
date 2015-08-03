@@ -42,7 +42,7 @@ ADMIN PORTAL
 		        <option value="video">Video</option>
 		        <option value="code">Image</option>
 		    </select>
-		    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post)" />
+		    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post); modalShown = !modalShown" />
 		</modal-dialog>
  	</div>
 </div>
@@ -54,8 +54,8 @@ ADMIN PORTAL
 	<input type="submit" value="Create Bounty" ng-click="toggle()" />
 
 	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
-		<input placeholder="Title" />
-		<select placeholder="Category">
+		<input ng-model="bounty.title" placeholder="Title" />
+		<select ng-model="bounty.cat" placeholder="Category">
 			<option value="html">HTML</option>
 	        <option value="css">CSS</option>
 	        <option value="javascript">Javascript</option>
@@ -66,15 +66,15 @@ ADMIN PORTAL
 	        <option value="express">Express</option>
 	        <option value="react">React</option>
 	    </select>
-		<input placeholder="Description" />
-		<input placeholder="Tag(s)" />
-		<select placeholder="Type">
+		<input ng-model="bounty.desc" placeholder="Description" />
+		<input ng-model="bounty.tags" placeholder="Tag(s)" />
+		<select ng-model="bounty.type" placeholder="Type">
 	        <option value="article">Article</option>
 	        <option value="video">Video</option>
 	        <option value="code">Image</option>
 	    </select>
-	    <input placeholder="Bounty Value" />
-	    <input type="submit" value="Post Bounty" ng-click="postBounty(bounty)" />
+	    <input ng-model="bounty.value" placeholder="Bounty Value" />
+	    <input type="submit" value="Post Bounty" ng-click="postBounty(bounty); toggleModal2()" />
 	</modal-dialog>
 </div>
 
