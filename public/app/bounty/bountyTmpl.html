@@ -1,0 +1,8 @@
+<div ng-repeat='bounty in bounties'>
+    <div class="bounty title">{{bounty.title}}</div>
+    <div class="bounty cat">{{bounty.cat}}</div>
+    <div class="bounty tags" ng-repeat='tag in bounty.tags'>{{tag}}</div>
+    <div class="bounty description"></div>
+    <div class="bounty value">{{bounty.value}}</div>
+    <div class="bounty type">{{bounty.type}}</div>
+</div>
