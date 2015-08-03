@@ -5,7 +5,7 @@ angular.module('groupProject')
     var currUser = null;
     this.currentUser = function() {
       return currUser;
-    };
+    }
 
 
     this.createUser = function(firstName, lastName, email, password) {
@@ -48,7 +48,6 @@ angular.module('groupProject')
       var dfd = $q.defer();
         $http.get('/api/user/')
           .success(function(user){
-            currUser = user;
             return user;
           })
           .error(function(err){
