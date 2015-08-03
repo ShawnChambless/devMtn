@@ -65,8 +65,15 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('bounty', {
-        url: '/bounty',
+        url: '/bounties',
         templateUrl: 'app/bounty/bountyTmpl.html',
-        controller: 'bountyCtrl'
+        controller: 'bountyCtrl',
+    //  resolve: {
+        //    getBounties: function(bountyService) {
+        //        return bountyService.getBounties().then(function(resp) {
+        //            return resp;
+        //        });
+        //    };
+        //}
     });
 }]);
