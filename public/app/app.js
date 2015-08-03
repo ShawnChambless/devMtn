@@ -64,10 +64,9 @@ angular.module('groupProject', ['ui.router'])
             }
         }
     })
-    .state('category', {
-        url: '/category'
-    })
     .state('bounty', {
-        url: '/bounty'
+        url: '/bounty',
+        templateUrl: 'app/bounty/bountyTmpl.html',
+        controller: 'bountyCtrl'
     });
 }]);
