@@ -26,6 +26,7 @@ var config      = require( './api/config.js' ) ,
     // CONTROLLERS
     userCtrl    = require( './api/controllers/userCtrl.js' ) ,
     postCtrl    = require( './api/controllers/postCtrl.js' ) ,
+    bountyCtrl  = require( './api/controllers/bountyCtrl.js' ) ,
     // SERVICES
     passport    = require( './api/services/passport.js' ) ;
 
@@ -59,9 +60,9 @@ app.get('/auth/logout', function(req, res){
 
 // FRONTEND ENDPOINTS
 app.post(   '/api/users',          userCtrl.create );
+app.get(    '/api/user/',          userCtrl.getCurrentUser );
 app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
-app.get(    '/api/user/',          userCtrl.getCurrentUser);
 app.put(    '/api/users/:user_id', userCtrl.update );
 app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updateFavorites );
 app.put(    '/api/users/:user_id/watchLater/:post_id', userCtrl.updateWatchLater );
@@ -76,6 +77,11 @@ app.get(    '/api/posts/cats/:cat_name/pending',  postCtrl.retrieveCatPending );
 app.put(    '/api/posts/:post_id', postCtrl.update );
 app.delete( '/api/posts/:post_id', postCtrl.remove );
 
+app.post(   '/api/bounties',       bountyCtrl.create );
+app.get(    '/api/bounties',       bountyCtrl.retrieveAll );
+app.get(    '/api/bounties/:bounty_id', bountyCtrl.retrieveOne );
+app.put(    '/api/bounties/:bounty_id', bountyCtrl.update );
+app.delete( '/api/bounties/:bounty_id', bountyCtrl.remove );
 
 // Connect to MongoDB via Mongoose
 mongoose.connect( config.mdbUri );
