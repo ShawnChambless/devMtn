@@ -58,14 +58,8 @@ angular.module('groupProject', ['ui.router'])
         controller: 'userProfileCtrl',
         resolve: {
           isLoggedIn: isLoggedIn,
-            // getPosts: function(userProfileService) {
-            //     return userProfileService.getPosts().then(function(postData) {
-            //     return postData;
-	        //     });
-            // },
-
             getUser: function(LoginService) {
-                return LoginService.getCurrentUser().then(function(resp) {
+                return LoginService.getSessionUser().then(function(resp) {
                     return resp;
                 });
             }
