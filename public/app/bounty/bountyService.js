@@ -15,4 +15,11 @@ angular.module('groupProject')
         });
     };
 
+    this.discardPost = function(bountyId){
+    return $http({
+        method: 'DELETE',
+        url: 'http://localhost:8080/api/bounties/' + bountyId
+         });
+    };
+
 }]);
