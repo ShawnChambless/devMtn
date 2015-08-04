@@ -98,14 +98,14 @@ angular.module('groupProject', ['ui.router'])
            }
         }
     })
-    .state('bountyTitle', {
+    .state('bountyId', {
         url: '/bounties/:_id',
-        templateUrl: 'app/bounty/bountyTmpl.html',
+        templateUrl: 'app/bounty/bountyIdTmpl.html',
         controller: 'bountyIdCtrl',
         resolve: {
           isLoggedIn: isLoggedIn,
-            getBountyTitle: function(bountyService, $stateParams) {
-                return bountyService.getBountyTitle($stateParams._id).then(function(resp) {
+            getBountyId: function(bountyService, $stateParams) {
+                return bountyService.getBountyId($stateParams._id).then(function(resp) {
                     return resp;
                 });
             }
