@@ -63,6 +63,7 @@ app.get(    '/api/user/',          userCtrl.getSessionUser );
 app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
+app.put(    '/api/users/:user_id/posts/:post_id', userCtrl.updatePosts );
 app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updateFavorites );
 app.put(    '/api/users/:user_id/watchLater/:post_id', userCtrl.updateWatchLater );
 app.delete( '/api/users/:user_id', userCtrl.remove );
@@ -80,6 +81,7 @@ app.post(   '/api/bounties',       bountyCtrl.create );
 app.get(    '/api/bounties',       bountyCtrl.retrieveAll );
 app.get(    '/api/bounties/:bounty_id', bountyCtrl.retrieveOne );
 app.put(    '/api/bounties/:bounty_id', bountyCtrl.update );
+app.put(    '/api/bounties/:bounty_id/posts/:post_id', bountyCtrl.updateAddPost );
 app.delete( '/api/bounties/:bounty_id', bountyCtrl.remove );
 
 // Connect to MongoDB via Mongoose

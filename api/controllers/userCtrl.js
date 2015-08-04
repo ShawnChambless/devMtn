@@ -85,33 +85,44 @@ module.exports = {
     });
   } ,
 
-  remove: function(req, res){
-    User.findByIdAndRemove(req.params.user_id, function(err){
-      if (err) return res.status(500).json(err);
-      return res.status(200).send('User ' + req.params.user_id + ' has been deleted');
-    });
+  updatePosts: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.posts.push(new mongoose.Types.ObjectId(req.params.post_id));
+          user.save(function(error, updatedUser){
+              if(error) return res.status(500).json(error);
+              res.json(updatedUser);
+          });
+      });
   },
 
   updateFavorites: function(req, res){
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
           user.favorites.push(new mongoose.Types.ObjectId(req.params.post_id));
-          user.save(function(error, newUser){
+          user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);
-              res.json(newUser);
+              res.json(updatedUser);
           });
       });
   },
 
   updateWatchLater: function(req, res){
-      User.findById(req.params.user_id, function(err, user) {
+      User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
-          user.watchLater.push(new mongoose.Types.ObjectId(req.params.watch_later));
-          user.save(function(error, newUsr) {
+          user.watchLater.push(new mongoose.Types.ObjectId(req.params.post_id));
+          user.save(function(error, updatedUser) {
               if(error) return res.status(500).json(error);
-              res.json(newUser);
+              res.json(updatedUser);
           });
       });
+  },
+
+  remove: function(req, res){
+    User.findByIdAndRemove(req.params.user_id, function(err){
+      if (err) return res.status(500).json(err);
+      return res.status(200).send('User ' + req.params.user_id + ' has been deleted');
+    });
   }
 
 };

@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('contentCategoriesCtrl', ['$scope', 'contentLandingService', 'getCategoryPosts', function($scope, contentLandingService, getCategoryPosts) {
+.controller('contentCategoriesCtrl', ['$scope', 'homeService', 'getCategoryPosts', function($scope, homeService, getCategoryPosts) {
 
     $scope.posts = getCategoryPosts.data;
     $scope.addPost = function(newPost) {

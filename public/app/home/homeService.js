@@ -1,6 +1,8 @@
 angular.module('groupProject')
-.service('contentLandingService', ['$http', function($http) {
+.service('homeService', ['$http', 'LoginService', function($http, LoginService) {
 
+    var user = LoginService.currentUser();
+    
     this.getPosts = function() {
         return $http({
             method: 'GET',
@@ -15,17 +17,18 @@ angular.module('groupProject')
         });
     };
 
-    this.addToFavorites = function(userId, postId) {
+    this.addToFavorites = function(postId) {
+        user = user;
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + userId + '/favorites/' + postId
+            url: 'http://localhost:8080/api/users/' + user._id + '/favorites/' + postId
         });
     };
 
-    this.addToWatchLater = function(userId, postId) {
+    this.addToWatchLater = function(postId) {
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + userId + '/watchLater/' + postId,
+            url: 'http://localhost:8080/api/users/' + user._id + '/watchLater/' + postId,
         });
     };
 

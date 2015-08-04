@@ -1,11 +1,10 @@
 angular.module('groupProject')
-.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getPosts', 'getUser', 'LoginService', function($scope, userProfileService, getPosts, getUser, LoginService) {
+.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', function($scope, userProfileService, getUser, LoginService) {
 
 
     // $scope.user = getUser.data;
-    console.log(getUser);
-
-    $scope.posts = getPosts.data;
+    console.log('user', getUser);
+    $scope.user = getUser;
 
     $scope.updateUserInfo = function(userId, newInfo) {
         userProfileService.updateUserInfo(userId, newInfo);
