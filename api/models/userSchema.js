@@ -10,7 +10,7 @@ var userSchema = {
   favorites:  [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ] ,
   watchLater: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ] ,
   bounties:   [ { type: mongoose.Schema.Types.ObjectId, ref: 'Bounty' } ] ,
-  devBucks:   { type: Number, required: true }
+  devBucks:   { type: Number, required: true, default: 0}
 };
 
 module.exports = new mongoose.Schema( userSchema );

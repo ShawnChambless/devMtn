@@ -37,7 +37,7 @@ passport.use('local-signup', new LocalStrategy({
       newUser.lastName  = req.body.lastName;
       newUser.email     = req.body.email;
       newUser.password  = createHash(req.body.password);
-      newUser.save(function(err, createdUser) {
+      newUser.save(function(createErr, createdUser) {
         if (createErr) {
           console.log('Error in Saving user: ' + createErr);
           return done(createErr);
