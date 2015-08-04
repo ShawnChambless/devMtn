@@ -75,7 +75,7 @@ angular.module('groupProject', ['ui.router'])
           isLoggedIn: function(LoginService, $state){
             LoginService.getSessionUser().then(function(){
               var currentUser = LoginService.currentUser();
-              if (!currentUser) {state.go('login');}
+              if (!currentUser) {$state.go('login');}
               else if (!currentUser.isAdmin) {$state.go('home');}
             });
           },

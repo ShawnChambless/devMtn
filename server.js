@@ -81,7 +81,6 @@ app.post(   '/api/bounties',       bountyCtrl.create );
 app.get(    '/api/bounties',       bountyCtrl.retrieveAll );
 app.get(    '/api/bounties/:bounty_id', bountyCtrl.retrieveOne );
 app.put(    '/api/bounties/:bounty_id', bountyCtrl.update );
-app.put(    '/api/bounties/:bounty_id/posts/:post_id', bountyCtrl.updateAddPost );
 app.delete( '/api/bounties/:bounty_id', bountyCtrl.remove );
 
 // Connect to MongoDB via Mongoose
