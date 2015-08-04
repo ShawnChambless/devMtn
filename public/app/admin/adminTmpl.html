@@ -42,7 +42,7 @@ ADMIN PORTAL
 		        <option value="video">Video</option>
 		        <option value="code">Image</option>
 		    </select>
-		    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post); modalShown = !modalShown" />
+		    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post); toggle()" />
 		</modal-dialog>
  	</div>
 </div>
@@ -51,7 +51,7 @@ ADMIN PORTAL
 
 <div>
 	<h3>Manage Bounties:</h3>
-	<input type="submit" value="Create Bounty" ng-click="toggle()" />
+	<input type="submit" value="Create Bounty" ng-click="toggleModal2()" />
 
 	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
 		<input ng-model="bounty.title" placeholder="Title" />
