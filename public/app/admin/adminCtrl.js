@@ -2,6 +2,9 @@ angular.module('groupProject')
 .controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
 
 	$scope.modalShown = false;
+	$scope.toggleModal = function() {
+		$scope.modalShown = !$scope.modalShown;
+	};
 
     $scope.posts = getPosts.data;
 

@@ -16,7 +16,7 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
-                console.log(newPost, $scope.newPost);
+                // console.log(newPost, $scope.newPost);
                 addContentService.addPost(newPost);
             };
 
