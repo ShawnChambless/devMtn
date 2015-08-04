@@ -25,15 +25,15 @@ angular.module('groupProject', ['ui.router'])
     })
     .state('home', {
         url: '/home',
-        templateUrl: 'app/contentLanding/contentLandingTmpl.html',
-        controller: 'contentLandingCtrl',
+        templateUrl: 'app/home/homeTmpl.html',
+        controller: 'homeCtrl',
         resolve: {
           isLoggedIn: isLoggedIn,
           // isLoggedIn: function(LoginService){
           //   if (!LoginService.currentUser()) $state.go('login');
           // },
-          getPosts: function(contentLandingService) {
-              return contentLandingService.getPosts().then(function(postData) {
+          getPosts: function(homeService) {
+              return homeService.getPosts().then(function(postData) {
               return postData;
  		       });
           }
@@ -41,12 +41,12 @@ angular.module('groupProject', ['ui.router'])
     })
     .state('cat', {
         url: '/home/:cat',
-        templateUrl: 'app/contentLanding/contentLandingTmpl.html',
+        templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
           isLoggedIn: isLoggedIn,
-          getCategoryPosts: function(contentLandingService, $stateParams) {
-          return contentLandingService.getCategoryPosts($stateParams.cat).then(function(resp) {
+          getCategoryPosts: function(homeService, $stateParams) {
+          return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
           return resp;
               });
           }
@@ -56,15 +56,15 @@ angular.module('groupProject', ['ui.router'])
         url: '/profile',
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
-        resolve: {
-          isLoggedIn: isLoggedIn,
-            getUser: function(LoginService) {
-                return LoginService.getSessionUser().then(function(resp) {
-                    return resp;
-                });
-            }
-
-        }
+        // resolve: {
+        //   isLoggedIn: isLoggedIn,
+        //     getUser: function(LoginService) {
+        //         return LoginService.getSessionUser().then(function(resp) {
+        //             return resp;
+        //         });
+        //     }
+        //
+        // }
     })
     .state('admin', {
         url: '/admin',

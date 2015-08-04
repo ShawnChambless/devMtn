@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.service('contentLandingService', ['$http', function($http) {
+.service('homeService', ['$http', function($http) {
 
     this.getPosts = function() {
         return $http({
