@@ -2,9 +2,9 @@ angular.module('groupProject', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     var isLoggedIn = function(LoginService, $state){
-      LoginService.getSessionUser().then(function(){
-        if (!LoginService.currentUser()) $state.go('login');
-      })
+        LoginService.getSessionUser().then(function(){
+            if (!LoginService.currentUser()) $state.go('login');
+        });
     };
 
     $urlRouterProvider.otherwise('/login');
