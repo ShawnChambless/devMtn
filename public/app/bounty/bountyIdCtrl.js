@@ -1,6 +1,6 @@
 angular.module('groupProject')
-.controller('bountyIdCtrl', ['$scope', 'bountyService', 'getBountyTitle', function($scope, bountyService, getBountyTitle) {
+.controller('bountyIdCtrl', ['$scope', 'bountyService', 'getBountyId', function($scope, bountyService, getBountyId) {
 
-    $scope.bounties = getBountyTitle.data;
+    $scope.bounty = getBountyId.data[0];
 
 }]);
