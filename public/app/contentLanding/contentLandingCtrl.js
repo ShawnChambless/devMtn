@@ -13,4 +13,8 @@ angular.module('groupProject')
 		contentLandingService.addToWatchLater(userId, postId);
 	};
 
+	$scope.modalShown = false;
+	$scope.toggleModal = function() {
+		$scope.modalShown = !$scope.modalShown;
+	};
 }]);
