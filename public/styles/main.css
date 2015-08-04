@@ -480,27 +480,27 @@ nav {
   margin: 20px 0 20px 0;
 }
 
-.post.title {
+.title {
   font-size: 2em;
 }
 
-.post.thumbnail {
+.thumbnail {
   margin-right: 20px;
 }
 
-.post.url {
+.url {
   text-decoration: underline;
   color: blue;
   font-style: italic;
 }
 
-.post.cat {
+.cat {
   text-transform: uppercase;
   cursor: pointer;
   width: 250px;
 }
 
-.post.tags {
+.tags {
   font-size: .7em;
 }
 

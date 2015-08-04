@@ -87,10 +87,28 @@ angular.module('groupProject', ['ui.router'])
           }
         }
     })
-    .state('category', {
-        url: '/category'
-    })
     .state('bounty', {
-        url: '/bounty'
+        url: '/bounties',
+        templateUrl: 'app/bounty/bountyTmpl.html',
+        controller: 'bountyCtrl',
+     resolve: {
+           bounties: function(bountyService) {
+               return bountyService.getBounties().then(function(resp) {
+                   return resp;
+               });
+           }
+        }
+    })
+    .state('bountyTitle', {
+        url: '/bounties/:_id',
+        templateUrl: 'app/bounty/bountyTmpl.html',
+        controller: 'bountyIdCtrl',
+        resolve: {
+            getBountyTitle: function(bountyService, $stateParams) {
+                return bountyService.getBountyTitle($stateParams._id).then(function(resp) {
+                    return resp;
+                });
+            }
+        }
     });
 }]);
