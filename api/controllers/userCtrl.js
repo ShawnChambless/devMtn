@@ -75,7 +75,6 @@ module.exports = {
   } ,
 
   getSessionUser: function(req, res){
-    console.log('1111111111', req.user);
     return res.status(200).json(req.user);
   },
 
