@@ -2,7 +2,7 @@
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button ng-click='modalShown = !modalShown'>Add Resource</button>
 </div>
-<modal-dialog controller-name='addContentCtrl' class='contentModal' ng-show='modalShown' width='750px' height='60%'>
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
@@ -24,7 +24,7 @@
         <option value="video">Video</option>
         <option value="code">Image</option>
     </select>
-    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="addPost(newPost)" />
+    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="addPost(newPost); toggleModal()" />
 
 </modal-dialog>
 
@@ -56,8 +56,9 @@
                 <div class="post description">Description: {{post.desc}}</div>
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
-                <input type='submit' ng-click='addToFavorites("55bb9f27010987b105c1d67f", post._id)' value='Add to Favorites'>
-                <input type='submit' ng-click='addToWatchLater("55bb9f27010987b105c1d67f", post._id)' value='Add to Watch Later'>
+
+                <input type='submit' ng-click='addToFavorites(userId, post.id)' value='Add to Favorites'>
+                <input type='submit' ng-click='addToWatchLater(userId, post.id)' value='Add to Watch Later'>
             </div>
         </div>
     </div>

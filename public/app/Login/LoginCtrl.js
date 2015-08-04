@@ -13,11 +13,11 @@ angular.module('groupProject')
     // }
 
     $scope.createUser = function(firstName, lastName, email, password) {
-      console.log('Brah, its user and email stuff', firstName, lastName, email, password);
+      console.log('Brah', firstName, lastName, email, password);
       LoginService.createUser(firstName, lastName, email, password).then(function(data) {
         console.log('Duuude, you are a new user!', data);
         $state.go('home');
-      })
+      });
       // .catch(function(err){
       //   if(err){
       //     $state.go('login');
@@ -40,5 +40,15 @@ angular.module('groupProject')
       });
     };
 
+    $scope.getCurrentUser = function(userId) {
+      console.log(user_id, 'User ID should be here')
+      LoginService.getCurrentUser().then(function(data) {
+        if(currUser === user);
+        $state.go('home');
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+    };
 
 }]);
