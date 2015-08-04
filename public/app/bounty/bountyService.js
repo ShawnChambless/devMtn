@@ -8,7 +8,7 @@ angular.module('groupProject')
         });
     };
 
-    this.getBountyTitle = function(bountyId) {
+    this.getBountyId = function(bountyId) {
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/bounties/' + bountyId
