@@ -4,14 +4,14 @@ angular.module('groupProject')
     this.getBounties = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/bounties'
+            url: 'http://localhost:8080/api/bounties'
         });
     };
 
-    this.getCategoryBounties = function() {
+    this.getBountyTitle = function(bountyId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/bounties/category' + cat
+            url: 'http://localhost:8080/api/bounties/' + bountyId
         });
     };
 

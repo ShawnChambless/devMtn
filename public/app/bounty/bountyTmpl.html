@@ -1,5 +1,5 @@
 <div ng-repeat='bounty in bounties'>
-    <div class="bounty title">{{bounty.title}}</div>
+    <div class="bounty title"><a ng-href='/#/bounties/{{bounty._id}}'>{{bounty.title}}</a></div>
     <div class="bounty cat">{{bounty.cat}}</div>
     <div class="bounty tags" ng-repeat='tag in bounty.tags'>{{tag}}</div>
     <div class="bounty description"></div>
