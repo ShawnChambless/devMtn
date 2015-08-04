@@ -2,9 +2,10 @@ angular.module('groupProject')
 .controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
 
 	$scope.modalShown = false;
-  $scope.toggleModal = function() {
-    $scope.modalShown = !$scope.modalShown;
-  };
+  // $scope.toggleModal = function() {
+  // 	console.log($scope.modalShown);
+  //   $scope.modalShown = !$scope.modalShown;
+  // };
 
   $scope.modal2Shown = false;
   $scope.toggleModal2 = function() {
@@ -30,6 +31,7 @@ angular.module('groupProject')
 	};
 
 	$scope.postBounty = function(bounty){
-		adminService.postBounty($scope.bounty);
+		adminService.postBounty(bounty);
 	};
+
 }]);

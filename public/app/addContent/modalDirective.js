@@ -25,7 +25,7 @@ angular.module('groupProject')
                 adminService.editPost(editPost);
             };
             $scope.toggle = function(){
-                $scope.modal2Shown = !$scope.modal2Shown;
+                $scope.modalShown = !$scope.modalShown;
             };
         }
         // controller: '@',
