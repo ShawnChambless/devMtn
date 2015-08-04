@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
+.service('LoginService', ['$http', '$q', function($http, $q) {
 
     var currUser = null;
     this.currentUser = function(){ return currUser; };
