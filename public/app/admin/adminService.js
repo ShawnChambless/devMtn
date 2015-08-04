@@ -33,7 +33,6 @@ angular.module('groupProject')
   };
 
   this.postBounty = function(bounty){
-    console.log(bounty);
     return $http({
       method: 'POST',
       url: 'http://localhost:8080/api/bounties',
