@@ -17,7 +17,7 @@ ADMIN PORTAL
         </div>
         <input type="submit" ng-click="approvePost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
         <input type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
-        <button ng-click='toggleModal()'>Edit</button>
+        <button ng-click='modalShown = !modalShown'>Edit</button>
         <!-- <input type="submit" ng-click="editPost(post._id)" value="Edit" /> -->
 <!-- MODAL -->
 		<modal-dialog controller-name='editContentCtrl' class='contentModal' ng-show='modalShown' width='750px' height='60%'>
@@ -47,9 +47,11 @@ ADMIN PORTAL
  	</div>
 </div>
 
+
+
 <div>
 	<h3>Manage Bounties:</h3>
-	<input type="submit" value="Create Bounty" ng-click="toggle()" />
+	<input type="submit" value="Create Bounty" ng-click="toggleModal2()" />
 
 	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
 		<input ng-model="bounty.title" placeholder="Title" />
@@ -76,6 +78,4 @@ ADMIN PORTAL
 	</modal-dialog>
 </div>
 
-<div>
-	<h3>Manage Bounties:</h3>
 </div>
