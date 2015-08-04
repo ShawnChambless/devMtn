@@ -5,12 +5,12 @@ angular.module('groupProject')
 
 	$scope.posts = getPosts.data;
 
-	$scope.addToFavorites = function(userId, postId) {
-		homeService.addToFavorites(userId, postId);
+	$scope.addToFavorites = function(postId) {
+		homeService.addToFavorites(postId);
 	};
 
-	$scope.addToWatchLater = function(userId, postId) {
-		homeService.addToWatchLater(userId, postId);
+	$scope.addToWatchLater = function(postId) {
+		homeService.addToWatchLater(postId);
 	};
 
 	$scope.modalShown = false;
