@@ -63,7 +63,7 @@ app.get(    '/api/user/',          userCtrl.getSessionUser );
 app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
-app.put(    '/api/users/:user_id/posts', userCtrl.updatePosts );
+app.put(    '/api/users/:user_id/posts/:post_id', userCtrl.updatePosts );
 app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updateFavorites );
 app.put(    '/api/users/:user_id/watchLater/:post_id', userCtrl.updateWatchLater );
 app.delete( '/api/users/:user_id', userCtrl.remove );
