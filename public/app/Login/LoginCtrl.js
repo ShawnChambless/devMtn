@@ -17,7 +17,7 @@ angular.module('groupProject')
       LoginService.createUser(firstName, lastName, email, password).then(function(data) {
         console.log('Duuude, you are a new user!', data);
         $state.go('home');
-      })
+      });
       // .catch(function(err){
       //   if(err){
       //     $state.go('login');

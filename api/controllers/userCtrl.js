@@ -1,7 +1,7 @@
 var mongoose    = require('mongoose') ,
     $q          = require('q') ,
-    bcrypt      = require( 'bcryptjs' ) ,
     User        = mongoose.model('User', require('../models/userSchema.js')) ,
+    bcrypt      = require( 'bcryptjs' ) ,
     createHash  = function(password){ return bcrypt.hashSync(password); } ,
     checkHash   = function(password, hash){ return bcrypt.compareSync(password, hash); } ;
 
@@ -74,9 +74,9 @@ module.exports = {
     return def.promise;
   } ,
 
-  getCurrentUser: function(req, res){
-    console.log(req.user);
-    return req.user;
+  getSessionUser: function(req, res){
+    console.log('1111111111', req.user);
+    return res.status(200).json(req.user);
   },
 
   update: function(req, res){
