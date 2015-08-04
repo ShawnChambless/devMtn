@@ -19,6 +19,7 @@ angular.module('groupProject')
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
                 addContentService.addPost(newPost);
+                
             };
 
             $scope.editPost = function(editPost, post) {

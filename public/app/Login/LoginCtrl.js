@@ -41,7 +41,7 @@ angular.module('groupProject')
     };
 
     $scope.getCurrentUser = function(userId) {
-      console.log(user_id, 'User ID should be here')
+      console.log(user_id, 'User ID should be here');
       LoginService.getCurrentUser().then(function(data) {
         if(currUser === user);
         $state.go('home');
