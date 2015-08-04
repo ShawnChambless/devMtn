@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("bountyIdCtrl",["$scope","bountyService","getBountyTitle",function(o,t,e){o.bounties=e.data}]);
+angular.module("groupProject").controller("bountyIdCtrl",["$scope","bountyService","getBountyId",function(o,t,e){o.bounties=e.data}]);
