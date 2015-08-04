@@ -52,7 +52,7 @@
                 <div class="post votes">{{post.votes}}</div>
                 <div class="post title">{{post.title}}</div>
                 <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
-                <div class="post cat"><a href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
+                <div class="post cat"><a ng-href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
                 <div class="post description">Description: {{post.desc}}</div>
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
@@ -64,7 +64,7 @@
     </div>
 
     <aside class='bounties'>
-        <h3>Bounties</h3>
+        <h3><a href='/#/bounties'>Bounties</a></h3>
         <div ng-repeat='bounty in bounties'>
             <div class="bountyName">{{bounty.name}}</div>
             <div class="bountyCategory">{{bounty.cat}}</div>

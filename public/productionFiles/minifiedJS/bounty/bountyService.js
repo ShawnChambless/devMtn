@@ -1,0 +1,1 @@
+angular.module("groupProject").service("bountyService",["$http",function(t){this.getBounties=function(){return t({method:"GET",url:"http://localhost:8080/api/bounties"})},this.getBountyTitle=function(o){return t({method:"GET",url:"http://localhost:8080/api/bounties/"+o})}}]);

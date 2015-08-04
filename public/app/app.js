@@ -1,24 +1,42 @@
 angular.module('groupProject', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
+    var isLoggedIn = function(LoginService, $state){
+      LoginService.getSessionUser().then(function(){
+        if (!LoginService.currentUser()) $state.go('login');
+      })
+    };
+
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
     .state('login', {
         url: '/login',
         templateUrl: 'app/Login/LoginTmpl.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        resolve: {
+          sessionLogin: function(LoginService, $state){
+            LoginService.getSessionUser().then(function(user){
+              if (LoginService.currentUser()) $state.go('home');
+              return user;
+            });
+          }
+        }
     })
     .state('home', {
         url: '/home',
         templateUrl: 'app/contentLanding/contentLandingTmpl.html',
         controller: 'contentLandingCtrl',
         resolve: {
-            getPosts: function(contentLandingService) {
-                return contentLandingService.getPosts().then(function(postData) {
-                return postData;
-   		       });
-            }
+          isLoggedIn: isLoggedIn,
+          // isLoggedIn: function(LoginService){
+          //   if (!LoginService.currentUser()) $state.go('login');
+          // },
+          getPosts: function(contentLandingService) {
+              return contentLandingService.getPosts().then(function(postData) {
+              return postData;
+ 		       });
+          }
         }
     })
     .state('cat', {
@@ -26,11 +44,12 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/contentLanding/contentLandingTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
-            getCategoryPosts: function(contentLandingService, $stateParams) {
-            return contentLandingService.getCategoryPosts($stateParams.cat).then(function(resp) {
-            return resp;
-                });
-            }
+          isLoggedIn: isLoggedIn,
+          getCategoryPosts: function(contentLandingService, $stateParams) {
+          return contentLandingService.getCategoryPosts($stateParams.cat).then(function(resp) {
+          return resp;
+              });
+          }
         }
     })
     .state('profile',  {
@@ -38,14 +57,9 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
         resolve: {
-            // getPosts: function(userProfileService) {
-            //     return userProfileService.getPosts().then(function(postData) {
-            //     return postData;
-	        //     });
-            // },
-
+          isLoggedIn: isLoggedIn,
             getUser: function(LoginService) {
-                return LoginService.getCurrentUser().then(function(resp) {
+                return LoginService.getSessionUser().then(function(resp) {
                     return resp;
                 });
             }
@@ -57,17 +71,44 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/admin/adminTmpl.html',
         controller: 'adminCtrl',
         resolve: {
-            getPosts: function(adminService){
-                return adminService.getPosts().then(function(postData){
-                    return postData;
+          isLoggedIn: function(LoginService, $state){
+            LoginService.getSessionUser().then(function(){
+              var currentUser = LoginService.currentUser();
+              if (!currentUser) {state.go('login');}
+              else if (!currentUser.isAdmin) {$state.go('home');}
+            });
+          },
+          getPosts: function(adminService){
+              return adminService.getPosts().then(function(postData){
+                  return postData;
+              });
+          }
+        }
+    })
+    .state('bounty', {
+        url: '/bounties',
+        templateUrl: 'app/bounty/bountyTmpl.html',
+        controller: 'bountyCtrl',
+     resolve: {
+       isLoggedIn: isLoggedIn,
+           bounties: function(bountyService) {
+               return bountyService.getBounties().then(function(resp) {
+                   return resp;
+               });
+           }
+        }
+    })
+    .state('bountyTitle', {
+        url: '/bounties/:_id',
+        templateUrl: 'app/bounty/bountyTmpl.html',
+        controller: 'bountyIdCtrl',
+        resolve: {
+          isLoggedIn: isLoggedIn,
+            getBountyTitle: function(bountyService, $stateParams) {
+                return bountyService.getBountyTitle($stateParams._id).then(function(resp) {
+                    return resp;
                 });
             }
         }
-    })
-    .state('category', {
-        url: '/category'
-    })
-    .state('bounty', {
-        url: '/bounty'
     });
 }]);

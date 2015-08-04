@@ -5,6 +5,7 @@ var mongoose    = require( 'mongoose' ) ,
 module.exports = {
 
   create: function(req, res){
+    console.log(11111, req.body)
     var newBounty = new Bounty();
     newBounty.type  = req.body.type;
     newBounty.title = req.body.title;

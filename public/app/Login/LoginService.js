@@ -1,12 +1,21 @@
 angular.module('groupProject')
-.service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
-    this.test2 = 'Test from service';
+.service('LoginService', ['$http', '$q', function($http, $q) {
 
     var currUser = null;
-    this.currentUser = function() {
-      return currUser;
-    }
+    this.currentUser = function(){ return currUser; };
 
+    this.getSessionUser = function(){
+      var dfd = $q.defer();
+      $http.get('/api/user/')
+        .success(function(user){
+          currUser = user;
+          dfd.resolve(user);
+        })
+        .error(function(err){
+          dfd.reject(err);
+        });
+      return dfd.promise;
+    };
 
     this.createUser = function(firstName, lastName, email, password) {
       var dfd = $q.defer();
@@ -37,6 +46,7 @@ angular.module('groupProject')
         }
       }).then(function(response) {
         console.log('User logging in', response);
+        currUser = response.data;
         dfd.resolve(response.data);
       }, function(err) {
         dfd.reject(err);
@@ -44,14 +54,4 @@ angular.module('groupProject')
       return dfd.promise;
     };
 
-    this.getCurrentUser = function(){
-      var dfd = $q.defer();
-        $http.get('/api/user/')
-          .success(function(user){
-            return user;
-          })
-          .error(function(err){
-            if(err) return err;
-          });
-    };
 }]);

@@ -55,12 +55,11 @@ app.post('/auth/local/login', passport.authenticate( 'local-login' ), function(r
 app.get('/auth/logout', function(req, res){
   req.logout();
   res.redirect('/');
-  return res.send('logged out');
 });
 
 // FRONTEND ENDPOINTS
 app.post(   '/api/users',          userCtrl.create );
-app.get(    '/api/user/',          userCtrl.getCurrentUser );
+app.get(    '/api/user/',          userCtrl.getSessionUser );
 app.get(    '/api/users',          userCtrl.retrieveAll );
 app.get(    '/api/users/:user_id', userCtrl.retrieveOne );
 app.put(    '/api/users/:user_id', userCtrl.update );
