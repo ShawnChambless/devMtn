@@ -1,1 +1,1 @@
-angular.module("groupProject").service("addContentService",["$http",function(t){this.addPost=function(o){return t({method:"POST",url:"http://localhost:8080/api/posts",data:o})}}]);
+angular.module("groupProject").service("addContentService",["$http","LoginService",function(t,e){var r=e.currentUser();this.addPost=function(e){return e.user=r._id,t({method:"POST",url:"http://localhost:8080/api/posts",data:e}).then(function(e){return t({method:"PUT",url:"http://localhost:8080/api/users/"+r._id+"/posts/"+e.data._id})})}}]);

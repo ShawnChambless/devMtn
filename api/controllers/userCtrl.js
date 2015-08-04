@@ -108,9 +108,9 @@ module.exports = {
   },
 
   updateWatchLater: function(req, res){
-      User.findById(req.params.user_id, function(err, user) {
+      User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
-          user.watchLater.push(new mongoose.Types.ObjectId(req.params.watch_later));
+          user.watchLater.push(new mongoose.Types.ObjectId(req.params.post_id));
           user.save(function(error, updatedUser) {
               if(error) return res.status(500).json(error);
               res.json(updatedUser);

@@ -57,8 +57,8 @@
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
 
-                <input type='submit' ng-click='addToFavorites(userId, post.id)' value='Add to Favorites'>
-                <input type='submit' ng-click='addToWatchLater(userId, post.id)' value='Add to Watch Later'>
+                <input type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
+                <input type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch Later'>
             </div>
         </div>
     </div>

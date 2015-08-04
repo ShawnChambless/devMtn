@@ -34,6 +34,7 @@ angular.module('groupProject', ['ui.router'])
           // },
           getPosts: function(homeService) {
               return homeService.getPosts().then(function(postData) {
+              console.log(postData);
               return postData;
  		       });
           }
@@ -56,15 +57,15 @@ angular.module('groupProject', ['ui.router'])
         url: '/profile',
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
-        // resolve: {
-        //   isLoggedIn: isLoggedIn,
-        //     getUser: function(LoginService) {
-        //         return LoginService.getSessionUser().then(function(resp) {
-        //             return resp;
-        //         });
-        //     }
-        //
-        // }
+        resolve: {
+          isLoggedIn: isLoggedIn,
+            getUser: function(LoginService) {
+                return LoginService.getSessionUser().then(function(resp) {
+                    return resp;
+                });
+            }
+
+        }
     })
     .state('admin', {
         url: '/admin',
@@ -74,7 +75,7 @@ angular.module('groupProject', ['ui.router'])
           isLoggedIn: function(LoginService, $state){
             LoginService.getSessionUser().then(function(){
               var currentUser = LoginService.currentUser();
-              if (!currentUser) {state.go('login');}
+              if (!currentUser) {$state.go('login');}
               else if (!currentUser.isAdmin) {$state.go('home');}
             });
           },
