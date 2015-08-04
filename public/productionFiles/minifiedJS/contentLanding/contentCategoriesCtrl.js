@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("contentCategoriesCtrl",["$scope","contentLandingService","getCategoryPosts",function(t,o,e){t.posts=e.data,t.addPost=function(o){addContentService.addPost(t.newPost)}}]);
+angular.module("groupProject").controller("contentCategoriesCtrl",["$scope","homeService","getCategoryPosts",function(o,t,e){o.posts=e.data,o.addPost=function(t){addContentService.addPost(o.newPost)}}]);

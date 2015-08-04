@@ -8,8 +8,8 @@ var postSchema = {
   cat:          { type: String, required: true, enum: ['html', 'css', 'javascript', 'angular', 'mongo', 'mongoose', 'node', 'express', 'react'] } ,
   tags:         [ { type: String } ] ,
   user:         { type: mongoose.Schema.Types.ObjectId, ref: 'User' } ,
-  isApproved:   { type: Boolean, required: true, default: false }
-  // rank:         { type: Number, required: true }
+  isApproved:   { type: Boolean, required: true, default: false } ,
+  votes:        { type: Number, required: true, default: 0 }
 };
 
 module.exports = new mongoose.Schema( postSchema );
