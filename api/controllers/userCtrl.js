@@ -35,7 +35,9 @@ module.exports = {
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
+    .populate('favorites watchLater')
     .exec().then(function(user, err){
+        console.log('query', query, 'user', user.favorites);
       if (err) {
         console.log(err);
         if (req.qpromise) {def.reject(err);}
@@ -55,6 +57,7 @@ module.exports = {
       // if no err or user, respond false to passport strategy to go ahead with user creation
       else { def.resolve(null); }
     });
+    console.log('PROMISE', def.promise);
     return def.promise;
   } ,
 
