@@ -5,6 +5,16 @@ angular.module('groupProject')
 
 	$scope.posts = getPosts.data;
 	
+	$scope.upVoteDownVote = function(postId, updatedVote){
+		homeService.upVoteDownVote(postId, updatedVote).success(function(updatedPost){
+			var index;
+			$scope.posts.map(function(item, i){
+				if (item._id === updatedPost._id) index = i;
+			});
+			$scope.posts[index] = updatedPost;
+		});
+	};
+
 	$scope.addToFavorites = function(postId) {
 		homeService.addToFavorites(postId);
 	};

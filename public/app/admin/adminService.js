@@ -18,7 +18,7 @@ angular.module('groupProject')
   		url: 'http://localhost:8080/api/posts/' + id,
   		data: {
 			isApproved: true,
-			user: userId._id
+			user: user._id
 		}
   	});
   };
