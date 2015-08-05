@@ -13,18 +13,10 @@ module.exports = {
     newPost.cat   = req.body.cat;
     newPost.tags  = req.body.tags;
     newPost.user  = req.body.user;
+    newPost.bounty = req.body.bounty;
     newPost.save(function(err, createdPost) {
       if (err) return res.status(500).json(err);
       return res.status(200).json(createdPost);
-    });
-  } ,
-
-  retrieveApproved: function(req, res){
-    Post.find({})
-    .where('isApproved').equals(true)
-    .exec().then(function(posts, err){
-      if (err) return res.status(500).json(err);
-      return res.status(200).json(posts);
     });
   } ,
 
@@ -32,6 +24,15 @@ module.exports = {
     Post.find({})
     .where('isApproved').equals(false)
     .populate('user')
+    .exec().then(function(posts, err){
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(posts);
+    });
+  } ,
+
+  retrieveApproved: function(req, res){
+    Post.find({})
+    .where('isApproved').equals(true)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
@@ -46,8 +47,17 @@ module.exports = {
     });
   } ,
 
+  retrieveCatPending: function(req, res){
+    Post.find( {"cat": req.params.cat} )
+    .where('isApproved').equals(false)
+    .exec().then(function(posts, err){
+      if (err) return res.status(500).json(err);
+      else return res.status(200).json(posts);
+    });
+  } ,
+
   retrieveCatApproved: function(req, res){
-    Post.find( {"cat": req.params.cat_name} )
+    Post.find( {"cat": req.params.cat} )
     .where('isApproved').equals(true)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
@@ -55,9 +65,8 @@ module.exports = {
     });
   } ,
 
-  retrieveCatPending: function(req, res){
-    Post.find( {"cat": req.params.cat_name} )
-    .where('isApproved').equals(false)
+  retrieveCatByTag: function(req, res){
+    Post.find( {"cat": req.params.cat, "tags": req.params.tag} )
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       else return res.status(200).json(posts);

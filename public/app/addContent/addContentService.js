@@ -5,8 +5,9 @@ angular.module('groupProject')
 	var currentUser = LoginService.currentUser();
 
 	this.addPost = function(newPost) {
+
 		newPost.user = currentUser._id;
-		//newPost.bounty = bounty._id;
+
 	    return $http({
 	      method: 'POST',
 	      url: 'http://localhost:8080/api/posts',
