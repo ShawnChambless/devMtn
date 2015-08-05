@@ -4,7 +4,7 @@ angular.module('groupProject')
 	$scope.modalShown = false;
 
 	$scope.posts = getPosts.data;
-
+	
 	$scope.upVoteDownVote = function(postId, updatedVote){
 		homeService.upVoteDownVote(postId, updatedVote).success(function(updatedPost){
 			var index;

@@ -45,7 +45,6 @@ angular.module('groupProject')
           password: password
         }
       }).then(function(response) {
-        console.log('User logging in', response);
         currUser = response.data;
         dfd.resolve(response.data);
       }, function(err) {
