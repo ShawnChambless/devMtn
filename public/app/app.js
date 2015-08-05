@@ -29,9 +29,6 @@ angular.module('groupProject', ['ui.router'])
         controller: 'homeCtrl',
         resolve: {
           isLoggedIn: isLoggedIn,
-          // isLoggedIn: function(LoginService){
-          //   if (!LoginService.currentUser()) $state.go('login');
-          // },
           getPosts: function(homeService) {
               return homeService.getPosts().then(function(postData) {
               return postData;
