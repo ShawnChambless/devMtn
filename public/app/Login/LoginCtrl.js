@@ -27,8 +27,6 @@ angular.module('groupProject')
 
     $scope.loginUser = function(email, password) {
       LoginService.loginUser(email, password).then(function(data) {
-        console.log('Bruh you are logged in!', data);
-
         $state.go('home');
         $scope.email = "";
         $scope.password = "";
@@ -41,7 +39,7 @@ angular.module('groupProject')
     };
 
     $scope.getCurrentUser = function(userId) {
-      console.log(user_id, 'User ID should be here');
+    //   console.log(user_id, 'User ID should be here');
       LoginService.getCurrentUser().then(function(data) {
         if(currUser === user);
         $state.go('home');

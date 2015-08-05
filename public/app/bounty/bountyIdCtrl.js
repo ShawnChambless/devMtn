@@ -6,8 +6,8 @@ angular.module('groupProject')
   $scope.isAdmin = LoginService.currentUser().isAdmin;
 
   $scope.discardPost = function(bountyId){
-  	console.log(bountyId)
-		bountyService.discardPost(bountyId).then(function(res){console.log(res.data)});
+  	console.log(bountyId);
+		bountyService.discardPost(bountyId).then(function(res){console.log(res.data);});
 	};
 
 }]);

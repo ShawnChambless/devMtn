@@ -1,77 +1,49 @@
 var mongoose    = require('mongoose') ,
-    $q          = require('q') ,
-    User        = mongoose.model('User', require('../models/userSchema.js')) ,
-    bcrypt      = require( 'bcryptjs' ) ,
-    createHash  = function(password){ return bcrypt.hashSync(password); } ,
-    checkHash   = function(password, hash){ return bcrypt.compareSync(password, hash); } ;
+    User        = mongoose.model('User', require('../models/userSchema.js')) ;
 
-// usage of 'q' promises is for auth functionality. see passport.js
 module.exports = {
 
   create: function(req, res){
-    var def = $q.defer();
     var newUser = new User();
     newUser.firstName = req.body.firstName;
     newUser.lastName  = req.body.lastName;
     newUser.email     = req.body.email;
     newUser.password  = createHash(req.body.password);
     newUser.save(function(err, createdUser) {
-      if (err) {
-        console.log(err);
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
-      }
-      else {
-        if (req.qpromise) {def.resolve(createdUser);}
-        else {return res.status(200).json(createdUser);}
-      }
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(createdUser);
     });
-    return def.promise;
   } ,
 
   retrieveOne: function(req, res){
-    var def = $q.defer();
     var query = {};
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
+    .populate('favorites watchLater')
     .exec().then(function(user, err){
       if (err) {
         console.log(err);
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
+        return res.status(500).json(err);
       }
       else if (user) {
         if (query._id) return res.status(200).json(user);
         if (checkHash(req.body.password, user.password)) {
-          if (req.qpromise) {def.resolve(user);}
-          else {return res.status(200).json(user);}
+          return res.status(200).json(user);
         }
         if (!checkHash(req.body.password, user.password)) {
-          if (req.qpromise) {def.reject('Invalid password');}
-          else {return res.status(401).send('Invalid password');}
+          return res.status(401).send('Invalid password');
         }
       }
-      // if no err or user, respond false to passport strategy to go ahead with user creation
-      else { def.resolve(null); }
     });
-    return def.promise;
   } ,
 
   retrieveAll: function(req, res){
-    var def = $q.defer();
     User.find({})
     .exec().then(function(users, err){
-      if (err) {
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
-      }
-      else {
-        if (req.qpromise) {def.resolve(users);}
-        else {return res.status(200).json(createdUser);}
-      }
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(createdUser);
     });
-    return def.promise;
   } ,
 
   getSessionUser: function(req, res){
@@ -89,6 +61,17 @@ module.exports = {
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
           user.posts.push(new mongoose.Types.ObjectId(req.params.post_id));
+          user.save(function(error, updatedUser){
+              if(error) return res.status(500).json(error);
+              res.json(updatedUser);
+          });
+      });
+  },
+
+  updateBounties: function(req, res) {
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.bounties.push(new mongoose.Types.ObjectId(req.params.bounty_id));
           user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);
               res.json(updatedUser);
@@ -117,6 +100,24 @@ module.exports = {
           });
       });
   },
+
+  // removeFavorite: function(req, res){
+  //     User.findById(req.params.user_id, function(err, user){
+  //         if(err) return res.status(500).json(err);
+  //         user.favorites.remove({'_id': req.params.post_id}, function(err){
+  //             if(error) return res.status(500).json(error);
+  //         });
+  //     });
+  // },
+  //
+  // removeWatchLater: function(req, res){
+  //     User.findById(req.params.user_id, function(err, user){
+  //         if(err) return res.status(500).json(err);
+  //         user.watchLater.remove({'_id': req.params.post_id}, function(err){
+  //             if(error) return res.status(500).json(error);
+  //         });
+  //     });
+  // },
 
   remove: function(req, res){
     User.findByIdAndRemove(req.params.user_id, function(err){
