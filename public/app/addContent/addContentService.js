@@ -5,6 +5,8 @@ angular.module('groupProject')
 	var currentUser = LoginService.currentUser();
 
 	this.addPost = function(newPost) {
+		newPost.thumbnail = "assets/" + newPost.cat + ".png";
+
 		newPost.user = currentUser._id;
 		//newPost.bounty = bounty._id;
 	    return $http({
