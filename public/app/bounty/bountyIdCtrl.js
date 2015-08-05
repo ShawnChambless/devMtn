@@ -1,9 +1,8 @@
 angular.module('groupProject')
-.controller('bountyIdCtrl', ['$scope', 'bountyService', 'getBountyId', 'LoginService', '$state', function($scope, bountyService, getBountyId, LoginService, $state) {
- 
-  $scope.bounty = getBountyId.data[0];
+.controller('bountyIdCtrl', ['$scope', 'bountyService', 'getBountyId', 'currentUser', '$state', function($scope, bountyService, getBountyId, currentUser, $state) {
 
-  $scope.isAdmin = LoginService.currentUser().isAdmin;
+  $scope.bounty = getBountyId.data[0];
+  $scope.isAdmin = currentUser.isAdmin;
 
  //  $scope.discardPost = function(bountyId){
  //  	console.log(bountyId);

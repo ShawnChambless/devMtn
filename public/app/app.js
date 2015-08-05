@@ -2,8 +2,9 @@ angular.module('groupProject', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     var isLoggedIn = function(LoginService, $state){
-        LoginService.getSessionUser().then(function(){
+        return LoginService.getSessionUser().then(function(user){
             if (!LoginService.currentUser()) $state.go('login');
+            return user;
         });
     };
 
@@ -28,10 +29,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'homeCtrl',
         resolve: {
-          isLoggedIn: isLoggedIn,
-          // isLoggedIn: function(LoginService){
-          //   if (!LoginService.currentUser()) $state.go('login');
-          // },
+          currentUser: isLoggedIn,
           getPosts: function(homeService) {
               return homeService.getPosts().then(function(postData) {
               return postData;
@@ -44,7 +42,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
-          isLoggedIn: isLoggedIn,
+          currentUser: isLoggedIn,
           getCategoryPosts: function(homeService, $stateParams) {
           return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
           return resp;
@@ -75,7 +73,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/admin/adminTmpl.html',
         controller: 'adminCtrl',
         resolve: {
-          isLoggedIn: isLoggedIn,
+          currentUser: isLoggedIn,
             getPosts: function(adminService){
               return adminService.getPosts().then(function(postData){
                   return postData;
@@ -88,7 +86,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/bounty/bountyTmpl.html',
         controller: 'bountyCtrl',
      resolve: {
-       isLoggedIn: isLoggedIn,
+       currentUser: isLoggedIn,
            bounties: function(bountyService) {
                return bountyService.getBounties().then(function(resp) {
                    return resp;
@@ -101,7 +99,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/bounty/bountyIdTmpl.html',
         controller: 'bountyIdCtrl',
         resolve: {
-          isLoggedIn: isLoggedIn,
+          currentUser: isLoggedIn,
             getBountyId: function(bountyService, $stateParams) {
                 return bountyService.getBountyId($stateParams._id).then(function(resp) {
                     return resp;

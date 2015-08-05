@@ -1,5 +1,7 @@
 angular.module('groupProject')
-.controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
+.controller('adminCtrl', ['$scope', 'adminService', 'currentUser', 'getPosts', function($scope, adminService, currentUser, getPosts) {
+
+	var user = currentUser;
 
 	$scope.modalShown = false;
   // $scope.toggleModal = function() {
@@ -14,8 +16,10 @@ angular.module('groupProject')
   $scope.posts = getPosts.data;
 
   $scope.approvePost = function(id) {
-	  post = $scope.post;
- 		adminService.approvePost(id);
+
+	  	post = $scope.post;
+		adminService.approvePost(user._id, id);
+
 	};
 
 	$scope.discardPost = function(id){

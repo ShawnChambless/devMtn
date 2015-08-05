@@ -2,8 +2,6 @@ angular.module('groupProject')
 
 .service('adminService', ['$http', 'LoginService', function($http, LoginService){
 
-	var user = LoginService.currentUser();
-
 	this.getPosts = function(newPost) {
     return $http({
       method: 'GET',
@@ -11,20 +9,22 @@ angular.module('groupProject')
     });
   };
 
-  this.approvePost = function(id){
-	  userId = user;
+  this.approvePost = function(userId, id){
   	return $http({
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + id,
   		data: {
 			isApproved: true,
-			user: user._id
+			user: userId
 		}
   	}).then(function(resp) {
-		return $http({
-			method: 'PUT',
-			url: 'http://localhost:8080/api/users/' + user._id + '/bounties/' + resp.data.bounty
-		});
+		if(bounty) {
+			return $http({
+				method: 'PUT',
+				url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + resp.data.bounty
+			});
+		}
+
 	});
 
   };
