@@ -63,7 +63,6 @@ angular.module('groupProject', ['ui.router'])
                    else {
                      return userProfileService.getUser(LoginService.currentUser()._id).then(function(res){
                          userProfileService.user = res.data;
-                         console.log('RESOLVE',res);
                        return res.data;
                      });
                    }
