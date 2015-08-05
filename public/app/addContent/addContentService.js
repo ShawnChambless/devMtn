@@ -6,16 +6,15 @@ angular.module('groupProject')
 
 	this.addPost = function(newPost) {
 		newPost.user = currentUser._id;
+		//newPost.bounty = bounty._id;
 	    return $http({
 	      method: 'POST',
 	      url: 'http://localhost:8080/api/posts',
 	      data: newPost
   		}).then(function(resp) {
-			userID = currentUser;
-			console.log(userId);
 			return $http({
 				method: 'PUT',
-				url: 'http://localhost:8080/api/users/' + userId._id + '/posts/' + resp.data._id,
+				url: 'http://localhost:8080/api/users/' + newPost.user + '/posts/' + resp.data._id
 	  		});
   		});
 	};
