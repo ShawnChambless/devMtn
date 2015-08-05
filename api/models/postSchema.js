@@ -9,6 +9,7 @@ var postSchema = {
   tags:         [ { type: String } ] ,
   user:         { type: mongoose.Schema.Types.ObjectId, ref: 'User' } ,
   isApproved:   { type: Boolean, required: true, default: false } ,
+  bounty:       { type: mongoose.Schema.Types.ObjectId, ref: 'Bounty' } ,
   votes:        { type: Number, required: true, default: 0 }
 };
 
