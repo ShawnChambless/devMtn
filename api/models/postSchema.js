@@ -10,7 +10,8 @@ var postSchema = {
   user:         { type: mongoose.Schema.Types.ObjectId, ref: 'User' } ,
   isApproved:   { type: Boolean, required: true, default: false } ,
   bounty:       { type: mongoose.Schema.Types.ObjectId, ref: 'Bounty' } ,
-  votes:        { type: Number, required: true, default: 0 }
+  votes:        { type: Number, required: true, default: 0 },
+  thumbnail:    { type: String }
 };
 
 module.exports = new mongoose.Schema( postSchema );

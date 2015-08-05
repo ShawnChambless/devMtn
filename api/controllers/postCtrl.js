@@ -12,7 +12,9 @@ module.exports = {
     newPost.desc  = req.body.desc;
     newPost.cat   = req.body.cat;
     newPost.tags  = req.body.tags;
+    newPost.thumbnail = req.body.thumbnail;
     newPost.user  = req.body.user;
+    newPost.bounty = req.body.bounty;
     newPost.save(function(err, createdPost) {
       if (err) return res.status(500).json(err);
       return res.status(200).json(createdPost);

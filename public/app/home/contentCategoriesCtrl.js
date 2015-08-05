@@ -5,6 +5,6 @@ angular.module('groupProject')
     $scope.addPost = function(newPost) {
         addContentService.addPost($scope.newPost);
     };
-    
+
 
 }]);

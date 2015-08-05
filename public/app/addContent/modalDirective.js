@@ -18,7 +18,9 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
+                newPost.bounty = $scope.bounty._id;
                 addContentService.addPost(newPost);
+                
             };
 
             $scope.editPost = function(editPost, post) {

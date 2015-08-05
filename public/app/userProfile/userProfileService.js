@@ -1,6 +1,6 @@
 angular.module('groupProject')
 .service('userProfileService', ['$http', 'LoginService', function($http, LoginService) {
-    var user = LoginService.currentUser();
+    this.user = {};
 
     this.getUser = function(userId) {
         return $http({
@@ -24,12 +24,12 @@ angular.module('groupProject')
         });
     };
 
-    this.getPosts = function() {
-        return $http({
-            method: 'GET',
-            url: 'http://localhost:8080/api/posts/approved'
-        });
-    };
+    // this.getPosts = function(userId) {
+    //     return $http({
+    //         method: 'GET',
+    //         url: 'http://localhost:8080/api/posts/approved'
+    //     });
+    // };
 
     this.getBounties = function(userId) {
         return $http({
@@ -38,19 +38,17 @@ angular.module('groupProject')
         });
     };
 
-    this.removeFavorite = function(postId) {
-        userId = user;
+    this.removeFavorite = function(userId, postId) {
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId._id + '/favorites/' + postId,
+            url: 'http://localhost:8080/api/users/' + this.user._id + '/favorites/' + postId,
         });
     };
 
-    this.removeWatchLater = function(postId) {
-        userId = user;
+    this.removeWatchLater = function(userId, postId) {
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId._id  + '/watchLater/' + postId
+            url: 'http://localhost:8080/api/users/' + userId  + '/watchLater/' + postId
         });
     };
 
