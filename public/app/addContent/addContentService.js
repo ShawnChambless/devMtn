@@ -11,9 +11,11 @@ angular.module('groupProject')
 	      url: 'http://localhost:8080/api/posts',
 	      data: newPost
   		}).then(function(resp) {
+			userID = currentUser;
+			console.log(userId);
 			return $http({
 				method: 'PUT',
-				url: 'http://localhost:8080/api/users/' + currentUser._id + '/posts/' + resp.data._id,
+				url: 'http://localhost:8080/api/users/' + userId._id + '/posts/' + resp.data._id,
 	  		});
   		});
 	};
