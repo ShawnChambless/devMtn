@@ -1,10 +1,11 @@
 angular.module('groupProject')
-.service('userProfileService', ['$http', function($http) {
-
+.service('userProfileService', ['$http', 'LoginService', function($http, LoginService) {
+    var user = LoginService.currentUser();
+    
     this.getUser = function(userId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/users/' + userId
+            url: 'http://localhost:8080/api/users/' + user._id
         });
     };
 
@@ -23,12 +24,6 @@ angular.module('groupProject')
         });
     };
 
-    // this.getFavorites = function(userId) {
-    //     return $http({
-    //         method: 'GET',
-    //         url: 'http://localhost:8080/api/users/' + userId + '/posts/favorites'
-    //     });
-    // };
     this.getPosts = function() {
         return $http({
             method: 'GET',

@@ -7,8 +7,7 @@
 
         <div class="userinfo">{{user.firstName}} {{user.lastName}}</div>
         <div class="userinfo">{{user.email}}</div>
-        <div class="userinfo">Total Bucks in Account: {{user.bounties.value}}</div>
-
+        <div class="userinfo">Total Bucks in Account: {{user.devBucks}}</div>
     </div>
 
     <div class="profile favorites">
@@ -16,10 +15,10 @@
             <h1>Favorites</h1>
         </header>
 
-        <div class="favorites" ng-repeat = 'post in user.favorites'>
+        <div class="favorites" ng-repeat='favorite in user.favorites'>
 
-        <div class="post title">{{post.title}}</div>
-        <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+        <div class="post title">{{favorite.title}}</div>
+        <div class="post url"><a href={{favorite.url}} target='_blank'>{{favorite.url}}</a></div>
         <input type='submit' ng-click='removeFavorite(userId, postId)' value='Remove' />
 
         </div>
@@ -31,7 +30,7 @@
             <h1>Watch Later</h1>
         </header>
 
-        <div class="watchLater" ng-repeat = 'post in user.watchLater'>
+        <div class="watchLater" ng-repeat='post in user.watchLater'>
 
         <div class="post title">{{post.title}}</div>
         <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
