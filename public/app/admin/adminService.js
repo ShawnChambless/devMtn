@@ -12,13 +12,12 @@ angular.module('groupProject')
   };
 
   this.approvePost = function(id){
-	  userId = user;
   	return $http({
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + id,
   		data: {
 			isApproved: true,
-			user: userId._id
+			user: user._id
 		}
   	});
   };
