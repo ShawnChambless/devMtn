@@ -6,10 +6,10 @@ angular.module('groupProject')
   // 	console.log($scope.modalShown);
   //   $scope.modalShown = !$scope.modalShown;
   // };
-  $scope.modal2Shown = false;
-  $scope.toggleModal2 = function() {
-    $scope.modal2Shown = !$scope.modal2Shown;
-  };
+  // $scope.modal2Shown = false;
+  // $scope.toggleModal2 = function() {
+  //   $scope.modal2Shown = !$scope.modal2Shown;
+  // };
 
   $scope.posts = getPosts.data;
 
@@ -30,8 +30,8 @@ angular.module('groupProject')
 		console.log($scope.show);
 	};
 
-	$scope.postBounty = function(bounty){
-		adminService.postBounty(bounty);
-	};
+	// $scope.postBounty = function(bounty){
+	// 	adminService.postBounty(bounty);
+	// };
 
 }]);
