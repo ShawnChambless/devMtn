@@ -1,11 +1,15 @@
 angular.module('groupProject')
-.service('bountyService', ['$http', function($http) {
+.service('bountyService', ['$http', '$q', function($http, $q) {
 
     this.getBounties = function() {
-        return $http({
+        var dfd = $q.defer();
+        $http({
             method: 'GET',
             url: 'http://localhost:8080/api/bounties'
+        }).then(function(response){
+            dfd.resolve(response);
         });
+        return dfd.promise;
     };
 
     this.getBountyId = function(bountyId) {

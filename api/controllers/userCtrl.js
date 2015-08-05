@@ -1,5 +1,6 @@
 var mongoose    = require('mongoose') ,
     User        = mongoose.model('User', require('../models/userSchema.js')) ;
+    Bounty      = mongoose.model('Bounty', require('../models/bountySchema.js')) ;
 
 module.exports = {
 
@@ -72,6 +73,9 @@ module.exports = {
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
           user.bounties.push(new mongoose.Types.ObjectId(req.params.bounty_id));
+          Bounty.findById(req.params.user_id, function(err, bounty){
+            user.devBucks += bounty.value;
+          });
           user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);
               res.json(updatedUser);
@@ -109,7 +113,7 @@ module.exports = {
           });
       });
   },
-  
+
   removeWatchLater: function(req, res){
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
