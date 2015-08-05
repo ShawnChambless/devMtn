@@ -29,7 +29,7 @@ angular.module('groupProject')
         userId = user;
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + user._id + '/watchLater/' + postId,
+            url: 'http://localhost:8080/api/users/' + user._id + '/watchLater/' + postId
         });
     };
 
