@@ -16,8 +16,10 @@ angular.module('groupProject')
   $scope.posts = getPosts.data;
 
   $scope.approvePost = function(id) {
+
 	  	post = $scope.post;
 		adminService.approvePost(user._id, id);
+
 	};
 
 	$scope.discardPost = function(id){
