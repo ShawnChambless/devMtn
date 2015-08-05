@@ -57,14 +57,19 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
         resolve: {
-          isLoggedIn: isLoggedIn,
-            getUser: function(userProfileService) {
-                return userProfileService.getUser().then(function(resp) {
-                    return resp;
-                });
-            }
-
-        }
+           getUser: function(LoginService, userProfileService, $state){
+               return LoginService.getSessionUser().then(function(){
+                   if (!LoginService.currentUser()) $state.go('login');
+                   else {
+                     return userProfileService.getUser(LoginService.currentUser()._id).then(function(res){
+                         userProfileService.user = res.data;
+                         console.log('RESOLVE',res);
+                       return res.data;
+                     });
+                   }
+               });
+           }
+       }
     })
     .state('admin', {
         url: '/admin',
