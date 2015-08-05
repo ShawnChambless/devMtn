@@ -1,6 +1,8 @@
 angular.module('groupProject')
 
-.service('adminService', ['$http', function($http){
+.service('adminService', ['$http', 'LoginService', function($http, LoginService){
+
+	var user = LoginService.currentUser();
 
 	this.getPosts = function(newPost) {
     return $http({
@@ -10,11 +12,23 @@ angular.module('groupProject')
   };
 
   this.approvePost = function(id){
+	  userId = user;
   	return $http({
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + id,
-  		data: {isApproved: true}
+  		data: {
+			isApproved: true,
+			user: userId._id
+		}
   	});
+  };
+
+  this.approveBountyPost = function(id) {
+	  bountyId = bounty;
+	  return $http({
+		  method: 'GET',
+		  url: 'http://localhost:8080/api/users/' + userId._id + '/bounties/' + bountyId._id
+	  });
   };
 
   this.discardPost = function(id){
