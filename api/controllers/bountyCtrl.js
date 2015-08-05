@@ -20,6 +20,7 @@ module.exports = {
 
   retrieveAll: function(req, res){
     Bounty.find( {} )
+    .where("isOpen").equals(true)
     .exec().then(function(bounties, err){
       if (err) return res.status(500).json(err);
       else return res.status(200).json(bounties);
