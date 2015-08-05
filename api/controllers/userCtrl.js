@@ -16,7 +16,6 @@ module.exports = {
   } ,
 
   retrieveOne: function(req, res){
-    var def = $q.defer();
     var query = {};
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
@@ -38,8 +37,6 @@ module.exports = {
         }
       }
     });
-    console.log('PROMISE', def.promise);
-    return def.promise;
   } ,
 
   retrieveAll: function(req, res){
