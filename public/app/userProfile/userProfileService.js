@@ -39,15 +39,13 @@ angular.module('groupProject')
     };
 
     this.removeFavorite = function(userId, postId) {
-        userId = user;
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId + '/favorites/' + postId,
+            url: 'http://localhost:8080/api/users/' + this.user._id + '/favorites/' + postId,
         });
     };
 
     this.removeWatchLater = function(userId, postId) {
-        userId = user;
         return $http({
             method: 'DELETE',
             url: 'http://localhost:8080/api/users/' + userId  + '/watchLater/' + postId
