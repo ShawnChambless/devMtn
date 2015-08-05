@@ -7,7 +7,6 @@ ADMIN PORTAL
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post thumbnail"><img ng-src='http://place-hoff.com/85/150' /></div>
         <div class="posts-post">
-            <div class="post votes">{{post.votes}}</div>
             <div class="post title">{{post.title}}</div>
             <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
             <div class="post cat"><a href='/#/home/{{post.cat}}'>{{post.cat}}</a></div>
