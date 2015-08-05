@@ -20,19 +20,19 @@ module.exports = {
     });
   } ,
 
-  retrieveApproved: function(req, res){
+  retrievePending: function(req, res){
     Post.find({})
-    .where('isApproved').equals(true)
+    .where('isApproved').equals(false)
+    .populate('user')
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
     });
   } ,
 
-  retrievePending: function(req, res){
+  retrieveApproved: function(req, res){
     Post.find({})
-    .where('isApproved').equals(false)
-    .populate('user')
+    .where('isApproved').equals(true)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
@@ -47,8 +47,17 @@ module.exports = {
     });
   } ,
 
+  retrieveCatPending: function(req, res){
+    Post.find( {"cat": req.params.cat} )
+    .where('isApproved').equals(false)
+    .exec().then(function(posts, err){
+      if (err) return res.status(500).json(err);
+      else return res.status(200).json(posts);
+    });
+  } ,
+
   retrieveCatApproved: function(req, res){
-    Post.find( {"cat": req.params.cat_name} )
+    Post.find( {"cat": req.params.cat} )
     .where('isApproved').equals(true)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
@@ -56,9 +65,8 @@ module.exports = {
     });
   } ,
 
-  retrieveCatPending: function(req, res){
-    Post.find( {"cat": req.params.cat_name} )
-    .where('isApproved').equals(false)
+  retrieveCatByTag: function(req, res){
+    Post.find( {"cat": req.params.cat, "tags": req.params.tag} )
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       else return res.status(200).json(posts);

@@ -33,4 +33,12 @@ angular.module('groupProject')
         });
     };
 
+    this.upVoteDownVote = function(postId, updatedVote){
+        return $http({
+            method: 'PUT',
+            url: 'http://localhost:8080/api/posts/' + postId,
+            data: {votes: updatedVote}
+        });
+    };
+
 }]);
