@@ -20,7 +20,7 @@ module.exports = {
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
-    .populate('favorites watchLater')
+    .populate('favorites watchLater bounties posts')
     .exec().then(function(user, err){
       if (err) {
         console.log(err);
