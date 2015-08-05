@@ -5,7 +5,7 @@ angular.module('groupProject')
     this.getUser = function(userId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/users/' + user._id
+            url: 'http://localhost:8080/api/users/' + userId
         });
     };
 
