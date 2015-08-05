@@ -4,7 +4,7 @@ angular.module('groupProject')
 	$scope.modalShown = false;
 
 	$scope.posts = getPosts.data;
-
+	
 	$scope.addToFavorites = function(postId) {
 		homeService.addToFavorites(postId);
 	};

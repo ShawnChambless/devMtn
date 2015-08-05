@@ -1,11 +1,8 @@
 angular.module('groupProject')
 .controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', function($scope, userProfileService, getUser, LoginService) {
 
-
-    // $scope.user = getUser.data;
-    console.log('user', getUser);
-    $scope.user = getUser;
-
+    $scope.user = getUser.data;
+    console.log(getUser);
     $scope.updateUserInfo = function(userId, newInfo) {
         userProfileService.updateUserInfo(userId, newInfo);
     };
@@ -19,7 +16,6 @@ angular.module('groupProject')
             $scope.favorites = resp.data;
         });
     };
-
 
     $scope.getBounties = function(userId) {
         userProfileService.getBounties(userId).then(function(resp) {
