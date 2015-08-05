@@ -101,23 +101,23 @@ module.exports = {
       });
   },
 
-  // removeFavorite: function(req, res){
-  //     User.findById(req.params.user_id, function(err, user){
-  //         if(err) return res.status(500).json(err);
-  //         user.favorites.remove({'_id': req.params.post_id}, function(err){
-  //             if(error) return res.status(500).json(error);
-  //         });
-  //     });
-  // },
-  //
-  // removeWatchLater: function(req, res){
-  //     User.findById(req.params.user_id, function(err, user){
-  //         if(err) return res.status(500).json(err);
-  //         user.watchLater.remove({'_id': req.params.post_id}, function(err){
-  //             if(error) return res.status(500).json(error);
-  //         });
-  //     });
-  // },
+  removeFavorite: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.favorites.remove({'_id': req.params.post_id}, function(err){
+              if(error) return res.status(500).json(error);
+          });
+      });
+  },
+  
+  removeWatchLater: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.watchLater.remove({'_id': req.params.post_id}, function(err){
+              if(error) return res.status(500).json(error);
+          });
+      });
+  },
 
   remove: function(req, res){
     User.findByIdAndRemove(req.params.user_id, function(err){
