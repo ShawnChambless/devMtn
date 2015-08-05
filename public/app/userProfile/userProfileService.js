@@ -1,7 +1,7 @@
 angular.module('groupProject')
 .service('userProfileService', ['$http', 'LoginService', function($http, LoginService) {
     var user = LoginService.currentUser();
-    
+
     this.getUser = function(userId) {
         return $http({
             method: 'GET',
@@ -38,23 +38,19 @@ angular.module('groupProject')
         });
     };
 
-    this.removeFavorite = function(userId, postId) {
+    this.removeFavorite = function(postId) {
+        userId = user;
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId,
-            data: {
-                favorites: postId
-            }
+            url: 'http://localhost:8080/api/users/' + userId._id + '/favorites/' + postId,
         });
     };
 
-    this.removeWatchLater = function(userId, postId) {
+    this.removeWatchLater = function(postId) {
+        userId = user;
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId,
-            data: {
-                watchLater: postId
-            }
+            url: 'http://localhost:8080/api/users/' + userId._id  + '/watchLater/' + postId
         });
     };
 

@@ -19,7 +19,7 @@
 
         <div class="post title">{{favorite.title}}</div>
         <div class="post url"><a href={{favorite.url}} target='_blank'>{{favorite.url}}</a></div>
-        <input type='submit' ng-click='removeFavorite(userId, postId)' value='Remove' />
+        <input type='submit' ng-click='removeFavorite(favorite._id)' value='Remove' />
 
         </div>
 
@@ -34,7 +34,7 @@
 
         <div class="post title">{{post.title}}</div>
         <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
-        <input type='submit' ng-click='removeWatchLater(userId, postId)' value='Remove' />
+        <input type='submit' ng-click='removeWatchLater(post._id)' value='Remove' />
 
         </div>
 
