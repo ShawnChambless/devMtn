@@ -2,7 +2,7 @@
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button ng-click='toggleModal()'>Add Resource</button>
 </div>
-<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal animated zoomIn' ng-show='modalShown' width='750px' height='60%'>
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal ' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
