@@ -60,7 +60,7 @@ module.exports = {
   // } ,
 
   remove: function(req, res){
-    Bounty.findByIdAndRemove(req.params.Bounty_id, function(err){
+    Bounty.findByIdAndRemove(req.params.bounty_id, function(err){
       if (err) return res.status(500).json(err);
       return res.status(200).send('Bounty ' + req.params.bounty_id + ' has been deleted');
     });

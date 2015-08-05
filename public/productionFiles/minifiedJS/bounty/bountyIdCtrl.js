@@ -1,1 +1,1 @@
-angular.module("groupProject").controller("bountyIdCtrl",["$scope","bountyService","getBountyId","LoginService",function(n,o,e,r){n.bounty=e.data[0],console.log(r.currentUser().isAdmin),n.isAdmin=r.currentUser().isAdmin}]);
+angular.module("groupProject").controller("bountyIdCtrl",["$scope","bountyService","getBountyId","LoginService",function(o,n,t,e){o.bounty=t.data[0],o.isAdmin=e.currentUser().isAdmin,o.discardPost=function(o){console.log(o),n.discardPost(o).then(function(o){console.log(o.data)})}}]);

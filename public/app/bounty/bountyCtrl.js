@@ -3,8 +3,4 @@ angular.module('groupProject')
 
   $scope.bounties = bounties.data;
 
-  $scope.discardPost = function(id){
-		bountyService.discardPost(id);
-	};
-
 }]);

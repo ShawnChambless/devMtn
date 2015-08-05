@@ -1,32 +1,18 @@
 var mongoose    = require('mongoose') ,
-    $q          = require('q') ,
-    User        = mongoose.model('User', require('../models/userSchema.js')) ,
-    bcrypt      = require( 'bcryptjs' ) ,
-    createHash  = function(password){ return bcrypt.hashSync(password); } ,
-    checkHash   = function(password, hash){ return bcrypt.compareSync(password, hash); } ;
+    User        = mongoose.model('User', require('../models/userSchema.js')) ;
 
-// usage of 'q' promises is for auth functionality. see passport.js
 module.exports = {
 
   create: function(req, res){
-    var def = $q.defer();
     var newUser = new User();
     newUser.firstName = req.body.firstName;
     newUser.lastName  = req.body.lastName;
     newUser.email     = req.body.email;
     newUser.password  = createHash(req.body.password);
     newUser.save(function(err, createdUser) {
-      if (err) {
-        console.log(err);
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
-      }
-      else {
-        if (req.qpromise) {def.resolve(createdUser);}
-        else {return res.status(200).json(createdUser);}
-      }
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(createdUser);
     });
-    return def.promise;
   } ,
 
   retrieveOne: function(req, res){
@@ -40,41 +26,28 @@ module.exports = {
         console.log('query', query, 'user', user.favorites);
       if (err) {
         console.log(err);
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
+        return res.status(500).json(err);
       }
       else if (user) {
         if (query._id) return res.status(200).json(user);
         if (checkHash(req.body.password, user.password)) {
-          if (req.qpromise) {def.resolve(user);}
-          else {return res.status(200).json(user);}
+          return res.status(200).json(user);
         }
         if (!checkHash(req.body.password, user.password)) {
-          if (req.qpromise) {def.reject('Invalid password');}
-          else {return res.status(401).send('Invalid password');}
+          return res.status(401).send('Invalid password');
         }
       }
-      // if no err or user, respond false to passport strategy to go ahead with user creation
-      else { def.resolve(null); }
     });
     console.log('PROMISE', def.promise);
     return def.promise;
   } ,
 
   retrieveAll: function(req, res){
-    var def = $q.defer();
     User.find({})
     .exec().then(function(users, err){
-      if (err) {
-        if (req.qpromise) {def.reject(err);}
-        else {return res.status(500).json(err);}
-      }
-      else {
-        if (req.qpromise) {def.resolve(users);}
-        else {return res.status(200).json(createdUser);}
-      }
+      if (err) return res.status(500).json(err);
+      return res.status(200).json(createdUser);
     });
-    return def.promise;
   } ,
 
   getSessionUser: function(req, res){
