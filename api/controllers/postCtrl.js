@@ -31,6 +31,7 @@ module.exports = {
   retrievePending: function(req, res){
     Post.find({})
     .where('isApproved').equals(false)
+    .populate('user')
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
