@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('adminCtrl', ['$scope', 'adminService', 'getPosts', function($scope, adminService, getPosts) {
+.controller('adminCtrl', ['$scope', 'adminService', 'currentUser', 'getPosts', function($scope, adminService, currentUser, getPosts) {
 
 	$scope.modalShown = false;
   // $scope.toggleModal = function() {
