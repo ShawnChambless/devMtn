@@ -20,7 +20,7 @@ module.exports = {
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
-    .populate('favorites watchLater')
+    .populate('favorites watchLater bounties posts')
     .exec().then(function(user, err){
       if (err) {
         console.log(err);
@@ -101,23 +101,23 @@ module.exports = {
       });
   },
 
-  // removeFavorite: function(req, res){
-  //     User.findById(req.params.user_id, function(err, user){
-  //         if(err) return res.status(500).json(err);
-  //         user.favorites.remove({'_id': req.params.post_id}, function(err){
-  //             if(error) return res.status(500).json(error);
-  //         });
-  //     });
-  // },
-  //
-  // removeWatchLater: function(req, res){
-  //     User.findById(req.params.user_id, function(err, user){
-  //         if(err) return res.status(500).json(err);
-  //         user.watchLater.remove({'_id': req.params.post_id}, function(err){
-  //             if(error) return res.status(500).json(error);
-  //         });
-  //     });
-  // },
+  removeFavorite: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.favorites.remove({'_id': req.params.post_id}, function(err){
+              if(error) return res.status(500).json(error);
+          });
+      });
+  },
+  
+  removeWatchLater: function(req, res){
+      User.findById(req.params.user_id, function(err, user){
+          if(err) return res.status(500).json(err);
+          user.watchLater.remove({'_id': req.params.post_id}, function(err){
+              if(error) return res.status(500).json(error);
+          });
+      });
+  },
 
   remove: function(req, res){
     User.findByIdAndRemove(req.params.user_id, function(err){

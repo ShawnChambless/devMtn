@@ -67,16 +67,17 @@ app.put(    '/api/users/:user_id/posts/:post_id', userCtrl.updatePosts );
 app.put(    '/api/users/:user_id/bounties/:bounty_id', userCtrl.updateBounties );
 app.put(    '/api/users/:user_id/favorites/:post_id', userCtrl.updateFavorites );
 app.put(    '/api/users/:user_id/watchLater/:post_id', userCtrl.updateWatchLater );
-// app.delete( '/api/users/:user_id/favorites/:post_id', userCtrl.removeFavorite );
-// app.delete( '/api/users/:user_id/watchLater/:post_id', userCtrl.removeFavorite );
+app.delete( '/api/users/:user_id/favorites/:post_id', userCtrl.removeFavorite );
+app.delete( '/api/users/:user_id/watchLater/:post_id', userCtrl.removeFavorite );
 app.delete( '/api/users/:user_id', userCtrl.remove );
 
 app.post(   '/api/posts',          postCtrl.create );
-app.get(    '/api/posts/approved', postCtrl.retrieveApproved );
 app.get(    '/api/posts/pending',  postCtrl.retrievePending );
+app.get(    '/api/posts/approved', postCtrl.retrieveApproved );
 app.get(    '/api/posts/:post_id', postCtrl.retrieveOne );
-app.get(    '/api/posts/cats/:cat_name/approved',  postCtrl.retrieveCatApproved );
-app.get(    '/api/posts/cats/:cat_name/pending',  postCtrl.retrieveCatPending );
+app.get(    '/api/posts/cats/:cat/pending',  postCtrl.retrieveCatPending );
+app.get(    '/api/posts/cats/:cat/approved',  postCtrl.retrieveCatApproved );
+app.get(    '/api/posts/cats/:cat/tag/:tag',  postCtrl.retrieveCatByTag );
 app.put(    '/api/posts/:post_id', postCtrl.update );
 app.delete( '/api/posts/:post_id', postCtrl.remove );
 

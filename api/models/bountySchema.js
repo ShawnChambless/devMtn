@@ -8,7 +8,8 @@ var bountySchema = {
   tags:      [ { type: String } ] ,
   value:     { type: Number, required: true, default: 1 } ,
   posts:     [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ] ,
-  isClaimed: { type: Boolean, required: true, default: false }
+  isClaimed: { type: Boolean, required: true, default: false },
+  isOpen: {type: Boolean, required: true, default: true}
 };
 
 module.exports = new mongoose.Schema( bountySchema );

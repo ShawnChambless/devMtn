@@ -6,7 +6,6 @@ angular.module('groupProject')
   // 	console.log($scope.modalShown);
   //   $scope.modalShown = !$scope.modalShown;
   // };
-
   $scope.modal2Shown = false;
   $scope.toggleModal2 = function() {
     $scope.modal2Shown = !$scope.modal2Shown;
@@ -15,6 +14,7 @@ angular.module('groupProject')
   $scope.posts = getPosts.data;
 
   $scope.approvePost = function(id) {
+	  post = $scope.post;
  		adminService.approvePost(id);
 	};
 
