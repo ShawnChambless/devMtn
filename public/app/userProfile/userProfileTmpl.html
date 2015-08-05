@@ -35,7 +35,7 @@
             <div class="post title">{{post.title}}</div>
             <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
             <input type='submit' ng-click='removeWatchLater(post._id)' value='Remove' />
-            
+
         </div>
 
     </div>
@@ -49,9 +49,26 @@
 
             <div class="post title">{{bounty.title}}</div>
             <div class="post cat">{{bounty.cat}}</div>
-            <div class="post value">{{bonty.value}}<div>
+            <div class="post value">{{bonty.value}}</div>
 
         </div>
 
     </div>
+
+    <div class="profilePosts">
+
+        <header>
+            <h1>Posts</h1>
+        </header>
+
+        <div ng-repeat='post in user.posts'>
+
+            <div class="post title">{{post.title}}</div>
+            <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+            <input type="submit" ng-click='removePost(post._id)' value='Remove' />
+
+        </div>
+
+    </div>
+
 </div>

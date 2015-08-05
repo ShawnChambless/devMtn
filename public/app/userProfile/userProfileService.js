@@ -1,7 +1,7 @@
 angular.module('groupProject')
 .service('userProfileService', ['$http', 'LoginService', function($http, LoginService) {
     this.user = {};
-    console.log('SERVICE', this.user);
+
     this.getUser = function(userId) {
         return $http({
             method: 'GET',
@@ -9,48 +9,48 @@ angular.module('groupProject')
         });
     };
 
-    this.updateUserInfo = function(newInfo) {
+    this.updateUserInfo = function(userId, newInfo) {
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + this.user._id,
+            url: 'http://localhost:8080/api/users/' + userId,
             data: newInfo
         });
     };
 
-    this.deleteAccount = function() {
+    this.deleteAccount = function(userId) {
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + this.user._id
+            url: 'http://localhost:8080/api/users/' + userId
         });
     };
 
-    this.getPosts = function() {
+    // this.getPosts = function(userId) {
+    //     return $http({
+    //         method: 'GET',
+    //         url: 'http://localhost:8080/api/posts/approved'
+    //     });
+    // };
+
+    this.getBounties = function(userId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/posts/approved'
+            url: 'http://localhost:8080/api/users/' + userId + '/bounties'
         });
     };
 
-    this.getBounties = function() {
-        return $http({
-            method: 'GET',
-            url: 'http://localhost:8080/api/users/' + this.user._id + '/bounties'
-        });
-    };
-
-    this.removeFavorite = function(postId) {
+    this.removeFavorite = function(userId, postId) {
         userId = user;
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId._id + '/favorites/' + postId,
+            url: 'http://localhost:8080/api/users/' + userId + '/favorites/' + postId,
         });
     };
 
-    this.removeWatchLater = function(postId) {
+    this.removeWatchLater = function(userId, postId) {
         userId = user;
         return $http({
             method: 'DELETE',
-            url: 'http://localhost:8080/api/users/' + userId._id  + '/watchLater/' + postId
+            url: 'http://localhost:8080/api/users/' + userId  + '/watchLater/' + postId
         });
     };
 
