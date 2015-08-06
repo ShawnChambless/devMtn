@@ -60,6 +60,10 @@ a {
   font-family: 'arial', 'sans-serif';
 }
 
+.post.votes {
+  width: 50px;
+}
+
 .contentModalInputTitle {
   height: 40px;
   width: 150px;
