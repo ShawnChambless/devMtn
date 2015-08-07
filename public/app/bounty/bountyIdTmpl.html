@@ -3,8 +3,13 @@
 <div class="bounty desc">{{bounty.desc}}</div>
 <div class="bounty tags" ng-repeat='tag in bounty.tags'>{{tag}}</div>
 <div class="bounty description"></div>
-<div class="bounty value">{{bounty.vcloalue}}</div>
+<div class="bounty value">{{bounty.value}}</div>
 <div class="bounty type">{{bounty.type}}</div>
+<!-- INLINE STYLES HERE FOR TESTING -->
+<div class="progress-container" ng-style="{width: '500px', height: '100px', border: '2px solid black', margin: '20px'}">
+	<div class="progress-fill" ng-repeat="div in getNum(bounty.quantityClaimed)" ng-style="{height: '100%', width: bounty.quantityClaimed / bounty.quantityNeeded, 'background-color': 'blue', border: '2px solid black'}">
+	</div>
+</div>
 <input type="submit" value="Claim Bounty" ng-click="modalShown = !modalShown" />
 
 <!-- MODAL -->
