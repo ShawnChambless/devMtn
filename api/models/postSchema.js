@@ -5,7 +5,7 @@ var postSchema = {
   url:          { type: String, required: true } ,
   title:        { type: String, required: true } ,
   desc:         { type: String, required: true } ,
-  cat:          { type: String, required: true, enum: ['html', 'css', 'javascript', 'angular', 'mongo', 'mongoose', 'node', 'express', 'react'] } ,
+  cat:          { type: String, required: true, enum: ['html', 'css', 'javascript', 'angular', 'mongo', 'mongoose', 'node', 'express', 'react', 'git'] } ,
   tags:         [ { type: String } ] ,
   user:         { type: mongoose.Schema.Types.ObjectId, ref: 'User' } ,
   isApproved:   { type: Boolean, required: true, default: false } ,

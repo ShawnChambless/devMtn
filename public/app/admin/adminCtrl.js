@@ -4,22 +4,11 @@ angular.module('groupProject')
 	var user = currentUser;
 
 	$scope.modalShown = false;
-  // $scope.toggleModal = function() {
-  // 	console.log($scope.modalShown);
-  //   $scope.modalShown = !$scope.modalShown;
-  // };
-  // $scope.modal2Shown = false;
-  // $scope.toggleModal2 = function() {
-  //   $scope.modal2Shown = !$scope.modal2Shown;
-  // };
 
   $scope.posts = getPosts.data;
 
-  $scope.approvePost = function(id) {
-
-	  	post = $scope.post;
-		adminService.approvePost(user._id, id);
-
+	$scope.approvePost = function(postId, userId, bountyId) {
+		adminService.approvePost(postId, user._id, bountyId);
 	};
 
 	$scope.discardPost = function(id){

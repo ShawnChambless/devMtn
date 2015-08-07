@@ -1,10 +1,12 @@
 angular.module('groupProject')
-.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', function($scope, homeService, getPosts) {
+.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', 'currentUser', function($scope, homeService, getPosts, currentUser) {
 
 	$scope.modalShown = false;
+	
+	$scope.admin = currentUser.isAdmin;
 
 	$scope.posts = getPosts.data;
-	
+
 	$scope.upVoteDownVote = function(postId, updatedVote){
 		homeService.upVoteDownVote(postId, updatedVote).success(function(updatedPost){
 			var index;
@@ -28,5 +30,9 @@ angular.module('groupProject')
 		$scope.modalShown = !$scope.modalShown;
 
 		$scope.newPost = "";
+	};
+
+	$scope.deletePost = function(postId) {
+		homeService.deletePost(postId);
 	};
 }]);
