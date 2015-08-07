@@ -7,7 +7,7 @@ angular.module('groupProject')
 
   $scope.posts = getPosts.data;
 
-	$scope.approvePost = function(postId, bountyId) {
+	$scope.approvePost = function(postId, userId, bountyId) {
 		adminService.approvePost(postId, user._id, bountyId);
 	};
 

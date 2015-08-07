@@ -10,6 +10,7 @@ angular.module('groupProject')
   	};
 
   this.approvePost = function(postId, userId, bountyId){
+    console.log(postId, userId, bountyId)
  	$http({
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + postId,
