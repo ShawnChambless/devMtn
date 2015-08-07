@@ -1,6 +1,6 @@
 angular.module('groupProject')
 
-.controller('bountyCtrl', ['$scope', 'bountyService', 'bounties', 'currentUser', function($scope, bountyService, bounties, currentUser) {
+.controller('bountyCtrl', ['$scope', 'bountyService', 'bounties', 'currentUser', 'adminService', function($scope, bountyService, bounties, currentUser, adminService) {
 
   $scope.bounties = bounties.data;
 
@@ -10,7 +10,7 @@ angular.module('groupProject')
 	};
 
 	$scope.modal2Shown = false;
-  $scope.toggleModal2 = function() {
+    $scope.toggleModal2 = function() {
     $scope.modal2Shown = !$scope.modal2Shown;
   };
 }]);

@@ -10,7 +10,7 @@
 <!-- MODAL -->
 
 <modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='750px' height='60%'>
-	  {{ bounty.title }} {{bounty._id}}
+	  Bounty {{ bounty.title }} {{bounty._id}}
     <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
