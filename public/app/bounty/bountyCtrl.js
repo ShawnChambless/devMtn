@@ -1,7 +1,7 @@
 angular.module('groupProject')
 
 
-.controller('bountyCtrl', ['$scope', 'bountyService', 'bounties', 'adminService', function($scope, bountyService, bounties, adminService) {
+.controller('bountyCtrl', ['$scope', 'bountyService', 'bounties', 'adminService', 'addContentService', function($scope, bountyService, bounties, adminService, addContentService) {
 
   $scope.bounties = bounties.data;
 

@@ -2,6 +2,8 @@
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button ng-click='toggleModal()'>Add Resource</button>
 </div>
+
+<!-- MODAL -->
 <modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal ' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
@@ -10,7 +12,6 @@
     <textarea class='contentModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{contentModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description"></textarea>
     <hr class="secondLine" />
 
-    <!-- <input class='contentModalInput' ng-model='newPost.thumbnail' placeholder='Image URL' /> -->
     <select class='contentModalSelectLanguage' ng-model='newPost.cat' placeholder="Categories">
         <option value="html">HTML</option>
         <option value="css">CSS</option>
@@ -28,8 +29,9 @@
         <option value="code">Image</option>
     </select>
     <input class='contentModalSubmitBtnHome' type='submit' value='Add Post' ng-click="addPost(newPost); toggleModal()" />
-
 </modal-dialog>
+
+<!-- End MODAL -->
 
 <div class="contentWrapper">
 
