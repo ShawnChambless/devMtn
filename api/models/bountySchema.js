@@ -7,6 +7,7 @@ var bountySchema = {
   cat:       { type: String, required: true, enum: ['html', 'css', 'javascript', 'angular', 'mongo', 'mongoose', 'node', 'express', 'react'] } ,
   tags:      [ { type: String } ] ,
   value:     { type: Number, required: true, default: 1 } ,
+  quantity:  { type: Number, required: true, default: 1 } ,
   posts:     [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ] ,
   isClaimed: { type: Boolean, required: true, default: false },
   isOpen: {type: Boolean, required: true, default: true}

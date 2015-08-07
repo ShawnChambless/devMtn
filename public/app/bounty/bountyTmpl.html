@@ -1,4 +1,4 @@
-<input type="submit" value="Create Bounty" ng-click="toggleModal2()" />
+<input type="submit" ng-show='admin' value="Create Bounty" ng-click="toggleModal2()" />
 
 <!-- MODAL -->
 	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
@@ -22,6 +22,7 @@
 	        <option value="code">Image</option>
 	    </select>
 	    <input ng-model="bounty.value" placeholder="Bounty Value" />
+			<input ng-model="bounty.quantity" placeholder="Quantity of Posts Needed" />
 	    <input type="submit" value="Post Bounty" ng-click="postBounty(bounty); toggleModal2()" />
 	</modal-dialog>
 <!-- END MODAL -->

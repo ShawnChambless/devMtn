@@ -24,6 +24,7 @@ angular.module('groupProject')
             $scope.addBountyPost = function(newPost) {
                 newPost.bounty = $scope.bounty._id;
                 addContentService.addPost(newPost);
+
             };
 
             $scope.editPost = function(editPost, post) {
