@@ -1,10 +1,10 @@
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
-    <button ng-click='toggleModal()'>Add Resource</button>
+    <button class="addResourseBtn" ng-click='toggleModal()'>Add Resource</button>
 </div>
 
 <!-- MODAL -->
-<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal ' ng-show='modalShown' width='750px' height='60%'>
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
@@ -22,13 +22,14 @@
         <option value="node">Node</option>
         <option value="express">Express</option>
         <option value="react">React</option>
+        <option value="git">Git</option>
     </select>
     <select class='contentModalSelectType' ng-model='newPost.type' placeholder="Type">
         <option value="article">Article</option>
         <option value="video">Video</option>
         <option value="code">Image</option>
     </select>
-    <input class='contentModalSubmitBtnHome' type='submit' value='Add Post' ng-click="addPost(newPost); toggleModal()" />
+    <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
 </modal-dialog>
 
 <!-- End MODAL -->
@@ -64,8 +65,8 @@
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
 
-                <input type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
-                <input type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch Later'>
+                <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
+                <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
             </div>
         </div>
     </div>

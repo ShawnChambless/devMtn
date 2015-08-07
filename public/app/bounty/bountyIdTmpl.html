@@ -13,6 +13,7 @@
 
 <modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='750px' height='60%'>
 	  {{ bounty.title }} Bounty:{{ bounty.value }}
+
     <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
@@ -34,7 +35,7 @@
         <option value="code">Image</option>
     </select>
 
-    <input class='contentModalSubmitBtn' type='submit' value='Add Bounty Post' ng-click="addBountyPost(newPost); toggle()" />
+    <input class='contentModalSubmitBtn' type='submit' value='Add Bounty Post' ng-click="addPost(newPost); toggle()" />
 
 
 </modal-dialog>
