@@ -44,8 +44,21 @@ angular.module('groupProject', ['ui.router'])
         resolve: {
           currentUser: isLoggedIn,
           getCategoryPosts: function(homeService, $stateParams) {
-          return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
-          return resp;
+            return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
+                return resp;
+              });
+          }
+        }
+    })
+    .state('tag', {
+        url: '/home/:cat/:tag',
+        templateUrl: 'app/home/homeTmpl.html',
+        controller: 'contentTagsCtrl',
+        resolve: {
+          currentUser: isLoggedIn,
+          getCategoryPostsByTag: function(homeService, $stateParams) {
+            return homeService.getCategoryPostsByTag($stateParams.cat, $stateParams.tag).then(function(resp) {
+                return resp;
               });
           }
         }
@@ -107,4 +120,5 @@ angular.module('groupProject', ['ui.router'])
             }
         }
     });
+
 }]);

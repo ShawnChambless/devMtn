@@ -73,8 +73,8 @@ module.exports = {
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
           user.bounties.push(new mongoose.Types.ObjectId(req.params.bounty_id));
-          Bounty.findById(req.params.user_id, function(err, bounty){
-            user.devBucks += bounty.value;
+          Bounty.findById(req.params.bounty_id, function(err, bounty){
+            user.devBucks = user.devBucks + bounty.value;
           });
           user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);

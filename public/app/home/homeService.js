@@ -17,6 +17,13 @@ angular.module('groupProject')
         });
     };
 
+    this.getCategoryPostsByTag = function(cat, tag) {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:8080/api/posts/cats/' + cat + '/tag/' + tag
+        });
+    };
+
     this.addToFavorites = function(postId) {
         userId = user;
         return $http({

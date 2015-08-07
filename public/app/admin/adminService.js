@@ -18,13 +18,10 @@ angular.module('groupProject')
 			user: userId
 		}
   	}).then(function(resp) {
-		if(bounty) {
-			return $http({
-				method: 'PUT',
-				url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + resp.data.bounty
-			});
-		}
-
+		return $http({
+			method: 'PUT',
+			url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + resp.data.bounty
+		});
 	});
 
   };
