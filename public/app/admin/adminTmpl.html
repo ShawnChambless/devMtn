@@ -1,7 +1,7 @@
 <h3>Manage Posts:</h3>
 <div class="posts">
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
-        <div class="post thumbnail"><img ng-src='http://place-hoff.com/85/150' /></div>
+        <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}'</div>
         <div class="posts-post">
             <div class="post title">{{post.title}}</div>
             <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
@@ -18,12 +18,13 @@
 
 <!-- MODAL -->
 		<modal-dialog controller-name='editContentCtrl' class='contentModal' ng-show='modalShown' width='750px' height='60%'>
-		    <input class='contentModalInput' ng-model="post.title" placeholder="Title" />
-		    <input class='contentModalInput' ng-model="post.url" placeholder="URL" />
-		    <input class='contentModalInput' ng-model="post.desc" placeholder="Description" />
-		    <input class='contentModalInput' ng-model="post.tags" placeholder="Tags" />
-		    <input class='contentModalInput' ng-model='post.thumbnail' placeholder='Image URL' />
-		    <select class='contentModalSelect' ng-model='post.cat' placeholder="Categories">
+		    <input class='contentModalInputTitle' ng-model="post.title" placeholder="Title" />
+		    <input class='contentModalInputUrl' ng-model="post.url" placeholder="URL" />
+		    <textarea class='contentModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{contentModalInputDescExpand: focus}" ng-model="post.desc" placeholder="Description"></textarea>
+		    <input class='contentModalInputTags' ng-model="post.tags" placeholder="Tags" />
+        <hr class="firstLine" />
+        <hr class="secondLine" />
+		    <select class='contentModalSelectLanguage' ng-model='post.cat' placeholder="Categories">
 		        <option value="html">HTML</option>
 		        <option value="css">CSS</option>
 		        <option value="javascript">Javascript</option>
@@ -34,12 +35,12 @@
 		        <option value="express">Express</option>
 		        <option value="react">React</option>
 		    </select>
-		    <select class='contentModalSelect' ng-model='post.type' placeholder="Type">
+		    <select class='contentModalSelectType' ng-model='post.type' placeholder="Type">
 		        <option value="article">Article</option>
 		        <option value="video">Video</option>
 		        <option value="code">Image</option>
 		    </select>
-		    <input class='contentModalSubmitBtn' type='submit' value='Add Post' ng-click="editPost(post); toggle()" />
+		    <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="editPost(post); toggle()" />
 		</modal-dialog>
 
     <!-- End Modal -->

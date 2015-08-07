@@ -11,11 +11,11 @@
 
 <modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='750px' height='60%'>
 	  {{ bounty.title }} {{bounty._id}}
-    <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
-    <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
-    <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
-    <input class='contentModalInput' ng-model="newPost.tags" placeholder="Tags" />
-    <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
+    <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
+    <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
+    <input class='contentModalInputDesc' ng-model="newPost.desc" placeholder="Description" />
+    <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
+    <select class='contentModalSelectLanguage' ng-model='newPost.cat' placeholder="Categories">
         <option value="html">HTML</option>
         <option value="css">CSS</option>
         <option value="javascript">Javascript</option>
@@ -26,13 +26,13 @@
         <option value="express">Express</option>
         <option value="react">React</option>
     </select>
-    <select class='contentModalSelect' ng-model='newPost.type' placeholder="Type">
+    <select class='contentModalSelectType' ng-model='newPost.type' placeholder="Type">
         <option value="article">Article</option>
         <option value="video">Video</option>
         <option value="code">Image</option>
     </select>
 
-    <input class='contentModalSubmitBtn' type='submit' value='Add Bounty Post' ng-click="addPost(newPost); toggle()" />
+    <input class='contentModalSubmitBtnHome' type='submit' value='Add Bounty Post' ng-click="addPost(newPost); toggle()" />
 
 
 </modal-dialog>

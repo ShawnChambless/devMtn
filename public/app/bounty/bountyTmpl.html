@@ -2,8 +2,8 @@
 
 <!-- MODAL -->
 	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
-		<input ng-model="bounty.title" placeholder="Title" />
-		<select ng-model="bounty.cat" placeholder="Category">
+		<input class='contentModalInputTitle' ng-model="bounty.title" placeholder="Title" />
+		<select class='contentModalSelectLanguage' ng-model="bounty.cat" placeholder="Category">
 			<option value="html">HTML</option>
 	        <option value="css">CSS</option>
 	        <option value="javascript">Javascript</option>
@@ -14,15 +14,15 @@
 	        <option value="express">Express</option>
 	        <option value="react">React</option>
 	    </select>
-		<input ng-model="bounty.desc" placeholder="Description" />
-		<input ng-model="bounty.tags" placeholder="Tag(s)" />
-		<select ng-model="bounty.type" placeholder="Type">
+		<textarea class='contentModalInputDesc' ng-model="bounty.desc" placeholder="Description"></textarea>
+		<input class='contentModalInputTags' ng-model="bounty.tags" placeholder="Tag(s)" />
+		<select class='contentModalSelectType' ng-model="bounty.type" placeholder="Type">
 	        <option value="article">Article</option>
 	        <option value="video">Video</option>
 	        <option value="code">Image</option>
 	    </select>
-	    <input ng-model="bounty.value" placeholder="Bounty Value" />
-	    <input type="submit" value="Post Bounty" ng-click="postBounty(bounty); toggleModal2()" />
+	    <input class='contentModalInputUrl' ng-model="bounty.value" placeholder="Bounty Value" />
+	    <input class='contentModalSubmitBtnHome' type="submit" value="Submit" ng-click="postBounty(bounty); toggleModal2()" />
 	</modal-dialog>
 <!-- END MODAL -->
 
