@@ -64,7 +64,7 @@ module.exports = {
           user.posts.push(new mongoose.Types.ObjectId(req.params.post_id));
           user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);
-              res.json(updatedUser);
+              return res.json(updatedUser);
           });
       });
   },
@@ -89,7 +89,7 @@ module.exports = {
           user.favorites.push(new mongoose.Types.ObjectId(req.params.post_id));
           user.save(function(error, updatedUser){
               if(error) return res.status(500).json(error);
-              res.json(updatedUser);
+              return res.json(updatedUser);
           });
       });
   },
@@ -100,7 +100,7 @@ module.exports = {
           user.watchLater.push(new mongoose.Types.ObjectId(req.params.post_id));
           user.save(function(error, updatedUser) {
               if(error) return res.status(500).json(error);
-              res.json(updatedUser);
+              return res.json(updatedUser);
           });
       });
   },
