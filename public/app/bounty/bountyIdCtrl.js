@@ -14,4 +14,13 @@ angular.module('groupProject')
 		$state.go('bounty');
 	};
 
+  $scope.getNum = function(num){
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+      arr.push(undefined);
+    }
+    console.log(bounty);
+    return arr;
+  };
+
 }]);
