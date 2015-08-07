@@ -5,12 +5,14 @@
 <div class="bounty description"></div>
 <div class="bounty value">{{bounty.vcloalue}}</div>
 <div class="bounty type">{{bounty.type}}</div>
+<div class="bounty value">Bounty:{{bounty.value}}</div>
+
 <input type="submit" value="Claim Bounty" ng-click="modalShown = !modalShown" />
 
 <!-- MODAL -->
 
 <modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='750px' height='60%'>
-	  Bounty {{ bounty.title }} {{bounty._id}}
+	  {{ bounty.title }} Bounty:{{ bounty.value }}
     <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />

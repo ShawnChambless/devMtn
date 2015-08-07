@@ -87,10 +87,11 @@ angular.module('groupProject', ['ui.router'])
         controller: 'adminCtrl',
         resolve: {
             currentUser: function(LoginService, $state){
-              LoginService.getSessionUser().then(function(){
+              return LoginService.getSessionUser().then(function(user){
                 var currentUser = LoginService.currentUser();
                 if (!currentUser) {$state.go('login');}
                 else if (!currentUser.isAdmin) {$state.go('home');}
+                return user;
               });
             },
             getPosts: function(adminService){
