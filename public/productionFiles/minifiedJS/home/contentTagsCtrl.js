@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("contentTagsCtrl",["$scope","homeService","getCategoryPostsByTag",function(o,t,e){o.posts=e.data}]);

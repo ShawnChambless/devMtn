@@ -60,7 +60,7 @@
                 <div class="post cat"><a ng-href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
                 <div class="post description">Description: {{post.desc}}</div>
                 <div class="post type">Type: {{post.type}}</div>
-                <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
+                <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
 
                 <input type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                 <input type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch Later'>
