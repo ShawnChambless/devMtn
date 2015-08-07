@@ -53,13 +53,6 @@ module.exports = {
     });
   } ,
 
-  // updateRemovePost: function(req, res){
-  //   Bounty.findByIdAndUpdate(req.params.bounty_id, req.body, {new: true}, function(err, updatedBounty){
-  //     if (err) return res.status(500).json(err);
-  //     return res.status(200).json(updatedBounty);
-  //   });
-  // } ,
-
   remove: function(req, res){
     Bounty.findByIdAndRemove(req.params.bounty_id, function(err){
       if (err) return res.status(500).json(err);
