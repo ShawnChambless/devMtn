@@ -9,25 +9,23 @@ angular.module('groupProject')
 	    });
   	};
 
-  this.approvePost = function(userId, id){
-	  console.log('USER ID', userId, 'ID', id);
-  	return $http({
+  this.approvePost = function(postId, userId, bountyId){
+ 	$http({
   		method: 'PUT',
-  		url: 'http://localhost:8080/api/posts/' + id,
+  		url: 'http://localhost:8080/api/posts/' + postId,
   		data: {
 			isApproved: true,
 			user: userId
 		}
-  	});
+  	}).then(function(){
+      if(bountyId){
+        return $http({
+        method: 'PUT',
+        url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + bountyId
+       });
+      }
+    });
 
-  };
-
-  this.approveBountyPost = function(id) {
-   bountyId = bounty;
-   return $http({
-    method: 'GET',
-    url: 'http://localhost:8080/api/users/' + userId._id + '/bounties/' + bountyId._id
-   });
   };
 
   this.discardPost = function(id){

@@ -2,8 +2,6 @@ angular.module('groupProject')
 
 .service('addContentService', ['$http', 'LoginService', function($http, LoginService){
 
-
-
 	var currentUser = LoginService.currentUser();
 
 	this.addPost = function(newPost) {
