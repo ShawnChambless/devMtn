@@ -1,5 +1,6 @@
 var mongoose    = require( 'mongoose' ) ,
     $q          = require( 'q' ) ,
+    User        = mongoose.model('User', require('../models/userSchema.js')),
     Post        = mongoose.model('Post', require('../models/postSchema.js')) ;
 
 module.exports = {
@@ -82,10 +83,16 @@ module.exports = {
   } ,
 
   remove: function(req, res){
-    Post.findByIdAndRemove(req.params.post_id, function(err){
-      if (err) return res.status(500).json(err);
-      return res.status(200).send('Post ' + req.params.post_id + ' has been deleted');
+    Post.findOne({'_id': req.params.post_id}, function(err, post) {
+        if(err) return res.status(500).json(err);
+        User.findByIdAndUpdate(post.user, {$pull:{posts: post._id}}, function(err, user) {
+            if(err) return res.status(500).json(err);
+        });
+    });
+    Post.findByIdAndRemove(req.params.post_id, function(err) {
+        if(err) return res.status(500);
+        return res.status(200).send('Post ' + req.params.post_id + ' has been deleted');
     });
   }
-
+  
 };
