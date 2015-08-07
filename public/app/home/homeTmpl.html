@@ -55,14 +55,16 @@
         <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText | orderBy:"-votes"'>
             <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' height='150' /></div>
             <div class="posts-post">
-                <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
-                <div class="post votes">{{post.votes}}</div>
-                <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
+                <div class="voteBtns">
+                  <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
+                  <div class="post votes">{{post.votes}}</div>
+                  <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
+                </div>
                 <div class="post title">{{post.title}}</div>
                 <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
                 <div class="post cat"><a ng-href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
                 <div class="post description">Description: {{post.desc}}</div>
-                <div class="post type">Type: {{post.type}}</div>
+                <div class="post type fa fa-television">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
 
                 <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
