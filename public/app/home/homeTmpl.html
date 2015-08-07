@@ -66,7 +66,7 @@
                 <div class="post description">Description: {{post.desc}}</div>
                 <div class="post type fa fa-television">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
-
+                <input type='submit' ng-click='deletePost(post._id)' ng-show='admin' value='Delete'>
                 <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                 <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
             </div>

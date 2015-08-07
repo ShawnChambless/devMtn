@@ -3,14 +3,15 @@ angular.module('groupProject')
 .service('adminService', ['$http', 'LoginService', function($http, LoginService){
 
 	this.getPosts = function(newPost) {
-    return $http({
-      method: 'GET',
-      url: 'http://localhost:8080/api/posts/pending'
-    });
-  };
+	    return $http({
+	      method: 'GET',
+	      url: 'http://localhost:8080/api/posts/pending'
+	    });
+  	};
 
   this.approvePost = function(postId, userId, bountyId){
-     $http({
+    console.log(postId, userId, bountyId)
+ 	$http({
   		method: 'PUT',
   		url: 'http://localhost:8080/api/posts/' + postId,
   		data: {

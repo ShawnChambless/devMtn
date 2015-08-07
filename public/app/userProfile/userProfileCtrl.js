@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', function($scope, userProfileService, getUser, LoginService) {
+.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', 'homeService', function($scope, userProfileService, getUser, LoginService, homeService) {
 
     $scope.user = getUser;
 
@@ -29,6 +29,10 @@ angular.module('groupProject')
 
     $scope.removeWatchLater = function(userId, postId) {
         userProfileService.removeWatchLater(userId, postId);
+    };
+
+    $scope.deletePost = function(postId) {
+        homeService.deletePost(postId)
     };
 
 

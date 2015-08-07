@@ -48,4 +48,12 @@ angular.module('groupProject')
         });
     };
 
+    this.deletePost = function(postId) {
+        console.log(postId);
+        return $http({
+            method: 'DELETE',
+            url: 'http://localhost:8080/api/posts/' + postId
+        });
+    };
+
 }]);

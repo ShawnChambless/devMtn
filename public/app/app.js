@@ -86,14 +86,7 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/admin/adminTmpl.html',
         controller: 'adminCtrl',
         resolve: {
-            currentUser: function(LoginService, $state){
-              return LoginService.getSessionUser().then(function(user){
-                var currentUser = LoginService.currentUser();
-                if (!currentUser) {$state.go('login');}
-                else if (!currentUser.isAdmin) {$state.go('home');}
-                return user;
-              });
-            },
+            currentUser: isLoggedIn,
             getPosts: function(adminService){
               return adminService.getPosts().then(function(postData){
                   return postData;
