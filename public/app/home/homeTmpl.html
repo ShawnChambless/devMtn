@@ -2,6 +2,8 @@
     <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
     <button class="addResourseBtn" ng-click='toggleModal()'>Add Resource</button>
 </div>
+
+<!-- MODAL -->
 <modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal ' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
@@ -28,8 +30,9 @@
         <option value="code">Image</option>
     </select>
     <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
-
 </modal-dialog>
+
+<!-- End MODAL -->
 
 <div class="contentWrapper">
 
