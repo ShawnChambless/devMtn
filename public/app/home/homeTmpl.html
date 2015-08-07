@@ -4,7 +4,7 @@
 </div>
 
 <!-- MODAL -->
-<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='contentModal ' ng-show='modalShown' width='750px' height='60%'>
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='750px' height='60%'>
     <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
@@ -65,8 +65,8 @@
                 <div class="post type">Type: {{post.type}}</div>
                 <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
 
-                <input type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
-                <input type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch Later'>
+                <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
+                <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
             </div>
         </div>
     </div>
