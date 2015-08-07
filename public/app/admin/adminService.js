@@ -17,22 +17,17 @@ angular.module('groupProject')
 			isApproved: true,
 			user: userId
 		}
-  	}).then(function(resp) {
-		return $http({
-			method: 'PUT',
-			url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + resp.data.bounty
-		});
-	});
+  	});
 
   };
 
-  // this.approveBountyPost = function(id) {
-  //  bountyId = bounty;
-  //  return $http({
-  //   method: 'GET',
-  //   url: 'http://localhost:8080/api/users/' + userId._id + '/bounties/' + bountyId._id
-  //  });
-  // };
+  this.approveBountyPost = function(id) {
+   bountyId = bounty;
+   return $http({
+    method: 'GET',
+    url: 'http://localhost:8080/api/users/' + userId._id + '/bounties/' + bountyId._id
+   });
+  };
 
   this.discardPost = function(id){
   	return $http({
