@@ -119,6 +119,19 @@ angular.module('groupProject', ['ui.router'])
                 });
             }
         }
+    })
+    .state('users', {
+        url: '/users',
+        templateUrl: 'app/users/userTmpl.html',
+        controller: 'userCtrl',
+        resolve: {
+            currentUser: isLoggedIn,
+            getUsers: function(userService) {
+                return userService.getUsers().then(function(resp) {
+                    return resp.data;
+                });
+            }
+        }
     });
 
 }]);

@@ -1,0 +1,1 @@
+angular.module("groupProject").service("userService",["$http",function(t){this.getUsers=function(){return t({method:"GET",url:"http://localhost:8080/api/users/"})},this.updateUserBucks=function(e,r){var u=e.devBucks-r;return t({method:"PUT",url:"http://localhost:8080/api/users/"+e._id,data:{devBucks:u}})}}]);

@@ -41,9 +41,10 @@ module.exports = {
 
   retrieveAll: function(req, res){
     User.find({})
+    .populate('posts bounties')
     .exec().then(function(users, err){
       if (err) return res.status(500).json(err);
-      return res.status(200).json(createdUser);
+      return res.status(200).json(users);
     });
   } ,
 

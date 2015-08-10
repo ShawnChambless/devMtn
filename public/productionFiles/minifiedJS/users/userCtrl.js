@@ -1,0 +1,1 @@
+angular.module("groupProject").controller("userCtrl",["$scope","userService","getUsers","currentUser",function(e,r,u,s){e.users=u,e.updateUserBucks=function(e,u){r.updateUserBucks(e,u).then(function(e){console.log(e)})}}]);
