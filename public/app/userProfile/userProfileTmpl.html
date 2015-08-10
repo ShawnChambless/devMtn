@@ -1,19 +1,19 @@
+<div class="profile profileInfo">
+    <header>
+        <h1>Profile Information</h1>
+        <!-- <input type='submit' ng-click='updateUserInfo(userId)' value='Edit Info'> -->
+    </header>
+
+    <div class="userinfo">{{user.firstName}} {{user.lastName}}</div>
+    <div class="userinfo">{{user.email}}</div>
+    <div class="userinfo">Total Bucks in Account: {{user.devBucks}}</div>
+</div>
 <div class="profileWrapper">
-    <div class="profile profileInfo">
-        <header>
-            <h1>Profile Information</h1>
-            <!-- <input type='submit' ng-click='updateUserInfo(userId)' value='Edit Info'> -->
-        </header>
-
-        <div class="userinfo">{{user.firstName}} {{user.lastName}}</div>
-        <div class="userinfo">{{user.email}}</div>
-        <div class="userinfo">Total Bucks in Account: {{user.devBucks}}</div>
-    </div>
-
+<header>
+    <h1>Favorites</h1>
+</header>
     <div class="profile favorites">
-        <header>
-            <h1>Favorites</h1>
-        </header>
+
 
         <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
             <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
@@ -23,11 +23,11 @@
         </div>
 
     </div>
-
+<header>
+    <h1>View Later</h1>
+</header>
     <div class="profile viewLater">
-        <header>
-            <h1>View Later</h1>
-        </header>
+
 
         <div class="viewLater" ng-repeat='post in user.viewLater'>
 
@@ -40,11 +40,11 @@
     </div>
 </div>
 <div class="profileWrapper bottom">
-
+<header>
+    <h1>Bounties</h1>
+</header>
     <div class="profile bounties">
-        <header>
-            <h1>Bounties</h1>
-        </header>
+
 
         <div class="bounties" ng-repeat='bounty in user.bounties track by $index'>
 
@@ -55,17 +55,17 @@
         </div>
 
     </div>
+<header>
+    <h1>Posts</h1>
+</header>
+    <div class="profile Posts">
 
-    <div class="profilePosts">
 
-        <header>
-            <h1>Posts</h1>
-        </header>
 
         <div ng-repeat='post in user.posts'>
 
-            <div class="post title">{{post.title}}</div>
-            <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
+            <div class="post title"><a href={{post.url}} target='_blank'>{{post.title}}</a></div>
+            <div class="post description">{{post.desc}}</div>
             <input type="submit" ng-click='deletePost(post._id, $index)' value='Remove' />
 
         </div>
