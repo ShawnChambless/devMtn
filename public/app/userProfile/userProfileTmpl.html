@@ -15,11 +15,10 @@
             <h1>Favorites</h1>
         </header>
 
-        <div class="favorites" ng-repeat='favorite in user.favorites'>
-
-            <div class="post title">{{favorite.title}}</div>
-            <div class="post url"><a href={{favorite.url}} target='_blank'>{{favorite.url}}</a></div>
-            <input type='submit' ng-click='removeFavorite(user._id, favorite._id)' value='Remove' />
+        <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
+            <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
+            <div class="post description">{{favorite.desc}}</div>
+            <input type='submit' ng-click='removeFavorite(user._id, favorite._id, $index)' value='Remove' />
 
         </div>
 
@@ -32,9 +31,9 @@
 
         <div class="viewLater" ng-repeat='post in user.viewLater'>
 
-            <div class="post title">{{post.title}}</div>
-            <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
-            <input type='submit' ng-click='removeviewLater(user._id, post._id)' value='Remove' />
+            <div class="post title"><a href={{post.url}} target='_blank'>{{post.title}}</a></div>
+            <div class="post description">{{post.desc}}</div>
+            <input type='submit' ng-click='removeviewLater(user._id, post._id, $index)' value='Remove' />
 
         </div>
 
@@ -67,7 +66,7 @@
 
             <div class="post title">{{post.title}}</div>
             <div class="post url"><a href={{post.url}} target='_blank'>{{post.url}}</a></div>
-            <input type="submit" ng-click='deletePost(post._id)' value='Remove' />
+            <input type="submit" ng-click='deletePost(post._id, $index)' value='Remove' />
 
         </div>
 
