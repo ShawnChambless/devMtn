@@ -68,7 +68,8 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
         resolve: {
-           getUser: function(LoginService, userProfileService, $state){
+            currentUser: isLoggedIn,
+            getUser: function(LoginService, userProfileService, $state){
                return LoginService.getSessionUser().then(function(){
                    if (!LoginService.currentUser()) $state.go('login');
                    else {
@@ -116,6 +117,19 @@ angular.module('groupProject', ['ui.router'])
             getBountyId: function(bountyService, $stateParams) {
                 return bountyService.getBountyId($stateParams._id).then(function(resp) {
                     return resp;
+                });
+            }
+        }
+    })
+    .state('users', {
+        url: '/users',
+        templateUrl: 'app/users/userTmpl.html',
+        controller: 'userCtrl',
+        resolve: {
+            currentUser: isLoggedIn,
+            getUsers: function(userService) {
+                return userService.getUsers().then(function(resp) {
+                    return resp.data;
                 });
             }
         }

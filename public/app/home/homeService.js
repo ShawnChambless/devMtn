@@ -32,11 +32,11 @@ angular.module('groupProject')
         });
     };
 
-    this.addToWatchLater = function(postId) {
+    this.addToviewLater = function(postId) {
         userId = user;
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + user._id + '/watchLater/' + postId
+            url: 'http://localhost:8080/api/users/' + user._id + '/viewLater/' + postId
         });
     };
 

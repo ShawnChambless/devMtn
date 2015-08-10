@@ -21,8 +21,8 @@ angular.module('groupProject')
 		homeService.addToFavorites(postId);
 	};
 
-	$scope.addToWatchLater = function(postId) {
-		homeService.addToWatchLater(postId);
+	$scope.addToviewLater = function(postId) {
+		homeService.addToviewLater(postId);
 	};
 
 	$scope.modalShown = false;

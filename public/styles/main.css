@@ -6,6 +6,7 @@ html, body {
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1237,7 +1238,25 @@ aside a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile {
+  margin: 20px;
+  width: calc(100%/2.5);
+  max-width: calc(100%/2);
+  max-height: calc(100vh/4);
+  overflow-y: scroll;
+}
+
+.profile.profileInfo {
+  margin: 20px auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
 }
