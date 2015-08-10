@@ -7,6 +7,7 @@ angular.module('groupProject')
     $scope.admin = currentUser.isAdmin;
 
     $scope.postBounty = function(bounty){
+      console.log(bounty);
     	adminService.postBounty(bounty);
     	$scope.bounties.push(bounty);
     };

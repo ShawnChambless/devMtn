@@ -12,7 +12,7 @@ module.exports = {
     newBounty.cat   = req.body.cat;
     newBounty.tags  = req.body.tags;
     newBounty.value = req.body.value;
-    newBounty.quantity = req.body.quantity;
+    newBounty.quantityNeeded = req.body.quantityNeeded;
     newBounty.save(function(err, createdBounty) {
       if (err) return res.status(500).json(err);
       return res.status(200).json(createdBounty);

@@ -4,7 +4,7 @@
 	<modal-dialog class="bountyModal" ng-show="modal2Shown" width='750px' height='60%'>
 		<input class='bountyModalInputTitle' ng-model="bounty.title" placeholder="Title" />
 	  <input class='bountyModalInputValue' ng-model="bounty.value" placeholder="Bounty Value" />
-		<input class='bountyModalInputQuantity' ng-model="bounty.quantity" placeholder="Quantity of Posts Needed" />
+		<input class='bountyModalInputQuantity' ng-model="bounty.quantityNeeded" placeholder="Quantity of Posts Needed" />
 		<input class='bountyModalInputTags' ng-model="bounty.tags" placeholder="Tag(s)" />
 		<textarea class='bountyModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyModalInputDescExpand: focus}" ng-model="bounty.desc" placeholder="Description"></textarea>
 		<select class='bountyModalSelectLanguage' ng-model="bounty.cat" placeholder="Category">
@@ -23,6 +23,8 @@
 	        <option value="video">Video</option>
 	        <option value="image">Image</option>
 	    </select>
+	    <input ng-model="bounty.value" placeholder="Bounty Value" />
+			<input ng-model="bounty.quantityNeeded" placeholder="Quantity of Posts Needed" />
 	    <input class='bountyModalSubmitBtnHome' type="submit" value="Submit" ng-click="postBounty(bounty); toggleModal2()" />
 	</modal-dialog>
 <!-- END MODAL -->

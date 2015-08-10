@@ -1,7 +1,8 @@
 var mongoose    = require( 'mongoose' ) ,
     $q          = require( 'q' ) ,
     User        = mongoose.model('User', require('../models/userSchema.js')),
-    Post        = mongoose.model('Post', require('../models/postSchema.js')) ;
+    Post        = mongoose.model('Post', require('../models/postSchema.js')) ,
+    Bounty        = mongoose.model('Bounty', require('../models/bountySchema.js')) ;
 
 module.exports = {
 
@@ -18,6 +19,16 @@ module.exports = {
     newPost.bounty = req.body.bounty;
     newPost.save(function(err, createdPost) {
       if (err) return res.status(500).json(err);
+      if (req.body.bounty) {
+        Bounty.findById(req.body.bounty).exec(function(bountyFindErr, bounty){
+          bounty.quantityClaimed += 1;
+          bounty.save(function(bountySaveError, updatedBounty){
+            if (bountySaveError) return res.status(500).json(bountySaveError);
+            if (err) return res.status(500).json(err);
+            return res.status(200).json(createdPost);
+          });
+        });
+      }
       return res.status(200).json(createdPost);
     });
   } ,
