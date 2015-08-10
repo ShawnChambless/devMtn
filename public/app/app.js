@@ -68,7 +68,8 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/userProfile/userProfileTmpl.html',
         controller: 'userProfileCtrl',
         resolve: {
-           getUser: function(LoginService, userProfileService, $state){
+            currentUser: isLoggedIn,
+            getUser: function(LoginService, userProfileService, $state){
                return LoginService.getSessionUser().then(function(){
                    if (!LoginService.currentUser()) $state.go('login');
                    else {
