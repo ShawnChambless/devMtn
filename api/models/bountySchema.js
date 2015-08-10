@@ -8,7 +8,7 @@ var bountySchema = {
   tags:      [ { type: String } ] ,
   value:     { type: Number, required: true, default: 1 } ,
   quantityNeeded:  { type: Number, required: true, default: 1 } ,
-  quantityClaimed: { type: Number } ,
+  quantityClaimed: { type: Number, required: true, default: 0 } ,
   posts:     [ { type: mongoose.Schema.Types.ObjectId, ref: 'Post' } ] ,
   isOpen: {type: Boolean, required: true, default: true}
 };
