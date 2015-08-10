@@ -1,6 +1,6 @@
 <div class="search-add">
-    <input type="text" ng-model="contentSearchText" placeholder="Search..."/>
-    <button class="addResourseBtn" ng-click='toggleModal()'>Add Resource</button>
+    <input type="text" ng-model="contentSearchText" placeholder="Search"/>
+    <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
 </div>
 
 <!-- MODAL -->
@@ -27,7 +27,7 @@
     <select class='contentModalSelectType' ng-model='newPost.type' placeholder="Type">
         <option value="article">Article</option>
         <option value="video">Video</option>
-        <option value="code">Image</option>
+        <option value="image">Image</option>
     </select>
     <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
 </modal-dialog>
@@ -53,20 +53,30 @@
 
     <div class="posts">
         <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText | orderBy:"-votes"'>
-            <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' height='150' /></div>
+            <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' /></div>
             <div class="posts-post">
-                <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
-                <div class="post votes">{{post.votes}}</div>
-                <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
-                <div class="post title">{{post.title}}</div>
-                <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
-                <div class="post cat"><a ng-href='/#/home/{{post.cat}}'>{{post.cat}}<i class="fa fa-info-circle"></i></a></div>
-                <div class="post description">Description: {{post.desc}}</div>
-                <div class="post type">Type: {{post.type}}</div>
-                <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
-                <input type='submit' ng-click='deletePost(post._id)' ng-show='admin' value='Delete'>
-                <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
-                <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
+                <div class="voteBtns">
+                  <div>
+                    <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
+                    <div class="post votes">{{post.votes}}</div>
+                    <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
+                  </div>
+                  <div class="post title"><a ng-href="{{ post.url }}" target="_blank" > {{post.title}}</a></div>
+                  <div class="poster type"><img ng-src='assets/{{ post.type }}.png' /></div>
+                  <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id)' ng-show='admin' value='Delete'>
+                </div>
+                <!-- <div class="titleBtns"> -->
+                <!-- </div> -->
+                <!-- <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div> -->
+                <div class="homeContentWrapper" >
+                  <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
+                  <div class="post description">Description: {{post.desc}}</div>
+                  <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
+                  <div class="favWatchBtns">
+                    <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
+                    <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
+                  </div>
+                </div>
             </div>
         </div>
     </div>

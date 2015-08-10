@@ -60,6 +60,14 @@ a {
   font-family: 'arial', 'sans-serif';
 }
 
+.favWatchBtns {
+  margin: 25px 0 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .addToFavoritesBtn {
   height: 25px;
   width: 90px;
@@ -70,9 +78,6 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  position: absolute;
-  left: 26%;
-  top: 325px;
   border-radius: 20px;
   border: 2px;
   background-color: #2AABE2;
@@ -90,7 +95,6 @@ a {
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
-  left: 25%;
 }
 
 .addToWatchBtn {
@@ -103,9 +107,6 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  position: absolute;
-  left: 35%;
-  top: 325px;
   border-radius: 20px;
   border: 2px;
   background-color: #2AABE2;
@@ -123,7 +124,55 @@ a {
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
+}
+
+.voteBtns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.deletePostBtn {
+  margin: 20px 0 0 10px;
+  height: 20px;
+  width: 45px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.deletePostBtn:hover {
+  height: 30px;
+  width: 60px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
   left: 34%;
+}
+
+.homeContentWrapper {
+  margin: 0 0 0 22px;
+}
+
+.posts .post.description {
+  color: #2AABE2;
+}
+
+.posts .poster img {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .homeModal .contentModalInputTitle {
@@ -273,6 +322,102 @@ a {
 .posts .post img {
   height: 150px;
   width: 150px;
+  border-radius: 100px;
+}
+
+.adminApproveDiscardEditBtns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adminApproveBtn {
+  margin: 5px 0 5px 0;
+  height: 25px;
+  width: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  top: 325px;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.adminApproveBtn:hover {
+  height: 30px;
+  width: 80px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+}
+
+.adminDiscardBtn {
+  margin: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
+  height: 25px;
+  width: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  top: 325px;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.adminDiscardBtn:hover {
+  height: 30px;
+  width: 80px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+}
+
+.adminEditBtn {
+  margin: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
+  height: 25px;
+  width: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  top: 325px;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.adminEditBtn:hover {
+  height: 30px;
+  width: 80px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
 }
 
 .adminModal .adminModalInputTitle {
@@ -956,7 +1101,20 @@ nav {
 
 .search-add {
   width: 100%;
-  height: 50px;
+  height: 85px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .search-add input {
@@ -969,8 +1127,6 @@ nav {
 }
 
 .search-add button {
-  position: absolute;
-  left: 46%;
   height: 25px;
   width: 95px;
   margin-top: 5px;
@@ -1022,10 +1178,13 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0 20px 0;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 35px;
 }
 
 .title {
   font-size: 2em;
+  margin: 10px 0 0 10px;
 }
 
 .thumbnail {

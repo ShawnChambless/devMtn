@@ -1,7 +1,7 @@
 var mongoose    = require( 'mongoose' ) ;
 
 var postSchema = {
-  type:         { type: String, required: true, enum: ['video', 'article', 'code'] } ,
+  type:         { type: String, required: true, enum: ['video', 'article', 'image'] } ,
   url:          { type: String, required: true } ,
   title:        { type: String, required: true } ,
   desc:         { type: String, required: true } ,
