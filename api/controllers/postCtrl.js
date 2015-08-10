@@ -94,5 +94,5 @@ module.exports = {
         return res.status(200).send('Post ' + req.params.post_id + ' has been deleted');
     });
   }
-  
+
 };

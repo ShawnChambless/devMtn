@@ -1,4 +1,8 @@
 // Start of home page style
+.favWatchBtns
+  margin: 25px 0 0 0
+  display: flex
+
 .addToFavoritesBtn
   height: 25px
   width: 90px
@@ -6,8 +10,6 @@
   text-align: center
   font-size: 10px
   font-weight: bolder
-  position: absolute
-  left: 26%
   border-radius: 20px
   border: 2px
   background-color: $loginBtn
@@ -22,7 +24,6 @@
     font-size: 15px
     font-weight: bolder
     border: 2px
-    left: 25%
 
 .addToWatchBtn
   height: 25px
@@ -31,8 +32,6 @@
   text-align: center
   font-size: 10px
   font-weight: bolder
-  position: absolute
-  left: 35%
   border-radius: 20px
   border: 2px
   background-color: $loginBtn
@@ -47,7 +46,45 @@
     font-size: 15px
     font-weight: bolder
     border: 2px
+
+.voteBtns
+  display: flex
+
+.deletePostBtn
+  margin: 20px 0 0 10px
+  height: 20px
+  width: 45px
+  text-align: center
+  font-size: 10px
+  font-weight: bolder
+  border-radius: 20px
+  border: 2px
+  background-color: $loginBtn
+  color: white
+  transition: all 300ms ease
+  &:hover
+    height: 30px
+    width: 60px
+    background: $loginBtnHover
+    color: white
+    border-radius: 15px
+    font-size: 15px
+    font-weight: bolder
+    border: 2px
     left: 34%
+
+.homeContentWrapper
+  margin: 0 0 0 22px
+
+.posts
+  .post.description
+    color: $loginBtn
+  .poster
+    img
+      width: 20px
+      height: 20px
+      margin-top: 20px
+      margin-left: 10px
 
 // End of home page style
 
