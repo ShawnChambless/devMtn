@@ -18,30 +18,32 @@
         </div>
 
 <!-- MODAL -->
-		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='750px' height='60%'>
-		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
-		    <input class='adminModalInputUrl' ng-model="post.url" placeholder="URL" />
-		    <textarea class='adminModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{adminModalInputDescExpand: focus}" ng-model="post.desc" placeholder="Description"></textarea>
-		    <input class='adminModalInputTags' ng-model="post.tags" placeholder="Tags" />
-        <hr class="firstLine" />
-        <hr class="secondLine" />
-		    <select class='adminModalSelectLanguage' ng-model='post.cat' placeholder="Categories">
-		        <option value="html">HTML</option>
-		        <option value="css">CSS</option>
-		        <option value="javascript">Javascript</option>
-		        <option value="angular">Angular</option>
-		        <option value="mongo">Mongo</option>
-		        <option value="mongoose">Mongoose</option>
-		        <option value="node">Node</option>
-		        <option value="express">Express</option>
-		        <option value="react">React</option>
-		    </select>
-		    <select class='adminModalSelectType' ng-model='post.type' placeholder="Type">
-		        <option value="article">Article</option>
-		        <option value="video">Video</option>
-		        <option value="image">Image</option>
-		    </select>
-		    <input class='adminModalSubmitBtnHome' type='submit' value='Submit' ng-click="editPost(post); toggle()" />
+		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='65%'>
+        <div class="adminModalAlignment">
+          <h3 class="adminEditPostBtn">Edit Post</h3>
+  		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
+  		    <input class='adminModalInputUrl' ng-model="post.url" placeholder="URL" />
+  		    <input class='adminModalInputTags' ng-model="post.tags" placeholder="Tags" />
+  		    <textarea class='adminModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{adminModalInputDescExpand: focus}" ng-model="post.desc" placeholder="Description"></textarea>
+  		    <select class='adminModalSelectLanguage' ng-model='post.cat' placeholder="Categories">
+  		        <option value="html">HTML</option>
+  		        <option value="css">CSS</option>
+  		        <option value="javascript">Javascript</option>
+  		        <option value="angular">Angular</option>
+  		        <option value="mongo">Mongo</option>
+  		        <option value="mongoose">Mongoose</option>
+  		        <option value="node">Node</option>
+  		        <option value="express">Express</option>
+              <option value="express">Git</option>
+  		        <option value="react">React</option>
+  		    </select>
+  		    <select class='adminModalSelectType' ng-model='post.type' placeholder="Type">
+  		        <option value="article">Article</option>
+  		        <option value="video">Video</option>
+  		        <option value="image">Image</option>
+  		    </select>
+  		    <input class='adminModalSubmitBtnHome' type='submit' value='Submit' ng-click="editPost(post); toggle()" />
+        </div>
 		</modal-dialog>
 
     <!-- End Modal -->
