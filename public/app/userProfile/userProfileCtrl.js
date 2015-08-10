@@ -2,6 +2,8 @@ angular.module('groupProject')
 .controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', 'homeService', function($scope, userProfileService, getUser, LoginService, homeService) {
 
     $scope.user = getUser;
+    // $scope.favorites = getUser.favorites;
+    // $scope.viewLater = getUser.viewLater;
 
     $scope.updateUserInfo = function(userId, newInfo) {
         userProfileService.updateUserInfo(userId, newInfo);
@@ -24,15 +26,19 @@ angular.module('groupProject')
     // };
 
     $scope.removeFavorite = function(userId, postId) {
-        userProfileService.removeFavorite(userId, postId);
+        userProfileService.removeFavorite(userId, postId).then(function(resp) {
+            $scope.user.favorites.splice(resp.data._id, 1);
+        });
     };
 
-    $scope.removeWatchLater = function(userId, postId) {
-        userProfileService.removeWatchLater(userId, postId);
+    $scope.removeviewLater = function(userId, postId) {
+        userProfileService.removeviewLater(userId, postId).then(function(resp) {
+            $scope.user.viewLater.splice(resp.data._id, 1);
+        });
     };
 
     $scope.deletePost = function(postId) {
-        homeService.deletePost(postId)
+        homeService.deletePost(postId);
     };
 
 

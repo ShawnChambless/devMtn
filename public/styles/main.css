@@ -1240,3 +1240,14 @@ aside a {
       -ms-flex-pack: distribute;
           justify-content: space-around;
 }
+
+.profileWrapper.bottom {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile {
+  margin: 20px;
+}

@@ -21,7 +21,7 @@ module.exports = {
     if (req.user || req.params.user_id) query = { "_id": req.params.user_id };
     else query = { "email": req.body.email };
     User.findOne(query)
-    .populate('favorites watchLater bounties posts')
+    .populate('favorites viewLater bounties posts')
     .exec().then(function(user, err){
       if (err) {
         console.log(err);
@@ -96,10 +96,10 @@ module.exports = {
       });
   },
 
-  updateWatchLater: function(req, res){
+  updateviewLater: function(req, res){
       User.findById(req.params.user_id, function(err, user){
           if(err) return res.status(500).json(err);
-          user.watchLater.push(new mongoose.Types.ObjectId(req.params.post_id));
+          user.viewLater.push(new mongoose.Types.ObjectId(req.params.post_id));
           user.save(function(error, updatedUser) {
               if(error) return res.status(500).json(error);
               return res.json(updatedUser);
@@ -108,20 +108,16 @@ module.exports = {
   },
 
   removeFavorite: function(req, res){
-      User.findById(req.params.user_id, function(err, user){
+      User.findByIdAndUpdate(req.params.user_id, { $pull: {favorites: req.params.post_id}}, function(err, user){
           if(err) return res.status(500).json(err);
-          user.favorites.remove({'_id': req.params.post_id}, function(err){
-              if(error) return res.status(500).json(error);
-          });
+          return res.json(user);
       });
   },
 
-  removeWatchLater: function(req, res){
-      User.findById(req.params.user_id, function(err, user){
+  removeviewLater: function(req, res){
+      User.findByIdAndUpdate(req.params.user_id, { $pull: {viewLater: req.params.post_id}}, function(err, user){
           if(err) return res.status(500).json(err);
-          user.watchLater.remove({'_id': req.params.post_id}, function(err){
-              if(error) return res.status(500).json(error);
-          });
+          return res.json(user);
       });
   },
 

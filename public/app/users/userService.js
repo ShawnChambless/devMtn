@@ -9,7 +9,7 @@ angular.module('groupProject')
     };
 
     this.updateUserBucks = function(user, bucks) {
-        var newBucks = (user.devBucks - bucks);
+        var newBucks = (user.devBucks + bucks);
         return $http({
             method: 'PUT',
             url: 'http://localhost:8080/api/users/' + user._id,
