@@ -3,10 +3,17 @@ angular.module('groupProject')
 
     var user = LoginService.currentUser();
 
-    this.getPosts = function() {
+    this.getPosts = function(count) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/posts/approved'
+            url: 'http://localhost:8080/api/posts/approved?count=' + count
+        });
+    };
+
+    this.getPostsPaginated = function(count) {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:8080/api/posts/approved?count=' + count
         });
     };
 
