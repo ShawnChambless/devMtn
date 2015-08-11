@@ -31,16 +31,21 @@ angular.module('groupProject')
 
 		newPost.user = currentUser._id;
 
-	    return $http({
+			var dfd = $q.defer();
+	    $http({
 	      method: 'POST',
 	      url: 'http://localhost:8080/api/posts',
 	      data: newPost
   		}).then(function(resp) {
-			return $http({
+  			dfd.resolve(resp);
+			 $http({
 				method: 'PUT',
 				url: 'http://localhost:8080/api/users/' + newPost.user + '/posts/' + resp.data._id
 	  		});
+  		}, function(error){
+  			dfd.reject(error);
   		});
+  		return dfd.promise;
   	};
 
 }]);

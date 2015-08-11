@@ -36,7 +36,20 @@ angular.module('groupProject')
 
             $scope.addBountyPost = function(newPost) {
                 newPost.bounty = $scope.bounty._id;
-                addContentService.addPost(newPost);
+                addContentService.addPost(newPost).then(function(resp){
+                    $scope.hideSuccess = true; 
+                    setTimeout(function(){
+                        $scope.hideSuccess = false;
+                        $scope.$apply();
+                    }, 4000);
+                }, 
+                    function(error){
+                        $scope.hideError = true;
+                        setTimeout(function(){
+                            $scope.hideError = false;
+                            $scope.$apply();
+                    }, 4000);
+                });
             };
 
             $scope.editPost = function(editPost, post) {
