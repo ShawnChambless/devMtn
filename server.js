@@ -91,6 +91,7 @@ app.delete( '/api/bounties/:bounty_id', bountyCtrl.remove );
 mongoose.connect( config.mdbUri );
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){console.log('mdb listening on', mdbport);});
+// db.posts.createIndex( { votes: -1}, {background: true} );
 
 // app.listen(port, function(){console.log('srv listening on', port);});
 httpServer.listen(srvport, function(){console.log('srv listening on', srvport);});
