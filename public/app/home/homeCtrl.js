@@ -32,8 +32,10 @@ angular.module('groupProject')
 		$scope.newPost = "";
 	};
 
-	$scope.deletePost = function(postId) {
-		homeService.deletePost(postId);
+	$scope.deletePost = function(postId, index) {
+		homeService.deletePost(postId).then(function() {
+			$scope.posts.splice(index, 1);
+		});
 	};
 
 	var count = parseInt($stateParams.count, 10);
