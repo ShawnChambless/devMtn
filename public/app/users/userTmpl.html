@@ -1,12 +1,17 @@
+<span class="userHeaderSpan">Manage Users</span>
+<div class="userHeaderColor">
+	<header class="userHeader"></header>
+</div>
+
 <div class="userInfo" ng-repeat='user in users'>
+    <div class="userInfoWrapper">
+      {{user.firstName}} {{user.lastName}}
+      <div class="user posts" ng-repeat='post in user.posts'>{{post.title}}</div>
+      <div class="user bounties" ng-repeat='bounty in user.bounties'>{{bounty.title}}</div>
+      <div class="user devBucks" >{{user.devBucks}}</div>
+      <label for='UNIQUELABEL{{$index+1}}'> Bucks to add or deduct</label>
+      <input class="userBucks" type='number' id='UNIQUELABEL{{$index+1}}' ng-model='bucks'>
 
-    {{user.firstName}} {{user.lastName}}
-    <div ng-repeat='post in user.posts'>{{post.title}}</div>
-    <div ng-repeat='bounty in user.bounties'>{{bounty.title}}</div>
-    <div>{{user.devBucks}}</div>
-    <label for='UNIQUELABEL{{$index+1}}'> Bucks to add or deduct</label>
-    <input type='number' id='UNIQUELABEL{{$index+1}}' ng-model='bucks'>
-
-    <input type='submit' ng-click='updateUserBucks(user, bucks)'>
-
+      <input class="userSubmitBtn" type='submit' ng-click='updateUserBucks(user, bucks)'>
+    </div>
 </div>
