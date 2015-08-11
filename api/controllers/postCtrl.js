@@ -46,11 +46,16 @@ module.exports = {
   retrieveApproved: function(req, res){
     Post.find({})
     .where('isApproved').equals(true)
+    .sort( { 'votes': -1 } )
+    .skip(req.query.count).limit(10)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);
     });
   } ,
+
+  // client side: var pageNum, var pageSize
+  // server side: cursor, .skip, .limit
 
   retrieveOne: function(req, res){
     Post.find( { "_id": req.params.post_id } )
