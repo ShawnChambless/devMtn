@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', 'homeService', function($scope, userProfileService, getUser, LoginService, homeService) {
+.controller('userProfileCtrl', ['$scope', 'userProfileService', 'getUser', 'LoginService', 'homeService', '$location', '$anchorScroll', function($scope, userProfileService, getUser, LoginService, homeService, $location, $anchorScroll) {
     // console.log(getUser)
     $scope.user = getUser;
     $scope.updateUserInfo = function(userId, newInfo) {
@@ -26,6 +26,11 @@ angular.module('groupProject')
         homeService.deletePost(postId).then(function(){
             $scope.user.posts.splice(index, 1);
         });
+    };
+
+    $scope.scrollTo = function(id) {
+        $location.hash(id);
+        $anchorScroll();
     };
 
 
