@@ -18,12 +18,12 @@
             <div class="post cat"><a href='/#/home/{{post.cat}}'>{{post.cat}}</a></div>
             <div class="post description">Description: {{post.desc}}</div>
             <div class="post type">Type: {{post.type}}</div>
-            <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
+            <div class="post tags">Tags: <span ng-repeat='tag in post.tags'>{{tag}} </span></div>
             <div class="post user">Poster: {{post.user.firstName}} {{post.user.lastName}}</div>
         </div>
         <div class="adminApproveDiscardEditBtns">
-          <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user._id, post.bounty)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
-          <input class="adminDiscardBtn" type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
+          <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user._id, post.bounty, $index)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
+          <input class="adminDiscardBtn" type="submit" ng-click="discardPost(post._id, $index)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
           <button class="adminEditBtn" ng-click='modalShown = !modalShown'>Edit</button>
         </div>
 
