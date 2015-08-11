@@ -36,8 +36,10 @@ angular.module('groupProject', ['ui.router'])
         },
         resolve: {
           currentUser: isLoggedIn,
-          getPosts: function(homeService, $stateParams) {
+          getPosts: function(homeService, $stateParams, $state) {
               return homeService.getPosts($stateParams.count).then(function(postData) {
+                if ($stateParams.count > 0 && postData.data.length === 0) return $state.go('home', {count: homeService.lastCount()});
+                homeService.setCount($stateParams.count);
                 return postData;
  		          });
           }

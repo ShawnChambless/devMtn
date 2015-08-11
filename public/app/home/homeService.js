@@ -2,15 +2,12 @@ angular.module('groupProject')
 .service('homeService', ['$http', 'LoginService', function($http, LoginService) {
 
     var user = LoginService.currentUser();
+    var pageCount = 0;
+    this.lastCount = function(){return pageCount;};
+    this.setCount = function(newCount){pageCount = newCount;};
 
     this.getPosts = function(count) {
-        return $http({
-            method: 'GET',
-            url: 'http://localhost:8080/api/posts/approved?count=' + count
-        });
-    };
-
-    this.getPostsPaginated = function(count) {
+        pageCount = count;
         return $http({
             method: 'GET',
             url: 'http://localhost:8080/api/posts/approved?count=' + count
