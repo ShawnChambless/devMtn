@@ -29,8 +29,8 @@
 	  {{ bounty.title }} Bounty:{{ bounty.value }}
     <input class='contentModalInput Title' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput Url' ng-model="newPost.url" placeholder="URL" />
-    <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
     <input class='contentModalInput Tags' ng-model="newPost.tags" placeholder="Tags" />
+    <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
     {{ bounty.type }}
     {{ bounty.cat }}
 	</div>

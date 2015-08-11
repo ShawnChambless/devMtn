@@ -32,21 +32,31 @@ a {
 }
 
 .ng-modal-dialog {
-  z-index: 10000;
   position: absolute;
-  width: 50%;
   top: 50%;
   left: 50%;
+  z-index: 10000;
+  width: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background-color: #fff;
   box-shadow: 4px 4px 80px #000;
+  border-radius: 4px;
+  border-radius-background-color: #EFEFEF;
 }
 
 .ng-modal-dialog-content {
-  padding: 10px;
   text-align: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .ng-modal-close {
@@ -108,24 +118,17 @@ a {
 
 .favWatchBtns {
   margin: 25px 0 0 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .addToFavoritesBtn {
   height: 25px;
   width: 90px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
+  margin: -10px 0 10px 0;
   background-color: #2AABE2;
   color: white;
   -webkit-transition: all 300ms ease;
@@ -137,7 +140,7 @@ a {
   width: 130px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -146,14 +149,10 @@ a {
 .addToWatchBtn {
   height: 25px;
   width: 100px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -166,7 +165,7 @@ a {
   width: 140px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -180,13 +179,13 @@ a {
 }
 
 .deletePostBtn {
-  margin: 20px 0 0 10px;
+  margin: 15px 0 0 10px;
   height: 20px;
   width: 45px;
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -195,11 +194,12 @@ a {
 }
 
 .deletePostBtn:hover {
+  margin: 12px 0 0 10px;
   height: 30px;
   width: 60px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -217,8 +217,18 @@ a {
 .posts .poster img {
   width: 20px;
   height: 20px;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin: 15px 0 0 20px;
+}
+
+.homePostLoginCat {
+  width: 100%;
+}
+
+.homePostLoginCat .cat {
+  float: right;
+  margin: 0 15px 0 0;
+  font-size: 15px;
+  font-weight: bolder;
 }
 
 .contentModalAlignment {
@@ -243,8 +253,8 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .homeModal .contentModalInputUrl {
@@ -253,8 +263,8 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .homeModal .contentModalInputTags {
@@ -263,8 +273,8 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .homeModal .contentModalInputDesc {
@@ -273,15 +283,15 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .homeModal .contentModalInputDesc.contentModalInputDescExpand {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .homeModal .contentModalSelectLanguage {
@@ -305,8 +315,8 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
   background-color: #2AABE2;
   color: white;
   -webkit-transition: all 300ms ease;
@@ -318,7 +328,7 @@ a {
   width: 65px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -391,7 +401,7 @@ a {
   text-align: center;
   font-size: 12px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -404,7 +414,7 @@ a {
   width: 130px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 16px;
   font-weight: bolder;
   border: 2px;
@@ -436,7 +446,7 @@ a {
   font-size: 12px;
   font-weight: bolder;
   top: 325px;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -449,7 +459,7 @@ a {
   width: 80px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -464,7 +474,7 @@ a {
   font-size: 12px;
   font-weight: bolder;
   top: 325px;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -477,7 +487,7 @@ a {
   width: 80px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -492,7 +502,7 @@ a {
   font-size: 12px;
   font-weight: bolder;
   top: 325px;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -505,7 +515,7 @@ a {
   width: 80px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -533,7 +543,7 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
 }
 
@@ -543,7 +553,7 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
 }
 
@@ -553,7 +563,7 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
 }
 
@@ -563,7 +573,7 @@ a {
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
 }
 
@@ -571,7 +581,7 @@ a {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .adminModal .adminModalSelectLanguage {
@@ -595,7 +605,7 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -608,7 +618,7 @@ a {
   width: 65px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -667,7 +677,7 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -680,7 +690,7 @@ a {
   width: 130px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -692,8 +702,10 @@ a {
   width: 50%;
   height: 90px;
   border: 1px solid rgba(128, 128, 128, 0.4);
-  border-radius: 35px;
+  border-radius: 4px;
   padding: 5px 0 30px 0;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
 }
 
 .bountyBox:hover {
@@ -738,41 +750,41 @@ a {
 .bountyModal .bountyModalInputTitle {
   height: 30px;
   width: 150px;
-  margin: 5px 0 5px 29%;
+  margin: 10px 0 5px 29%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyModal .bountyModalInputValue {
   height: 30px;
   width: 150px;
-  margin: 5px 0 5px 29%;
+  margin: 10px 0 5px 29%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyModal .bountyModalInputQuantity {
   height: 30px;
   width: 150px;
-  margin: 5px 0 5px 29%;
+  margin: 10px 0 5px 29%;
   text-align: center;
   font-size: 19px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyModal .bountyModalInputTags {
   height: 30px;
   width: 150px;
-  margin: 5px 0 5px 29%;
+  margin: 10px 0 5px 29%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyModal hr.firstLine {
@@ -792,18 +804,18 @@ a {
 .bountyModal .bountyModalInputDesc {
   height: 30px;
   width: 150px;
-  margin: 5px 0 5px 29%;
+  margin: 10px 0 5px 29%;
   text-align: center;
   font-size: 20px;
-  border-radius: 5px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyModal .bountyModalInputDesc.bountyModalInputDescExpand {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .bountyModal .bountyModalSelectLanguage {
@@ -827,8 +839,8 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
-  border: 2px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
   background-color: #2AABE2;
   color: white;
   -webkit-transition: all 300ms ease;
@@ -840,7 +852,7 @@ a {
   width: 65px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -937,7 +949,7 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -950,7 +962,7 @@ a {
   width: 115px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -964,7 +976,7 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -977,7 +989,7 @@ a {
   width: 115px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -989,7 +1001,7 @@ a {
   width: 500px;
   height: 50px;
   margin: 0;
-  border-radius: 20px;
+  border-radius: 4px;
   padding: 0;
   margin: 20px 0 0 32%;
 }
@@ -1002,7 +1014,7 @@ a {
   height: 100%;
   background-color: #29BEEB;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .progress-fill.white {
@@ -1025,18 +1037,18 @@ a {
 .bountyIdClaimWrapper .Title, .bountyIdClaimWrapper .Url, .bountyIdClaimWrapper .Description, .bountyIdClaimWrapper .Tags {
   width: 190px;
   height: 30px;
-  margin: 5px 0 5px 25%;
+  margin: 20px 0 10px 25%;
   text-align: center;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 2px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .bountyIdClaimWrapper .Title.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Url.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Description.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Tags.bountyIdModalInputDescExpand {
   height: 60px;
   width: 250px;
-  margin: 5px 0 5px 17%;
-  border-radius: 10px;
+  margin: 5px 0 15px 17%;
+  border-radius: 4px;
 }
 
 .contentModalSubmitBtn.bountyIdBtn {
@@ -1046,7 +1058,7 @@ a {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -1059,7 +1071,7 @@ a {
   width: 150px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -1088,12 +1100,12 @@ nav {
   top: 150px;
   left: 35%;
   bottom: 40px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .topNav {
   background-color: #EFEFEF;
-  border-radius: 10px;
+  border-radius: 4px;
   height: 70px;
 }
 
@@ -1135,68 +1147,51 @@ nav {
   border-radius: 3px;
 }
 
-.email {
-  height: 30px;
-  width: 150px;
-  border-radius: 5px;
-  border: 2px solid #EFEFEF;
-  text-align: center;
-  font-size: larger;
+.loginContainerBox {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 120px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.password {
+.loginEmail {
   height: 30px;
   width: 150px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px solid #EFEFEF;
   text-align: center;
   font-size: larger;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 70px;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 120px;
+  margin: 10px 0 10px 0;
+}
+
+.loginPassword {
+  height: 30px;
+  width: 150px;
+  border-radius: 4px;
+  border: 2px solid #EFEFEF;
+  text-align: center;
+  font-size: larger;
+  margin: 10px 0 10px 0;
 }
 
 .buttonLoginSubmit {
   height: 40px;
   width: 155px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
+  margin: 10px 0 10px 0;
   background-color: #2AABE2;
   color: white;
   font-size: larger;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 125px;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 120px;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
 }
@@ -1207,18 +1202,7 @@ nav {
 
 .forgotPasswordLink {
   color: #00B8EB;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 175px;
-  margin-bottom: 20px;
-  position: absolute;
-  left: 135px;
+  margin: 10px auto 0 auto;
   cursor: pointer;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
@@ -1228,18 +1212,13 @@ nav {
 .forgotPasswordLink:hover {
   background: #57BDE8;
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .login-modal-container {
   width: 100%;
   height: 100%;
   background-color: transparent;
-}
-
-.ng-modal-dialog {
-  border-radius: 20px;
-  background-color: #EFEFEF;
 }
 
 .ng-modal-overlay {
@@ -1257,6 +1236,20 @@ nav {
 
 .login-modal-navbar {
   height: 70px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #EFEFEF;
 }
 
 .login-modal-logo {
@@ -1264,24 +1257,19 @@ nav {
   width: 50px;
   background: url("https://devmounta.in/img/logoonly.png") no-repeat;
   background-size: 100%;
-  position: relative;
-  left: 43%;
-  top: 7px;
+  text-align: center;
 }
 
-.modal-h2-signup {
-  position: absolute;
-  top: 50px;
-  left: 185px;
+.modalLoginSignup {
+  text-align: center;
   font-size: 30px;
+  margin: 0 0 60px 0;
 }
 
 .modal-already-user-link {
-  position: absolute;
-  top: 95px;
-  left: 190px;
   font-size: 15px;
   cursor: pointer;
+  margin: -50px 0 0 0;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
@@ -1290,93 +1278,28 @@ nav {
 .modal-already-user-link:hover {
   background: #57BDE8;
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-.login-modal-first-name {
+.loginModalWrapper .firstName, .loginModalWrapper .lastName, .loginModalWrapper .modalEmail, .loginModalWrapper .modalPassword, .loginModalWrapper .reenterPassword {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
-  top: 140px;
-  left: 115px;
   height: 40px;
   width: 250px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
+  margin: 5px 0 5px 0;
   text-align: center;
   font-size: larger;
-}
-
-.login-modal-last-name {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 200px;
-  left: 115px;
-  height: 40px;
-  width: 250px;
-  border-radius: 5px;
-  border: 2px;
-  text-align: center;
-  font-size: larger;
-}
-
-.login-modal-email {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 260px;
-  left: 115px;
-  height: 40px;
-  width: 250px;
-  border-radius: 5px;
-  border: 2px;
-  text-align: center;
-  font-size: larger;
-}
-
-.login-modal-password {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 320px;
-  left: 115px;
-  height: 40px;
-  width: 250px;
-  border-radius: 5px;
-  border: 2px;
-  text-align: center;
-  font-size: larger;
-}
-
-.login-modal-reenter-password {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 380px;
-  left: 115px;
-  height: 40px;
-  width: 250px;
-  border-radius: 5px;
-  border: 2px;
-  text-align: center;
-  font-size: larger;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .modal-newuser-button {
   height: 40px;
   width: 155px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -1389,9 +1312,6 @@ nav {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  left: 165px;
-  top: 430px;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
 }
@@ -1401,9 +1321,6 @@ nav {
 }
 
 .modal-forgot-password {
-  position: absolute;
-  top: 455px;
-  left: 140px;
   cursor: pointer;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
@@ -1413,7 +1330,7 @@ nav {
 .modal-forgot-password:hover {
   background: #57BDE8;
   color: white;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 nav {
@@ -1466,7 +1383,7 @@ nav {
   width: 230px;
   text-align: center;
   font-size: 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
@@ -1477,7 +1394,7 @@ nav {
   font-size: 10px;
   font-weight: bolder;
   background-color: #29BEEB;
-  border-radius: 15px;
+  border-radius: 4px;
   border: 2px;
   color: white;
   -webkit-transition: all 300ms ease;
@@ -1489,7 +1406,7 @@ nav {
   width: 125px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
@@ -1525,7 +1442,7 @@ nav {
           align-items: center;
   margin: 10px auto 10px auto;
   border: 1px solid rgba(128, 128, 128, 0.4);
-  border-radius: 35px;
+  border-radius: 4px;
 }
 
 .title {
@@ -1550,7 +1467,7 @@ nav {
 }
 
 .tags {
-  font-size: .7em;
+  font-size: 1em;
 }
 
 .fa-info-circle {
@@ -1639,6 +1556,11 @@ h1 {
   overflow-y: initial;
 }
 
+.profile.favorites, .profile .viewLater, .profile .Posts, .profile .bounties {
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
 .navigator {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1662,7 +1584,7 @@ h1 {
   font-size: 1.1em;
   position: fixed;
   margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
@@ -1735,7 +1657,7 @@ h1 {
   margin: 10px 0 10px 28%;
   border: 1px solid rgba(128, 128, 128, 0.4);
   width: 50%;
-  border-radius: 20px;
+  border-radius: 4px;
 }
 
 .userInfoWrapper.posts, .userInfoWrapper .bounties {
@@ -1745,7 +1667,7 @@ h1 {
 
 .userBucks {
   width: 50px;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 0.4);
   margin: 10px 0 10px 46%;
 }
@@ -1757,7 +1679,7 @@ h1 {
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
-  border-radius: 20px;
+  border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
@@ -1770,7 +1692,7 @@ h1 {
   width: 65px;
   background: #57BDE8;
   color: white;
-  border-radius: 15px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
