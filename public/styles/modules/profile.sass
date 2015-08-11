@@ -1,3 +1,58 @@
+// Start of profile page
+
+.profileHeaderSpan
+  position: absolute
+  height: 175px
+  line-height: 175px
+  font-size: 54px
+  color: white
+  font-weight: bolder
+  z-index: 1
+  width: 100%
+  text-align: center
+
+.profileHeaderColor
+  width: calc(100% + 50px)
+  height: 175px
+  background: $loginBackground
+  margin-left: -25px
+
+.profileHeader
+  z-index: -1
+  height: 175px
+  width: 100%
+  background: url("../assets/student7.png") no-repeat
+  background-size: cover
+  background-attachment: fixed
+  background-position: 30% 89%
+  opacity: .2
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 52px
+  font-weight: bolder
+  color: white
+
 .profileWrapper
     display: flex
-    justify-content: space-around
+    justify-content: space-between
+
+.profile
+    margin: 20px 0 0 0
+    width: calc(100%/2.5)
+    max-width: calc(100%/2)
+    max-height: calc(100vh/4)
+    overflow-y: scroll
+    &.profileInfo
+        margin: 0 auto
+        text-align: center
+h1
+    text-align: center
+
+.profileFavoritesContent
+  margin: 20px
+
+.profileFavsContainer
+  width: 50%
+
+// End of profile page

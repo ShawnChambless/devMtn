@@ -1,0 +1,12 @@
+<div class="userInfo" ng-repeat='user in users'>
+
+    {{user.firstName}} {{user.lastName}}
+    <div ng-repeat='post in user.posts'>{{post.title}}</div>
+    <div ng-repeat='bounty in user.bounties'>{{bounty.title}}</div>
+    <div>{{user.devBucks}}</div>
+    <label for='UNIQUELABEL{{$index+1}}'> Bucks to add or deduct</label>
+    <input type='number' id='UNIQUELABEL{{$index+1}}' ng-model='bucks'>
+
+    <input type='submit' ng-click='updateUserBucks(user, bucks)'>
+
+</div>

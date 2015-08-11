@@ -1,35 +1,41 @@
+<span class="homeHeaderSpan">Home</span>
+<div class="homeHeaderColor">
+	<header class="homeHeader"></header>
+</div>
+
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search"/>
     <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
 </div>
 
 <!-- MODAL -->
-<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='750px' height='60%'>
-    <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
-    <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
-    <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
-    <hr class="firstLine" />
-    <textarea class='contentModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{contentModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description"></textarea>
-    <hr class="secondLine" />
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='400px' height='61%'>
+    <div class="contentModalAlignment">
+      <h3 class="contentEditPostBtn">Edit Post</h3>
+      <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
+      <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
+      <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
+      <textarea class='contentModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{contentModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description"></textarea>
 
-    <select class='contentModalSelectLanguage' ng-model='newPost.cat' placeholder="Categories">
-        <option value="html">HTML</option>
-        <option value="css">CSS</option>
-        <option value="javascript">Javascript</option>
-        <option value="angular">Angular</option>
-        <option value="mongo">Mongo</option>
-        <option value="mongoose">Mongoose</option>
-        <option value="node">Node</option>
-        <option value="express">Express</option>
-        <option value="react">React</option>
-        <option value="git">Git</option>
-    </select>
-    <select class='contentModalSelectType' ng-model='newPost.type' placeholder="Type">
-        <option value="article">Article</option>
-        <option value="video">Video</option>
-        <option value="image">Image</option>
-    </select>
-    <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
+      <select class='contentModalSelectLanguage' ng-model='newPost.cat' placeholder="Categories">
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript">Javascript</option>
+          <option value="angular">Angular</option>
+          <option value="mongo">Mongo</option>
+          <option value="mongoose">Mongoose</option>
+          <option value="node">Node</option>
+          <option value="express">Express</option>
+          <option value="react">React</option>
+          <option value="git">Git</option>
+      </select>
+      <select class='contentModalSelectType' ng-model='newPost.type' placeholder="Type">
+          <option value="article">Article</option>
+          <option value="video">Video</option>
+          <option value="image">Image</option>
+      </select>
+      <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
+    </div>
 </modal-dialog>
 
 <!-- End MODAL -->
@@ -74,7 +80,7 @@
                   <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
                   <div class="favWatchBtns">
                     <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
-                    <input class="addToWatchBtn" type='submit' ng-click='addToWatchLater(post._id)' value='Add to Watch List'>
+                    <input class="addToWatchBtn" type='submit' ng-click='addToviewLater(post._id)' value='Add to View Later'>
                   </div>
                 </div>
             </div>

@@ -1,4 +1,14 @@
-<h3>Manage Posts:</h3>
+<span class="adminHeaderSpan">Admin</span>
+<div class="adminHeaderColor">
+	<header class="adminHeader"></header>
+</div>
+
+<div class="managePostAndBtn">
+  <h3 class="managePostsContent">Manage Posts:</h3>
+  <a href='/#/users'>
+  <input class="manageUsersBtn" type='submit' value='Manage Users' />
+  </a>
+</div>
 <div class="posts">
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}'></div>
@@ -18,60 +28,35 @@
         </div>
 
 <!-- MODAL -->
-		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='750px' height='60%'>
-		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
-		    <input class='adminModalInputUrl' ng-model="post.url" placeholder="URL" />
-		    <textarea class='adminModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{adminModalInputDescExpand: focus}" ng-model="post.desc" placeholder="Description"></textarea>
-		    <input class='adminModalInputTags' ng-model="post.tags" placeholder="Tags" />
-        <hr class="firstLine" />
-        <hr class="secondLine" />
-		    <select class='adminModalSelectLanguage' ng-model='post.cat' placeholder="Categories">
-		        <option value="html">HTML</option>
-		        <option value="css">CSS</option>
-		        <option value="javascript">Javascript</option>
-		        <option value="angular">Angular</option>
-		        <option value="mongo">Mongo</option>
-		        <option value="mongoose">Mongoose</option>
-		        <option value="node">Node</option>
-		        <option value="express">Express</option>
-		        <option value="react">React</option>
-		    </select>
-		    <select class='adminModalSelectType' ng-model='post.type' placeholder="Type">
-		        <option value="article">Article</option>
-		        <option value="video">Video</option>
-		        <option value="image">Image</option>
-		    </select>
-		    <input class='adminModalSubmitBtnHome' type='submit' value='Submit' ng-click="editPost(post); toggle()" />
+		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='55%'>
+        <div class="adminModalAlignment">
+          <h3 class="adminEditPostBtn">Edit Post</h3>
+  		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
+  		    <input class='adminModalInputUrl' ng-model="post.url" placeholder="URL" />
+  		    <input class='adminModalInputTags' ng-model="post.tags" placeholder="Tags" />
+  		    <textarea class='adminModalInputDesc' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{adminModalInputDescExpand: focus}" ng-model="post.desc" placeholder="Description"></textarea>
+  		    <select class='adminModalSelectLanguage' ng-model='post.cat' placeholder="Categories">
+  		        <option value="html">HTML</option>
+  		        <option value="css">CSS</option>
+  		        <option value="javascript">Javascript</option>
+  		        <option value="angular">Angular</option>
+  		        <option value="mongo">Mongo</option>
+  		        <option value="mongoose">Mongoose</option>
+  		        <option value="node">Node</option>
+  		        <option value="express">Express</option>
+              <option value="express">Git</option>
+  		        <option value="react">React</option>
+  		    </select>
+  		    <select class='adminModalSelectType' ng-model='post.type' placeholder="Type">
+  		        <option value="article">Article</option>
+  		        <option value="video">Video</option>
+  		        <option value="image">Image</option>
+  		    </select>
+  		    <input class='adminModalSubmitBtnHome' type='submit' value='Submit' ng-click="editPost(post); toggle()" />
+        </div>
 		</modal-dialog>
 
     <!-- End Modal -->
 
  	</div>
 </div>
-
-
-	<!-- <input type="submit" value="Create Bounty" ng-click="toggleModal2()" />
-
-	<modal-dialog ng-show="modal2Shown" width='750px' height='60%'>
-		<input ng-model="bounty.title" placeholder="Title" />
-		<select ng-model="bounty.cat" placeholder="Category">
-			<option value="html">HTML</option>
-	        <option value="css">CSS</option>
-	        <option value="javascript">Javascript</option>
-	        <option value="angular">Angular</option>
-	        <option value="mongo">Mongo</option>
-	        <option value="mongoose">Mongoose</option>
-	        <option value="node">Node</option>
-	        <option value="express">Express</option>
-	        <option value="react">React</option>
-	    </select>
-		<input ng-model="bounty.desc" placeholder="Description" />
-		<input ng-model="bounty.tags" placeholder="Tag(s)" />
-		<select ng-model="bounty.type" placeholder="Type">
-	        <option value="article">Article</option>
-	        <option value="video">Video</option>
-	        <option value="code">Image</option>
-	    </select>
-	    <input ng-model="bounty.value" placeholder="Bounty Value" />
-	    <input type="submit" value="Post Bounty" ng-click="postBounty(bounty); toggleModal2()" />
-	</modal-dialog> -->
