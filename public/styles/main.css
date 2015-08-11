@@ -690,14 +690,22 @@ a {
 .bountyBox {
   margin: 15px 0 20px 25%;
   width: 50%;
+  height: 90px;
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 35px;
 }
 
 .bountyBox:hover {
-  margin: 14px 0 19px 24%;
-  height: 100px;
-  width: 51%;
+  font-size: 20px;
+  font-weight: bolder;
+  height: 110px;
+  width: 64%;
+  margin: 10px 0 20px 18%;
+  background-color: rgba(42, 171, 226, 0.2);
+}
+
+.bountyBox:hover .bounty.value {
+  color: #dece02;
 }
 
 .bountyBox .bounty.title, .bountyBox .cat, .bountyBox .value {
@@ -1409,6 +1417,14 @@ aside a {
 .profile.profileInfo {
   margin: 0 auto;
   text-align: center;
+}
+
+.profile.favorites {
+  margin: 0 0 0 20%;
+}
+
+.profile.description {
+  margin: 0 0 0 20px;
 }
 
 h1 {
