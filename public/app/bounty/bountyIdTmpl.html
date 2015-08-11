@@ -11,7 +11,9 @@
 	<div class="progress-fill" ng-repeat="div in remainderArr track by $index" ng-style="{'margin': '0', 'padding': '0', 'box-sizing': 'border-box', 'display': 'inline-block', 'height': '100%', 'width': blockwidth, 'background-color': 'white', 'border': '2px solid black'}"></div>
 </div>
 <div class="bounty value">Bounty:{{bounty.value}}</div>
-<span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
+<div class="bountyFulfilled">
+	<span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
+</div>
 </br>
 <input type="submit" value="Claim Bounty" ng-click="modalShown = !modalShown" />
 

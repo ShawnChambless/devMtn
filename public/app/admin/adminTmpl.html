@@ -1,4 +1,14 @@
-<h3>Manage Posts:</h3>
+<span class="adminHeaderSpan">Admin</span>
+<div class="adminHeaderColor">
+	<header class="adminHeader"></header>
+</div>
+
+<div class="managePostAndBtn">
+  <h3 class="managePostsContent">Manage Posts:</h3>
+  <a href='/#/users'>
+  <input class="manageUsersBtn" type='submit' value='Manage Users' />
+  </a>
+</div>
 <div class="posts">
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}'></div>
@@ -18,7 +28,7 @@
         </div>
 
 <!-- MODAL -->
-		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='65%'>
+		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='55%'>
         <div class="adminModalAlignment">
           <h3 class="adminEditPostBtn">Edit Post</h3>
   		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
@@ -50,6 +60,3 @@
 
  	</div>
 </div>
-<a href='/#/users'>
-<input type='submit' value='Manage Users' />
-</a>

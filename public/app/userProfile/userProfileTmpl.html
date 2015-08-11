@@ -1,3 +1,8 @@
+<span class="profileHeaderSpan">User Profile</span>
+<div class="profileHeaderColor">
+	<header class="profileHeader"></header>
+</div>
+
 <div class="profile profileInfo">
     <header>
         <h1>Profile Information</h1>
@@ -9,19 +14,21 @@
     <div class="userinfo">Total Bucks in Account: {{user.devBucks}}</div>
 </div>
 <div class="profileWrapper">
-<header>
-    <h1>Favorites</h1>
-</header>
-    <div class="profile favorites">
+    <div class="profileFavsContainer">
+      <header>
+          <h1 class="profileFavoritesContent">Favorites</h1>
+      </header>
+      <div class="profile favorites">
 
 
-        <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
-            <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
-            <div class="post description">{{favorite.desc}}</div>
-            <input type='submit' ng-click='removeFavorite(user._id, favorite._id, $index)' value='Remove' />
+          <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
+              <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
+              <div class="post description">{{favorite.desc}}</div>
+              <input type='submit' ng-click='removeFavorite(user._id, favorite._id, $index)' value='Remove' />
 
-        </div>
+          </div>
 
+      </div>
     </div>
 <header>
     <h1>View Later</h1>
