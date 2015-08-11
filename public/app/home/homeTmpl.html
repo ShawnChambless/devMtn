@@ -78,7 +78,7 @@
                   </div>
                   <div class="post title"><a ng-href="{{ post.url }}" target="_blank" > {{post.title}}</a></div>
                   <div class="poster type"><img ng-src='assets/{{ post.type }}.png' /></div>
-                  <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id)' ng-show='admin' value='Delete'>
+                  <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id, $index)' ng-show='admin' value='Delete'>
                 </div>
                 <!-- <div class="titleBtns"> -->
                 <!-- </div> -->
@@ -86,7 +86,8 @@
                 <div class="homeContentWrapper" >
                   <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
                   <div class="post description">Description: {{post.desc}}</div>
-                  <div class="post tags" ng-repeat='tag in post.tags'><a ng-href="/#/home/{{post.cat}}/{{tag}}">Tags: {{tag}}</a></div>
+
+                  <div class="post tags">Tags: <a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}  </a></div>
                   <div class="favWatchBtns">
                     <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                     <input class="addToWatchBtn" type='submit' ng-click='addToviewLater(post._id)' value='Add to View Later'>

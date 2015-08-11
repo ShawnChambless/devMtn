@@ -18,11 +18,11 @@ angular.module('groupProject')
 	};
 
 	$scope.addToFavorites = function(postId) {
-		homeService.addToFavorites(postId);
+		homeService.addToFavorites(postId, currentUser._id);
 	};
 
 	$scope.addToviewLater = function(postId) {
-		homeService.addToviewLater(postId);
+		homeService.addToviewLater(postId, currentUser._id);
 	};
 
 	$scope.modalShown = false;
@@ -32,8 +32,10 @@ angular.module('groupProject')
 		$scope.newPost = "";
 	};
 
-	$scope.deletePost = function(postId) {
-		homeService.deletePost(postId);
+	$scope.deletePost = function(postId, index) {
+		homeService.deletePost(postId).then(function() {
+			$scope.posts.splice(index, 1);
+		});
 	};
 
 	var count = parseInt($stateParams.count, 10);

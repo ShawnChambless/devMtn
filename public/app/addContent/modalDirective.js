@@ -18,6 +18,7 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
+                newPost.tags = newPost.tags.split(', ');
                 addContentService.addPost(newPost).then(function(resp){
                     $scope.hideSuccess = true; 
                     setTimeout(function(){
@@ -32,6 +33,7 @@ angular.module('groupProject')
                             $scope.$apply();
                     }, 4000);
                 });
+                
             };
 
             $scope.addBountyPost = function(newPost) {
