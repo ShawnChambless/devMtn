@@ -18,6 +18,7 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
+                newPost.tags = newPost.tags.split(', ');
                 addContentService.addPost(newPost);
             };
 
