@@ -4,11 +4,11 @@
 </div>
 
 <!-- Flash notifications -->
-<div class="flash-success" ng-hide="!show">
+<div class="flash-success animated fadeIn" ng-show="hideSuccess">
   <span>Your post has been sent to moderation!</span>
 </div>
 
-<div class="flash-error" ng-hide="!show">
+<div class="flash-error animated fadeIn" ng-show="hideError">
   <span>Something went wrong. Try again.</span>
 </div>
 
@@ -43,7 +43,7 @@
           <option value="video">Video</option>
           <option value="image">Image</option>
       </select>
-      <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
+      <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost);  toggleModal()" />
     </div>
 </modal-dialog>
 
