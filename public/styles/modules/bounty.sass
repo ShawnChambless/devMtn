@@ -59,17 +59,26 @@
 .bountyBox
   margin: 15px 0 20px 25%
   width: 50%
+  height: 90px
   border: 1px solid rgba(128, 128, 128, 0.4)
   border-radius: 35px
+  padding: 5px 0 30px 0
   &:hover
-    margin: 14px 0 19px 24%
-    height: 100px
-    width: 51%
+    padding: 5px 0 40px 0
+    font-size: 20px
+    font-weight: bolder
+    height: 110px
+    width: 64%
+    margin: 10px 0 20px 18%
+    background-color: rgba(42, 171, 226, 0.2)
+    .bounty.value
+      color: rgb(222, 206, 2)
   .bounty.title, .cat, .value
     margin: 5px 0 5px 0
     text-align: center
 
-.bountyFulfilled
+.fulfilledContent
+  text-align: center
 
 // End of bounty page
 
@@ -182,3 +191,170 @@
       margin: 5px 0 5px 40%
 
 // End of bounty modal
+
+// Start of bounty ID page
+.bountyIdHeaderSpan
+  position: absolute
+  height: 175px
+  line-height: 175px
+  font-size: 54px
+  color: white
+  font-weight: bolder
+  z-index: 1
+  width: 100%
+  text-align: center
+
+.bountyIdHeaderColor
+  width: calc(100% + 50px)
+  height: 175px
+  background: $loginBackground
+  margin-left: -25px
+
+.bountyIdHeader
+  z-index: -1
+  height: 175px
+  width: 100%
+  background: url("../assets/students.png") no-repeat 50%
+  background-size: cover
+  background-attachment: fixed
+  background-position: 30% 50%
+  opacity: .2
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 52px
+  font-weight: bolder
+  color: white
+
+.bountyIdWrapper
+  display: flex
+  flex-direction: column
+  .titleBounty, .catBounty, .descBounty, .tagsBounty, .valueBounty, .typeBounty
+    margin: 5px 0 5px 0
+    text-align: center
+    font-size: 15px
+    font-weight: bolder
+
+.bounty.valueBountyBelowProgress
+  text-align: center
+
+.bountyFulfilledBelowProgress
+  text-align: center
+
+.bountyIdBtnWrapper
+  display: flex
+  justify-content: center
+
+.bountyIdClaimBountyBtn
+  margin: 20px 0 10px 0
+  height: 25px
+  width: 76px
+  text-align: center
+  font-size: 10px
+  font-weight: bolder
+  border-radius: 20px
+  border: 2px
+  background-color: $loginBtn
+  color: white
+  transition: all 300ms ease
+  &:hover
+    height: 30px
+    width: 115px
+    background: $loginBtnHover
+    color: white
+    border-radius: 15px
+    font-size: 15px
+    font-weight: bolder
+    border: 2px
+    margin: 20px 0 10px 0
+
+.bountyIdCloseBountyBtn
+  margin: 20px 0 10px 0
+  height: 25px
+  width: 76px
+  text-align: center
+  font-size: 10px
+  font-weight: bolder
+  border-radius: 20px
+  border: 2px
+  background-color: $loginBtn
+  color: white
+  transition: all 300ms ease
+  &:hover
+    height: 30px
+    width: 115px
+    background: $loginBtnHover
+    color: white
+    border-radius: 15px
+    font-size: 15px
+    font-weight: bolder
+    border: 2px
+    margin: 20px 0 10px 0
+
+.progress-container
+  display: inline-block
+  width: 500px
+  height: 50px
+  margin: 0
+  border-radius: 20px
+  padding: 0
+  margin: 20px 0 0 32%
+
+.progress-fill
+  margin: 0 -4px 0 0
+  padding: 0
+  box-sizing: border-box
+  display: inline-block
+  height: 100%
+  background-color: $loginBackground
+  border: 2px solid black
+  border-radius: 20px
+  &.white
+    background-color: white
+
+// End of bounty ID page
+
+// Start of bounty id modal
+.bountyIdClaimWrapper
+  display: flex
+  flex-direction: column
+  text-align: center
+  .Title, .Url, .Description, .Tags
+    width: 190px
+    height: 30px
+    margin: 5px 0 5px 25%
+    text-align: center
+    font-size: 14px
+    border-radius: 5px
+    border: 2px
+    &.bountyIdModalInputDescExpand
+      height: 60px
+      width: 250px
+      margin: 5px 0 5px 17%
+      border-radius: 10px
+
+.contentModalSubmitBtn.bountyIdBtn
+    height: 25px
+    width: 100px
+    margin: 5px 0 5px 36%
+    text-align: center
+    font-size: 10px
+    font-weight: bolder
+    border-radius: 20px
+    border: 2px
+    background-color: $loginBtn
+    color: white
+    transition: all 300ms ease
+    &:hover
+      height: 30px
+      width: 150px
+      background: $loginBtnHover
+      color: white
+      border-radius: 15px
+      font-size: 15px
+      font-weight: bolder
+      border: 2px
+      margin: 5px 0 5px 32%
+
+
+// End of bounty id modal
