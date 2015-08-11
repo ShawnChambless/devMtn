@@ -33,30 +33,34 @@
   font-weight: bolder
   color: white
 
-.profileWrapper
-    display: flex
-    justify-content: space-between
-
+h1
+    text-align: center
+    width: 100%
 .profile
-    margin: 20px 0 0 0
-    width: calc(100%/2.5)
-    max-width: calc(100%/2)
-    max-height: calc(100vh/4)
+    margin: 20px auto
+    width: 70%
+    max-height: calc(100vh/3)
     overflow-y: scroll
     &.profileInfo
       margin: 0 auto
       text-align: center
-    &.favorites
-      margin: 0 0 0 20%
-    &.description
-      margin: 0 0 0 20px
-h1
-    text-align: center
-
-.profileFavoritesContent
-  margin: 20px
-
-.profileFavsContainer
-  width: 50%
-
-// End of profile page
+      overflow-y: initial
+.navigator
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    width: 130px
+    height: 200px
+    background: $loginBackground
+    font-size: 1.1em
+    position: fixed
+    margin-top: 20px
+    border-radius: 5px
+    cursor: pointer
+    a
+        transition: all 200ms ease
+        color: #fff
+    a
+        &:hover
+            color: #444
