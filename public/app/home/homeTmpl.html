@@ -3,6 +3,15 @@
 	<header class="homeHeader"></header>
 </div>
 
+<!-- Flash notifications -->
+<div class="flash-success" ng-hide="!show">
+  <span>Your post has been sent to moderation!</span>
+</div>
+
+<div class="flash-error" ng-hide="!show">
+  <span>Something went wrong. Try again.</span>
+</div>
+
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search"/>
     <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
