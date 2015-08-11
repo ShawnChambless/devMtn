@@ -4,11 +4,6 @@ angular.module('groupProject')
   $scope.isAdmin = currentUser.isAdmin;
   $scope.bounty = getBountyId.data[0];
 
- //  $scope.discardPost = function(bountyId){
- //  	console.log(bountyId);
-	// 	bountyService.discardPost(bountyId).then(function(res){console.log(res.data);});
-	// };
-
 	$scope.closeBounty = function(bountyId){
 		bountyService.closeBounty(bountyId);
 		$state.go('bounty');
@@ -32,6 +27,5 @@ angular.module('groupProject')
     $scope.remainderArr = getNum(needed - claimed);
   }
   $scope.blockwidth = ((1 / needed) * 100) + '%';
-  console.log($scope.blockwidth);
 
 }]);

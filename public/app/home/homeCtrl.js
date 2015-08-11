@@ -44,13 +44,4 @@ angular.module('groupProject')
 		$scope.prevPage = 'home({count: 0})';
 		$scope.nextPage = 'home({count:' + (count + 10) + '})';
 	}
-
-	$scope.flashMsg = function(){
-	if(error){
-		$scope.hideError = !$scope.hideError;
-	}
-	if(resp){
-		$scope.hideSuccess = !$scope.hideSuccess;
-	}
-	};
 }]);

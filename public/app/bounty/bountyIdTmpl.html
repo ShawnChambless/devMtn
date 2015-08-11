@@ -3,6 +3,14 @@
 	<header class="bountyIdHeader"></header>
 </div>
 
+<!-- Flash notifications -->
+<div class="flash-success animated fadeIn" ng-show="hideSuccess">
+  <span>Your post has been sent to moderation!</span>
+</div>
+<div class="flash-error animated fadeIn" ng-show="hideError">
+  <span>Something went wrong. Try again.</span>
+</div>
+
 <div class="bountyIdWrapper">
 	<div class="bounty titleBounty">{{bounty.title}}</div>
 	<div class="bounty catBounty">{{bounty.cat}}</div>
@@ -26,13 +34,14 @@
 
 <modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='400px' height='55%'>
 	<div class="bountyIdClaimWrapper">
-	  {{ bounty.title }} Bounty:{{ bounty.value }}
+	<div>{{ bounty.title }}</div> 
+    <div>DevBucks:{{ bounty.value }}</div>
     <input class='contentModalInput Title' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput Url' ng-model="newPost.url" placeholder="URL" />
     <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
     <input class='contentModalInput Tags' ng-model="newPost.tags" placeholder="Tags" />
-    {{ bounty.type }}
-    {{ bounty.cat }}
+    <div>{{ bounty.type }}</div>
+    <div>{{ bounty.cat }}</div>
 	</div>
     <!-- <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
         <option value="html">HTML</option>

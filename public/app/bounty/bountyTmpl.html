@@ -3,6 +3,11 @@
 	<header class="bountyHeader"></header>
 </div>
 
+<!-- Flash notifications -->
+<div class="flash-error animated fadeIn" ng-show="hideError">
+  <span>Bounty not created. Try again.</span>
+</div>
+
 <input class="bountyCreateBountyBtn" type="submit" ng-show='admin' value="Create Bounty" ng-click="toggleModal2()" />
 
 <!-- MODAL -->
