@@ -25,15 +25,21 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('home', {
-        url: '/home',
+        url: '/home?count',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'homeCtrl',
+        params: {
+          count: {
+            value: '0',
+            squash: true
+          }
+        },
         resolve: {
           currentUser: isLoggedIn,
-          getPosts: function(homeService) {
-              return homeService.getPosts().then(function(postData) {
-              return postData;
- 		       });
+          getPosts: function(homeService, $stateParams) {
+              return homeService.getPosts($stateParams.count).then(function(postData) {
+                return postData;
+ 		          });
           }
         }
     })
@@ -86,11 +92,17 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/admin/adminTmpl.html',
         controller: 'adminCtrl',
         resolve: {
-            currentUser: isLoggedIn,
-            getPosts: function(adminService){
-              return adminService.getPosts().then(function(postData){
-                  return postData;
-              });
+          currentUser: function(LoginService, $state){
+            LoginService.getSessionUser().then(function(){
+              var currentUser = LoginService.currentUser();
+              if (!currentUser) {$state.go('login');}
+              else if (!currentUser.isAdmin) {$state.go('home');}
+            });
+          },
+          getPosts: function(adminService){
+            return adminService.getPosts().then(function(postData){
+                return postData;
+            });
           }
         }
     })
