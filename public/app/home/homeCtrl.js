@@ -18,11 +18,11 @@ angular.module('groupProject')
 	};
 
 	$scope.addToFavorites = function(postId) {
-		homeService.addToFavorites(postId);
+		homeService.addToFavorites(postId, currentUser._id);
 	};
 
 	$scope.addToviewLater = function(postId) {
-		homeService.addToviewLater(postId);
+		homeService.addToviewLater(postId, currentUser._id);
 	};
 
 	$scope.modalShown = false;
