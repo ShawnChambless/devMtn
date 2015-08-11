@@ -1,33 +1,39 @@
-<div class="bounty title">{{bounty.title}}</div>
-<div class="bounty cat">{{bounty.cat}}</div>
-<div class="bounty desc">{{bounty.desc}}</div>
-<div class="bounty tags" ng-repeat='tag in bounty.tags'>{{tag}}</div>
-<div class="bounty description"></div>
-<div class="bounty value">{{bounty.value}}</div>
-<div class="bounty type">{{bounty.type}}</div>
-<!-- INLINE STYLES HERE FOR TESTING -->
-<div class="progress-container" ng-style="{'margin': '0', 'padding': '0', 'box-sizing': 'border-box', 'display': 'inline-block', 'width': '500px', 'height': '100px', 'border': '2px solid black', 'margin': '20px'}">
-	<div class="progress-fill" ng-repeat="div in claimedArr track by $index" ng-style="{'margin': '0 -4px 0 0', 'padding': '0', 'box-sizing': 'border-box', 'display': 'inline-block', 'height': '100%', 'width': blockwidth, 'background-color': 'blue', 'border': '2px solid black'}"></div>
-	<div class="progress-fill" ng-repeat="div in remainderArr track by $index" ng-style="{'margin': '0', 'padding': '0', 'box-sizing': 'border-box', 'display': 'inline-block', 'height': '100%', 'width': blockwidth, 'background-color': 'white', 'border': '2px solid black'}"></div>
+<span class="bountyIdHeaderSpan">User Profile</span>
+<div class="bountyIdHeaderColor">
+	<header class="bountyIdHeader"></header>
 </div>
-<div class="bounty value">Bounty:{{bounty.value}}</div>
-<div class="bountyFulfilled">
+
+<div class="bountyIdWrapper">
+	<div class="bounty titleBounty">{{bounty.title}}</div>
+	<div class="bounty catBounty">{{bounty.cat}}</div>
+	<div class="bounty descBounty">{{bounty.desc}}</div>
+	<div class="bounty tagsBounty" ng-repeat='tag in bounty.tags'>{{tag}}</div>
+	<div class="bounty description"></div>
+	<div class="bounty valueBounty">{{bounty.value}}</div>
+	<div class="bounty typeBounty">{{bounty.type}}</div>
+</div>
+<!-- INLINE STYLES HERE FOR TESTING -->
+<div class="progress-container">
+	<div class="progress-fill" ng-repeat="div in claimedArr track by $index" ng-style="{'width': blockwidth}"></div>
+	<div class="progress-fill white" ng-repeat="div in remainderArr track by $index" ng-style="{'width': blockwidth}"></div>
+</div>
+<div class="bounty valueBountyBelowProgress">Bounty:{{bounty.value}}</div>
+<div class="bountyFulfilledBelowProgress">
 	<span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
 </div>
 </br>
-<input type="submit" value="Claim Bounty" ng-click="modalShown = !modalShown" />
-
 <!-- MODAL -->
 
-<modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='750px' height='60%'>
+<modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='400px' height='55%'>
+	<div class="bountyIdClaimWrapper">
 	  {{ bounty.title }} Bounty:{{ bounty.value }}
-
-    <input class='contentModalInput' ng-model="newPost.title" placeholder="Title" />
-    <input class='contentModalInput' ng-model="newPost.url" placeholder="URL" />
-    <input class='contentModalInput' ng-model="newPost.desc" placeholder="Description" />
-    <input class='contentModalInput' ng-model="newPost.tags" placeholder="Tags" />
+    <input class='contentModalInput Title' ng-model="newPost.title" placeholder="Title" />
+    <input class='contentModalInput Url' ng-model="newPost.url" placeholder="URL" />
+    <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
+    <input class='contentModalInput Tags' ng-model="newPost.tags" placeholder="Tags" />
     {{ bounty.type }}
     {{ bounty.cat }}
+	</div>
     <!-- <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
         <option value="html">HTML</option>
         <option value="css">CSS</option>
@@ -45,10 +51,12 @@
         <option value="image`">Image</option>
     </select> -->
 
-    <input class='contentModalSubmitBtn' type='submit' value='Add Bounty Post' ng-click="newPost.cat = bounty.cat; newPost.type = bounty.type; addBountyPost(newPost); toggle()" />
+    <input class='contentModalSubmitBtn bountyIdBtn' type='submit' value='Add Bounty Post' ng-click="newPost.cat = bounty.cat; newPost.type = bounty.type; addBountyPost(newPost); toggle()" />
 
 
 </modal-dialog>
-
-<input type="submit" value="Close Bounty" ng-show="isAdmin" ng-click="closeBounty(bounty._id)" ng-change="clearIt(show)" ng-model="show">
+<div class="bountyIdBtnWrapper">
+	<input class="bountyIdClaimBountyBtn" type="submit" value="Claim Bounty" ng-click="modalShown = !modalShown" />
+	<input class="bountyIdCloseBountyBtn" type="submit" value="Close Bounty" ng-show="isAdmin" ng-click="closeBounty(bounty._id)" ng-change="clearIt(show)" ng-model="show">
+</div>
 <!-- <input type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" /> -->

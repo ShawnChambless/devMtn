@@ -693,9 +693,11 @@ a {
   height: 90px;
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 35px;
+  padding: 5px 0 30px 0;
 }
 
 .bountyBox:hover {
+  padding: 5px 0 40px 0;
   font-size: 20px;
   font-weight: bolder;
   height: 110px;
@@ -710,6 +712,10 @@ a {
 
 .bountyBox .bounty.title, .bountyBox .cat, .bountyBox .value {
   margin: 5px 0 5px 0;
+  text-align: center;
+}
+
+.fulfilledContent {
   text-align: center;
 }
 
@@ -839,6 +845,225 @@ a {
   font-weight: bolder;
   border: 2px;
   margin: 5px 0 5px 40%;
+}
+
+.bountyIdHeaderSpan {
+  position: absolute;
+  height: 175px;
+  line-height: 175px;
+  font-size: 54px;
+  color: white;
+  font-weight: bolder;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.bountyIdHeaderColor {
+  width: calc(100% + 50px);
+  height: 175px;
+  background: #29BEEB;
+  margin-left: -25px;
+}
+
+.bountyIdHeader {
+  z-index: -1;
+  height: 175px;
+  width: 100%;
+  background: url("../assets/students.png") no-repeat 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 50%;
+  opacity: .2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 52px;
+  font-weight: bolder;
+  color: white;
+}
+
+.bountyIdWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.bountyIdWrapper .titleBounty, .bountyIdWrapper .catBounty, .bountyIdWrapper .descBounty, .bountyIdWrapper .tagsBounty, .bountyIdWrapper .valueBounty, .bountyIdWrapper .typeBounty {
+  margin: 5px 0 5px 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.bounty.valueBountyBelowProgress {
+  text-align: center;
+}
+
+.bountyFulfilledBelowProgress {
+  text-align: center;
+}
+
+.bountyIdBtnWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bountyIdClaimBountyBtn {
+  margin: 20px 0 10px 0;
+  height: 25px;
+  width: 76px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.bountyIdClaimBountyBtn:hover {
+  height: 30px;
+  width: 115px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+  margin: 20px 0 10px 0;
+}
+
+.bountyIdCloseBountyBtn {
+  margin: 20px 0 10px 0;
+  height: 25px;
+  width: 76px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.bountyIdCloseBountyBtn:hover {
+  height: 30px;
+  width: 115px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+  margin: 20px 0 10px 0;
+}
+
+.progress-container {
+  display: inline-block;
+  width: 500px;
+  height: 50px;
+  margin: 0;
+  border-radius: 20px;
+  padding: 0;
+  margin: 20px 0 0 32%;
+}
+
+.progress-fill {
+  margin: 0 -4px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  background-color: #29BEEB;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.progress-fill.white {
+  background-color: white;
+}
+
+.bountyIdClaimWrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.bountyIdClaimWrapper .Title, .bountyIdClaimWrapper .Url, .bountyIdClaimWrapper .Description, .bountyIdClaimWrapper .Tags {
+  width: 190px;
+  height: 30px;
+  margin: 5px 0 5px 25%;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 2px;
+}
+
+.bountyIdClaimWrapper .Title.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Url.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Description.bountyIdModalInputDescExpand, .bountyIdClaimWrapper .Tags.bountyIdModalInputDescExpand {
+  height: 60px;
+  width: 250px;
+  margin: 5px 0 5px 17%;
+  border-radius: 10px;
+}
+
+.contentModalSubmitBtn.bountyIdBtn {
+  height: 25px;
+  width: 100px;
+  margin: 5px 0 5px 36%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.contentModalSubmitBtn.bountyIdBtn:hover {
+  height: 30px;
+  width: 150px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+  margin: 5px 0 5px 32%;
 }
 
 nav {
@@ -1284,6 +1509,7 @@ nav {
 
 .posts {
   width: 85%;
+  margin: 0 0 0 10px;
 }
 
 .posts-item {
@@ -1297,7 +1523,7 @@ nav {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px 0 20px 0;
+  margin: 10px auto 10px auto;
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 35px;
 }
@@ -1437,4 +1663,105 @@ h1 {
 
 .profileFavsContainer {
   width: 50%;
+}
+
+.userHeaderSpan {
+  position: absolute;
+  height: 175px;
+  line-height: 175px;
+  font-size: 54px;
+  color: white;
+  font-weight: bolder;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.userHeaderColor {
+  width: calc(100% + 50px);
+  height: 175px;
+  background: #29BEEB;
+  margin-left: -25px;
+}
+
+.userHeader {
+  z-index: -1;
+  height: 175px;
+  width: 100%;
+  background: url("../assets/student3.png") no-repeat 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 30% 65%;
+  opacity: .2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 52px;
+  font-weight: bolder;
+  color: white;
+}
+
+.userInfoWrapper {
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0 10px 28%;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  width: 50%;
+  border-radius: 20px;
+}
+
+.userInfoWrapper.posts, .userInfoWrapper .bounties {
+  width: 150px;
+  margin: 5px 0 5px 40%;
+}
+
+.userBucks {
+  width: 50px;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  margin: 10px 0 10px 46%;
+}
+
+.userSubmitBtn {
+  height: 25px;
+  width: 50px;
+  margin: 5px 0 5px 46%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 2px;
+  background-color: #2AABE2;
+  color: white;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.userSubmitBtn:hover {
+  height: 30px;
+  width: 65px;
+  background: #57BDE8;
+  color: white;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: bolder;
+  border: 2px;
+  margin: 5px 0 5px 45%;
 }
