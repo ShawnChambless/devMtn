@@ -1387,38 +1387,57 @@ aside a {
   color: white;
 }
 
-.profileWrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+h1 {
+  text-align: center;
+  width: 100%;
 }
 
 .profile {
-  margin: 20px 0 0 0;
-  width: calc(100%/2.5);
-  max-width: calc(100%/2);
-  max-height: calc(100vh/4);
+  margin: 20px auto;
+  width: 70%;
+  max-height: calc(100vh/3);
   overflow-y: scroll;
 }
 
 .profile.profileInfo {
   margin: 0 auto;
   text-align: center;
+  overflow-y: initial;
 }
 
-h1 {
-  text-align: center;
+.navigator {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 130px;
+  height: 200px;
+  background: #29BEEB;
+  font-size: 1.1em;
+  position: fixed;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.profileFavoritesContent {
-  margin: 20px;
+.navigator a {
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
+  color: #fff;
 }
 
-.profileFavsContainer {
-  width: 50%;
+.navigator a:hover {
+  color: #444;
 }

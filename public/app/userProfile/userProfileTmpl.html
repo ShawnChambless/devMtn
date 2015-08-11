@@ -3,6 +3,16 @@
 	<header class="profileHeader"></header>
 </div>
 
+<div class="navigator">
+	<a ng-click='scrollTo("top")'>Top</a>
+	<a ng-click='scrollTo("posts")'>Posts</a>
+	<a ng-click='scrollTo("viewLater")'>View Later</a>
+	<a ng-click='scrollTo("favorites")'>Favorites</a>
+	<a ng-click='scrollTo("bounties")'>Bounties</a>
+</div>
+
+<span id='top'></div>
+
 <div class="profile profileInfo">
     <header>
         <h1>Profile Information</h1>
@@ -13,23 +23,21 @@
     <div class="userinfo">{{user.email}}</div>
     <div class="userinfo">Total Bucks in Account: {{user.devBucks}}</div>
 </div>
-<div class="profileWrapper">
-    <div class="profileFavsContainer">
-      <header>
-          <h1 class="profileFavoritesContent">Favorites</h1>
-      </header>
-      <div class="profile favorites">
+<span id='favorites'></span>
+<header>
+  <h1 class="profileFavoritesContent">Favorites</h1>
+</header>
+<div class="profile favorites">
 
 
-          <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
-              <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
-              <div class="post description">{{favorite.desc}}</div>
-              <input type='submit' ng-click='removeFavorite(user._id, favorite._id, $index)' value='Remove' />
+  <div class="favorites" ng-repeat='favorite in user.favorites track by $index'>
+      <div class="post title"><a href={{favorite.url}} target='_blank'>{{favorite.title}}</a></div>
+      <div class="post description">{{favorite.desc}}</div>
+      <input type='submit' ng-click='removeFavorite(user._id, favorite._id, $index)' value='Remove' />
 
-          </div>
-
-      </div>
-    </div>
+  </div>
+</div>
+<span id='viewLater'></span>
 <header>
     <h1>View Later</h1>
 </header>
@@ -46,22 +54,7 @@
 
     </div>
 </div>
-<div class="profileWrapper bottom">
-<header>
-    <h1>Bounties</h1>
-</header>
-    <div class="profile bounties">
-
-
-        <div class="bounties" ng-repeat='bounty in user.bounties track by $index'>
-
-            <div class="post title">{{bounty.title}}</div>
-            <div class="post cat">{{bounty.cat}}</div>
-            <div class="post value">{{bounty.value}}</div>
-
-        </div>
-
-    </div>
+<span id='posts'></span>
 <header>
     <h1>Posts</h1>
 </header>
@@ -78,5 +71,19 @@
         </div>
 
     </div>
+<span id='bounties'></span>
+<header>
+    <h1>Bounties</h1>
+</header>
+    <div class="profile bounties">
 
-</div>
+
+        <div class="bounties" ng-repeat='bounty in user.bounties track by $index'>
+
+            <div class="post title">{{bounty.title}}</div>
+            <div class="post cat">{{bounty.cat}}</div>
+            <div class="post value">{{bounty.value}}</div>
+
+        </div>
+
+    </div>
