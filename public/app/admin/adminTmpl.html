@@ -22,7 +22,7 @@
             <div class="post user">Poster: {{post.user.firstName}} {{post.user.lastName}}</div>
         </div>
         <div class="adminApproveDiscardEditBtns">
-          <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user, post.bounty)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
+          <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user._id, post.bounty)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
           <input class="adminDiscardBtn" type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
           <button class="adminEditBtn" ng-click='modalShown = !modalShown'>Edit</button>
         </div>

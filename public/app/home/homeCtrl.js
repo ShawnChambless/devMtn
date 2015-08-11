@@ -1,8 +1,8 @@
 angular.module('groupProject')
-.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', 'currentUser', function($scope, homeService, getPosts, currentUser) {
+.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', 'currentUser', '$stateParams', function($scope, homeService, getPosts, currentUser, $stateParams) {
 
 	$scope.modalShown = false;
-	
+
 	$scope.admin = currentUser.isAdmin;
 
 	$scope.posts = getPosts.data;
@@ -35,4 +35,14 @@ angular.module('groupProject')
 	$scope.deletePost = function(postId) {
 		homeService.deletePost(postId);
 	};
+
+	var count = parseInt($stateParams.count, 10);
+	if (count > 10) {
+		$scope.prevPage = 'home({count:' + (count - 10) + '})';
+		$scope.nextPage = 'home({count:' + (count + 10) + '})';
+	} else {
+		$scope.prevPage = 'home({count: 0})';
+		$scope.nextPage = 'home({count:' + (count + 10) + '})';
+	}
+
 }]);
