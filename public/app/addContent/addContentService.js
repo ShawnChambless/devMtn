@@ -1,6 +1,6 @@
 angular.module('groupProject')
 
-.service('addContentService', ['$http', 'LoginService', '$q', function($http, LoginService, $q){
+.service('addContentService', ['url', '$http', 'LoginService', '$q', function(url, $http, LoginService, $q){
 
 	var currentUser = LoginService.currentUser();
 
@@ -12,13 +12,13 @@ angular.module('groupProject')
 			var dfd = $q.defer();
 	    $http({
 	      method: 'POST',
-	      url: 'http://localhost:8080/api/posts',
+	      url: url.url + '/api/posts',
 	      data: newPost
   		}).then(function(resp) {
 				dfd.resolve(resp);
 				$http({
 				method: 'PUT',
-				url: 'http://localhost:8080/api/users/' + newPost.user + '/posts/' + resp.data._id
+				url: url.url + '/api/users/' + newPost.user + '/posts/' + resp.data._id
 	  		});
   		}, function(error){
   			dfd.reject(error);
@@ -34,13 +34,13 @@ angular.module('groupProject')
 			var dfd = $q.defer();
 	    $http({
 	      method: 'POST',
-	      url: 'http://localhost:8080/api/posts',
+	      url: url.url + '/api/posts',
 	      data: newPost
   		}).then(function(resp) {
   			dfd.resolve(resp);
 			 $http({
 				method: 'PUT',
-				url: 'http://localhost:8080/api/users/' + newPost.user + '/posts/' + resp.data._id
+				url: url.url + '/api/users/' + newPost.user + '/posts/' + resp.data._id
 	  		});
   		}, function(error){
   			dfd.reject(error);

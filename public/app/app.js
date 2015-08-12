@@ -1,4 +1,7 @@
 angular.module('groupProject', ['ui.router'])
+.constant('url', {
+  url: 'http://localhost:8080'
+})
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     var isLoggedIn = function(LoginService, $state){

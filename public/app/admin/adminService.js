@@ -1,18 +1,18 @@
 angular.module('groupProject')
 
-.service('adminService', ['$http', 'LoginService', function($http, LoginService){
+.service('adminService', ['url', '$http', 'LoginService', function(url, $http, LoginService){
 
 	this.getPosts = function(newPost) {
 	    return $http({
 	      method: 'GET',
-	      url: 'http://localhost:8080/api/posts/pending'
+	      url: url.url + '/api/posts/pending'
 	    });
   	};
 
   this.approvePost = function(postId, userId, bountyId){
  	$http({
   		method: 'PUT',
-  		url: 'http://localhost:8080/api/posts/' + postId,
+  		url: url.url + '/api/posts/' + postId,
   		data: {
 			isApproved: true,
 			user: userId
@@ -21,7 +21,7 @@ angular.module('groupProject')
       if(bountyId){
         return $http({
         method: 'PUT',
-        url: 'http://localhost:8080/api/users/' + userId + '/bounties/' + bountyId
+        url: url.url + '/api/users/' + userId + '/bounties/' + bountyId
        });
       }
     });
@@ -31,14 +31,14 @@ angular.module('groupProject')
   this.discardPost = function(id){
   	return $http({
   		method: 'DELETE',
-  		url: 'http://localhost:8080/api/posts/' + id
+  		url: url.url + '/api/posts/' + id
   	});
   };
 
   this.editPost = function(post){
   	return $http({
   		method: 'PUT',
-  		url: 'http://localhost:8080/api/posts/' + post._id,
+  		url: url.url + '/api/posts/' + post._id,
   		data: post
   	});
   };
@@ -46,7 +46,7 @@ angular.module('groupProject')
   this.postBounty = function(bounty){
     return $http({
       method: 'POST',
-      url: 'http://localhost:8080/api/bounties',
+      url: url.url + '/api/bounties',
       data: bounty
     });
   };
