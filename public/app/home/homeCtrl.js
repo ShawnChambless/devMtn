@@ -3,6 +3,7 @@ angular.module('groupProject')
 
 	$scope.modalShown = false;
 
+	$scope.user = currentUser;
 	$scope.admin = currentUser.isAdmin;
 
 	$scope.posts = getPosts.data;
