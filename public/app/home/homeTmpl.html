@@ -77,7 +77,7 @@
 
     <div class="posts">
         <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText | orderBy:"-votes"'>
-            <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' /></div>
+            <div class="post thumbnail"><img ng-src='assets/{{ post.cat }}.png' /></div>
             <div class="homePostLoginCat">
               <div class="post cat"><a ng-href='/#/cat/{{post.cat}}'> {{post.cat}}</a></div>
               <div class="posts-post">
