@@ -17,11 +17,19 @@
     <input type="text" ng-model="contentSearchTag" ng-enter="tagView(contentSearchCat, contentSearchTag)" placeholder="...and tag to search by"/>
     <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
 </div>
+<div class="home-prev-next">
+  <a class="prev btn" ui-sref="{{prevPage}}">Prev</a>
+  <a class="next btn" ui-sref="{{nextPage}}">Next</a>
+</div>
 
 <!-- MODAL -->
-<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='400px' height='61%'>
+
+<modal-dialog ng-init="modalShown = false" controller-name='addContentCtrl' class='homeModal ' ng-show='modalShown' width='400px'>
+    <span class="login-modal-edit-post-nav">Edit Post</span>
+    <div class="home-modal-top-nav">
+      <h3 class="contentEditPostBtn"></h3>
+    </div>
     <div class="contentModalAlignment">
-      <h3 class="contentEditPostBtn">Edit Post</h3>
       <input class='contentModalInputTitle' ng-model="newPost.title" placeholder="Title" />
       <input class='contentModalInputUrl' ng-model="newPost.url" placeholder="URL" />
       <input class='contentModalInputTags' ng-model="newPost.tags" placeholder="Tags" />
@@ -70,35 +78,37 @@
     <div class="posts">
         <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText | orderBy:"-votes"'>
             <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' /></div>
-            <div class="posts-post">
-                <div class="voteBtns">
-                  <div>
-                    <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
-                    <div class="post votes">{{post.votes}}</div>
-                    <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
+            <div class="homePostLoginCat">
+              <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
+              <div class="posts-post">
+                  <div class="voteBtns">
+                    <div>
+                      <i class="fa fa-angle-up" ng-click="post.votes = post.votes + 1; upVoteDownVote(post._id, post.votes)"></i>
+                      <div class="post votes">{{post.votes}}</div>
+                      <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
+                    </div>
+                    <div class="post title"><a ng-href="{{ post.url }}" target="_blank" > {{post.title}}</a></div>
+                    <div class="poster type"><img ng-src='assets/{{ post.type }}.png' /></div>
+                    <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id, $index)' ng-show='admin' value='Delete'>
                   </div>
-                  <div class="post title"><a ng-href="{{ post.url }}" target="_blank" > {{post.title}}</a></div>
-                  <div class="post type"><img ng-src='assets/{{ post.type }}.png' /></div>
-                  <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id, $index)' ng-show='admin' value='Delete'>
                 </div>
-                <!-- <div class="titleBtns"> -->
-                <!-- </div> -->
-                <!-- <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div> -->
                 <div class="homeContentWrapper" >
-                  <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
-                  <div class="post description">{{post.desc}}</div>
+                  <div class="post description">Description: {{post.desc}}</div>
 
-                  <div class="post tags">Tags:&nbsp;&nbsp;&nbsp;<a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}&nbsp;&nbsp;&nbsp;</a></div>
+                  <div class="post-tags">Tags:&nbsp;&nbsp;&nbsp;<a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}&nbsp;&nbsp;&nbsp; </a></div>
                   <div class="favWatchBtns">
                     <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                     <input class="addToWatchBtn" type='submit' ng-click='addToviewLater(post._id)' value='Add to View Later'>
                   </div>
-                </div>
+              </div>
             </div>
         </div>
     </div>
 
-    <a ui-sref="{{prevPage}}">Prev</a>
-    <a ui-sref="{{nextPage}}">Next</a>
 
+
+</div>
+<div class="home-prev-next">
+  <a class="prev btn" ui-sref="{{prevPage}}">Prev</a>
+  <a class="next btn" ui-sref="{{nextPage}}">Next</a>
 </div>

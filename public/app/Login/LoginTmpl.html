@@ -1,4 +1,4 @@
-<span class="Container">
+<div class="Container">
   <div class="loginContainer">
     <div class="topNav">
       <div class="topNavImage"></div>
@@ -8,46 +8,43 @@
     <a class="newUserLink" ng-click="toggleModal()">Need an account?</a>
 
     <!-- Modal for new users -->
-
-
-    <!-- <div class="ng-modal-close" ng-click="hideModal()"></div> -->
-
-    <!-- End of modal -->
   <form>
-
-    <input ng-model="email" type="email" placeholder="Email" class="email" required autofocus/>
-    <!-- <span class="error" ng-show=""></span> -->
-    <input ng-model="password" type="password" placeholder="Password" class="password"/>
-    <button ng-click="loginUser(email, password)" class="buttonLoginSubmit">Submit</button>
-    <a class="forgotPasswordLink">Forgot password?</a>
+    <div class="loginContainerBox">
+      <input ng-model="email" type="email" placeholder="Email" class="loginEmail" required/>
+      <input ng-model="password" type="password" placeholder="Password" class="loginPassword"/>
+      <button ng-click="loginUser(email, password)" class="buttonLoginSubmit">Submit</button>
+      <a class="forgotPasswordLink">Forgot password?</a>
+    </div>
   </form>
   </div>
 
+  <!-- <div class="loginModalWrapper"> -->
+    <login-modal-dialog show="modalShown" width="500px" height="500px" class="modalSignup">
+      <div class="login-modal-navbar">
+        <div class="login-modal-logo"></div>
+      </div>
 
-  <login-modal-dialog show="modalShown" width="500px" height="500px" class="modalSignup">
+      <h1 class="modalLoginSignup">SIGNUP</h1>
 
-    <div class="login-modal-navbar">
-      <div class="login-modal-logo"></div>
-    </div>
+      <h3 class="modal-already-user-link" ng-click="toggleModal()">Already a user?</h3>
+      <form name="signup" ng-model="signupForm">
+        <div class="loginModalWrapper">
+          <input ng-model="firstName" type="text" placeholder="First Name" class="loginModal firstName" ng-required/>
 
-    <h1 class="modal-h2-signup">SIGNUP</h1>
+          <input ng-model="lastName" type="text" placeholder="Last Name" class="loginModal lastName" ng-required/>
 
-    <h3 class="modal-already-user-link" ng-click="toggleModal()">Already a user?</h3>
-    <form name="signup" ng-model="signupForm">
-      <input ng-model="firstName" type="text" placeholder="First Name" class="login-modal-first-name" ng-required/>
+          <input ng-model="email" type="email" placeholder="Enter email" class="login modalEmail" ng-required />
 
-      <input ng-model="lastName" type="text" placeholder="Last Name" class="login-modal-last-name" ng-required/>
+          <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login modalPassword" ng-required/>
 
-      <input ng-model="email" type="email" placeholder="Enter email" class="login-modal-email" ng-required />
+          <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="loginModal reenterPassword" validate-equals="password" ng-required/>
+        </div>
+      </form>
 
-      <input ng-model="password" name="password" type="password" placeholder="Enter password" class="login-modal-password" ng-required/>
+        <!-- <button ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.passwordConfirm.$pristine || signup.passwordConfirm.$invalid" type="button" name="button"></button> -->
+        <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm); toggleModal()" type="button" class="modal-newuser-button">Submit</button>
+      <h3 class="modal-forgot-password">Forgot your password?</h3>
 
-      <input ng-model="passwordConfirm" name="passwordConfirm" type="password" placeholder="Re-enter password" class="login-modal-reenter-password" validate-equals="password" ng-required/>
-    </form>
-
-      <!-- <button ng-disabled="signup.email.$invalid || signup.password.$invalid || signup.passwordConfirm.$pristine || signup.passwordConfirm.$invalid" type="button" name="button"></button> -->
-      <button ng-click="createUser(firstName, lastName, email, password, passwordConfirm); toggleModal()" type="button" class="modal-newuser-button">Submit</button>
-    <h3 class="modal-forgot-password">Forgot your password?</h3>
-
-  </login-modal-dialog>
-</span>
+    </login-modal-dialog>
+  <!-- </div> -->
+</div>

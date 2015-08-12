@@ -1,4 +1,4 @@
-<span class="bountyIdHeaderSpan">User Profile</span>
+<span class="bountyIdHeaderSpan">BOUNTY</span>
 <div class="bountyIdHeaderColor">
 	<header class="bountyIdHeader"></header>
 </div>
@@ -11,6 +11,7 @@
   <span>Something went wrong. Try again.</span>
 </div>
 
+
 <div class="bountyIdWrapper">
 	<div class="bounty titleBounty">{{bounty.title}}</div>
 	<div class="bounty catBounty">{{bounty.cat}}</div>
@@ -20,7 +21,7 @@
 	<div class="bounty valueBounty">{{bounty.value}}</div>
 	<div class="bounty typeBounty">{{bounty.type}}</div>
 </div>
-<!-- INLINE STYLES HERE FOR TESTING -->
+
 <div class="progress-container">
 	<div class="progress-fill" ng-repeat="div in claimedArr track by $index" ng-style="{'width': blockwidth}"></div>
 	<div class="progress-fill white" ng-repeat="div in remainderArr track by $index" ng-style="{'width': blockwidth}"></div>
@@ -30,18 +31,26 @@
 	<span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
 </div>
 </br>
-<!-- MODAL -->
 
-<modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='400px' height='55%'>
+<!-- Start of MODAL -->
+
+<modal-dialog ng-init="modalShown = false" class='contentModal' ng-show='modalShown' width='400px' height='450px'>
 	<div class="bountyIdClaimWrapper">
-	<div>{{ bounty.title }}</div> 
-    <div>DevBucks:{{ bounty.value }}</div>
+
+		<span class="bountyId-modal-edit-post-nav">Claim Bounty</span>
+		<div class="bountyId-modal-top-nav">
+			<h3 class="bountyIdEditPostBtn"></h3>
+		</div>
+
+	<div class="bountyId-modal-title">{{ bounty.title }}</div>
+    <div class="bountyId-modal-value">DevBucks:{{ bounty.value }}</div>
+
     <input class='contentModalInput Title' ng-model="newPost.title" placeholder="Title" />
     <input class='contentModalInput Url' ng-model="newPost.url" placeholder="URL" />
-    <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
     <input class='contentModalInput Tags' ng-model="newPost.tags" placeholder="Tags" />
-    <div>{{ bounty.type }}</div>
-    <div>{{ bounty.cat }}</div>
+    <input class='contentModalInput Description' ng-init="focus = false" ng-focus="focus = true" ng-blur="focus = false" ng-class="{bountyIdModalInputDescExpand: focus}" ng-model="newPost.desc" placeholder="Description" />
+    {{ bounty.type }}
+    {{ bounty.cat }}
 	</div>
     <!-- <select class='contentModalSelect' ng-model='newPost.cat' placeholder="Categories">
         <option value="html">HTML</option>
