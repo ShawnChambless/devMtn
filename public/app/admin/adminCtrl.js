@@ -7,12 +7,15 @@ angular.module('groupProject')
 
   $scope.posts = getPosts.data;
 
-	$scope.approvePost = function(postId, userId, bountyId) {
+	$scope.approvePost = function(postId, userId, bountyId, index) {
 		adminService.approvePost(postId, userId, bountyId);
+			$scope.posts.splice(index, 1);
 	};
 
-	$scope.discardPost = function(id){
-		adminService.discardPost(id);
+	$scope.discardPost = function(id, index){
+		adminService.discardPost(id).then(function() {
+			$scope.posts.splice(index, 1);
+		});
 	};
 
 	$scope.editPost = function(id){

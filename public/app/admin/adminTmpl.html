@@ -12,25 +12,39 @@
 <div class="posts">
     <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText'>
         <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}'></div>
-        <div class="posts-post">
-            <div class="post title">{{post.title}}</div>
-            <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
+        <div class="admin-post-container">
+          <div class="admin-post-right-container">
             <div class="post cat"><a href='/#/home/{{post.cat}}'>{{post.cat}}</a></div>
-            <div class="post description">Description: {{post.desc}}</div>
-            <div class="post type">Type: {{post.type}}</div>
-            <div class="post tags" ng-repeat='tag in post.tags'>Tags: {{tag}}</div>
-            <div class="post user">Poster: {{post.user.firstName}} {{post.user.lastName}}</div>
-        </div>
-        <div class="adminApproveDiscardEditBtns">
-          <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user._id, post.bounty)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
-          <input class="adminDiscardBtn" type="submit" ng-click="discardPost(post._id)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
-          <button class="adminEditBtn" ng-click='modalShown = !modalShown'>Edit</button>
-        </div>
+            <div class="post user">Posted by: <br>
+              {{post.user.firstName}} {{post.user.lastName}}</div>
+          </div>
+          <div class="posts-post-admin">
 
+              <div class="manage-posts-post">
+                <div class="post title">{{post.title}}</div>
+                <div class="poster type"><img ng-src='assets/{{ post.type }}.png' /></div>
+              </div>
+
+              <div class="manage-posts-content">
+                <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div>
+                <div class="post description">Description: {{post.desc}}</div>
+                <div class="post tags">Tags: <span ng-repeat='tag in post.tags'>{{tag}} </span></div>
+              </div>
+          </div>
+          <div class="adminApproveDiscardEditBtns">
+            <input class="adminApproveBtn"type="submit" ng-click="approvePost(post._id, post.user._id, post.bounty, $index)" ng-change="clearIt(show)" ng-model="show" value="Approve" />
+            <input class="adminDiscardBtn" type="submit" ng-click="discardPost(post._id, $index)" ng-change="clearIt(show)" ng-model="show" value="Discard" />
+            <button class="adminEditBtn" ng-click='modalShown = !modalShown'>Edit</button>
+          </div>
+        </div>
+    </div>
 <!-- MODAL -->
-		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='55%'>
+		<modal-dialog controller-name='editContentCtrl' class='adminModal' ng-show='modalShown' width='400px' height='400px'>
         <div class="adminModalAlignment">
-          <h3 class="adminEditPostBtn">Edit Post</h3>
+          <span class="admin-modal-edit-post-nav">Edit Post</span>
+          <div class="home-modal-top-nav">
+            <h3 class="contentEditPostBtn"></h3>
+          </div>
   		    <input class='adminModalInputTitle' ng-model="post.title" placeholder="Title" />
   		    <input class='adminModalInputUrl' ng-model="post.url" placeholder="URL" />
   		    <input class='adminModalInputTags' ng-model="post.tags" placeholder="Tags" />

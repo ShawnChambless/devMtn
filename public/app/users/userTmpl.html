@@ -6,7 +6,7 @@
 <div class="userInfo" ng-repeat='user in users'>
     <div class="userInfoWrapper">
       {{user.firstName}} {{user.lastName}}
-      <div class="user posts" ng-repeat='post in user.posts'>{{post.title}}</div>
+      <div class="user posts-manage" ng-repeat='post in user.posts'>{{post.title}}</div>
       <div class="user bounties" ng-repeat='bounty in user.bounties'>{{bounty.title}}</div>
       <div class="user devBucks" >{{user.devBucks}}</div>
       <label for='UNIQUELABEL{{$index+1}}'> Bucks to add or deduct</label>

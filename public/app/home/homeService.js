@@ -28,19 +28,17 @@ angular.module('groupProject')
         });
     };
 
-    this.addToFavorites = function(postId) {
-        userId = user;
+    this.addToFavorites = function(postId, userId) {
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + userId._id + '/favorites/' + postId
+            url: 'http://localhost:8080/api/users/' + userId + '/favorites/' + postId
         });
     };
 
-    this.addToviewLater = function(postId) {
-        userId = user;
+    this.addToviewLater = function(postId, userId) {
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + user._id + '/viewLater/' + postId
+            url: 'http://localhost:8080/api/users/' + userId + '/viewLater/' + postId
         });
     };
 

@@ -116,11 +116,55 @@ a {
   color: white;
 }
 
+.home-prev-next {
+  width: 100%;
+  text-align: center;
+}
+
+.home-prev-next .prev.btn, .home-prev-next .next.btn {
+  text-align: center;
+  color: black;
+  padding: 5px 0 15px 0;
+  width: 90px;
+  -webkit-transition: all 300ms ease;
+          transition: all 300ms ease;
+}
+
+.home-prev-next .prev.btn:hover, .home-prev-next .next.btn:hover {
+  color: #29BEEB;
+}
+
+.voteBtns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0 0 0;
+}
+
 .favWatchBtns {
-  margin: 25px 0 0 0;
+  margin: -70px 0 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.post-tags {
+  margin: 20px 0 -30px 0;
 }
 
 .addToFavoritesBtn {
+  float: right;
   height: 25px;
   width: 90px;
   text-align: center;
@@ -128,7 +172,7 @@ a {
   font-weight: bolder;
   border-radius: 4px;
   border: 2px;
-  margin: -10px 0 10px 0;
+  margin: 10px 15px 5px 0;
   background-color: #2AABE2;
   color: white;
   -webkit-transition: all 300ms ease;
@@ -137,6 +181,7 @@ a {
 
 .addToFavoritesBtn:hover {
   height: 30px;
+  margin: 10px 15px 5px 0;
   width: 130px;
   background: #57BDE8;
   color: white;
@@ -147,6 +192,8 @@ a {
 }
 
 .addToWatchBtn {
+  float: right;
+  margin: 10px 15px 5px 0;
   height: 25px;
   width: 100px;
   text-align: center;
@@ -162,6 +209,7 @@ a {
 
 .addToWatchBtn:hover {
   height: 30px;
+  margin: 10px 15px 5px 0;
   width: 140px;
   background: #57BDE8;
   color: white;
@@ -169,13 +217,6 @@ a {
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
-}
-
-.voteBtns {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .deletePostBtn {
@@ -227,8 +268,12 @@ a {
 .homePostLoginCat .cat {
   float: right;
   margin: 0 15px 0 0;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bolder;
+}
+
+select {
+  height: 25px;
 }
 
 .contentModalAlignment {
@@ -243,51 +288,43 @@ a {
           flex-direction: column;
 }
 
+.home-modal-top-nav {
+  background-color: #29BEEB;
+  opacity: .6;
+  z-index: -1;
+  border-radius: 4px;
+  height: 70px;
+  width: 100%;
+}
+
 .contentEditPostBtn {
-  margin: 5px 0 5px 38%;
+  text-align: center;
+  height: 70px;
 }
 
-.homeModal .contentModalInputTitle {
+.login-modal-edit-post-nav {
+  height: 70px;
+  position: absolute;
+  color: white;
+  z-index: 1;
+  line-height: 70px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.homeModal .contentModalInputTitle, .homeModal .contentModalInputUrl, .homeModal .contentModalInputTags, .homeModal .contentModalInputDesc {
   height: 30px;
   width: 275px;
-  margin: 5px 0 5px 13%;
+  margin: 15px 0 10px 13%;
   text-align: center;
   font-size: 20px;
   border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
-.homeModal .contentModalInputUrl {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.homeModal .contentModalInputTags {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.homeModal .contentModalInputDesc {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.homeModal .contentModalInputDesc.contentModalInputDescExpand {
+.homeModal .contentModalInputTitle.contentModalInputDescExpand, .homeModal .contentModalInputUrl.contentModalInputDescExpand, .homeModal .contentModalInputTags.contentModalInputDescExpand, .homeModal .contentModalInputDesc.contentModalInputDescExpand {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
@@ -311,7 +348,7 @@ a {
 .homeModal .contentModalSubmitBtnHome {
   height: 25px;
   width: 45px;
-  margin: 5px 0 5px 42%;
+  margin: 5px 0 15px 42%;
   text-align: center;
   font-size: 10px;
   font-weight: bolder;
@@ -332,7 +369,7 @@ a {
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
-  margin: 5px 0 5px 40%;
+  margin: 5px 0 15px 40%;
 }
 
 .adminHeaderSpan {
@@ -420,13 +457,22 @@ a {
   border: 2px;
 }
 
+.posts-post-admin {
+  margin: -70px 0 0 0;
+}
+
 .posts .post img {
   height: 150px;
   width: 150px;
   border-radius: 100px;
 }
 
-.adminApproveDiscardEditBtns {
+.admin-post-container {
+  width: 100%;
+}
+
+.admin-post-container .admin-post-right-container {
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -436,6 +482,56 @@ a {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.admin-post-container .admin-post-right-container .cat {
+  float: right;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0 10px 0 10px;
+}
+
+.admin-post-container .admin-post-right-container .user {
+  float: right;
+  font-size: 15px;
+  font-weight: bolder;
+  margin: 5px 10px 0 10px;
+}
+
+.manage-posts-post {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 0 0;
+}
+
+.manage-posts-content {
+  margin: 10px 0 10px 10px;
+}
+
+.manage-posts-content .url, .manage-posts-content .description, .manage-posts-content .tags {
+  margin: 10px 0 10px 0;
+}
+
+.adminApproveDiscardEditBtns {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: -50px 0 0 0;
+}
+
+.adminApproveDiscardEditBtns .adminApproveBtn, .adminApproveDiscardEditBtns .adminDiscardBtn, .adminApproveDiscardEditBtns .adminEditBtn {
+  margin: 0 10px 0 10px;
 }
 
 .adminApproveBtn {
@@ -533,72 +629,64 @@ a {
           flex-direction: column;
 }
 
+.admin-modal-top-nav {
+  background-color: #29BEEB;
+  opacity: .6;
+  z-index: -1;
+  border-radius: 4px;
+  height: 70px;
+  width: 100%;
+}
+
 .adminEditPostBtn {
-  margin: 5px 0 5px 38%;
+  text-align: center;
+  height: 70px;
 }
 
-.adminModal .adminModalInputTitle {
+.admin-modal-edit-post-nav {
+  height: 70px;
+  position: absolute;
+  color: white;
+  z-index: 1;
+  line-height: 70px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.adminModal .adminModalInputDesc, .adminModal .adminModalInputUrl, .adminModal .adminModalInputTitle, .adminModal .adminModalInputValue, .adminModal .adminModalInputQuantity, .adminModal .adminModalInputTags {
   height: 30px;
   width: 275px;
   margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
   border-radius: 4px;
-  border: 2px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
-.adminModal .adminModalInputUrl {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 2px;
-}
-
-.adminModal .adminModalInputTags {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 2px;
-}
-
-.adminModal .adminModalInputDesc {
-  height: 30px;
-  width: 275px;
-  margin: 5px 0 5px 13%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 2px;
-}
-
-.adminModal .adminModalInputDesc.adminModalInputDescExpand {
+.adminModal .adminModalInputDesc.adminModalInputDescExpand, .adminModal .adminModalInputUrl.adminModalInputDescExpand, .adminModal .adminModalInputTitle.adminModalInputDescExpand, .adminModal .adminModalInputValue.adminModalInputDescExpand, .adminModal .adminModalInputQuantity.adminModalInputDescExpand, .adminModal .adminModalInputTags.adminModalInputDescExpand {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
   border-radius: 4px;
 }
 
-.adminModal .adminModalSelectLanguage {
+.adminModalSelectLanguage {
   height: 50px;
   width: 150px;
   margin: 5px 0 5px 29%;
   text-align: center;
 }
 
-.adminModal .adminModalSelectType {
+.adminModalSelectType {
   height: 50px;
   width: 150px;
   margin: 5px 0 5px 29%;
   text-align: center;
 }
 
-.adminModal .adminModalSubmitBtnHome {
+.adminModalSubmitBtnHome {
   height: 25px;
   width: 45px;
   margin: 5px 0 5px 42%;
@@ -606,14 +694,14 @@ a {
   font-size: 10px;
   font-weight: bolder;
   border-radius: 4px;
-  border: 2px;
+  border: 1px solid rgba(128, 128, 128, 0.4);
   background-color: #2AABE2;
   color: white;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
 }
 
-.adminModal .adminModalSubmitBtnHome:hover {
+.adminModalSubmitBtnHome:hover {
   height: 30px;
   width: 65px;
   background: #57BDE8;
@@ -747,71 +835,43 @@ a {
   margin: 0 0 0 33%;
 }
 
-.bountyModal .bountyModalInputTitle {
+.bounty-modal-top-nav {
+  background-color: #29BEEB;
+  opacity: .6;
+  z-index: -1;
+  border-radius: 4px;
+  height: 70px;
+  width: 100%;
+}
+
+.bountyEditPostBtn {
+  text-align: center;
+  height: 70px;
+}
+
+.bounty-modal-edit-post-nav {
+  height: 70px;
+  position: absolute;
+  color: white;
+  z-index: 1;
+  line-height: 70px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.bountyModal .bountyModalInputDesc, .bountyModal .bountyModalInputTitle, .bountyModal .bountyModalInputValue, .bountyModal .bountyModalInputQuantity, .bountyModal .bountyModalInputTags {
   height: 30px;
-  width: 150px;
-  margin: 10px 0 5px 29%;
+  width: 275px;
+  margin: 5px 0 5px 13%;
   text-align: center;
   font-size: 20px;
   border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
-.bountyModal .bountyModalInputValue {
-  height: 30px;
-  width: 150px;
-  margin: 10px 0 5px 29%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.bountyModal .bountyModalInputQuantity {
-  height: 30px;
-  width: 150px;
-  margin: 10px 0 5px 29%;
-  text-align: center;
-  font-size: 19px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.bountyModal .bountyModalInputTags {
-  height: 30px;
-  width: 150px;
-  margin: 10px 0 5px 29%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.bountyModal hr.firstLine {
-  top: 60px;
-  margin-top: 105px;
-  border: 1px solid #29BEEB;
-  opacity: .4;
-}
-
-.bountyModal hr.secondLine {
-  top: 100px;
-  margin-top: 85px;
-  border: 1px solid #29BEEB;
-  opacity: .4;
-}
-
-.bountyModal .bountyModalInputDesc {
-  height: 30px;
-  width: 150px;
-  margin: 10px 0 5px 29%;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 4px;
-  border: 1px solid rgba(128, 128, 128, 0.4);
-}
-
-.bountyModal .bountyModalInputDesc.bountyModalInputDescExpand {
+.bountyModal .bountyModalInputDesc.bountyModalInputDescExpand, .bountyModal .bountyModalInputTitle.bountyModalInputDescExpand, .bountyModal .bountyModalInputValue.bountyModalInputDescExpand, .bountyModal .bountyModalInputQuantity.bountyModalInputDescExpand, .bountyModal .bountyModalInputTags.bountyModalInputDescExpand {
   height: 60px;
   width: 350px;
   margin: 5px 0 5px 4%;
@@ -943,7 +1003,7 @@ a {
 }
 
 .bountyIdClaimBountyBtn {
-  margin: 20px 0 10px 0;
+  margin: 20px 25px 10px 25px;
   height: 25px;
   width: 76px;
   text-align: center;
@@ -966,7 +1026,7 @@ a {
   font-size: 15px;
   font-weight: bolder;
   border: 2px;
-  margin: 20px 0 10px 0;
+  margin: 20px 25px 10px 25px;
 }
 
 .bountyIdCloseBountyBtn {
@@ -1019,6 +1079,40 @@ a {
 
 .progress-fill.white {
   background-color: white;
+}
+
+.bountyId-modal-top-nav {
+  background-color: #29BEEB;
+  opacity: .6;
+  z-index: -1;
+  border-radius: 4px;
+  height: 70px;
+  width: 100%;
+}
+
+.bountyIdEditPostBtn {
+  text-align: center;
+  height: 70px;
+}
+
+.bountyId-modal-edit-post-nav {
+  height: 70px;
+  position: absolute;
+  color: white;
+  z-index: 1;
+  line-height: 70px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.bountyIdWrapper .titleBounty {
+  font-size: 20px;
+}
+
+.bountyId-modal-title {
+  margin: 10px 0 10px 0;
 }
 
 .bountyIdClaimWrapper {
@@ -1092,25 +1186,31 @@ nav {
   left: 0px;
 }
 
+.login-image-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .loginContainer {
-  height: 400px;
   width: 400px;
   background-color: #F7F7F7;
-  position: fixed;
-  top: 150px;
-  left: 35%;
-  bottom: 40px;
   border-radius: 4px;
+  z-index: 2;
+  margin: 5% auto;
 }
 
 .topNav {
-  background-color: #EFEFEF;
+  background-color: rgba(41, 190, 235, 0.3);
   border-radius: 4px;
   height: 70px;
+  opacity: .6;
+  z-index: -1;
 }
 
 .topNavImage {
   height: 100%;
+  z-index: 1;
   background: url("https://devmounta.in/img/logoonly.png") no-repeat;
   background-size: 12%;
   position: relative;
@@ -1131,9 +1231,14 @@ nav {
 }
 
 .newUserLink {
-  position: absolute;
-  left: 135px;
-  margin-top: -17px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 2px;
   cursor: pointer;
   color: #29BEEB;
@@ -1161,6 +1266,7 @@ nav {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 15px 0 15px 0;
 }
 
 .loginEmail {
@@ -1202,7 +1308,7 @@ nav {
 
 .forgotPasswordLink {
   color: #00B8EB;
-  margin: 10px auto 0 auto;
+  margin: 5px auto 10px auto;
   cursor: pointer;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
@@ -1213,6 +1319,10 @@ nav {
   background: #57BDE8;
   color: white;
   border-radius: 4px;
+}
+
+.loginText {
+  background-color: #F7F7F7;
 }
 
 .login-modal-container {
@@ -1263,13 +1373,14 @@ nav {
 .modalLoginSignup {
   text-align: center;
   font-size: 30px;
-  margin: 0 0 60px 0;
+  margin: 0 auto 60px auto;
+  background: white;
 }
 
 .modal-already-user-link {
   font-size: 15px;
   cursor: pointer;
-  margin: -50px 0 0 0;
+  margin: -50px 0 0 39%;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
@@ -1290,7 +1401,7 @@ nav {
   width: 250px;
   border-radius: 4px;
   border: 2px;
-  margin: 5px 0 5px 0;
+  margin: 5px 0 5px 25%;
   text-align: center;
   font-size: larger;
   border: 1px solid rgba(128, 128, 128, 0.4);
@@ -1298,20 +1409,13 @@ nav {
 
 .modal-newuser-button {
   height: 40px;
+  margin: 5px 0 0 35%;
   width: 155px;
   border-radius: 4px;
   border: 2px;
   background-color: #2AABE2;
   color: white;
   font-size: larger;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
 }
@@ -1322,6 +1426,7 @@ nav {
 
 .modal-forgot-password {
   cursor: pointer;
+  margin: 20px 0 0 30%;
   color: #29BEEB;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
@@ -1540,12 +1645,14 @@ aside a {
 
 h1 {
   text-align: center;
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  background-color: rgba(41, 190, 235, 0.09);
 }
 
 .profile {
-  margin: 20px auto;
-  width: 70%;
+  text-align: center;
+  width: 100%;
   max-height: calc(100vh/3);
   overflow-y: scroll;
 }
@@ -1556,9 +1663,8 @@ h1 {
   overflow-y: initial;
 }
 
-.profile.favorites, .profile .viewLater, .profile .Posts, .profile .bounties {
-  border: 1px solid black;
-  border-radius: 4px;
+.profile.profileInfo h1 {
+  background: white;
 }
 
 .navigator {
@@ -1670,6 +1776,7 @@ h1 {
   border-radius: 4px;
   border: 1px solid rgba(128, 128, 128, 0.4);
   margin: 10px 0 10px 46%;
+  text-align: center;
 }
 
 .userSubmitBtn {
@@ -1697,4 +1804,22 @@ h1 {
   font-weight: bolder;
   border: 2px;
   margin: 5px 0 5px 45%;
+}
+
+.flash-error {
+  background-color: #fbe3e4;
+  color: #96151b;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
+}
+
+.flash-success {
+  background-color: #e6efc2;
+  color: #56651a;
+  display: block;
+  margin-bottom: 0.75em;
+  padding: 0.75em;
+  text-align: center;
 }

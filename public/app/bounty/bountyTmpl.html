@@ -3,12 +3,20 @@
 	<header class="bountyHeader"></header>
 </div>
 
+<!-- Flash notifications -->
+<div class="flash-error animated fadeIn" ng-show="hideError">
+  <span>Bounty not created. Try again.</span>
+</div>
+
 <input class="bountyCreateBountyBtn" type="submit" ng-show='admin' value="Create Bounty" ng-click="toggleModal2()" />
 
 <!-- MODAL -->
 	<modal-dialog class="bountyModal" ng-show="modal2Shown" width='400px' height='460px'>
 		<div class="bountyModalAlignment">
-			<h3 class="contentBountyModal">Create Bounty</h3>
+			<span class="admin-modal-edit-post-nav">Create Bounty</span>
+			<div class="home-modal-top-nav">
+				<h3 class="contentEditPostBtn"></h3>
+			</div>
 			<input class='bountyModalInputTitle' ng-model="bounty.title" placeholder="Title" />
 		  <input class='bountyModalInputValue' ng-model="bounty.value" placeholder="Bounty Value" />
 			<input class='bountyModalInputQuantity' ng-model="bounty.quantityNeeded" placeholder="Quantity of Posts Needed" />
@@ -36,12 +44,14 @@
 	</modal-dialog>
 <!-- END MODAL -->
 
-<div ng-repeat='bounty in bounties'>
-	<div class="bountyBox">
-    <div class="bounty title"><a ng-href='/#/bounties/{{bounty._id}}'>{{bounty.title}}</a></div>
-    <div class="bounty cat">{{bounty.cat}}</div>
-    <div class="bounty value animated infinite pulse">{{bounty.value}} DevBucks</div>
-		<div class="fulfilledContent">
-	    <span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
-		</div>
-</div>
+<a ng-href='/#/bounties/{{bounty._id}}'>
+	<div ng-repeat='bounty in bounties'>
+			<div class="bountyBox">
+	    <div class="bounty title">{{bounty.title}}</div>
+	    <div class="bounty cat">{{bounty.cat}}</div>
+	    <div class="bounty value animated infinite pulse">{{bounty.value}} DevBucks</div>
+			<div class="fulfilledContent">
+		    <span>{{ bounty.quantityClaimed }}</span>/<span>{{ bounty.quantityNeeded }} Fulfilled</span>
+			</div>
+	</div>
+</a>

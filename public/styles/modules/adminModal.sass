@@ -63,15 +63,47 @@
       border: 2px
 
 .posts
+  &-post-admin
+    margin: -70px 0 0 0
   .post
     img
       height: 150px
       width: 150px
       border-radius: 100px
 
+.admin-post-container
+  width: 100%
+  .admin-post-right-container
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    .cat
+      float: right
+      font-size: 20px
+      font-weight: bolder
+      margin: 0 10px 0 10px
+    .user
+      float: right
+      font-size: 15px
+      font-weight: bolder
+      margin: 5px 10px 0 10px
+
+.manage-posts-post
+  display: flex
+  margin: 0 0 0 0
+
+.manage-posts-content
+  margin: 10px 0 10px 10px
+  & .url, .description, .tags
+    margin: 10px 0 10px 0
+
 .adminApproveDiscardEditBtns
   display: flex
-  flex-direction: column
+  justify-content: flex-end
+  margin: -50px 0 0 0
+  .adminApproveBtn, .adminDiscardBtn, .adminEditBtn
+    margin: 0 10px 0 10px
 
 .adminApproveBtn
     margin: 5px 0 5px 0
@@ -152,84 +184,75 @@
   display: flex
   flex-direction: column
 
+.admin-modal-top-nav
+  background-color: $loginBackground
+  opacity: .6
+  z-index: -1
+  border-radius: 4px
+  height: 70px
+  width: 100%
+
 .adminEditPostBtn
-  margin: 5px 0 5px 38%
+  text-align: center
+  height: 70px
+
+.admin-modal-edit-post-nav
+  height: 70px
+  position: absolute
+  color: white
+  z-index: 1
+  line-height: 70px
+  text-align: center
+  font-size: 35px
+  font-weight: bolder
+  width: 100%
 
 .adminModal
-
-  .adminModalInputTitle
+  .adminModalInputDesc, .adminModalInputUrl, .adminModalInputTitle, .adminModalInputValue, .adminModalInputQuantity, .adminModalInputTags
     height: 30px
     width: 275px
     margin: 5px 0 5px 13%
     text-align: center
     font-size: 20px
     border-radius: 4px
-    border: 2px
-
-  .adminModalInputUrl
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 4px
-    border: 2px
-
-  .adminModalInputTags
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 4px
-    border: 2px
-
-  .adminModalInputDesc
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 4px
-    border: 2px
+    border: 1px solid rgba(128, 128, 128, 0.4)
     &.adminModalInputDescExpand
       height: 60px
       width: 350px
       margin: 5px 0 5px 4%
       border-radius: 4px
 
+.adminModalSelectLanguage
+  height: 50px
+  width: 150px
+  margin: 5px 0 5px 29%
+  text-align: center
 
-  .adminModalSelectLanguage
-    height: 50px
-    width: 150px
-    margin: 5px 0 5px 29%
-    text-align: center
+.adminModalSelectType
+  height: 50px
+  width: 150px
+  margin: 5px 0 5px 29%
+  text-align: center
 
-  .adminModalSelectType
-    height: 50px
-    width: 150px
-    margin: 5px 0 5px 29%
-    text-align: center
-
-  .adminModalSubmitBtnHome
-    height: 25px
-    width: 45px
-    margin: 5px 0 5px 42%
-    text-align: center
-    font-size: 10px
-    font-weight: bolder
-    border-radius: 4px
-    border: 2px
-    background-color: $loginBtn
+.adminModalSubmitBtnHome
+  height: 25px
+  width: 45px
+  margin: 5px 0 5px 42%
+  text-align: center
+  font-size: 10px
+  font-weight: bolder
+  border-radius: 4px
+  border: 1px solid rgba(128, 128, 128, 0.4)
+  background-color: $loginBtn
+  color: white
+  transition: all 300ms ease
+  &:hover
+    height: 30px
+    width: 65px
+    background: $loginBtnHover
     color: white
-    transition: all 300ms ease
-    &:hover
-      height: 30px
-      width: 65px
-      background: $loginBtnHover
-      color: white
-      border-radius: 4px
-      font-size: 15px
-      font-weight: bolder
-      border: 2px
-      margin: 5px 0 5px 40%
+    border-radius: 4px
+    font-size: 15px
+    font-weight: bolder
+    border: 2px
+    margin: 5px 0 5px 40%

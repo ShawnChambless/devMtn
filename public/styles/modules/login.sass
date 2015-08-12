@@ -10,26 +10,30 @@ nav
   top: 55px
   left: 0px
 
+.login-image-container
+  height: 100%
+  width: 100%
+  position: absolute
 
 // THE NEXT SECTIONS WILL ALL BE IN THE LOGIN BOX
 
 .loginContainer
-  height: 400px
   width: 400px
   background-color: #F7F7F7
-  position: fixed
-  top: 150px
-  left: 35%
-  bottom: 40px
   border-radius: 4px
+  z-index: 2
+  margin: 5% auto
 
 .topNav
-  background-color: #EFEFEF
+  background-color: rgba(41, 190, 235, 0.3)
   border-radius: 4px
   height: 70px
+  opacity: .6
+  z-index: -1
 
 .topNavImage
   height: 100%
+  z-index: 1
   background: url('https://devmounta.in/img/logoonly.png') no-repeat
   background-size: 12%
   position: relative
@@ -42,9 +46,8 @@ nav
   justify-content: center
 
 .newUserLink
-  position: absolute
-  left: 135px
-  margin-top: -17px
+  display: flex
+  justify-content: center
   border: 2px
   cursor: pointer
   color: #29BEEB
@@ -58,6 +61,7 @@ nav
   display: flex
   flex-direction: column
   align-items: center
+  margin: 15px 0 15px 0
 
 .loginEmail
   height: 30px
@@ -92,7 +96,7 @@ nav
 
 .forgotPasswordLink
   color: #00B8EB
-  margin: 10px auto 0 auto
+  margin: 5px auto 10px auto
   cursor: pointer
   color: $loginBackground
   transition: all 300ms ease
@@ -104,6 +108,8 @@ nav
 
   // Login page modal styles
 
+.loginText
+  background-color: #F7F7F7
 
 .login-modal-container
   width: 100%
@@ -139,12 +145,13 @@ nav
 .modalLoginSignup
   text-align: center
   font-size: 30px
-  margin: 0 0 60px 0
+  margin: 0 auto 60px auto
+  background: white
 
 .modal-already-user-link
   font-size: 15px
   cursor: pointer
-  margin: -50px 0 0 0
+  margin: -50px 0 0 39%
   color: $loginBackground
   transition: all 300ms ease
   &:hover
@@ -158,27 +165,27 @@ nav
     width: 250px
     border-radius: 4px
     border: 2px
-    margin: 5px 0 5px 0
+    margin: 5px 0 5px 25%
     text-align: center
     font-size: larger
     border: 1px solid rgba(128, 128, 128, 0.4)
 
 .modal-newuser-button
   height: 40px
+  margin: 5px 0 0 35%
   width: 155px
   border-radius: 4px
   border: 2px
   background-color: $loginBtn
   color: white
   font-size: larger
-  display: flex
-  justify-content: center
   transition: all 300ms ease
   &:hover
     background: $loginBtnHover
 
 .modal-forgot-password
   cursor: pointer
+  margin: 20px 0 0 30%
   color: $loginBackground
   transition: all 300ms ease
   &:hover
