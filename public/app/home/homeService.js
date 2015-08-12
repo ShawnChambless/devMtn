@@ -7,7 +7,7 @@ angular.module('groupProject')
     this.setCount = function(count){lastCount = count;};
 
     this.getPosts = function(count) {
-        pageCount = count;
+        lastCount = count;
         return $http({
             method: 'GET',
             url: url.url + '/api/posts/approved?count=' + count

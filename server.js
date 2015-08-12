@@ -37,7 +37,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
-  secret: 'dev-mtn-portal-express-session',
+  secret: 'dev-mtn-portal-express-session-do',
   resave: 'false',
   saveUninitialized: true
 }));

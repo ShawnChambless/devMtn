@@ -1,6 +1,6 @@
 angular.module('groupProject', ['ui.router'])
 .constant('url', {
-  url: 'http://localhost:8080'
+  url: 'http://192.241.216.79'
 })
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 

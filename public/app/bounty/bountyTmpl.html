@@ -11,9 +11,12 @@
 <input class="bountyCreateBountyBtn" type="submit" ng-show='admin' value="Create Bounty" ng-click="toggleModal2()" />
 
 <!-- MODAL -->
-	<modal-dialog class="bountyModal" ng-show="modal2Shown" width='400px' height='65%'>
+	<modal-dialog class="bountyModal" ng-show="modal2Shown" width='400px' height='460px'>
 		<div class="bountyModalAlignment">
-			<h3 class="contentBountyModal">Create Bounty</h3>
+			<span class="admin-modal-edit-post-nav">Create Bounty</span>
+			<div class="home-modal-top-nav">
+				<h3 class="contentEditPostBtn"></h3>
+			</div>
 			<input class='bountyModalInputTitle' ng-model="bounty.title" placeholder="Title" />
 		  <input class='bountyModalInputValue' ng-model="bounty.value" placeholder="Bounty Value" />
 			<input class='bountyModalInputQuantity' ng-model="bounty.quantityNeeded" placeholder="Quantity of Posts Needed" />

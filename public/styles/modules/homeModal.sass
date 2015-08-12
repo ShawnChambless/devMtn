@@ -33,75 +33,100 @@
   font-weight: bolder
   color: white
 
-.favWatchBtns
-  margin: 25px 0 0 0
+.home-prev-next
+  width: 100%
+  text-align: center
+  margin: 5px 0 5px 0
+  .prev.btn, .next.btn
+    text-align: center
+    color: black
+    padding: 5px 0 15px 0
+    width: 90px
+    transition: all 300ms ease
+    &:hover
+      color: $loginBackground
+
+.voteBtns
   display: flex
+  margin: 20px 0 0 0
+
+.favWatchBtns
+  margin: -70px 0 0 0
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+
+.post-tags
+  margin: 20px 0 -30px 0
 
 .addToFavoritesBtn
+  float: right
   height: 25px
   width: 90px
-  display: flex
   text-align: center
   font-size: 10px
   font-weight: bolder
-  border-radius: 20px
+  border-radius: 4px
   border: 2px
+  margin: 10px 15px 5px 0
   background-color: $loginBtn
   color: white
   transition: all 300ms ease
   &:hover
     height: 30px
+    margin: 10px 15px 5px 0
     width: 130px
     background: $loginBtnHover
     color: white
-    border-radius: 15px
+    border-radius: 4px
     font-size: 15px
     font-weight: bolder
     border: 2px
 
 .addToWatchBtn
+  float: right
+  margin: 10px 15px 5px 0
   height: 25px
   width: 100px
-  display: flex
   text-align: center
   font-size: 10px
   font-weight: bolder
-  border-radius: 20px
+  border-radius: 4px
   border: 2px
   background-color: $loginBtn
   color: white
   transition: all 300ms ease
   &:hover
     height: 30px
+    margin: 10px 15px 5px 0
     width: 140px
     background: $loginBtnHover
     color: white
-    border-radius: 15px
+    border-radius: 4px
     font-size: 15px
     font-weight: bolder
     border: 2px
 
-.voteBtns
-  display: flex
 
 .deletePostBtn
-  margin: 20px 0 0 10px
+  margin: 15px 0 0 10px
   height: 20px
   width: 45px
   text-align: center
   font-size: 10px
   font-weight: bolder
-  border-radius: 20px
+  border-radius: 4px
   border: 2px
   background-color: $loginBtn
   color: white
   transition: all 300ms ease
   &:hover
+    margin: 12px 0 0 10px
     height: 30px
     width: 60px
     background: $loginBtnHover
     color: white
-    border-radius: 15px
+    border-radius: 4px
     font-size: 15px
     font-weight: bolder
     border: 2px
@@ -117,61 +142,64 @@
     img
       width: 20px
       height: 20px
-      margin-top: 20px
-      margin-left: 10px
+      margin: 15px 0 0 20px
+
+.homePostLoginCat
+  width: 100%
+  & .cat
+    float: right
+    margin: 0 15px 0 0
+    font-size: 20px
+    font-weight: bolder
 
 // End of home page style
 
 // Start of home modal
 
+select
+  height: 25px
+
 .contentModalAlignment
   display: flex
   flex-direction: column
 
+.home-modal-top-nav
+  background-color: $loginBackground
+  opacity: .6
+  z-index: -1
+  border-radius: 4px
+  height: 70px
+  width: 100%
+
 .contentEditPostBtn
-  margin: 5px 0 5px 38%
+  text-align: center
+  height: 70px
+
+.login-modal-edit-post-nav
+  height: 70px
+  position: absolute
+  color: white
+  z-index: 1
+  line-height: 70px
+  text-align: center
+  font-size: 35px
+  font-weight: bolder
+  width: 100%
 
 .homeModal
-  .contentModalInputTitle
+  .contentModalInputTitle, .contentModalInputUrl, .contentModalInputTags, .contentModalInputDesc
     height: 30px
     width: 275px
-    margin: 5px 0 5px 13%
+    margin: 15px 0 10px 13%
     text-align: center
     font-size: 20px
-    border-radius: 5px
-    border: 2px
-
-  .contentModalInputUrl
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 5px
-    border: 2px
-
-  .contentModalInputTags
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 5px
-    border: 2px
-
-  .contentModalInputDesc
-    height: 30px
-    width: 275px
-    margin: 5px 0 5px 13%
-    text-align: center
-    font-size: 20px
-    border-radius: 5px
-    border: 2px
+    border-radius: 4px
+    border: 1px solid rgba(128, 128, 128, 0.4)
     &.contentModalInputDescExpand
       height: 60px
       width: 350px
       margin: 5px 0 5px 4%
-      border-radius: 10px
+      border-radius: 4px
 
 
   .contentModalSelectLanguage
@@ -189,12 +217,12 @@
   .contentModalSubmitBtnHome
     height: 25px
     width: 45px
-    margin: 5px 0 5px 42%
+    margin: 5px 0 15px 42%
     text-align: center
     font-size: 10px
     font-weight: bolder
-    border-radius: 20px
-    border: 2px
+    border-radius: 4px
+    border: 1px solid rgba(128, 128, 128, 0.4)
     background-color: $loginBtn
     color: white
     transition: all 300ms ease
@@ -203,10 +231,10 @@
       width: 65px
       background: $loginBtnHover
       color: white
-      border-radius: 15px
+      border-radius: 4px
       font-size: 15px
       font-weight: bolder
       border: 2px
-      margin: 5px 0 5px 40%
+      margin: 5px 0 15px 40%
 
 // End of home modal
