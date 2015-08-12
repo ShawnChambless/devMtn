@@ -1,6 +1,8 @@
 var mongoose    = require('mongoose') ,
-    User        = mongoose.model('User', require('../models/userSchema.js')) ;
-    Bounty      = mongoose.model('Bounty', require('../models/bountySchema.js')) ;
+    User        = mongoose.model('User', require('../models/userSchema.js')) ,
+    Bounty      = mongoose.model('Bounty', require('../models/bountySchema.js')) ,
+    bcrypt      = require( 'bcryptjs' ) ,
+    createHash  = function(password){ return bcrypt.hashSync(password); } ;
 
 module.exports = {
 
