@@ -17,9 +17,9 @@ angular.module('groupProject')
         },
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
-            $scope.addPost = function(newPost) {
+            $scope.addPost = function(newPost, userId) {
                 if (newPost.tags) newPost.tags = newPost.tags.split(', ');
-                addContentService.addPost(newPost).then(function(resp){
+                addContentService.addPost(newPost, userId).then(function(resp){
                     $scope.hideSuccess = true;
                     setTimeout(function(){
                         $scope.hideSuccess = false;
