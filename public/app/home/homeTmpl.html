@@ -85,9 +85,9 @@
                 <!-- <div class="post url"><a href='{{post.url}}' target='_blank'>{{post.url}}</a></div> -->
                 <div class="homeContentWrapper" >
                   <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
-                  <div class="post description">Description: {{post.desc}}</div>
+                  <div class="post description">{{post.desc}}</div>
 
-                  <div class="post tags">Tags: <a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}  </a></div>
+                  <div class="post tags">Tags:&nbsp;&nbsp;&nbsp;<a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}&nbsp;&nbsp;&nbsp;</a></div>
                   <div class="favWatchBtns">
                     <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                     <input class="addToWatchBtn" type='submit' ng-click='addToviewLater(post._id)' value='Add to View Later'>

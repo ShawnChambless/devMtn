@@ -8,7 +8,7 @@ angular.module('groupProject', ['ui.router'])
         });
     };
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('login', {
@@ -25,7 +25,7 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('home', {
-        url: '/home?count',
+        url: '/?count',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'homeCtrl',
         params: {
@@ -35,7 +35,11 @@ angular.module('groupProject', ['ui.router'])
           }
         },
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getPosts: function(homeService, $stateParams, $state) {
               return homeService.getPosts($stateParams.count).then(function(postData) {
                 if (postData.data.length === 0) $state.go('home', {count: homeService.lastCount()});
@@ -46,7 +50,7 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('cat', {
-        url: '/home/:cat',
+        url: '/cat/:cat',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
@@ -59,7 +63,7 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('tag', {
-        url: '/home/:cat/:tag',
+        url: '/cat/:cat/:tag',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentTagsCtrl',
         resolve: {

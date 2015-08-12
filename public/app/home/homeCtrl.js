@@ -38,7 +38,7 @@ angular.module('groupProject')
 		});
 	};
 
-	var limit = 10;
+	var limit = 20;
 	var count = parseInt($stateParams.count, 10);
 	if (count > limit) {
 		$scope.prevPage = 'home({count:' + (count - limit) + '})';
