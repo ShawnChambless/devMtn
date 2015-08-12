@@ -2,12 +2,11 @@ angular.module('groupProject')
 
 .service('addContentService', ['url', '$http', 'LoginService', '$q', function(url, $http, LoginService, $q){
 
-	var currentUser = LoginService.currentUser();
 
-	this.addPost = function(newPost) {
+	this.addPost = function(newPost, userId) {
 		newPost.thumbnail = "assets/" + newPost.cat + ".png";
 
-		newPost.user = currentUser._id;
+		newPost.user = userId;
 
 			var dfd = $q.defer();
 	    $http({
