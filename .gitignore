@@ -1,5 +1,9 @@
 # Created by https://www.gitignore.io
 
+# avoid conflicts with master branch
+./server.js
+./public/app.js
+
 ### Node ###
 # Logs
 logs
