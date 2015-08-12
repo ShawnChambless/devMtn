@@ -62,24 +62,24 @@
 
     <aside class="categories">
         <h3>Categories</h3>
-        <a ng-href='/#/home'>All</a>
-        <a ng-href='/#/home/html'>HTML</a>
-        <a ng-href='/#/home/css'>CSS</a>
-        <a ng-href='/#/home/javascript'>Core JS</a>
-        <a ng-href='/#/home/angular'>Angular</a>
-        <a ng-href='/#/home/mongo'>MongoDB</a>
-        <a ng-href='/#/home/mongoose'>Mongoose</a>
-        <a ng-href='/#/home/node'>Node</a>
-        <a ng-href='/#/home/express'>Express</a>
-        <a ng-href='/#/home/react'>React</a>
-        <a ng-href='/#/home/git'>Git</a>
+        <a ng-href='/#/'>All</a>
+        <a ng-href='/#/cat/html'>HTML</a>
+        <a ng-href='/#/cat/css'>CSS</a>
+        <a ng-href='/#/cat/javascript'>Core JS</a>
+        <a ng-href='/#/cat/angular'>Angular</a>
+        <a ng-href='/#/cat/mongo'>MongoDB</a>
+        <a ng-href='/#/cat/mongoose'>Mongoose</a>
+        <a ng-href='/#/cat/node'>Node</a>
+        <a ng-href='/#/cat/express'>Express</a>
+        <a ng-href='/#/cat/react'>React</a>
+        <a ng-href='/#/cat/git'>Git</a>
     </aside>
 
     <div class="posts">
         <div class="posts-item" ng-repeat='post in posts | filter:contentSearchText | orderBy:"-votes"'>
             <div class="post thumbnail"><img ng-src='{{ post.thumbnail }}' /></div>
             <div class="homePostLoginCat">
-              <div class="post cat"><a ng-href='/#/home/{{post.cat}}'> {{post.cat}}</a></div>
+              <div class="post cat"><a ng-href='/#/cat/{{post.cat}}'> {{post.cat}}</a></div>
               <div class="posts-post">
                   <div class="voteBtns">
                     <div>
@@ -95,7 +95,7 @@
                 <div class="homeContentWrapper" >
                   <div class="post description">Description: {{post.desc}}</div>
 
-                  <div class="post-tags">Tags:&nbsp;&nbsp;&nbsp;<a ng-href="/#/home/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}&nbsp;&nbsp;&nbsp; </a></div>
+                  <div class="post-tags">Tags:&nbsp;&nbsp;&nbsp;<a ng-href="/#/cat/{{post.cat}}/{{tag}}" ng-repeat='tag in post.tags'>{{tag}}&nbsp;&nbsp;&nbsp; </a></div>
                   <div class="favWatchBtns">
                     <input class="addToFavoritesBtn" type='submit' ng-click='addToFavorites(post._id)' value='Add to Favorites'>
                     <input class="addToWatchBtn" type='submit' ng-click='addToviewLater(post._id)' value='Add to View Later'>
@@ -109,6 +109,6 @@
 
 </div>
 <div class="home-prev-next">
-  <a class="prev btn" ui-sref="{{prevPage}}">Prev</a>
-  <a class="next btn" ui-sref="{{nextPage}}">Next</a>
+  <a class="prev btn" ng-href="{{prevPage}}">Prev</a>
+  <a class="next btn" ng-href="{{nextPage}}">Next</a>
 </div>

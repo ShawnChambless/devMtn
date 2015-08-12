@@ -1,5 +1,6 @@
 var mongoose    = require( 'mongoose' ) ,
     $q          = require( 'q' ) ,
+    limit       = 20 ,
     User        = mongoose.model('User', require('../models/userSchema.js')),
     Post        = mongoose.model('Post', require('../models/postSchema.js')) ,
     Bounty        = mongoose.model('Bounty', require('../models/bountySchema.js')) ;
@@ -46,7 +47,7 @@ module.exports = {
     Post.find({})
     .where('isApproved').equals(true)
     .sort( { 'votes': -1 } )
-    .skip(req.query.count).limit(10)
+    .skip(req.query.count).limit(limit)
     .exec().then(function(posts, err){
       if (err) return res.status(500).json(err);
       return res.status(200).json(posts);

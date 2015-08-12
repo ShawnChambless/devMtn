@@ -46,10 +46,10 @@ angular.module('groupProject')
 	var limit = 20;
 	var count = parseInt($stateParams.count, 10);
 	if (count > limit) {
-		$scope.prevPage = 'home({count:' + (count - limit) + '})';
-		$scope.nextPage = 'home({count:' + (count + limit) + '})';
+		$scope.prevPage = '/#/?count=' + (count - limit);
+		$scope.nextPage = '/#/?count=' + (count + limit);
 	} else {
-		$scope.prevPage = 'home({count: 0})';
-		$scope.nextPage = 'home({count:' + (count + limit) + '})';
+		$scope.prevPage = '/#/?count=0';
+		$scope.nextPage = '/#/?count=' + (count + limit);
 	}
 }]);
