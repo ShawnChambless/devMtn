@@ -1,10 +1,10 @@
 angular.module('groupProject')
-.service('userService', ['$http', function($http) {
+.service('userService', ['url', '$http', function(url, $http) {
 
     this.getUsers = function() {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/users/'
+            url: url.url + '/api/users/'
         });
     };
 
@@ -12,7 +12,7 @@ angular.module('groupProject')
         var newBucks = (user.devBucks + bucks);
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/users/' + user._id,
+            url: url.url + '/api/users/' + user._id,
             data: {
                 devBucks: newBucks
             }
