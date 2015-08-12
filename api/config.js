@@ -1,5 +1,5 @@
-var baseUri   = 'localhost' , //'localhost.group-project.com' ,
-    srvport   = 8080 ,
+var baseUri   = '192.241.216.79' , //'localhost.group-project.com' ,
+    srvport   = 80 ,
     mdbport   = 27017 ;
     dbname    = 'devmtn' ;
 
