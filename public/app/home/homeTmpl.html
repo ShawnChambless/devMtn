@@ -13,7 +13,8 @@
 </div>
 
 <div class="search-add">
-    <input type="text" ng-model="contentSearchText" placeholder="Search"/>
+		<input type="text" ng-model="contentSearchCat" placeholder="Enter category..."/>
+    <input type="text" ng-model="contentSearchTag" ng-enter="tagView(contentSearchCat, contentSearchTag)" placeholder="...and tag to search by"/>
     <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
 </div>
 
@@ -77,7 +78,7 @@
                     <i class="fa fa-angle-down" ng-click="post.votes = post.votes - 1; upVoteDownVote(post._id, post.votes)"></i>
                   </div>
                   <div class="post title"><a ng-href="{{ post.url }}" target="_blank" > {{post.title}}</a></div>
-                  <div class="poster type"><img ng-src='assets/{{ post.type }}.png' /></div>
+                  <div class="post type"><img ng-src='assets/{{ post.type }}.png' /></div>
                   <input class="deletePostBtn" type='submit' ng-click='deletePost(post._id, $index)' ng-show='admin' value='Delete'>
                 </div>
                 <!-- <div class="titleBtns"> -->

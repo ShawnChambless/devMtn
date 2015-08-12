@@ -1,5 +1,5 @@
 angular.module('groupProject')
-.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', 'currentUser', '$stateParams', function($scope, homeService, getPosts, currentUser, $stateParams) {
+.controller('homeCtrl', ['$scope', 'homeService', 'getPosts', 'currentUser', '$stateParams', '$state', function($scope, homeService, getPosts, currentUser, $stateParams, $state) {
 
 	$scope.modalShown = false;
 
@@ -36,6 +36,10 @@ angular.module('groupProject')
 		homeService.deletePost(postId).then(function() {
 			$scope.posts.splice(index, 1);
 		});
+	};
+
+	$scope.tagView = function(cat, tag){
+		$state.go('tag', {cat: cat, tag: tag});
 	};
 
 	var limit = 20;

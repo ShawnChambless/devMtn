@@ -54,7 +54,11 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getCategoryPosts: function(homeService, $stateParams) {
             return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
                 return resp;
@@ -67,7 +71,11 @@ angular.module('groupProject', ['ui.router'])
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentTagsCtrl',
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getCategoryPostsByTag: function(homeService, $stateParams) {
             return homeService.getCategoryPostsByTag($stateParams.cat, $stateParams.tag).then(function(resp) {
                 return resp;
@@ -153,4 +161,16 @@ angular.module('groupProject', ['ui.router'])
         }
     });
 
-}]);
+}])
+.directive('ngEnter', function ($state) {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+              scope.$apply(function (){
+                  scope.$eval(attrs.ngEnter);
+              });
+              event.preventDefault();
+            }
+        });
+    };
+});
