@@ -2,9 +2,9 @@ angular.module('groupProject')
 .service('homeService', ['$http', 'LoginService', function($http, LoginService) {
 
     var user = LoginService.currentUser();
-    var pageCount = 0;
-    this.lastCount = function(){return pageCount;};
-    this.setCount = function(newCount){pageCount = newCount;};
+    var lastCount = 0;
+    this.lastCount = function(){return lastCount;};
+    this.setCount = function(count){lastCount = count;};
 
     this.getPosts = function(count) {
         pageCount = count;

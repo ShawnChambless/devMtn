@@ -42,7 +42,7 @@ gulp.task('compress', function() {
 
 gulp.task('watch', function() {
     gulp.watch(paths.jade, ['jade']);
-    gulp.watch('./public/styles/**/*.sass', ['sass']);
+    gulp.watch(['./public/styles/**/*.sass', './public/styles/**/*.scss'], ['sass']);
     gulp.watch(paths.scripts, ['compress']);
 });
 
