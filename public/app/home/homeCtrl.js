@@ -38,13 +38,14 @@ angular.module('groupProject')
 		});
 	};
 
+	var limit = 10;
 	var count = parseInt($stateParams.count, 10);
-	if (count > 10) {
-		$scope.prevPage = 'home({count:' + (count - 10) + '})';
-		$scope.nextPage = 'home({count:' + (count + 10) + '})';
+	if (count > limit) {
+		$scope.prevPage = 'home({count:' + (count - limit) + '})';
+		$scope.nextPage = 'home({count:' + (count + limit) + '})';
 	} else {
 		$scope.prevPage = 'home({count: 0})';
-		$scope.nextPage = 'home({count:' + (count + 10) + '})';
+		$scope.nextPage = 'home({count:' + (count + limit) + '})';
 	}
 
 }]);

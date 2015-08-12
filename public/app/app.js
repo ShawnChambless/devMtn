@@ -38,10 +38,10 @@ angular.module('groupProject', ['ui.router'])
           currentUser: isLoggedIn,
           getPosts: function(homeService, $stateParams, $state) {
               return homeService.getPosts($stateParams.count).then(function(postData) {
-                if ($stateParams.count > 0 && postData.data.length === 0) return $state.go('home', {count: homeService.lastCount()});
-                homeService.setCount($stateParams.count);
+                if (postData.data.length === 0) $state.go('home', {count: homeService.lastCount()});
+                else homeService.setCount($stateParams.count);
                 return postData;
- 		          });
+ 		          }, function(error){console.log(error);});
           }
         }
     })
