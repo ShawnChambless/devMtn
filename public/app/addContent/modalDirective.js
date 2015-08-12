@@ -20,12 +20,12 @@ angular.module('groupProject')
             $scope.addPost = function(newPost) {
                 if (newPost.tags) newPost.tags = newPost.tags.split(', ');
                 addContentService.addPost(newPost).then(function(resp){
-                    $scope.hideSuccess = true; 
+                    $scope.hideSuccess = true;
                     setTimeout(function(){
                         $scope.hideSuccess = false;
                         $scope.$apply();
                     }, 4000);
-                }, 
+                },
                     function(error){
                         $scope.hideError = true;
                         setTimeout(function(){
@@ -33,18 +33,18 @@ angular.module('groupProject')
                             $scope.$apply();
                     }, 4000);
                 });
-                
+
             };
 
             $scope.addBountyPost = function(newPost) {
                 newPost.bounty = $scope.bounty._id;
                 addContentService.addPost(newPost).then(function(resp){
-                    $scope.hideSuccess = true; 
+                    $scope.hideSuccess = true;
                     setTimeout(function(){
                         $scope.hideSuccess = false;
                         $scope.$apply();
                     }, 4000);
-                }, 
+                },
                     function(error){
                         $scope.hideError = true;
                         setTimeout(function(){

@@ -1,4 +1,7 @@
 angular.module('groupProject', ['ui.router'])
+.constant('url', {
+  url: 'http://192.241.216.79'
+})
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     var isLoggedIn = function(LoginService, $state){
@@ -8,7 +11,7 @@ angular.module('groupProject', ['ui.router'])
         });
     };
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('login', {
@@ -25,7 +28,7 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('home', {
-        url: '/home?count',
+        url: '/?count',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'homeCtrl',
         params: {
@@ -35,22 +38,30 @@ angular.module('groupProject', ['ui.router'])
           }
         },
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getPosts: function(homeService, $stateParams, $state) {
               return homeService.getPosts($stateParams.count).then(function(postData) {
-                if ($stateParams.count > 0 && postData.data.length === 0) return $state.go('home', {count: homeService.lastCount()});
-                homeService.setCount($stateParams.count);
+                if (postData.data.length === 0) $state.go('home', {count: homeService.lastCount()});
+                else homeService.setCount($stateParams.count);
                 return postData;
- 		          });
+ 		          }, function(error){console.log(error);});
           }
         }
     })
     .state('cat', {
-        url: '/home/:cat',
+        url: '/cat/:cat',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentCategoriesCtrl',
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getCategoryPosts: function(homeService, $stateParams) {
             return homeService.getCategoryPosts($stateParams.cat).then(function(resp) {
                 return resp;
@@ -59,11 +70,15 @@ angular.module('groupProject', ['ui.router'])
         }
     })
     .state('tag', {
-        url: '/home/:cat/:tag',
+        url: '/cat/:cat/:tag',
         templateUrl: 'app/home/homeTmpl.html',
         controller: 'contentTagsCtrl',
         resolve: {
-          currentUser: isLoggedIn,
+          currentUser: function(LoginService){
+              return LoginService.getSessionUser().then(function(user){
+                  return user;
+              });
+          },
           getCategoryPostsByTag: function(homeService, $stateParams) {
             return homeService.getCategoryPostsByTag($stateParams.cat, $stateParams.tag).then(function(resp) {
                 return resp;
@@ -149,4 +164,16 @@ angular.module('groupProject', ['ui.router'])
         }
     });
 
-}]);
+}])
+.directive('ngEnter', function ($state) {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+              scope.$apply(function (){
+                  scope.$eval(attrs.ngEnter);
+              });
+              event.preventDefault();
+            }
+        });
+    };
+});

@@ -1,11 +1,11 @@
 angular.module('groupProject')
-.service('bountyService', ['$http', '$q', function($http, $q) {
+.service('bountyService', ['url', '$http', '$q', function(url, $http, $q) {
 
     this.getBounties = function() {
         var dfd = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/bounties'
+            url: url.url + '/api/bounties'
         }).then(function(response){
             dfd.resolve(response);
         });
@@ -15,21 +15,14 @@ angular.module('groupProject')
     this.getBountyId = function(bountyId) {
         return $http({
             method: 'GET',
-            url: 'http://localhost:8080/api/bounties/' + bountyId
+            url: url.url + '/api/bounties/' + bountyId
         });
     };
-
-    // this.discardPost = function(bountyId){
-    // return $http({
-    //     method: 'DELETE',
-    //     url: 'http://localhost:8080/api/bounties/' + bountyId
-    //      });
-    // };
 
     this.closeBounty = function(bountyId){
         return $http({
             method: 'PUT',
-            url: 'http://localhost:8080/api/bounties/' + bountyId,
+            url: url.url + '/api/bounties/' + bountyId,
             data: {
                 isOpen: false
             }

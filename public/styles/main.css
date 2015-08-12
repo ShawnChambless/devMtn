@@ -119,6 +119,7 @@ a {
 .home-prev-next {
   width: 100%;
   text-align: center;
+  margin: 5px 0 5px 0;
 }
 
 .home-prev-next .prev.btn, .home-prev-next .next.btn {
@@ -1483,7 +1484,7 @@ nav {
 
 .search-add input {
   display: block;
-  margin: 15px auto 0  auto;
+  margin: 5px auto 0  auto;
   height: 30px;
   width: 230px;
   text-align: center;
