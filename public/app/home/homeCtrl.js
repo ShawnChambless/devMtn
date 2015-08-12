@@ -47,5 +47,4 @@ angular.module('groupProject')
 		$scope.prevPage = 'home({count: 0})';
 		$scope.nextPage = 'home({count:' + (count + limit) + '})';
 	}
-
 }]);

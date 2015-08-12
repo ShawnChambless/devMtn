@@ -3,6 +3,15 @@
 	<header class="homeHeader"></header>
 </div>
 
+<!-- Flash notifications -->
+<div class="flash-success animated fadeIn" ng-show="hideSuccess">
+  <span>Your post has been sent to moderation!</span>
+</div>
+
+<div class="flash-error animated fadeIn" ng-show="hideError">
+  <span>Something went wrong. Try again.</span>
+</div>
+
 <div class="search-add">
     <input type="text" ng-model="contentSearchText" placeholder="Search"/>
     <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
@@ -34,7 +43,7 @@
           <option value="video">Video</option>
           <option value="image">Image</option>
       </select>
-      <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost); toggleModal()" />
+      <input class='contentModalSubmitBtnHome' type='submit' value='Submit' ng-click="addPost(newPost);  toggleModal()" />
     </div>
 </modal-dialog>
 

@@ -18,13 +18,40 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost) {
-                newPost.tags = newPost.tags.split(', ');
-                addContentService.addPost(newPost);
+                if (newPost.tags) newPost.tags = newPost.tags.split(', ');
+                addContentService.addPost(newPost).then(function(resp){
+                    $scope.hideSuccess = true; 
+                    setTimeout(function(){
+                        $scope.hideSuccess = false;
+                        $scope.$apply();
+                    }, 4000);
+                }, 
+                    function(error){
+                        $scope.hideError = true;
+                        setTimeout(function(){
+                            $scope.hideError = false;
+                            $scope.$apply();
+                    }, 4000);
+                });
+                
             };
 
             $scope.addBountyPost = function(newPost) {
                 newPost.bounty = $scope.bounty._id;
-                addContentService.addPost(newPost);
+                addContentService.addPost(newPost).then(function(resp){
+                    $scope.hideSuccess = true; 
+                    setTimeout(function(){
+                        $scope.hideSuccess = false;
+                        $scope.$apply();
+                    }, 4000);
+                }, 
+                    function(error){
+                        $scope.hideError = true;
+                        setTimeout(function(){
+                            $scope.hideError = false;
+                            $scope.$apply();
+                    }, 4000);
+                });
             };
 
             $scope.editPost = function(editPost, post) {
