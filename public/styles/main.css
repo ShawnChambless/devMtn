@@ -20,6 +20,27 @@ a {
   height: 100%;
 }
 
+input[type="submit"] {
+  background: #2AABE2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+input[type="submit"].addContentButton {
+  float: right;
+  margin: 20px;
+  height: 2em;
+}
+
+button, input[type="submit"] {
+  cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: #57BDE8;
+}
+
 .ng-modal-overlay {
   position: absolute;
   z-index: 9999;
@@ -129,6 +150,7 @@ a {
   width: 90px;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
+  cursor: pointer;
 }
 
 .home-prev-next .prev.btn:hover, .home-prev-next .next.btn:hover {
@@ -176,20 +198,8 @@ a {
   margin: 10px 15px 5px 0;
   background-color: #2AABE2;
   color: white;
-  -webkit-transition: all 300ms ease;
-          transition: all 300ms ease;
-}
-
-.addToFavoritesBtn:hover {
-  height: 30px;
-  margin: 10px 15px 5px 0;
-  width: 130px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
 }
 
 .addToWatchBtn {
@@ -208,18 +218,6 @@ a {
           transition: all 300ms ease;
 }
 
-.addToWatchBtn:hover {
-  height: 30px;
-  margin: 10px 15px 5px 0;
-  width: 140px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-}
-
 .deletePostBtn {
   margin: 15px 0 0 10px;
   height: 20px;
@@ -233,19 +231,6 @@ a {
   color: white;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
-}
-
-.deletePostBtn:hover {
-  margin: 12px 0 0 10px;
-  height: 30px;
-  width: 60px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  left: 34%;
 }
 
 .homeContentWrapper {
@@ -361,18 +346,6 @@ select {
           transition: all 300ms ease;
 }
 
-.homeModal .contentModalSubmitBtnHome:hover {
-  height: 30px;
-  width: 65px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 5px 0 15px 40%;
-}
-
 .adminHeaderSpan {
   position: absolute;
   height: 175px;
@@ -447,15 +420,8 @@ select {
           transition: all 300ms ease;
 }
 
-.managePostAndBtn .manageUsersBtn:hover {
-  height: 30px;
-  width: 130px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bolder;
-  border: 2px;
+.admin.posts-item {
+  width: 90%;
 }
 
 .posts-post-admin {
@@ -466,6 +432,18 @@ select {
   height: 150px;
   width: 150px;
   border-radius: 100px;
+}
+
+.posts .title {
+  max-width: 75%;
+}
+
+.posts .url {
+  max-width: 80%;
+}
+
+.posts-item {
+  height: 230px;
 }
 
 .admin-post-container {
@@ -551,17 +529,6 @@ select {
           transition: all 300ms ease;
 }
 
-.adminApproveBtn:hover {
-  height: 30px;
-  width: 80px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-}
-
 .adminDiscardBtn {
   margin: 5px 0 5px 0;
   margin: 5px 0 5px 0;
@@ -579,17 +546,6 @@ select {
           transition: all 300ms ease;
 }
 
-.adminDiscardBtn:hover {
-  height: 30px;
-  width: 80px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-}
-
 .adminEditBtn {
   margin: 5px 0 5px 0;
   margin: 5px 0 5px 0;
@@ -605,17 +561,6 @@ select {
   color: white;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
-}
-
-.adminEditBtn:hover {
-  height: 30px;
-  width: 80px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
 }
 
 .adminModalAlignment {
@@ -702,18 +647,6 @@ select {
           transition: all 300ms ease;
 }
 
-.adminModalSubmitBtnHome:hover {
-  height: 30px;
-  width: 65px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 5px 0 5px 40%;
-}
-
 .bountyHeaderSpan {
   position: absolute;
   height: 175px;
@@ -774,18 +707,6 @@ select {
           transition: all 300ms ease;
 }
 
-.bountyCreateBountyBtn:hover {
-  height: 30px;
-  width: 130px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 20px 0 10px 45%;
-}
-
 .bountyBox {
   margin: 15px 0 20px 25%;
   width: 50%;
@@ -793,17 +714,12 @@ select {
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 4px;
   padding: 5px 0 30px 0;
-  -webkit-transition: all 300ms ease;
-          transition: all 300ms ease;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
 }
 
 .bountyBox:hover {
-  padding: 5px 0 40px 0;
-  font-size: 20px;
-  font-weight: bolder;
-  height: 110px;
-  width: 64%;
-  margin: 10px 0 20px 18%;
+  padding: 8px 5px 30px 5px;
   background-color: rgba(42, 171, 226, 0.2);
 }
 
@@ -908,18 +824,6 @@ select {
           transition: all 300ms ease;
 }
 
-.bountyModal .bountyModalSubmitBtnHome:hover {
-  height: 30px;
-  width: 65px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 5px 0 5px 40%;
-}
-
 .bountyIdHeaderSpan {
   position: absolute;
   height: 175px;
@@ -1018,18 +922,6 @@ select {
           transition: all 300ms ease;
 }
 
-.bountyIdClaimBountyBtn:hover {
-  height: 30px;
-  width: 115px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 20px 25px 10px 25px;
-}
-
 .bountyIdCloseBountyBtn {
   margin: 20px 0 10px 0;
   height: 25px;
@@ -1043,18 +935,6 @@ select {
   color: white;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
-}
-
-.bountyIdCloseBountyBtn:hover {
-  height: 30px;
-  width: 115px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 20px 0 10px 0;
 }
 
 .progress-container {
@@ -1159,18 +1039,6 @@ select {
   color: white;
   -webkit-transition: all 300ms ease;
           transition: all 300ms ease;
-}
-
-.contentModalSubmitBtn.bountyIdBtn:hover {
-  height: 30px;
-  width: 150px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  margin: 5px 0 5px 32%;
 }
 
 nav {
@@ -1466,7 +1334,6 @@ nav {
 
 .search-add {
   width: 100%;
-  height: 85px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1499,24 +1366,12 @@ nav {
   margin-top: 5px;
   font-size: 10px;
   font-weight: bolder;
-  background-color: #29BEEB;
+  background: #29BEEB;
   border-radius: 4px;
-  border: 2px;
+  border: none;
   color: white;
-  -webkit-transition: all 300ms ease;
-          transition: all 300ms ease;
-}
-
-.search-add button:hover {
-  height: 30px;
-  width: 125px;
-  background: #57BDE8;
-  color: white;
-  border-radius: 4px;
-  font-size: 15px;
-  font-weight: bolder;
-  border: 2px;
-  left: 45%;
+  -webkit-transition: all 200ms ease-in-out;
+          transition: all 200ms ease-in-out;
 }
 
 .contentWrapper {
@@ -1559,6 +1414,10 @@ nav {
 .thumbnail {
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.description {
+  max-width: 70%;
 }
 
 .url {

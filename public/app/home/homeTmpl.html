@@ -11,11 +11,11 @@
 <div class="flash-error animated fadeIn" ng-show="hideError">
   <span>Something went wrong. Try again.</span>
 </div>
-
+<input type='submit' class='addContentButton' ng-click='toggleModal()' value='Add Resource'>
 <div class="search-add">
-		<input type="text" ng-model="contentSearchCat" placeholder="Enter category..."/>
+	<input type="text" ng-model="contentSearchCat" placeholder="Enter category..."/>
     <input type="text" ng-model="contentSearchTag" ng-enter="tagView(contentSearchCat, contentSearchTag)" placeholder="...and tag to search by"/>
-    <button class="addResourseBtn" ng-click='toggleModal()' data-anijs="if: mouseover, do: swing animated" >Add Resource</button>
+
 </div>
 <div class="home-prev-next">
   <a class="prev btn" ui-sref="{{prevPage}}">Prev</a>
