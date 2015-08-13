@@ -18,6 +18,7 @@ angular.module('groupProject')
         templateUrl: 'app/addContent/addContentTmpl.html',
         controller: function($scope, addContentService, adminService){
             $scope.addPost = function(newPost, userId) {
+                newPost.user = userId;
                 if (newPost.tags) newPost.tags = newPost.tags.split(', ');
                 addContentService.addPost(newPost, userId).then(function(resp){
                     $scope.hideSuccess = true;
@@ -36,7 +37,8 @@ angular.module('groupProject')
 
             };
 
-            $scope.addBountyPost = function(newPost) {
+            $scope.addBountyPost = function(newPost, userId) {
+                newPost.user = userId;
                 newPost.bounty = $scope.bounty._id;
                 addContentService.addPost(newPost).then(function(resp){
                     $scope.hideSuccess = true;

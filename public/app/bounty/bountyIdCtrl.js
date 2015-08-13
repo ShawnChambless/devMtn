@@ -1,6 +1,7 @@
 angular.module('groupProject')
 .controller('bountyIdCtrl', ['$scope', 'bountyService', 'getBountyId', 'currentUser', '$state', function($scope, bountyService, getBountyId, currentUser, $state) {
 
+  $scope.user = currentUser;
   $scope.isAdmin = currentUser.isAdmin;
   $scope.bounty = getBountyId.data[0];
 

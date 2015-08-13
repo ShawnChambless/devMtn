@@ -5,9 +5,6 @@ angular.module('groupProject')
 
 	this.addPost = function(newPost, userId) {
 		newPost.thumbnail = "assets/" + newPost.cat + ".png";
-
-		newPost.user = userId;
-
 			var dfd = $q.defer();
 	    $http({
 	      method: 'POST',
@@ -27,9 +24,6 @@ angular.module('groupProject')
 
 	this.addBountyPost = function(newPost) {
 		newPost.thumbnail = "assets/" + newPost.cat + ".png";
-
-		newPost.user = currentUser._id;
-
 			var dfd = $q.defer();
 	    $http({
 	      method: 'POST',
